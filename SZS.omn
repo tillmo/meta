@@ -1,0 +1,361 @@
+Prefix: :     <http://purl.net/dol/1.0/szs#>
+Ontology: <http://purl.net/dol/1.0/szs_abbrv#>
+
+Class: AxiomClassification
+SubClassOf: Thing
+EquivalentTo:
+   SomeInterpretationsSatisfyAxioms
+or AllInterpretationsSatisfyAxioms
+or NoInterpretationSatisfiesAxioms
+
+Class: SomeInterpretationsSatisfyAxioms
+SubClassOf: AxiomClassification
+EquivalentTo:
+   SomeModelsOfAxiomsSatisfyConjecture
+or SomeModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: AllInterpretationsSatisfyAxioms
+SubClassOf: SomeInterpretationsSatisfyAxioms,
+            AllModelsOfConjectureSatisfyAxioms
+
+Class: NoInterpretationSatisfiesAxioms
+SubClassOf: AllModelsOfAxiomsSatisfyConjecture
+EquivalentTo:
+        AxiomClassification
+and not SomeInterpretationsSatisfyAxioms
+EquivalentTo:
+    AllModelsOfAxiomsSatisfyConjecture
+and AllModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: ConjectureClassification
+SubClassOf: Thing
+EquivalentTo:
+   SomeInterpretationsSatisfyConjecture
+or AllInterpretationsSatisfyConjecture
+or NoInterpretationSatisfiesConjecture
+
+Class: SomeInterpretationsSatisfyConjecture
+SubClassOf: ConjectureClassification
+EquivalentTo:
+   SomeModelsOfConjectureSatisfyAxioms
+or SomeModelsOfConjectureDoNotSatisfyAxioms
+
+Class: AllInterpretationsSatisfyConjecture
+SubClassOf: SomeInterpretationsSatisfyConjecture,
+            AllModelsOfAxiomsSatisfyConjecture
+
+Class: NoInterpretationSatisfiesConjecture
+SubClassOf: AllModelsOfConjectureSatisfyAxioms
+EquivalentTo:
+        ConjectureClassification
+and not SomeInterpretationsSatisfyConjecture
+EquivalentTo:
+    AllModelsOfConjectureSatisfyAxioms
+and AllModelsOfConjectureDoNotSatisfyAxioms
+
+Class: AxiomEntailsConjectureClassification
+SubClassOf: Thing
+EquivalentTo:
+   SomeModelsOfAxiomsSatisfyConjecture
+or SomeModelsOfAxiomsDoNotSatisfyConjecture
+or AllModelsOfAxiomsSatisfyConjecture
+or AllModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: SomeModelsOfAxiomsSatisfyConjecture
+SubClassOf: AxiomEntailsConjectureClassification
+EquivalentTo: SomeModelsOfConjectureSatisfyAxioms
+
+Class: SomeModelsOfAxiomsDoNotSatisfyConjecture
+SubClassOf: AxiomEntailsConjectureClassification,
+            not AllInterpretationsSatisfyConjecture
+
+Class: AllModelsOfAxiomsSatisfyConjecture
+EquivalentTo:
+        AxiomEntailsConjectureClassification
+and not SomeModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: AllModelsOfAxiomsDoNotSatisfyConjecture
+EquivalentTo:
+        AxiomEntailsConjectureClassification
+and not SomeModelsOfAxiomsSatisfyConjecture
+EquivalentTo:
+        AllModelsOfConjectureDoNotSatisfyAxioms
+
+Class: ConjectureEntailsAxiomsClassification
+SubClassOf: Thing
+EquivalentTo:
+   SomeModelsOfConjectureSatisfyAxioms
+or SomeModelsOfConjectureDoNotSatisfyAxioms
+or AllModelsOfConjectureSatisfyAxioms
+or AllModelsOfConjectureDoNotSatisfyAxioms
+
+Class: SomeModelsOfConjectureSatisfyAxioms
+SubClassOf: ConjectureEntailsAxiomsClassification
+EquivalentTo: SomeModelsOfAxiomsSatisfyConjecture
+
+Class: SomeModelsOfConjectureDoNotSatisfyAxioms
+SubClassOf: ConjectureEntailsAxiomsClassification,
+            not AllInterpretationsSatisfyAxioms
+
+Class: AllModelsOfConjectureSatisfyAxioms
+EquivalentTo:
+        ConjectureEntailsAxiomsClassification
+and not SomeModelsOfConjectureDoNotSatisfyAxioms
+
+Class: AllModelsOfConjectureDoNotSatisfyAxioms
+EquivalentTo:
+        ConjectureEntailsAxiomsClassification
+and not SomeModelsOfConjectureSatisfyAxioms
+EquivalentTo:
+        AllModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: NegatedConjectureEntailsAxiomsClassification
+SubClassOf: Thing
+EquivalentTo:
+   SomeModelsOfNegatedConjectureSatisfyAxioms
+or SomeModelsOfNegatedConjectureDoNotSatisfyAxioms
+or AllModelsOfNegatedConjectureSatisfyAxioms
+or AllModelsOfNegatedConjectureDoNotSatisfyAxioms
+
+Class: SomeModelsOfNegatedConjectureSatisfyAxioms
+SubClassOf: NegatedConjectureEntailsAxiomsClassification
+EquivalentTo: SomeModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: SomeModelsOfNegatedConjectureDoNotSatisfyAxioms
+SubClassOf: NegatedConjectureEntailsAxiomsClassification,
+            not AllInterpretationsSatisfyAxioms
+
+Class: AllModelsOfNegatedConjectureSatisfyAxioms
+EquivalentTo:
+        NegatedConjectureEntailsAxiomsClassification
+and not SomeModelsOfNegatedConjectureDoNotSatisfyAxioms
+
+Class: AllModelsOfNegatedConjectureDoNotSatisfyAxioms
+EquivalentTo:
+        NegatedConjectureEntailsAxiomsClassification
+and not SomeModelsOfNegatedConjectureSatisfyAxioms
+EquivalentTo:
+        AllModelsOfAxiomsSatisfyConjecture
+
+Class: AxSat
+EquivalentTo: SomeInterpretationsSatisfyAxioms
+
+Class: AxTaut
+EquivalentTo: AllInterpretationsSatisfyAxioms
+
+Class: AxUnsat
+EquivalentTo: NoInterpretationSatisfiesAxioms
+
+Class: CSat
+EquivalentTo: SomeInterpretationsSatisfyConjecture
+
+Class: CTaut
+EquivalentTo: AllInterpretationsSatisfyConjecture
+
+Class: CUnsat
+EquivalentTo: NoInterpretationSatisfiesConjecture
+
+Class: AxCSat
+EquivalentTo: SomeModelsOfAxiomsSatisfyConjecture
+
+Class: AxNegCSat
+EquivalentTo: SomeModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: AxNegCUnsat
+EquivalentTo: AllModelsOfAxiomsSatisfyConjecture
+
+Class: AxCUnsat
+EquivalentTo: AllModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: CAxSat
+EquivalentTo: SomeModelsOfConjectureSatisfyAxioms
+
+Class: CNegAxSat
+EquivalentTo: SomeModelsOfConjectureDoNotSatisfyAxioms
+
+Class: CNegAxUnsat
+EquivalentTo: AllModelsOfConjectureSatisfyAxioms
+
+Class: CAxUnsat
+EquivalentTo: AllModelsOfConjectureDoNotSatisfyAxioms
+
+Class: NegCAxSat
+EquivalentTo: SomeModelsOfNegatedConjectureSatisfyAxioms
+
+Class: NegCNegAxSat
+EquivalentTo: SomeModelsOfNegatedConjectureDoNotSatisfyAxioms
+
+Class: NegCNegAxUnsat
+EquivalentTo: AllModelsOfNegatedConjectureSatisfyAxioms
+
+Class: NegCAxUnsat
+EquivalentTo: AllModelsOfNegatedConjectureDoNotSatisfyAxioms
+
+Class: Satisfiable
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and SomeModelsOfAxiomsSatisfyConjecture
+
+Class: Theorem
+EquivalentTo:
+AllModelsOfAxiomsSatisfyConjecture
+
+Class: Equivalent
+EquivalentTo:
+    AllModelsOfAxiomsSatisfyConjecture
+and AllModelsOfConjectureSatisfyAxioms
+
+Class: WeakerTheorem
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and not AllInterpretationsSatisfyAxioms
+and AllModelsOfAxiomsSatisfyConjecture
+and SomeModelsOfConjectureDoNotSatisfyAxioms
+
+Class: TautologousConclusion
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and not AllInterpretationsSatisfyAxioms
+and AllInterpretationsSatisfyConjecture
+
+Class: EquivalentTheorem
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and not AllInterpretationsSatisfyAxioms
+and AllModelsOfAxiomsSatisfyConjecture
+and AllModelsOfConjectureSatisfyAxioms
+
+Class: Tautology
+EquivalentTo:
+    AllInterpretationsSatisfyAxioms
+and AllInterpretationsSatisfyConjecture
+
+Class: ContradictoryAxioms
+EquivalentTo:
+NoInterpretationSatisfiesAxioms
+
+Class: SatisfiableConclusionContradictoryAxioms
+EquivalentTo:
+    NoInterpretationSatisfiesAxioms
+and SomeInterpretationsSatisfyConjecture
+
+Class: TautologousConclusionContradictoryAxioms
+EquivalentTo:
+    NoInterpretationSatisfiesAxioms
+and AllInterpretationsSatisfyConjecture
+
+Class: CounterSatisfiable
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and SomeModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: CounterTheorem
+EquivalentTo:
+AllModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: CounterEquivalent
+EquivalentTo:
+    AllModelsOfAxiomsDoNotSatisfyConjecture
+and AllModelsOfNegatedConjectureSatisfyAxioms
+
+Class: WeakerCounterTheorem
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and not AllInterpretationsSatisfyAxioms
+and AllModelsOfAxiomsDoNotSatisfyConjecture
+and SomeModelsOfNegatedConjectureDoNotSatisfyAxioms
+
+Class: UnsatisfiableConclusion
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and not AllInterpretationsSatisfyAxioms
+and NoInterpretationSatisfiesConjecture
+
+Class: EquivalentCounterTheorem
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and not AllInterpretationsSatisfyAxioms
+and AllModelsOfAxiomsDoNotSatisfyConjecture
+and AllModelsOfNegatedConjectureSatisfyAxioms
+
+Class: Unsatisfiable
+EquivalentTo:
+    AllInterpretationsSatisfyAxioms
+and NoInterpretationSatisfiesConjecture
+
+Class: SatisfiableCounterConclusionContradictoryAxioms
+EquivalentTo:
+    NoInterpretationSatisfiesAxioms
+and SomeInterpretationsSatisfyConjecture
+and not AllInterpretationsSatisfyConjecture
+
+Class: UnsatisfiableConclusionContradictoryAxioms
+EquivalentTo:
+    NoInterpretationSatisfiesAxioms
+and NoInterpretationSatisfiesConjecture
+
+Class: NoConsequence
+EquivalentTo:
+    SomeInterpretationsSatisfyAxioms
+and SomeModelsOfAxiomsSatisfyConjecture
+and SomeModelsOfAxiomsDoNotSatisfyConjecture
+
+Class: SAT
+EquivalentTo: Satisfiable
+
+Class: THM
+EquivalentTo: Theorem
+
+Class: EQV
+EquivalentTo: Equivalent
+
+Class: WTH
+EquivalentTo: WeakerTheorem
+
+Class: TAC
+EquivalentTo: TautologousConclusion
+
+Class: ETH
+EquivalentTo: EquivalentTheorem
+
+Class: TAU
+EquivalentTo: Tautology
+
+Class: CAX
+EquivalentTo: ContradictoryAxioms
+
+Class: SCA
+EquivalentTo: SatisfiableConclusionContradictoryAxioms
+
+Class: TCA
+EquivalentTo: TautologousConclusionContradictoryAxioms
+
+Class: CSA
+EquivalentTo: CounterSatisfiable
+
+Class: CTH
+EquivalentTo: CounterTheorem
+
+Class: CEQ
+EquivalentTo: CounterEquivalent
+
+Class: WCT
+EquivalentTo: WeakerCounterTheorem
+
+Class: UNC
+EquivalentTo: UnsatisfiableConclusion
+
+Class: ECT
+EquivalentTo: EquivalentCounterTheorem
+
+Class: UNS
+EquivalentTo: Unsatisfiable
+
+Class: SCC
+EquivalentTo: SatisfiableCounterConclusionContradictoryAxioms
+
+Class: UCA
+EquivalentTo: UnsatisfiableConclusionContradictoryAxioms
+
+Class: NOC
+EquivalentTo: NoConsequence
