@@ -1,6 +1,6 @@
 # merged from LoLa and https://github.com/API4KBs/api4kbs/raw/master/ontologies/OntoIOpTerminology.rdf
 
-Prefix: : <https://ontohub.org/meta/lola/ontology/>
+Prefix: : <https://ontohub.org/meta/lola/ontology#>
 Prefix: dc: <http://purl.org/dc/elements/1.1/>
 Prefix: dct: <http://purl.org/dc/terms/>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
@@ -14,9 +14,7 @@ Prefix: sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
 
 
-Ontology: <https://ontohub.org/meta/lola/ontology/lola.omn>
-	
-
+Ontology: <https://ontohub.org/meta/lola/ontology> <http://www.omg.org/spec/DOL/20150518/lola>
 
     Annotations: 
         owl:versionInfo "1.0",
@@ -26,14 +24,15 @@ Ontology: <https://ontohub.org/meta/lola/ontology/lola.omn>
         omv:hasFormalityLevel <http://omv.ontoware.org/2005/05/ontology#Vocabulary>,
         omv:conformsToKnowledgeRepresentationParadigm <http://omv.ontoware.org/2005/05/ontology#DescriptionLogics>,
         omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>,
+        owl:sameAs <http://www.omg.org/spec/DOL/Current/lola>,
 	
     sm:copyright "Copyright (c) 2014 Athan Services
 Copyright (c) 2014 Thematix Partners LLC
 Copyright (c) 2014 Object Management Group, Inc."^^xsd:string,
-    rdfs:label "OntoIOp Terminology Ontology",
+    rdfs:label "LoLa (OntoIOp Terminology) Ontology",
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
     sm:fileAbstract "This ontology covers terminology used for describing logics, ontology and rule languages, and related terms from the OntoIOp specification."^^xsd:string,
-    sm:filename "OntoIOpTerminology.rdf"^^xsd:string,
+    sm:filename "lola.omn"^^xsd:string,
     dct:license "http://www.omg.org/techprocess/ab/SpecificationMetadata/MITLicense"^^xsd:anyURI,
     sm:contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all"^^xsd:anyURI
 
@@ -60,7 +59,6 @@ AnnotationProperty: skos:example
 AnnotationProperty: skos:editorialNote
 AnnotationProperty: skos:altLabel
 	
-Datatype: rdf:PlainLiteral
 Datatype: xsd:string
 
 
@@ -87,6 +85,8 @@ AnnotationProperty: rdfs:seeAlso
 
     
 AnnotationProperty: owl:versionInfo
+
+AnnotationProperty: owl:sameAs
 
     
 AnnotationProperty: supportsSymbolKind
@@ -132,10 +132,6 @@ Datatype: xsd:string
     
 Datatype: xsd:date
 
-    
-Datatype: rdf:PlainLiteral
-
-    
 Datatype: xsd:boolean
 
     
@@ -156,7 +152,7 @@ ObjectProperty: embeddableInto
 ObjectProperty: impliedExtensionOf
 
     Annotations: 
-        strictlyStrongerThan <http://purl.net/dol/1.0/rdf#definitionallyExtends>
+        strictlyStrongerThan <https://ontohub.org/meta/lola/ontology#definitionallyExtends>
     
     SubPropertyOf: 
         definitionallyExtends
@@ -505,7 +501,7 @@ ObjectProperty: serializes
 ObjectProperty: monomorphicallyExtends
 
     Annotations: 
-        strictlyStrongerThan <http://purl.net/dol/1.0/rdf#modelTheoreticallyConservativelyExtends>
+        strictlyStrongerThan <https://ontohub.org/meta/lola/ontology#modelTheoreticallyConservativelyExtends>
     
     SubPropertyOf: 
         modelTheoreticallyConservativelyExtends
@@ -550,7 +546,7 @@ ObjectProperty: memberOf
 ObjectProperty: modelTheoreticallyConservativelyExtends
 
     Annotations: 
-        strictlyStrongerThan <http://purl.net/dol/1.0/rdf#consequenceTheoreticallyConservativelyExtends>
+        strictlyStrongerThan <https://ontohub.org/meta/lola/ontology#consequenceTheoreticallyConservativelyExtends>
     
     SubPropertyOf: 
         consequenceTheoreticallyConservativelyExtends
@@ -657,7 +653,7 @@ ObjectProperty: isSubLogicOf
          inverse (exactLogicalExpressivity) o isSubLanguageOf o exactLogicalExpressivity
     
     Annotations: 
-        skos:definition "a logic that is a syntactic restriction of another logic, inheriting its semnatics"^^xsd:string,
+        skos:definition "a logic that is a syntactic restriction of another logic, inheriting its semantics"^^xsd:string,
         rdfs:label "is sublogic of"
     
     Characteristics: 
@@ -831,7 +827,7 @@ ObjectProperty: hasMapping
 ObjectProperty: definitionallyExtends
 
     Annotations: 
-        strictlyStrongerThan <http://purl.net/dol/1.0/rdf#monomorphicallyExtends>,
+        strictlyStrongerThan <https://ontohub.org/meta/lola/ontology#monomorphicallyExtends>,
         todo:task "We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative."
     
     SubPropertyOf: 
@@ -943,7 +939,7 @@ Class: WeaklyExactMapping
 
     Annotations: 
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies <http://purl.net/dol/1.0/rdf#weaklyExactlyMappableTo>
+        reifies <https://ontohub.org/meta/lola/ontology#weaklyExactlyMappableTo>
     
     SubClassOf: 
         LogicMapping
@@ -953,7 +949,7 @@ Class: ExactMapping
 
     Annotations: 
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies <http://purl.net/dol/1.0/rdf#exactlyMappableTo>
+        reifies <https://ontohub.org/meta/lola/ontology#exactlyMappableTo>
     
     SubClassOf: 
         WeaklyExactMapping
@@ -970,7 +966,7 @@ Class: ModelExpansiveMapping
 
     Annotations: 
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies <http://purl.net/dol/1.0/rdf#modelExpansivelyMappableTo>
+        reifies <https://ontohub.org/meta/lola/ontology#modelExpansivelyMappableTo>
     
     SubClassOf: 
         FaithfulMapping
@@ -980,7 +976,7 @@ Class: Translation
 
     Annotations: 
         rdfs:comment "a generic translation",
-        reifies <http://purl.net/dol/1.0/rdf#translatableTo>
+        reifies <https://ontohub.org/meta/lola/ontology#translatableTo>
     
     SubClassOf: 
         Mapping
@@ -993,7 +989,7 @@ Class: SubLogic
 
     Annotations: 
         rdfs:comment "'syntactic' embedding",
-        reifies <http://purl.net/dol/1.0/rdf#isSubLogicOf>
+        reifies <https://ontohub.org/meta/lola/ontology#isSubLogicOf>
     
     SubClassOf: 
         Embedding
@@ -1040,7 +1036,7 @@ Class: View
 Class: Embedding
 
     Annotations: 
-        reifies <http://purl.net/dol/1.0/rdf#embeddableInto>
+        reifies <https://ontohub.org/meta/lola/ontology#embeddableInto>
     
     SubClassOf: 
         ExactMapping,
@@ -1147,7 +1143,7 @@ Class: SimpleTheoroidalMapping
 
     Annotations: 
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies <http://purl.net/dol/1.0/rdf#simplyTheoroidallyMappableTo>,
+        reifies <https://ontohub.org/meta/lola/ontology#simplyTheoroidallyMappableTo>,
         rdfs:comment "orthogonal to WeaklyExactMapping and FaithfulMapping"
     
     EquivalentTo: 
@@ -1210,7 +1206,7 @@ Class: Refinement
 Class: Reduction
 
     Annotations: 
-        reifies <http://purl.net/dol/1.0/rdf#reducibleTo>,
+        reifies <https://ontohub.org/meta/lola/ontology#reducibleTo>,
         rdfs:comment "a generic reduction",
         rdfs:label "reduction",
         skos:definition "logical OMS mapping reducing an OMS to a smaller signature"^^xsd:string
@@ -1250,7 +1246,7 @@ Class: FaithfulMapping
 
     Annotations: 
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies <http://purl.net/dol/1.0/rdf#faithfullyMappableTo>
+        reifies <https://ontohub.org/meta/lola/ontology#faithfullyMappableTo>
     
     SubClassOf: 
         LogicMapping
@@ -1260,7 +1256,7 @@ Class: OMSMapping
 
     Annotations: 
         rdfs:comment "a mapping between two heterogeneous OMSs in an OMS library", 
-        reifies <http://purl.net/dol/1.0/rdf#mappableTo>,
+        reifies <https://ontohub.org/meta/lola/ontology#mappableTo>,
         rdfs:label "OMS mapping",
         skos:definition "relationship between two OMSs, typically given as a set of correspondences"^^xsd:string
     
@@ -1283,7 +1279,7 @@ Class: DefaultMapping
 Class: PlainMapping
 
     Annotations: 
-        reifies <http://purl.net/dol/1.0/rdf#plainlyMappableTo>,
+        reifies <https://ontohub.org/meta/lola/ontology#plainlyMappableTo>,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
@@ -1297,11 +1293,8 @@ Class: PlainMapping
 Class: Serialization
 
     Annotations: 
-        rdfs:comment "a serialization of an language"
-    
-
-    Annotations: 
-        skos:definition "specific syntactic encoding of a given OMS language} "^^xsd:string,
+        rdfs:comment "a serialization of an language",
+        skos:definition "specific syntactic encoding of a given OMS language"^^xsd:string,
         skos:example " Common Logic uses the term ``dialect''; the following are standard Common Logic dialects: Common Logic Interchange Format (CLIF), Conceptual Graph Interchange Format (GCIF), eXtended Common Logic Markup Language (XCL)."^^xsd:string,
         rdfs:label "OMS serialization",
         skos:note "Serializations serve as standard formats for exchanging OMSs between tools."^^xsd:string,
@@ -1348,7 +1341,7 @@ Class: Language
 Class: ModelBijectiveMapping
 
     Annotations: 
-        reifies <http://purl.net/dol/1.0/rdf#modelBijectivelyMappableTo>,
+        reifies <https://ontohub.org/meta/lola/ontology#modelBijectivelyMappableTo>,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
@@ -2261,7 +2254,7 @@ Class: TheoremSentence
 Class: Mapping
 
     Annotations: 
-        reifies <http://purl.net/dol/1.0/rdf#mappableTo>,
+        reifies <https://ontohub.org/meta/lola/ontology#mappableTo>,
         rdfs:comment "a generic mapping (translation or reduction)",   
         skos:definition "TBD"^^xsd:string,
         rdfs:label "mapping",
