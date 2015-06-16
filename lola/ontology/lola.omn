@@ -2156,7 +2156,7 @@ Class: Profile
         rdfs:label "profile"
     
     SubClassOf: 
-        supportsLogic exactly 1 Logic,
+        supportsLogic some Logic,
         OMSLanguage
     
     
