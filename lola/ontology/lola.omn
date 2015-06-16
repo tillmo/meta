@@ -128,7 +128,6 @@ Domain: owl:Class
 Range: owl:ObjectProperty"
     
     
-AnnotationProperty: todo:question
 
     
 Datatype: xsd:string
@@ -242,7 +241,7 @@ ObjectProperty: extends
         
             Annotations: dct:creator "Christoph Lange", 
                          dct:date "2011-12-04"^^xsd:date
-        todo:question "While the abstract and text syntaxes of DOL attach the 'kind of extension' to _one_ ontology, the semantics (CASL reference section 5.2.5) rather suggests that this is a relation between _two_ OMS (which may or may not be given explicitly in the syntax).  Is it, therefore, OK, to model it like this in RDF?  Maybe we should also provide a semantically equivalent alternative that is more intuitive wrt. the syntax?"
+        rdfs:comment "While the abstract and text syntaxes of DOL attach the 'kind of extension' to _one_ ontology, the semantics (CASL reference section 5.2.5) rather suggests that this is a relation between _two_ OMS (which may or may not be given explicitly in the syntax).  Is it, therefore, OK, to model it like this in RDF?  Maybe we should also provide a semantically equivalent alternative that is more intuitive wrt. the syntax?"
     
     Domain: 
         OMS
@@ -294,7 +293,7 @@ ObjectProperty: isSubLanguageOf
         
             Annotations: dct:creator "Christoph Lange", 
                          dct:date "2012-04-17"^^xsd:date
-        todo:question "Do we need both isSubLanguageOf and profileOf?  Intuitively I do think so, and I think it's reasonable to distinguish them via their properties wrt. logic/serialization propagation."
+        rdfs:comment "Do we need both isSubLanguageOf and profileOf?  Intuitively I do think so, and I think it's reasonable to distinguish them via their properties wrt. logic/serialization propagation."
     
     SubPropertyOf: 
         translatableTo,
@@ -400,7 +399,7 @@ ObjectProperty: modelBijectivelyMappableTo
         
             Annotations: dct:creator "Christoph Lange", 
                          dct:date "2012-04-17"^^xsd:date
-        todo:question "Do we have a better idea for naming this?  Maybe mappableToWithBijectiveModels?",
+        rdfs:comment "Do we have a better idea for naming this?  Maybe mappableToWithBijectiveModels?",
         rdfs:comment "There is a model-bijective mapping from the subject to the object logic."
     
     SubPropertyOf: 
@@ -570,7 +569,7 @@ ObjectProperty: supportsLogic
                          Annotations: dct:creator "Christoph Lange", 
                                      dct:date "2012-04-17"^^xsd:date
                                      
-                                     todo:question "On the board we had 'inverse isSubLanguageOf o exactLogicalExpressivity', but I think we can be more general."
+                                     rdfs:comment "On the board we had 'inverse isSubLanguageOf o exactLogicalExpressivity', but I think we can be more general."
          inverse (isSubLanguageOf) o supportsLogic
     
     SubPropertyChain: 
@@ -692,7 +691,7 @@ ObjectProperty: compositionOf
         
             Annotations: dct:creator "Christoph Lange", 
                          dct:date "2012-04-30"^^xsd:date
-        todo:question "I don't think we need subclasses for specific types of mappings, do we?",
+        rdfs:comment "I don't think we need subclasses for specific types of mappings, do we?",
         rdfs:comment "The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"
     
     Domain: 
@@ -717,7 +716,7 @@ ObjectProperty: logic
         
             Annotations: dct:creator "Christoph Lange", 
                          dct:date "2011-12-04"^^xsd:date
-        todo:question "Inside a 'logic section' in the abstract syntax, there are also views.  Therefore, do we need another, analogous RDF property for 'the logic of a view'?",
+        rdfs:comment "Inside a 'logic section' in the abstract syntax, there are also views.  Therefore, do we need another, analogous RDF property for 'the logic of a view'?",
         rdfs:comment "the logic in which an OMS is formalized"
     
     Characteristics: 
@@ -2115,8 +2114,6 @@ Class: ConservativeExtensionMapping
         ExtensionMapping
     
     
-Class: owl:Thing
-
     
 Class: HeterogeneousEnvironment
 
