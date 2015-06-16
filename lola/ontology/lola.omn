@@ -24,7 +24,7 @@ Ontology: <http://www.omg.org/spec/DOL/dol.rdf> <http://www.omg.org/spec/DOL/201
         rdfs:seeAlso <http://www.informatik.uni-bremen.de/~till/papers/womo2012.pdf>,
         omv:hasFormalityLevel <http://omv.ontoware.org/2005/05/ontology#Vocabulary>,
         omv:conformsToKnowledgeRepresentationParadigm <http://omv.ontoware.org/2005/05/ontology#DescriptionLogics>,
-        omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>
+        omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>,
 		
 	sm:copyright "Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
@@ -32,7 +32,7 @@ Copyright (c) 2014-2015 Fraunohfer Fokus
 Copyright (c) 2014-2015 MITRE
 Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
 Copyright (c) 2014-2015 Athan Services"^^xsd:string,
-	rdfs:label "Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology,
+	rdfs:label "Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology",
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
     sm:fileAbstract "This ontology covers terminology used for describing logics, ontology and rule languages, and related terms from the OntoIOp specification."^^xsd:string,
     sm:filename "dol.omn"^^xsd:string,
