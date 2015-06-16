@@ -80,17 +80,6 @@ Range: xsd:boolean"
     
 
     
-AnnotationProperty: dct:date
-
-    
-AnnotationProperty: rdfs:comment
-
-AnnotationProperty: rdfs:seeAlso
-
-    
-AnnotationProperty: owl:versionInfo
-
-AnnotationProperty: owl:sameAs
 
     
 AnnotationProperty: supportsSymbolKind
