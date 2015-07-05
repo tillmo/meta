@@ -130,7 +130,7 @@ ObjectProperty: embeddableInto
     SubPropertyOf: 
         translatableTo,
         exactlyMappableTo,
-        modelBijectivelyMappableTo,
+        mappableToBijectivelyOnModels,
         mappableToLogic
     
     Characteristics: 
@@ -368,7 +368,7 @@ SubPropertyChain: serialization o serializes",
         OMSLanguage
     
     
-ObjectProperty: modelBijectivelyMappableTo
+ObjectProperty: mappableToBijectivelyOnModels
 
     Annotations: 
         rdfs:comment "There is a model-bijective mapping from the subject to the object logic."
@@ -1298,7 +1298,7 @@ Class: Language
 Class: ModelBijectiveMapping
 
     Annotations: 
-        reifies modelBijectivelyMappableTo,
+        reifies mappableToBijectivelyOnModels,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
