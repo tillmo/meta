@@ -274,7 +274,7 @@ ObjectProperty: isSubLanguageOf
         
             Annotations: dct:creator "Christoph Lange", 
                          dct:date "2012-04-17"^^xsd:date
-        rdfs:comment "Do we need both isSubLanguageOf and profileOf?  Intuitively I do think so, and I think it's reasonable to distinguish them via their properties wrt. logic/serialization propagation."
+        rdfs:comment "Do we need both isSubLanguageOf and isProfileOf?  Intuitively I do think so, and I think it's reasonable to distinguish them via their properties wrt. logic/serialization propagation."
     
     SubPropertyOf: 
         translatableTo,
@@ -737,10 +737,10 @@ ObjectProperty: consequenceTheoreticallyConservativelyExtends
         extends
     
     
-ObjectProperty: profileOf
+ObjectProperty: isProfileOf
 
     Annotations: 
-        rdfs:comment "The subject is a profile of the object language.  This is a stronger notion than just being a sublanguage.  Supported serializations are shared along this property.",
+        rdfs:comment "The subject is a isProfile of the object language.  This is a stronger notion than just being a sublanguage.  Supported serializations are shared along this property.",
         rdfs:label "is profile of",
         skos:definition "see Class 'profile'"^^xsd:string
     
@@ -846,7 +846,7 @@ ObjectProperty: supportsSerialization
 
     Annotations: 
         rdfs:comment "The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
-SubPropertyChain: profileOf o supportsSerialization",
+SubPropertyChain: isProfileOf o supportsSerialization",
         rdfs:comment "Note that the serialization should be as specific as possible, i.e. one should not say that ``OWL can be serialized in XML'' and ``Common Logic can be serialized in XML'', but instead ``OWL can be serialized in OWL XML'' and ``Common Logic can be serialized in XCL'', taking into account that OWL XML and XCL are two different XML languages.",
         rdfs:comment "OMS in the subject language can be serialized in the object serialization."
     
