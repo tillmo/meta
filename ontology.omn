@@ -20,7 +20,7 @@ Ontology: <http://www.omg.org/spec/DOL/dol.rdf> <http://www.omg.org/spec/DOL/201
     Annotations: 
         owl:versionInfo "1.0",
         rdfs:comment "RDF serialization of DOL, implemented as an OWL ontology.  Actually some axioms that we would like to have go beyond OWL.",
-        rdfs:comment "When scaling this ontology implementation up to DOL, look below for annotations marked as 'beyond OWL'.  These things can be modeled in FOL.",
+        rdfs:comment "Developers' note: When scaling this ontology implementation up to DOL, look below for annotations marked as 'beyond OWL'.  These things can be modeled in FOL.",
         rdfs:seeAlso <http://www.informatik.uni-bremen.de/~till/papers/womo2012.pdf>,
         omv:hasFormalityLevel <http://omv.ontoware.org/2005/05/ontology#Vocabulary>,
         omv:conformsToKnowledgeRepresentationParadigm <http://omv.ontoware.org/2005/05/ontology#DescriptionLogics>,
@@ -76,7 +76,7 @@ AnnotationProperty: propagatesToAdjoint
 
     Annotations: 
         rdfs:comment "The subject class denotes a kind of mapping that, if it holds for a translation, also holds for the adjoint reduction.",
-        rdfs:comment "This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: owl:Class
 Range: xsd:boolean"
     
@@ -88,7 +88,7 @@ Range: xsd:boolean"
 AnnotationProperty: supportsSymbolKind
 
     Annotations: 
-        rdfs:comment "This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: OMSLanguage
 Range: owl:Class that rdfs:subClassOf value Symbol"
     
@@ -96,7 +96,7 @@ Range: owl:Class that rdfs:subClassOf value Symbol"
 AnnotationProperty: symbolKindIn
     
     Annotations: 
-        rdfs:comment "This is just for informative purposes: It doesn't work for annotation properties
+        rdfs:comment "Developers' note: This is just for informative purposes: It doesn't work for annotation properties
 InverseOf: supportsSymbolKind"
     
     
@@ -104,7 +104,7 @@ AnnotationProperty: reifiedBy
     
     Annotations: 
         rdfs:comment "The subject property is reified by the object class.",
-        rdfs:comment "This is just for informative purposes: It doesn't work for annotation properties
+        rdfs:comment "Developers' note: This is just for informative purposes: It doesn't work for annotation properties
 InverseOf: reifies"
     
     
@@ -114,7 +114,7 @@ AnnotationProperty: reifies
 
     Annotations: 
         rdfs:comment "The subject class reifies the object property.",
-        rdfs:comment "This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: owl:Class
 Range: owl:ObjectProperty"
     
@@ -317,7 +317,8 @@ ObjectProperty: translatableTo
 ObjectProperty: mapsFrom
 
     Annotations: 
-        rdfs:comment "The subject mapping maps from the object into something of the same type as the object.  (Enforcing the latter constraint goes beyond OWL.)"
+        rdfs:comment "The subject mapping maps from the object into something of the same type as the object.",
+        rdfs:comment "Developers' note: enforcing the constraint that a mapping must map into something of the same type goes beyond OWL."
     
     Characteristics: 
         Functional
@@ -356,7 +357,7 @@ ObjectProperty: exactlyMappableTo
 ObjectProperty: language
 
     Annotations: 
-        rdfs:comment "The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
+        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
 SubPropertyChain: serialization o serializes",
         rdfs:comment "the language of an OMS"
     
@@ -653,7 +654,7 @@ ObjectProperty: compositionOf
 
     Annotations: 
         rdfs:comment "Range can't be specified in OWL DL",
-        rdfs:comment "The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"
+        rdfs:comment "Developers' note: The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"
     
     Domain: 
         OMSMapping
@@ -788,7 +789,7 @@ ObjectProperty: definitionallyExtends
 
     Annotations: 
         strictlyStrongerThan monomorphicallyExtends,
-        rdfs:comment "We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative."
+        rdfs:comment "Developers' note: We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative."
     
     SubPropertyOf: 
         monomorphicallyExtends, weaklyDefinitionallyExtends,         modelTheoreticallyConservativelyExtends
@@ -821,7 +822,7 @@ ObjectProperty: plainlyMappableTo
 ObjectProperty: supportsSerialization
 
     Annotations: 
-        rdfs:comment "The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
+        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
 SubPropertyChain: isProfileOf o supportsSerialization",
         rdfs:comment "Note that the serialization should be as specific as possible, i.e. one should not say that ``OWL can be serialized in XML'' and ``Common Logic can be serialized in XML'', but instead ``OWL can be serialized in OWL XML'' and ``Common Logic can be serialized in XCL'', taking into account that OWL XML and XCL are two different XML languages.",
         rdfs:comment "OMS in the subject language can be serialized in the object serialization."
@@ -1115,7 +1116,7 @@ Class: SimpleTheoroidalMapping
     DisjointWith: 
         PlainMapping,
         
-            Annotations: rdfs:comment "Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"
+            Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"
         PlainMapping
     
 
@@ -1247,7 +1248,7 @@ Class: PlainMapping
     DisjointWith: 
         SimpleTheoroidalMapping
         
-            Annotations: rdfs:comment "Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"
+            Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"
     
 Class: Serialization
 
