@@ -373,10 +373,6 @@ SubPropertyChain: serialization o serializes",
 ObjectProperty: modelBijectivelyMappableTo
 
     Annotations: 
-        
-            Annotations: dct:creator "Christoph Lange", 
-                         dct:date "2012-04-17"^^xsd:date
-        rdfs:comment "Do we have a better idea for naming this?  Maybe mappableToWithBijectiveModels?",
         rdfs:comment "There is a model-bijective mapping from the subject to the object logic."
     
     SubPropertyOf: 
