@@ -674,10 +674,6 @@ ObjectProperty: simplyTheoroidallyMappableTo
 ObjectProperty: logic
 
     Annotations: 
-        
-            Annotations: dct:creator "Christoph Lange", 
-                         dct:date "2011-12-04"^^xsd:date
-        rdfs:comment "Inside a 'logic section' in the abstract syntax, there are also views.  Therefore, do we need another, analogous RDF property for 'the logic of a view'?",
         rdfs:comment "the logic in which an OMS is formalized"
     
     Characteristics: 
