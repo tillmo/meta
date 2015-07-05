@@ -224,12 +224,6 @@ ObjectProperty: mappableToLogic
         
 ObjectProperty: extends
 
-    Annotations: 
-        
-            Annotations: dct:creator "Christoph Lange", 
-                         dct:date "2011-12-04"^^xsd:date
-        rdfs:comment "While the abstract and text syntaxes of DOL attach the 'kind of extension' to _one_ ontology, the semantics (CASL reference section 5.2.5) rather suggests that this is a relation between _two_ OMS (which may or may not be given explicitly in the syntax).  Is it, therefore, OK, to model it like this in RDF?  Maybe we should also provide a semantically equivalent alternative that is more intuitive wrt. the syntax?"
-    
     Domain: 
         OMS
     
