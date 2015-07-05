@@ -653,10 +653,6 @@ ObjectProperty: compositionOf
 
     Annotations: 
         rdfs:comment "Range can't be specified in OWL DL",
-        
-            Annotations: dct:creator "Christoph Lange", 
-                         dct:date "2012-04-30"^^xsd:date
-        rdfs:comment "I don't think we need subclasses for specific types of mappings, do we?",
         rdfs:comment "The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"
     
     Domain: 
