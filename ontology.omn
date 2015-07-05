@@ -963,8 +963,7 @@ Class: Sentence
         skos:note "In a model, on the one hand, a sentence is always true or false. In an OMS, on the other hand, a sentence can have several logical statuses: it can be an axiom, if postulated to be true; a theorem, if proven from other axioms and theorems; a conjecture, if expecting to be proven from other axioms and theorems; or have another of many possible statuses."^^xsd:string,
         skos:note "A sentence can conform to one or more signatures (namely those signatures containing all non-logical symbols used in the sentence)."^^xsd:string,
         skos:definition "term that is either true or false in a given model, i.e.\\ which is assigned a truth value in this model."^^xsd:string,
-        rdfs:label "sentence",
-        skos:note "\\CLnote[type=fyi]{From Common Logic, I changed ``unit of logical text'' to ``term''.}}"^^xsd:string
+        rdfs:label "sentence"
     
     SubClassOf: 
         Term
