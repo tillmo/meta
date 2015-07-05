@@ -30,6 +30,7 @@ Copyright (c) 2014-2015 MITRE
 Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
 Copyright (c) 2014-2015 Athan Services",
 	rdfs:label "Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology",
+        sm:isNormative "true"^^xsd:boolean,
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
     sm:fileAbstract "This ontology covers the terminology of the Distributed Ontology, Model, and Specification Language (DOL) and is a normative part of its specification.",
     sm:filename "ontology.omn",
