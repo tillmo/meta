@@ -1,6 +1,6 @@
 # merged from LoLa and https://github.com/API4KBs/api4kbs/raw/master/ontologies/OntoIOpTerminology.rdf
 
-Prefix: : <http://www.omg.org/spec/DOL/dol.rdf/>
+Prefix: : <http://www.omg.org/spec/DOL/Current/ontology#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
@@ -12,7 +12,7 @@ Prefix: dol: <http://www.omg.org/spec/DOL/dol/>
 	
 Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
 
-Ontology: <http://www.omg.org/spec/DOL/dol.rdf> <http://www.omg.org/spec/DOL/20150601/dol.rdf>
+Ontology: <http://www.omg.org/spec/DOL/Current/ontology#> <http://www.omg.org/spec/DOL/20150706/ontology.owl>
 
     Annotations: 
         owl:versionInfo "1.0",
