@@ -136,28 +136,10 @@ ObjectProperty: embeddableInto
     Characteristics: 
         Transitive
     
-ObjectProperty: impliedExtensionOf
-
-    Annotations: 
-        strictlyStrongerThan definitionallyExtends
-    
-    SubPropertyOf: 
-        definitionallyExtends
-    
-    
 ObjectProperty: omsIn
 
     InverseOf: 
         hasOMS
-    
-    
-ObjectProperty: conservativelyExtends
-
-    Annotations: 
-        dct:source "This synonym is inspired by CASL."
-    
-    EquivalentTo: 
-        modelTheoreticallyConservativelyExtends
     
     
 ObjectProperty: exactlyCorrespondingMapping
@@ -219,7 +201,7 @@ ObjectProperty: mappableToLogic
     InverseOf: 
         mappableFromLogic
         
-ObjectProperty: extends
+ObjectProperty: isExtensionOf
 
     Domain: 
         OMS
@@ -472,13 +454,13 @@ ObjectProperty: serializes
     
     
     
-ObjectProperty: monomorphicallyExtends
+ObjectProperty: isMonomorphicExtensionOf
 
     Annotations: 
-        strictlyStrongerThan modelTheoreticallyConservativelyExtends
+        strictlyStrongerThan isModelTheoreticallyConservativeExtensionOf
     
     SubPropertyOf: 
-        modelTheoreticallyConservativelyExtends
+        isModelTheoreticallyConservativeExtensionOf
     
     
 ObjectProperty: hasInterpretation
@@ -517,17 +499,13 @@ ObjectProperty: memberOf
         hasMember
     
     
-ObjectProperty: modelTheoreticallyConservativelyExtends
+ObjectProperty: isModelTheoreticallyConservativeExtensionOf
 
     Annotations: 
-        strictlyStrongerThan consequenceTheoreticallyConservativelyExtends
+        strictlyStrongerThan isConsequenceTheoreticallyConservativeExtensionOf
     
     SubPropertyOf: 
-        consequenceTheoreticallyConservativelyExtends
-    
-    EquivalentTo: 
-        conservativelyExtends
-    
+        isConservativeExtensionOf
     
 ObjectProperty: supportsLogic
 
@@ -705,11 +683,10 @@ ObjectProperty: mappableFromLogic
         mappableToLogic
     
     
-ObjectProperty: consequenceTheoreticallyConservativelyExtends
+ObjectProperty: isConsequenceTheoreticallyConservativeExtensionOf
 
     SubPropertyOf: 
-        extends
-    
+        isConservativeExtensionOf
     
 ObjectProperty: isProfileOf
 
@@ -781,18 +758,7 @@ ObjectProperty: hasMapping
     InverseOf: 
         mappingIn
     
-    
-ObjectProperty: definitionallyExtends
-
-    Annotations: 
-        strictlyStrongerThan monomorphicallyExtends,
-        rdfs:comment "Developers' note: We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative."
-    
-    SubPropertyOf: 
-        monomorphicallyExtends, weaklyDefinitionallyExtends,         modelTheoreticallyConservativelyExtends
-    
-    
-ObjectProperty: weaklyDefinitionallyExtends
+ObjectProperty: isWeakDefinitionalExtensionOf
     
     
 ObjectProperty: adjoint
@@ -1359,9 +1325,6 @@ ObjectProperty: isSubOMSOf
     
     Range: 
         OMS
-    
-    InverseOf: 
-        extends
 	
     Annotations: 
         skos:example "Consider an ontology involving a concept \\texttt{Person}, and another one involving \\texttt{Human being}, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both \\texttt{Person} and \\texttt{Human being}."^^xsd:string,
@@ -1433,6 +1396,8 @@ ObjectProperty: isLogicallyInteroperableWith
 ObjectProperty: isDefinitionalExtensionOf
 
     Annotations: 
+        strictlyStrongerThan isMonomorphicExtensionOf,
+        rdfs:comment "Developers' note: We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative.",
         skos:note " An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$. "^^xsd:string,
         skos:note " Each definitional extension is also a monomorphic extension but not vice versa. "^^xsd:string,
         skos:definition "extension whose newly introduced non-logical symbols are interpreted in a unique way"^^xsd:string,
@@ -1440,7 +1405,7 @@ ObjectProperty: isDefinitionalExtensionOf
         rdfs:label "is definitional extension of"
     
     SubPropertyOf: 
-        isConservativeExtensionOf
+        isMonomorphicExtensionOf, isWeakDefinitionalExtensionOf,         isModelTheoreticallyConservativeExtensionOf
     
     SubPropertyChain: 
         isMappedBy o definitionallyExtendsTo
@@ -1487,6 +1452,7 @@ ObjectProperty: formalizes
 ObjectProperty: isImpliedExtensionOf
 
     Annotations: 
+        strictlyStrongerThan isConservativeExtensionOf,
         skos:note " Each implied extension is also a definitional extension but not vice versa. "^^xsd:string,
         skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols} "^^xsd:string,
         skos:note " A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$. "^^xsd:string,
@@ -1562,7 +1528,7 @@ ObjectProperty: isConservativeExtensionOf
         rdfs:label "is conservative extension of"
     
     SubPropertyOf: 
-        extends
+        isExtensionOf
     
     SubPropertyChain: 
         isMappedBy o conservativelyExtendsTo
@@ -1762,7 +1728,8 @@ Class: DefinitionalExtensionMapping
         skos:note "An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$."^^xsd:string,
         rdfs:label "definitional extension mapping",
         skos:definition "extension whose newly introduced non-logical symbols are interpreted in a unique way"^^xsd:string,
-        skos:note "$O_2$ being a definitional extension of $O_1$ implies a bijective correspondence between the classes of models of $O_2$ and $O_1$."^^xsd:string
+        skos:note "$O_2$ being a definitional extension of $O_1$ implies a bijective correspondence between the classes of models of $O_2$ and $O_1$."^^xsd:string,
+        reifies isDefinitionalExtensionOf
     
     EquivalentTo: 
         ModelTheoreticConservativeExtensionMapping
@@ -1801,7 +1768,8 @@ Class: ModelTheoreticConservativeExtensionMapping
         rdfs:label "model-theoretic conservative extension mapping",
         skos:note "Any model-theoretic conservative extension is also a consequence-theoretic one."^^xsd:string,
         skos:definition "extension mapping that does not lead to a restriction of class of models of an OMS"^^xsd:string,
-        skos:note "An extension $O_2$ of an OMS $O_1$ is a model-theoretic conservative extension, if all properties formulated in the signature of $O_1$ hold for $O_1$ whenever they hold for $O_2$."^^xsd:string
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a model-theoretic conservative extension, if all properties formulated in the signature of $O_1$ hold for $O_1$ whenever they hold for $O_2$."^^xsd:string,
+        reifies isModelTheoreticallyConservativeExtensionOf
     
     SubClassOf: 
         ConservativeExtensionMapping
@@ -1856,7 +1824,8 @@ Class: MonomorphicExtensionMapping
         skos:note "Each monomorphic extension is also a model-theoretic conservative extension but not vice versa."^^xsd:string,
         rdfs:label "monomorphic extension mapping",
         skos:note "An extension $O_2$ of an OMS $O_1$ is a monomorphic extension, if each model of $O_1$ can be expanded to a model of $O_2$ that is unique up to isomorphism."^^xsd:string,
-        skos:definition "extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism"^^xsd:string
+        skos:definition "extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism"^^xsd:string,
+        reifies isMonomorphicExtensionOf
     
     SubClassOf: 
         ModelTheoreticConservativeExtensionMapping
@@ -1986,11 +1955,11 @@ Class: ImpliedExtensionMapping
         skos:note "A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$."^^xsd:string,
         skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols"^^xsd:string,
         skos:note "Each implied extension is also a definitional extension but not vice versa."^^xsd:string,
-        rdfs:label "implied extension mapping"
+        rdfs:label "implied extension mapping",
+        reifies impliedExtensionOf
     
     SubClassOf: 
         DefinitionalExtensionMapping
-    
     
 Class: StructuredOMS
 
@@ -2062,7 +2031,8 @@ Class: ConservativeExtensionMapping
     Annotations: 
         skos:definition "consequence-theoretic or model-theoretic conservative extension"^^xsd:string,
         rdfs:label "conservative extension mapping",
-        skos:note "If used without qualification, the consequence-theoretic version is meant."^^xsd:string
+        skos:note "If used without qualification, the consequence-theoretic version is meant."^^xsd:string,
+        reifies isConservativeExtensionOf
     
     SubClassOf: 
         ExtensionMapping
@@ -2190,7 +2160,8 @@ Class: WeakDefinitionalExtensionMapping
         skos:note "An extension is definitional if and only if it is both weakly definitional and model-theoretically conservative."^^xsd:string,
         skos:definition "extension whose newly introduced non-logical symbols can be interpreted in at most one way"^^xsd:string,
         rdfs:label "weak definitional extension mapping",
-        skos:note "An extension $O_2$ of an OMS $O_1$ is a weak definitional extension, if each model of $O_1$ can be expanded to at most one model of $O_2$."^^xsd:string
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a weak definitional extension, if each model of $O_1$ can be expanded to at most one model of $O_2$."^^xsd:string,
+        reifies isWeakDefinitionalExtensionOf
     
     SubClassOf: 
         ExtensionMapping
@@ -2242,12 +2213,13 @@ Class: Term
         Expression
     
     
-Class: ConsequenceTheoreticConservativeExtensionMappin
+Class: ConsequenceTheoreticConservativeExtensionMapping
 
     Annotations: 
         skos:definition "extension that does not add new theorems (in terms of the unextended signature)"^^xsd:string,
         rdfs:label "consequence-theoretic conservative extension mapping",
-        skos:note "An extension $O_2$ of an OMS $O_1$ is a consequence-theoretic conservative extension, if all properties formulated in the signature of $O_1$ hold for $O_1$ whenever they hold for $O_2$."^^xsd:string
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a consequence-theoretic conservative extension, if all properties formulated in the signature of $O_1$ hold for $O_1$ whenever they hold for $O_2$."^^xsd:string,
+        reifies isConsequenceTheoreticallyConservativeExtensionOf
     
     SubClassOf: 
         ConservativeExtensionMapping
