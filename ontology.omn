@@ -28,7 +28,7 @@ Ontology: <http://www.omg.org/spec/DOL/dol.rdf> <http://www.omg.org/spec/DOL/201
 		
 	sm:copyright "Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
-Copyright (c) 2014-2015 Fraunohfer Fokus
+Copyright (c) 2014-2015 Fraunhofer Fokus
 Copyright (c) 2014-2015 MITRE
 Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
 Copyright (c) 2014-2015 Athan Services"^^xsd:string,
