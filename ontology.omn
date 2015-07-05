@@ -10,10 +10,7 @@ Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
 Prefix: sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 Prefix: dol: <http://www.omg.org/spec/DOL/dol/>
 	
-Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
-Prefix: dc: <http://purl.org/dc/elements/1.1/>
-	
 
 Ontology: <http://www.omg.org/spec/DOL/dol.rdf> <http://www.omg.org/spec/DOL/20150601/dol.rdf>
 
