@@ -537,15 +537,7 @@ ObjectProperty: supportsLogic
         rdfs:comment "The semantics of [a subset of] the subject language can be specified in terms of the object logic."
     
     SubPropertyChain: 
-        
-            Annotations: 
-                         Annotations: dct:creator "Christoph Lange", 
-                                     dct:date "2012-04-17"^^xsd:date
-                                     
-                                     rdfs:comment "On the board we had 'inverse isSubLanguageOf o exactLogicalExpressivity', but I think we can be more general."
-         inverse (isSubLanguageOf) o supportsLogic
-    
-    SubPropertyChain: 
+        inverse (isSubLanguageOf) o supportsLogic,
         supportsLogic o  inverse (isSubLogicOf)
     
     Domain: 
