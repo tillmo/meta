@@ -270,12 +270,8 @@ ObjectProperty: weaklyExactlyMappableTo
 ObjectProperty: isSubLanguageOf
 
     Annotations: 
-        rdfs:comment "The subject is a sublanguage of the object language.  Supported logics are shared along the inverse of this property.",
+        rdfs:comment "The subject is a sublanguage of the object language.  Supported logics are shared along the inverse of this property."
         
-            Annotations: dct:creator "Christoph Lange", 
-                         dct:date "2012-04-17"^^xsd:date
-        rdfs:comment "Do we need both isSubLanguageOf and isProfileOf?  Intuitively I do think so, and I think it's reasonable to distinguish them via their properties wrt. logic/serialization propagation."
-    
     SubPropertyOf: 
         translatableTo,
         mappableToLanguage
