@@ -31,8 +31,8 @@ Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
 Copyright (c) 2014-2015 Athan Services"^^xsd:string,
 	rdfs:label "Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology",
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
-    sm:fileAbstract "This ontology covers terminology used for describing logics, ontology and rule languages, and related terms from the OntoIOp specification."^^xsd:string,
-    sm:filename "dol.omn"^^xsd:string,
+    sm:fileAbstract "This ontology covers the terminology of the Distributed Ontology, Model, and Specification Language (DOL) and is a normative part of its specification."^^xsd:string,
+    sm:filename "ontology.omn"^^xsd:string,
     dct:license "http://www.omg.org/techprocess/ab/SpecificationMetadata/MITLicense"^^xsd:anyURI,
     sm:contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all"^^xsd:anyURI
 
