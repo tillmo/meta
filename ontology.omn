@@ -2100,7 +2100,7 @@ Class: ExtensionMapping
     Annotations: 
         skos:definition "mapping between two OMSs where the sets of non-logical symbols and sentences of the second OMS are supersets of those present in the first OMS",
         rdfs:label "extension mapping",
-        skos:editorialNote "This definition differs from that in the OntoIOp glossary by focussing on the mapping rather than the codomain of the mapping."
+        skos:editorialNote "This definition differs from that in the Terms and Definition section of the DOL specification by focussing on the mapping rather than the codomain of the mapping."
     
     SubClassOf: 
         LogicalOMSMapping
