@@ -139,6 +139,9 @@ ObjectProperty: embeddableInto
         Transitive
     
 ObjectProperty: omsIn
+    Annotations: 
+        rdfs:comment "The subject is an OMS participating in a DOL library, which is the object."
+    
 
     InverseOf: 
         hasOMS
@@ -171,7 +174,7 @@ ObjectProperty: translatableFrom
 ObjectProperty: hasMember
 	
     Annotations: 
-        rdfs:comment "The set membership relation."
+        rdfs:comment "The inverse of the set membership relation."
 
     Domain: 
         OMSLibrary
@@ -209,7 +212,7 @@ ObjectProperty: mappableToLogic
 ObjectProperty: isExtensionOf
 	
    Annotations: 
-        rdfs:comment "Relation between two OMS where the first one is an extension of the second one, i.e. the sets of non-logical symbols and sentences of the first one are supersets of those of the second one."
+        rdfs:comment "Relation between two OMS. The subject OMS is an extension of the object OMS, i.e. the sets of non-logical symbols and sentences of the subject OMS are supersets of those of the object OMS."
     Domain: 
         OMS
     
@@ -280,6 +283,7 @@ ObjectProperty: isSubLanguageOf
     
     
 ObjectProperty: specifiesSemanticsOf
+        rdfs:comment "The semantics of [a subset of] the object language can be specified in terms of the subject logic."
 
     InverseOf: 
         supportsLogic
@@ -371,6 +375,7 @@ ObjectProperty: mappableToBijectivelyOnModels
     
     
 ObjectProperty: mappingIn
+        rdfs:comment "The object is a DOL library, in which the subject is a mapping between two participating OMS."
 
     InverseOf: 
         hasMapping
@@ -379,7 +384,7 @@ ObjectProperty: mappingIn
 ObjectProperty: hasOMS
 
     Annotations: 
-        rdfs:comment "The subject is an OMS library, in which the object is a participating heterogeneous OMS."
+        rdfs:comment "The subject is a DOL library, in which the object is a participating heterogeneous OMS."
     
     SubPropertyOf: 
         hasMember
@@ -446,6 +451,8 @@ ObjectProperty: exactLogicalExpressivity
     
     
 ObjectProperty: serializes
+    Annotations: 
+        rdfs:comment "The subject is a serialization for the object language. For example, Manchester syntax serializes OWL"
 
     InverseOf: 
         supportsSerialization
@@ -464,6 +471,8 @@ ObjectProperty: serializes
 ObjectProperty: isMonomorphicExtensionOf
 
     Annotations: 
+        rdfs:comment "The subject OMS is a monomorphic extension of the object OMS. A monomorphic extension is an extension whose newly introduced
+   non-logical symbols are interpreted in a way unique up to isomorphism.",
         strictlyStrongerThan isModelTheoreticallyConservativeExtensionOf
     
     SubPropertyOf: 
@@ -473,7 +482,7 @@ ObjectProperty: isMonomorphicExtensionOf
 ObjectProperty: hasInterpretation
 
     Annotations: 
-        rdfs:comment "The subject is an OMS library, in which the object is an interpretation between two participating OMS."
+        rdfs:comment "The subject is a DOL library, in which the object is an interpretation between two participating OMS."
     
     SubPropertyOf: 
         hasMapping
@@ -488,7 +497,7 @@ ObjectProperty: hasInterpretation
 ObjectProperty: hasAlignment
 
     Annotations: 
-        rdfs:comment "The subject is an OMS library, in which the object is an alignment between two participating OMS."
+        rdfs:comment "The subject is a DOL library, in which the object is an alignment between two participating OMS."
     
     SubPropertyOf: 
         hasMapping
@@ -501,6 +510,7 @@ ObjectProperty: hasAlignment
     
     
 ObjectProperty: memberOf
+        rdfs:comment "The set membership relation."
 
     InverseOf: 
         hasMember
@@ -509,6 +519,7 @@ ObjectProperty: memberOf
 ObjectProperty: isModelTheoreticallyConservativeExtensionOf
 
     Annotations: 
+        rdfs:comment "The subject OMS is a model-theoretic conservative extension of the object OMS. A model-theoretic conservative extension is an extension that does not lead to a restriction of class of models of an OMS.",
         strictlyStrongerThan isConsequenceTheoreticallyConservativeExtensionOf
     
     SubPropertyOf: 
@@ -558,13 +569,16 @@ ObjectProperty: mappableToLanguage
     
     
 ObjectProperty: alignmentIn
+    Annotations: 
+        rdfs:comment "The obbject is a DOL library, in which the subject is an alignment between two participating OMS."
 
     InverseOf: 
         hasAlignment
     
     
 ObjectProperty: sourceOfMapping
-
+   Annotations: 
+        rdfs:comment "The object mapping maps from the subject into something of the same type as the subject."
     InverseOf: 
         mapsFrom
     
@@ -618,6 +632,7 @@ ObjectProperty: isSubLogicOf
     
     
 ObjectProperty: interpretationIn
+        rdfs:comment "The object is a DOL library, in which the subject is an interpretation between two participating OMS."
 
     InverseOf: 
         hasInterpretation
@@ -691,7 +706,8 @@ ObjectProperty: mappableFromLogic
     
     
 ObjectProperty: isConsequenceTheoreticallyConservativeExtensionOf
-
+    Annotations: 
+        rdfs:comment "The subject OMS is a consequence-theoretic conservative extension of the object OMS. A consequence-theoretic conservative extension is an extension that does not add new theorems (in terms of the unextended signature)."
     SubPropertyOf: 
         isConservativeExtensionOf
     
@@ -754,7 +770,7 @@ ObjectProperty: mappableTo
 ObjectProperty: hasMapping
 
     Annotations: 
-        rdfs:comment "The subject is a distributed OMS, in which the object is a mapping between two participating OMS."
+        rdfs:comment "The subject is a DOL library, in which the object is a mapping between two participating OMS."
     
     SubPropertyOf: 
         hasMember
@@ -766,10 +782,13 @@ ObjectProperty: hasMapping
         mappingIn
     
 ObjectProperty: isWeakDefinitionalExtensionOf
-    
+    Annotations: 
+        rdfs:comment "The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
+   non-logical symbols can be interpreted in at most one way."    
     
 ObjectProperty: adjoint
-
+    Annotations: 
+        rdfs:comment "The subject is a translation that shares its sentence and model translation with the object reduction. The signature translations are adjoint to each other (in the sense of category theory)."
     Domain: 
         Translation
     
@@ -889,7 +908,7 @@ Class: ExactMapping
 Class: OMSLibrary
 
     Annotations: 
-        rdfs:comment "an OMS library"
+        rdfs:comment "a DOL library"
     
     
     
@@ -944,7 +963,7 @@ Class: Sentence
 Class: View
 
     Annotations: 
-        rdfs:comment "a view (also called interpretation) between two heterogeneous OMS in an OMS library"
+        rdfs:comment "a view (also called interpretation) between two heterogeneous OMS in a DOL library"
     
     EquivalentTo: 
         Interpretation
@@ -977,7 +996,7 @@ Class: Embedding
 Class: OMS
 
     Annotations: 
-        rdfs:comment "a basic OMS or an OMS library",
+        rdfs:comment "a basic OMS or a DOL library",
         rdfs:label "OMS (ontology, specification or model)",
         skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)",
         skos:note "An OMS can be written in different OMS language serializations."
@@ -1185,7 +1204,7 @@ Class: FaithfulMapping
 Class: OMSMapping
 
     Annotations: 
-        rdfs:comment "a mapping between two heterogeneous OMSs in an OMS library", 
+        rdfs:comment "a mapping between two heterogeneous OMSs in a DOL library", 
         reifies mappableTo,
         rdfs:label "OMS mapping",
         skos:definition "relationship between two OMSs, typically given as a set of correspondences"
@@ -1282,7 +1301,7 @@ Class: ModelBijectiveMapping
 Class: Alignment
 
     Annotations: 
-        rdfs:comment "an alignment between two heterogeneous OMS in an OMS library"
+        rdfs:comment "an alignment between two heterogeneous OMS in a DOL library"
     
     SubClassOf: 
         Mapping
@@ -2422,7 +2441,7 @@ Individual: DOL
     Annotations: 
         skos:note " When viewed as an \\termref{OMS language}, DOL has OMSs as its non-logical symbols, and OMS mappings as its sentences.",
         rdfs:label "DOL",
-        skos:definition "language for formalizing distributed OMSs, whose syntax and semantics are specified in this \\IS}"
+        skos:definition "language for formalizing DOL libraries, whose syntax and semantics are specified in this \\IS}"
     
     Types: 
         OMSLanguage
