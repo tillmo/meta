@@ -1,4 +1,3 @@
-OOR_Ontohub_API
-===============
+# meta repository for ontohub
+meta repository for ontohub; contains ontologies for metadata, for DOL etc.
 
-API for OOR and Ontohub
