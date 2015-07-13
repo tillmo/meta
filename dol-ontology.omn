@@ -168,6 +168,9 @@ ObjectProperty: translatableFrom
     
     
 ObjectProperty: hasMember
+	
+    Annotations: 
+        rdfs:comment "The set membership relation."
 
     Domain: 
         OMSLibrary
@@ -203,7 +206,9 @@ ObjectProperty: mappableToLogic
         mappableFromLogic
         
 ObjectProperty: isExtensionOf
-
+	
+   Annotations: 
+        rdfs:comment "Relation between two OMS where the first one is an extension of the second one, i.e. the sets of non-logical symbols and sentences of the first one are supersets of those of the second one."
     Domain: 
         OMS
     
