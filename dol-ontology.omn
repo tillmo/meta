@@ -66,6 +66,7 @@ AnnotationProperty: rdfs:comment
 AnnotationProperty: rdfs:seeAlso
 AnnotationProperty: owl:versionInfo
 AnnotationProperty: owl:sameAs
+AnnotationProperty: sm:isNormative
 	
 
 AnnotationProperty: strictlyStrongerThan
@@ -1954,6 +1955,7 @@ Class: Set
         skos:definition "set whose members have a certain type, as specified by the type parameter.",
         rdfs:label "set"
     
+ObjectProperty: impliedExtensionOf
     
 Class: ImpliedExtensionMapping
 
