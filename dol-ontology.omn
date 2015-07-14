@@ -177,7 +177,7 @@ ObjectProperty: hasMember
         skos:definition "The inverse of the set membership relation."
 
     Domain: 
-        OMSLibrary
+        DOLLibrary
     
     InverseOf: 
         memberOf
@@ -350,7 +350,7 @@ ObjectProperty: language
     Annotations: 
         rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
 SubPropertyChain: serialization o serializes",
-        rdfs:comment "the language of an OMS"
+        skos:definition "the language of an OMS"
     
     Characteristics: 
         Functional
@@ -416,7 +416,7 @@ ObjectProperty: reducibleTo
 ObjectProperty: target
 
     Annotations: 
-        rdfs:comment "the target OMS of a mapping"
+        skos:definition "the target OMS of a mapping"
     
     Characteristics: 
         Functional
@@ -431,7 +431,7 @@ ObjectProperty: target
 ObjectProperty: source
 
     Annotations: 
-        rdfs:comment "the source OMS of a mapping"
+        skos:definition "the source OMS of a mapping"
     
     Characteristics: 
         Functional
@@ -513,7 +513,7 @@ ObjectProperty: hasAlignment
     
 ObjectProperty: memberOf
     Annotations: 
-        rdfs:comment "The set membership relation."
+        skos:definition "The set membership relation."
 
     InverseOf: 
         hasMember
@@ -676,7 +676,7 @@ ObjectProperty: simplyTheoroidallyMappableTo
 ObjectProperty: logic
 
     Annotations: 
-        rdfs:comment "the logic in which an OMS is formalized"
+        skos:definition "the logic in which an OMS is formalized"
     
     Characteristics: 
         Functional
@@ -744,7 +744,7 @@ ObjectProperty: mappableFromLanguage
 ObjectProperty: serialization
 
     Annotations: 
-        rdfs:comment "the serialization in which an OMS is written"
+        rdfs:comment "the textual syntax in which an OMS is written"
     
     Characteristics: 
         Functional
@@ -863,7 +863,7 @@ DataProperty: mediaType
 DataProperty: prefFilenameExtension
 
     Annotations: 
-        rdfs:comment "the preferred filename extension for a serialization"
+        skos:definition "the preferred filename extension for a serialization"
     
     Characteristics: 
         Functional
@@ -878,7 +878,7 @@ DataProperty: prefFilenameExtension
 DataProperty: altFilenameExtension
 
     Annotations: 
-        rdfs:comment "an alternative filename extension for a serialization"
+        skos:definition "an alternative filename extension for a serialization"
     
     Domain: 
         Serialization
@@ -892,6 +892,7 @@ DataProperty: altFilenameExtension
 Class: WeaklyExactMapping
 
     Annotations: 
+        skos:definition "logic mapping that is weakly compatible with certain DOL structuring constructs",
         propagatesToAdjoint "true"^^xsd:boolean,
         reifies weaklyExactlyMappableTo
     
@@ -902,6 +903,7 @@ Class: WeaklyExactMapping
 Class: ExactMapping
 
     Annotations: 
+        skos:definition "logic mapping that is compatible with certain DOL structuring constructs",
         propagatesToAdjoint "true"^^xsd:boolean,
         reifies exactlyMappableTo
     
@@ -909,16 +911,16 @@ Class: ExactMapping
         WeaklyExactMapping
     
     
-Class: OMSLibrary
+Class: DOLLibrary
 
     Annotations: 
-        rdfs:comment "a DOL library"
-    
+        skos:definition "collection of named OMS and OMS networks, possibly written in different OMS languages, linked by named OMS mappings."    
     
     
 Class: ModelExpansiveMapping
 
     Annotations: 
+        skos:definition "logic mapping that has a surjective model translation (ensuring faithfulness of the mapping)",
         propagatesToAdjoint "true"^^xsd:boolean,
         reifies modelExpansivelyMappableTo
     
@@ -942,7 +944,7 @@ Class: Translation
 Class: SubLogic
 
     Annotations: 
-        rdfs:comment "'syntactic' embedding",
+        rdfs:comment "logic embedding that is 'syntactic' in the sense that signature and sentence translations are inclusions.",
         reifies isSubLogicOf
     
     SubClassOf: 
@@ -989,6 +991,7 @@ Class: View
 Class: Embedding
 
     Annotations: 
+        skos:definition "logic mapping that embeds the source into the target logic, using components that are embeddings and (in the case of model translations) isomorphism",
         reifies embeddableInto
     
     SubClassOf: 
@@ -1000,7 +1003,7 @@ Class: Embedding
 Class: OMS
 
     Annotations: 
-        rdfs:comment "a basic OMS or a DOL library",
+        skos:definition "a basic or structured ontology, specification or model",
         rdfs:label "OMS (ontology, specification or model)",
         skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)",
         skos:note "An OMS can be written in different OMS language serializations."
@@ -1026,7 +1029,7 @@ Class: Ontology
 Class: MDEModel
 
     Annotations: 
-        rdfs:comment "a model (in the sense of model-driven engineering (MDE))"
+        skos:definition "a model (in the sense of model-driven engineering (MDE))"
 
     SubClassOf:
         OMS
@@ -1055,7 +1058,7 @@ Class: Interpretation
 Class: OMSLanguageTranslation
 
     Annotations: 
-        rdfs:comment "a mapping (translation or reduction) between two OMS languages",
+        skos:definition "a mapping (translation or reduction) between two OMS languages",
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
