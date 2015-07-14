@@ -174,7 +174,7 @@ ObjectProperty: translatableFrom
 ObjectProperty: hasMember
 	
     Annotations: 
-        rdfs:comment "The inverse of the set membership relation."
+        skos:definition "The inverse of the set membership relation."
 
     Domain: 
         OMSLibrary
@@ -283,6 +283,7 @@ ObjectProperty: isSubLanguageOf
     
     
 ObjectProperty: specifiesSemanticsOf
+    Annotations: 
         rdfs:comment "The semantics of [a subset of] the object language can be specified in terms of the subject logic."
 
     InverseOf: 
@@ -375,6 +376,7 @@ ObjectProperty: mappableToBijectivelyOnModels
     
     
 ObjectProperty: mappingIn
+    Annotations: 
         rdfs:comment "The object is a DOL library, in which the subject is a mapping between two participating OMS."
 
     InverseOf: 
@@ -510,6 +512,7 @@ ObjectProperty: hasAlignment
     
     
 ObjectProperty: memberOf
+    Annotations: 
         rdfs:comment "The set membership relation."
 
     InverseOf: 
@@ -632,6 +635,7 @@ ObjectProperty: isSubLogicOf
     
     
 ObjectProperty: interpretationIn
+    Annotations: 
         rdfs:comment "The object is a DOL library, in which the subject is an interpretation between two participating OMS."
 
     InverseOf: 
@@ -1372,10 +1376,10 @@ ObjectProperty: isAdjointOf
         rdfs:label "is adjoint of"
     
     Domain: 
-        Mapping
+        LogicMapping
     
     Range: 
-        Mapping
+        LogicMapping
     
     
 ObjectProperty: definitionallyExtendsTo
