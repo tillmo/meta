@@ -676,8 +676,8 @@ ObjectProperty: simplyTheoroidallyMappableTo
 ObjectProperty: logic
 
     Annotations: 
-        skos:definition "the logic in which an OMS is formalized"
-    
+        rdfs:comment "the logic in which an OMS is formalized",
+        skos:definition "specification of valid reasoning that comprises signatures (user defined vocabularies), models (interpretations of these), sentences (constraints on models), and a satisfaction relation between models and sentences."
     Characteristics: 
         Functional
     
