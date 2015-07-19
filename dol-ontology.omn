@@ -1169,7 +1169,7 @@ Class: Reduction
         skos:definition "restriction of an OMS to a smaller signature."
     
     SubClassOf: 
-        StructuredOMS
+        DOLStructuredOMS
     
     DisjointWith: 
         Translation
@@ -1317,7 +1317,7 @@ Class: Alignment
         rdfs:comment "an alignment between two heterogeneous OMS in a DOL library"
     
     SubClassOf: 
-        Mapping
+        Mapping, hasPart some Correspondence
     
     DisjointWith: 
         Interpretation
@@ -1415,7 +1415,7 @@ ObjectProperty: isOMSUnionOf
         rdfs:label "is union of OMS"
     
     Domain: 
-        StructuredOMS
+        DOLStructuredOMS
     
     Range: 
         SetOfOMS
@@ -2417,7 +2417,7 @@ Class: Renaming
         skos:note " A renaming results in an OMS mapping between the original and the renamed OMS. "
     
     SubClassOf: 
-        StructuredOMS
+        DOLStructuredOMS
     
     
 Individual: DOL
@@ -2449,7 +2449,7 @@ Annotations:
         skos:definition "way of implementing the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown.",
         skos:note "Symbols from the local environment are assumed to have a fixed interpretation. Only the symbols newly declared in the closure are forced to have minimal or maximal interpretation.",
         skos:note "DOL supports four different forms of closure: minimization and maximization as well as freeness and cofreeness."
-        SubClassOf: StructuredOMS
+        SubClassOf: DOLStructuredOMS
 	
 	
 Class: Cofreeness
@@ -2478,12 +2478,12 @@ Class: Maximization
 Class: Union
     Annotations: 
 	skos:definition "aggregation of several OMS to a new OMS, without any renaming."
-    SubClassOf: StructuredOMS
+    SubClassOf: DOLStructuredOMS
 	
 Class: Extension
     Annotations: 
 	skos:definition "OMS whose sets of non-logical symbols and sentences are supersets of those present in the OMS given by the local environment."
-    SubClassOf: StructuredOMS
+    SubClassOf: DOLStructuredOMS
 	
 Class: ConservativeExtension
     Annotations: 
@@ -2576,7 +2576,7 @@ Class: ModelFinder
 Class: Module
     Annotations: 
 	skos:definition "subOMS that conservatively extends to conservative extension the whole OMS."
-    SubClassOf: StructuredOMS
+    SubClassOf: DOLStructuredOMS
 
 Class: NativeOMS
     Annotations: 
@@ -2609,12 +2609,12 @@ Class: MaximumApproximant
 Class: Approximation
     Annotations: 
 	skos:definition "structured OMS that delivers an approximation."
-    SubClassOf: StructuredOMS
+    SubClassOf: DOLStructuredOMS
 	
 Class: Filtering
     Annotations: 
 	skos:definition "verbatim removal of symbols or axioms from an OMS."
-    SubClassOf: StructuredOMS
+    SubClassOf: DOLStructuredOMS
 	
 Class: Tool
     Annotations: 
@@ -2624,6 +2624,29 @@ Class: Combination
     Annotations: 
         skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.",
         skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "
-    SubClassOf: StructuredOMS
+    SubClassOf: DOLStructuredOMS
 
-  
+Class: Correspondence
+    Annotations: 
+	skos:definition "relationship between an non-logical symbol $e_1$ from an OMS $O_1$ and an non-logical symbol $e_2$ from an OMS $O_2$, or between an non-logical symbol $e_1$ from $O_1$ and a term $t_2$ formed from non-logical symbols\index{non-logical symbol from $O_2$.",
+        skos:note "A correspondence is given as a quadruple 
+$(e_1, R, e_2, c)$,
+where $R$ denotes the type of relationship that is asserted to hold between the two non-logical 
+symbols/terms, and 0<=c<=1 is a confidence value.  $R$ and $c$ may be omitted: When $R$ is 
+omitted, it defaults to the equivalence relation, unless another default
+relation has been explicitly specified; when $c$ is omitted, it defaults to 1."
+	
+	
+Class: DOLStructuredOMS
+    Annotations: 
+        rdfs:label "DOL structured OMS",
+	skos:definition "syntactically valid DOL expression denoting an OMS that is built from smaller OMS as building blocks.",
+	skos:note "DOL structured OMS, typically, use basic OMS as building blocks for defining other structured OMS, OMS mappings or OMS networks."
+    SubClassOf: StructuredOMS	
+	
+Class: Entailment
+    Annotations: 
+	skos:definition "relation between two OMS (or an OMS and a sentence) expressing that the second one is logically implied by the first one.",
+	skos:note "Entailment expresses that each model satisfying the first OMS also satisfies the second OMS (or the sentence, respectively).",
+	skos:note "Entailments can also be stated between networks, or networks and OMS."
+    SubClassOf: OMSMapping	
