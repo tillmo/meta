@@ -985,7 +985,7 @@ Class: View
         skos:note " When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation. "
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     
 Class: Embedding
@@ -1161,7 +1161,7 @@ Class: Refinement
 
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     
 Class: Reduction
@@ -1173,7 +1173,7 @@ Class: Reduction
         skos:definition "logical OMS mapping reducing an OMS to a smaller signature"
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     DisjointWith: 
         Translation
@@ -1181,7 +1181,7 @@ Class: Reduction
 
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
 
 Class: BasicOMS
@@ -1369,10 +1369,12 @@ ObjectProperty: isSubOMSOf
     Range: 
         OMS
 	
+ObjectProperty: isCombinationOf
+	
     Annotations: 
         skos:example "Consider an ontology involving a concept \\texttt{Person}, and another one involving \\texttt{Human being}, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both \\texttt{Person} and \\texttt{Human being}.",
         rdfs:label "is combination of OMS",
-        skos:definition "aggregation of all the OMS in a OMS graph, where non-logical symbols are shared according to the OMS mappings in the OMS graph} "
+        skos:definition "aggregation of all the OMS in a OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network} "
     
     Domain: 
         StructuredOMS
@@ -1721,12 +1723,12 @@ ObjectProperty: hasPart
         skos:definition "relationship between two things were the second is a component of the first"
     
     
-Class: OMSGraph
+Class: OMSNetwork
 
     Annotations: 
-        skos:note "An OMS graph is a diagram of OMS in the sense of category theory, but different from a diagram in the sense of model-driven architecture.",
-        skos:definition "graph with OMS as nodes and OMS mappings as edges, showing how the OMS are interlinked",
-        rdfs:label "OMS graph"
+        skos:note "An OMS network is a diagram of OMS in the sense of category theory, but different from a diagram in the sense of model-driven architecture.",
+        skos:definition "network with OMS as nodes and OMS mappings as edges, showing how the OMS are interlinked",
+        rdfs:label "OMS network"
     
     SubClassOf: 
         Graph
@@ -1886,18 +1888,6 @@ Class: SetOfSentences
         SetOfExpressions
     
     
-Class: AdjointEquivalence
-
-    Annotations: 
-        rdfs:label "adjoint of equivalence"
-    
-    EquivalentTo: 
-        isAdjointOf some Equivalence
-    
-    SubClassOf: 
-        Equivalence
-    
-    
 Class: Institution
 
     Annotations: 
@@ -1974,11 +1964,11 @@ Class: HomogeneousOMS
 Class: NonLogicalSymbol
 
     Annotations: 
-        skos:example " Non-logical symbols in OWL \\nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities'') comprise \\begin{itemize} \\item individuals (denoting objects from the domain of discourse), \\item classes (denoting sets of objects; also called concepts), and \\item properties (denoting binary relations over objects; also called roles). \\end{itemize} This is opposed to logical symbols in OWL, e.g.\\ those for intersection and union of classes. ",
+        skos:example "Non-logical symbols in OWL \\nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities'') comprise \\begin{itemize} \\item individuals (denoting objects from the domain of discourse), \\item classes (denoting sets of objects; also called concepts), and \\item properties (denoting binary relations over objects; also called roles). \\end{itemize} This is opposed to logical symbols in OWL, e.g.\\ those for intersection and union of classes. ",
         skos:definition "OMS symbol atomic expression or syntactic constituent of an OMS that requires an interpretation through a model",
         skos:note "The notion of ``atomic sentence'' used in logic is different, it usually may involve several non-logical symbols. ",
         rdfs:label "non-logical symbol",
-        skos:example " Non-logical symbols in Common Logic \\nisref{ISO/IEC 24707:2007} comprise \\begin{itemize} \\item names (denoting objects from the domain of discourse), \\item sequence markers (denoting sequences of objects). \\end{itemize} This is opposed to logical symbols in Common Logic, e.g.\\ logical connectives and quantifiers. ",
+        skos:example " Non-logical symbols in Common Logic \\nisref{ISO/IEC 24707:2007} comprise \\begin{itemize} \\item names (denoting objects from the domain of discourse), \\item sequence markers (denoting sequences of objects). \\end{itemize} This is opposed to logical symbols in Common Logic, e.g.\\ logical connectives and quantifiers.",
         skos:altLabel "OMS symbol"
     
     SubClassOf: 
@@ -2020,11 +2010,11 @@ Class: StructuredOMS
 Class: Model
 
     Annotations: 
-        skos:note "A model of an OMS is a model of the signature of the OMS that moreover satisfies all the axioms of the OMS.",
+        skos:note "A model of an OMS is a model of the signature of the OMS that also satisfies all the additional constraints expressed by the OMS. In case of flattenable OMS, these constraints are expressed by the axioms of the OMS.",
         rdfs:label "model",
         skos:scopeNote "This term is not to be confused with model (here called MDEModel) in the sense of modeling (i.e., the ``M'' in OMS).",
-        skos:definition " semantic interpretation of a signature"
-    
+        skos:definition " semantic interpretation of all non-logical symbols of a signature"
+   
     SubClassOf: 
         isModelOfSignature some Vocabulary
     
@@ -2061,7 +2051,7 @@ Class: Substitution
         skos:definition "logical OMS mapping that maps query variables of one OMS to complex terms of another OMS"
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     
 Class: SatisfactionRelation
@@ -2075,7 +2065,7 @@ Class: SatisfactionRelation
 Class: ConservativeExtensionMapping
 
     Annotations: 
-        skos:definition "consequence-theoretic or model-theoretic conservative extension",
+        skos:definition "extension mapping of a consequence-theoretic or model-theoretic conservative extension",
         rdfs:label "conservative extension mapping",
         skos:note "If used without qualification, the consequence-theoretic version is meant.",
         reifies isConservativeExtensionOf
@@ -2131,16 +2121,6 @@ Class: Profile
         OMSLanguage
     
     
-Class: FocusedOMS
-
-    Annotations: 
-        skos:definition "TBD",
-        rdfs:label "focused OMS"
-    
-    SubClassOf: 
-        OMS
-    
-    
 Class: ExtensionMapping
 
     Annotations: 
@@ -2149,7 +2129,7 @@ Class: ExtensionMapping
         skos:editorialNote "This definition differs from that in the Terms and Definition section of the DOL specification by focussing on the mapping rather than the codomain of the mapping."
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     
 Class: OMSDocumentation
@@ -2165,7 +2145,9 @@ Class: OMSDocumentation
 Class: SupportsRelation
 
     Annotations: 
-        rdfs:label "supports relation"
+        rdfs:label "supports relation",
+        skos:definition "relation between OMS languages and logics expressing the logical language aspect of the former, namely that the constructs of the former lead to a logical theory in the latter.",
+	skos:note "There is also a supports relation between OMS languages and serializations."	
     
     
 Class: SetOfAnnotationExpressions
@@ -2195,7 +2177,7 @@ Class: ElusiveOMS
 Class: OMSNetwork
 
     Annotations: 
-        skos:definition "collection of named OMS, possibly written in different OMS languages, linked by named OMS mappings and named OMS graphs",
+        skos:definition "collection of named OMS, possibly written in different OMS languages, linked by named OMS mappings and named OMS networks",
         skos:altLabel "hyperontology",
         rdfs:label "OMS network"
     
@@ -2228,7 +2210,7 @@ Class: Mapping
     Annotations: 
         reifies mappableTo,
         rdfs:comment "a generic mapping (translation or reduction)",   
-        skos:definition "TBD",
+        skos:definition "relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.",
         rdfs:label "mapping",
         skos:note "in some cases is a morphism, as in Category Theory."
     EquivalentTo: 
@@ -2283,7 +2265,7 @@ Class: Resource
 Class: OMSLogicGraph
 
     Annotations: 
-        skos:definition "TBD",
+        skos:definition "graph of logics, logic translations and logic reductions, typically used in a heterogeneous environment.",
         rdfs:label "OMS logic graph"
     
     SubClassOf: 
@@ -2298,26 +2280,16 @@ Class: Approximation
         rdfs:label "approximation"
     
     SubClassOf: 
-        LogicalOMSMapping
-    
-    
-Class: LogicalOMSMapping
-
-    Annotations: 
-        skos:note " Logical OMS mappings are given as sets of correspondences, which are required to be \\emph{signature morphisms}. ",
-        rdfs:label "logical OMS mapping",
-        skos:definition "OMS mapping that has a formal, logic-based semantics"
-    
-    SubClassOf: 
-        hasPart some SetOfCorrespondences,
         OMSMapping
+    
+	
     
     
     
 Class: QueryLanguage
 
     Annotations: 
-        skos:scopeNote " There are also general purpose OMS languages, which can express both OMS and quries. ",
+        skos:scopeNote " There are also general purpose OMS languages, which can express both OMS and quries.",
         skos:definition "OMS language specifically dedicated to queries",
         rdfs:label "query language",
         skos:example " SPARQL, Prolog "
@@ -2340,7 +2312,7 @@ Class: OMSLanguageGraph
 
     Annotations: 
         rdfs:label "OMS language graph",
-        skos:definition "TBD"
+        skos:definition "graph of OMS languages and OMS language translations, typically used in a heterogeneous environment."
     
     SubClassOf: 
         Graph
@@ -2363,12 +2335,12 @@ Class: HeterogeneousOMS
 Class: Equivalence
 
     Annotations: 
-        skos:definition "logical OMS mapping ensuring that two OMS share the same definable concepts} ",
+        skos:definition "logical OMS mapping ensuring that two OMS share the same definable concepts",
         rdfs:label "equivalence",
         skos:note " Two OMS are equivalent if they have a common definitional extension. The OMS may be written in different OMS languages. "
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     
     
@@ -2396,9 +2368,9 @@ Class: LogicTranslation
 Class: Graph
 
     Annotations: 
-        skos:definition "TBD",
+        skos:definition "set of objects (nodes) that are connected by links (edges)",
         rdfs:label "graph",
-        skos:altLabel "diagram"
+        skos:altLabel "network"
     
     
 Class: SetOfExpressions
@@ -2424,7 +2396,7 @@ Class: LogicReduction
 Class: Expression
 
     Annotations: 
-        skos:definition "TBD see Class 'language'",
+        skos:definition "a finite combination of symbols that are well-formed according to applicable rules (depending on the language)",
         rdfs:label "expression"
     
     SubClassOf: 
@@ -2452,15 +2424,15 @@ Class: Renaming
         skos:note " A renaming results in a logical OMS mapping between the original and the renamed OMS. "
     
     SubClassOf: 
-        LogicalOMSMapping
+        OMSMapping
     
     
 Individual: DOL
 
     Annotations: 
-        skos:note " When viewed as an \\termref{OMS language}, DOL has OMS as its non-logical symbols, and OMS mappings as its sentences.",
-        rdfs:label "DOL",
-        skos:definition "language for formalizing DOL libraries, whose syntax and semantics are specified in this \\IS}"
+        skos:note "When viewed as an OMS language, DOL has OMS as its non-logical symbols, and OMS mappings as its sentences.",
+        rdfs:label "Distributed Ontology, Model and Specification Language",
+        skos:definition "unified metalanguage for the structured and heterogeneous expression of ontologies, specifications, and models, using DOL libraries of OMS, OMS mappings and OMS networks"
     
     Types: 
         OMSLanguage
