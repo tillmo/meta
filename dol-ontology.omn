@@ -220,7 +220,6 @@ ObjectProperty: isExtensionOf
         OMS
 
     Annotations: 
-        skos:definition "TBD",
         skos:altLabel "is extension of",
         skos:prefLabel "extends"
     
@@ -473,8 +472,7 @@ ObjectProperty: serializes
 ObjectProperty: isMonomorphicExtensionOf
 
     Annotations: 
-        rdfs:comment "The subject OMS is a monomorphic extension of the object OMS. A monomorphic extension is an extension whose newly introduced
-   non-logical symbols are interpreted in a way unique up to isomorphism.",
+        rdfs:comment "The subject OMS is a monomorphic extension of the object OMS. A monomorphic extension is an extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism.",
         strictlyStrongerThan isModelTheoreticallyConservativeExtensionOf
     
     SubPropertyOf: 
@@ -979,7 +977,7 @@ Class: View
     
     Annotations: 
         skos:note "An interpretation typically leads to proof obligations, \\ie one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS.",
-        skos:definition "logical OMS mapping that postulates a relation between two OMS",
+        skos:definition "OMS mapping that postulates a relation between two OMS",
         skos:altLabel "interpretation",
         rdfs:label "view",
         skos:note " When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation. "
@@ -1168,12 +1166,10 @@ Class: Reduction
 
     Annotations: 
         reifies reducibleTo,
-        rdfs:comment "a generic reduction",
-        rdfs:label "reduction",
-        skos:definition "logical OMS mapping reducing an OMS to a smaller signature"
+        skos:definition "restriction of an OMS to a smaller signature."
     
     SubClassOf: 
-        OMSMapping
+        StructuredOMS
     
     DisjointWith: 
         Translation
@@ -1193,7 +1189,7 @@ Class: BasicOMS
         skos:definition "signature equipped with a set of sentences and annotations, which may be used as a building block for a larger OMS"
     
     SubClassOf: 
-        OMS
+        NativeOMS
     
     SubClassOf: 
         hasPart exactly 1 OMSDocumentation,
@@ -1261,7 +1257,8 @@ Class: Serialization
         skos:example " Common Logic uses the term ``dialect''; the following are standard Common Logic dialects: Common Logic Interchange Format (CLIF), Conceptual Graph Interchange Format (GCIF), eXtended Common Logic Markup Language (XCL).",
         rdfs:label "OMS serialization",
         skos:note "Serializations serve as standard formats for exchanging OMS between tools.",
-        skos:example "OWL uses the term ``serialization''; the following are standard OWL serializations: OWL functional-style syntax, OWL/XML, OWL Manchester syntax, plus any standard serialization of RDF (e.g.  RDF/XML, Turtle, \\dots). However, RDF/XML is the only one tools are required to implement. "
+        skos:example "OWL uses the term ``serialization''; the following are standard OWL serializations: OWL functional-style syntax, OWL/XML, OWL Manchester syntax, plus any standard serialization of RDF (e.g.  RDF/XML, Turtle, \\dots). However, RDF/XML is the only one tools are required to implement. ",
+        rdfs:comment "synonymous to 'concrete syntax'"
     
     SubClassOf: 
         serializes some OMSLanguage
@@ -1372,15 +1369,15 @@ ObjectProperty: isSubOMSOf
 ObjectProperty: isCombinationOf
 	
     Annotations: 
-        skos:example "Consider an ontology involving a concept \\texttt{Person}, and another one involving \\texttt{Human being}, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both \\texttt{Person} and \\texttt{Human being}.",
+        skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.",
         rdfs:label "is combination of OMS",
-        skos:definition "aggregation of all the OMS in a OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network} "
+        skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "
     
     Domain: 
-        StructuredOMS
+        Combination
     
     Range: 
-        SetOfOMS
+        OMSNetwork
     
     
     
@@ -1727,12 +1724,14 @@ Class: OMSNetwork
 
     Annotations: 
         skos:note "An OMS network is a diagram of OMS in the sense of category theory, but different from a diagram in the sense of model-driven architecture.",
-        skos:definition "network with OMS as nodes and OMS mappings as edges, showing how the OMS are interlinked",
+        skos:definition "collection of named OMS, possibly written in different OMS languages, linked by named OMS mappings and named OMS networks",
+        skos:altLabel "hyperontology",
         rdfs:label "OMS network"
     
     SubClassOf: 
         Graph
-    
+	
+
     
 Class: SetOfCorrespondences
 
@@ -2048,7 +2047,7 @@ Class: Substitution
 
     Annotations: 
         rdfs:label "substitution",
-        skos:definition "logical OMS mapping that maps query variables of one OMS to complex terms of another OMS"
+        skos:definition "OMS mapping that maps query variables of one OMS to complex terms of another OMS"
     
     SubClassOf: 
         OMSMapping
@@ -2174,12 +2173,6 @@ Class: ElusiveOMS
     
     
     
-Class: OMSNetwork
-
-    Annotations: 
-        skos:definition "collection of named OMS, possibly written in different OMS languages, linked by named OMS mappings and named OMS networks",
-        skos:altLabel "hyperontology",
-        rdfs:label "OMS network"
     
     
 Class: WeakDefinitionalExtensionMapping
@@ -2275,7 +2268,7 @@ Class: OMSLogicGraph
 Class: Approximation
 
     Annotations: 
-        skos:definition "logical OMS mapping to a logically implied theory (possibly after suitable translation) in a smaller signature or OMS language",
+        skos:definition "OMS mapping to a logically implied theory (possibly after suitable translation) in a smaller signature or OMS language",
         skos:editorialNote "this definition is derived from the defintion of approximant in the spec",
         rdfs:label "approximation"
     
@@ -2335,7 +2328,7 @@ Class: HeterogeneousOMS
 Class: Equivalence
 
     Annotations: 
-        skos:definition "logical OMS mapping ensuring that two OMS share the same definable concepts",
+        skos:definition "OMS mapping ensuring that two OMS share the same definable concepts",
         rdfs:label "equivalence",
         skos:note " Two OMS are equivalent if they have a common definitional extension. The OMS may be written in different OMS languages. "
     
@@ -2421,10 +2414,10 @@ Class: Renaming
     Annotations: 
         rdfs:label "renaming",
         skos:definition "assignment of new names to some non-logical symbols of an OMS",
-        skos:note " A renaming results in a logical OMS mapping between the original and the renamed OMS. "
+        skos:note " A renaming results in an OMS mapping between the original and the renamed OMS. "
     
     SubClassOf: 
-        OMSMapping
+        StructuredOMS
     
     
 Individual: DOL
@@ -2437,4 +2430,200 @@ Individual: DOL
     Types: 
         OMSLanguage
     
-    
+Class: AbstractSyntax
+Annotations: 
+        skos:note "An abstract syntax can be specified as a MOF metamodel. Then abstract abstract syntax documents can be represented as  XMI documents.",
+        rdfs:label "abstract syntax",
+        skos:definition	"term language for representing documents in a machine-processable way"
+	
+Class: Category
+Annotations: 
+        skos:definition "a collection of objects with suitable morphisms between them",
+        skos:note "In DOL, objects of a category are usually signatures or OMS, and morphisms are signature morphisms, or OMS mappings. In principle, no assumption about the exact nature of objects and morphisms is made.",
+        skos:note "The morphisms determine which part of the structure of the objects is relevant, i.e. preserved by morphisms. Hence, objects can be seen as 'sets with structure', and morphisms as 'structure-preserving maps'.  However note that not all categories can be obtained in this way."
+	
+	
+	
+Class: Closure
+Annotations: 
+        skos:definition "way of implementing the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown.",
+        skos:note "Symbols from the local environment are assumed to have a fixed interpretation. Only the symbols newly declared in the closure are forced to have minimal or maximal interpretation.",
+        skos:note "DOL supports four different forms of closure: minimization and maximization as well as freeness and cofreeness."
+        SubClassOf: StructuredOMS
+	
+	
+Class: Cofreeness
+Annotations: 
+        skos:definition "special type of closure, restriction of models to those that are cofree (with respect to the local environment).",
+        skos:note "In first-order-like logics, cofreeness means maximal interpretation of predicates and equality being observable equivalence. Cofreeness can be used for the specification of coinductive datatypes like infinite lists and streams."
+    SubClassOf: Closure
+
+Class: Freeness
+Annotations: 
+        skos:definition "special type of closure, restriction of models to those that are free (with respect to the local environment).",
+        skos:note "In first-order logic (and similar logics), freeness means minimal interpretation of predicates and minimal equality among data values. Freeness can be used for the specification of inductive datatypes like numbers, lists, trees, bags etc. In order to specify e.g. lists over some elements, the specification of the elements should be in the local environment."
+    SubClassOf: Closure
+	
+Class: Minimization
+    Annotations: 
+        skos:definition "form of closure that restricts the models to those that are minimal (with respect to the local environment).",
+        skos:note "Also known as circumscription."
+    SubClassOf: Closure
+
+Class: Maximization
+    Annotations: 
+	skos:definition "form of closure that restricts the models to those that are maximal (with respect to the local environment)."
+    SubClassOf: Closure
+	
+Class: Union
+    Annotations: 
+	skos:definition "aggregation of several OMS to a new OMS, without any renaming."
+    SubClassOf: StructuredOMS
+	
+Class: Extension
+    Annotations: 
+	skos:definition "OMS whose sets of non-logical symbols and sentences are supersets of those present in the OMS given by the local environment."
+    SubClassOf: StructuredOMS
+	
+Class: ConservativeExtension
+    Annotations: 
+	skos:definition "extension that does not add new logical properties with respect to the signature of the extended OMS.",
+        rdfs:label "conservative extension"
+    SubClassOf: Extension
+	
+	
+Class: ConsequenceTheoreticConservativeExtension
+    Annotations: 
+        rdfs:label "consequence-theoretic conservative extension",
+	skos:definition "extension that does not add new theorems (in terms of the unextended signature).",
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a consequence-theoretic conservative extension, if all properties formulated in the signature of $O_1$ hold for $O_1$ whenever they hold for $O_2$."
+    SubClassOf: ConservativeExtension
+
+
+Class: ModelTheoreticConservativeExtension
+    Annotations: 
+        rdfs:label "model-theoretic conservative extension",
+	skos:definition "extension that does not lead to a restriction of class of models of an OMS.",
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a model-theoretic conservative extension, if all properties formulated in the signature of $O_1$ hold for $O_1$ whenever they hold for $O_2$."
+    SubClassOf: ConservativeExtension
+	
+
+Class: MonomorphicExtension
+    Annotations: 
+        rdfs:label "monomorphic extension",
+	skos:definition "extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism.",
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a monomorphic extension, if each model of $O_1$ can be expanded to a model of $O_2$ that is unique up to isomorphism."
+    SubClassOf: ModelTheoreticConservativeExtension
+
+Class: DefinitionalExtension
+    Annotations: 
+        rdfs:label "definitional extension",
+	skos:definition "extension whose newly introduced non-logical symbols are interpreted in a unique way.",
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$."
+    SubClassOf: MonomorphicExtension
+    EquivalentTo: ModelTheoreticConservativeExtension and WeakDefinitionalExtension
+
+
+Class: WeakDefinitionalExtension
+    Annotations: 
+        rdfs:label "weak definitional extension",
+	skos:definition "extension whose newly introduced non-logical symbols can be interpreted in at most one way.",
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a weak definitional extension, if each model of $O_1$ can be expanded to at most one model of $O_2$."
+    SubClassOf: Extension
+	
+Class: ImpliedExtension
+    Annotations: 
+        rdfs:label "implied extension",
+	skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols.",
+        skos:note "A conservative extension $O_2$ of an OMS
+    $O_1$ is an implied extension, if and only if the signature of
+    $O_2$ is the signature of $O_1$.  $O_2$ is an implied extension of
+    $O_1$ if and only if the model class of $O_2$ is the model class
+    of $O_1$."
+    SubClassOf: DefinitionalExtension
+	
+
+Class: ConsistentOMS
+    Annotations: 
+	skos:definition "OMS that has a non-trivial set of logical consequences in the sense that not every sentence follows from the OMS."
+    SubClassOf: OMS
+    EquivalentTo: OMS and not InconsistentOMS	
+	
+Class: InconsistentOMS
+    Annotations: 
+	skos:definition "OMS that has a trivial set of logical consequences in the sense that every sentence follows from the OMS."
+    SubClassOf: UnsatisfiableOMS
+    EquivalentTo: OMS and not ConsistentOMS	
+
+Class: SatisfiableOMS
+    Annotations: 
+	skos:definition "OMS that is satisfied by least one model."
+    SubClassOf: ConsistentOMS
+    EquivalentTo: OMS and not UnsatisfiableOMS	
+	
+Class: UnsatisfiableOMS
+    Annotations: 
+	skos:definition "OMS that is not satisfied by any model."
+    SubClassOf: OMS
+    EquivalentTo: OMS and not SatisfiableOMS	
+	
+Class: ModelFinder
+    Annotations:
+        rdfs:label "model finder",
+	skos:definition "Tool that finds models of an OMS and thus proves it to be satisfiable"
+    SubClassOf: Tool
+
+Class: Module
+    Annotations: 
+	skos:definition "subOMS that conservatively extends to conservative extension the whole OMS."
+    SubClassOf: StructuredOMS
+
+Class: NativeOMS
+    Annotations: 
+        rdfs:label "native OMS",
+	skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) from a given OMS language."
+    SubClassOf: OMS
+
+Class: NativeDocument
+    Annotations: 
+        rdfs:label "native document",
+	skos:definition "document containing a native OMS."
+    SubClassOf: Document
+	
+Class: Document
+    Annotations: 
+	skos:definition "result of serializing an OMS or DOL library using a given serialization."
+	
+Class: Approximant
+    Annotations: 
+	skos:definition "approximation (in the sense of a logically implied theory, possibly after suitable translation)  of an OMS in a smaller signature or a sublanguage."
+    SubClassOf: OMS
+	
+Class: MaximumApproximant
+    Annotations: 
+        rdfs:label "maximum approximant",
+	skos:definition "best possible (in the sense of a maximum set of logical consequences approximant of an OMS in a smaller signature or a sublanguage.",
+        skos:note "Technically, a maximum approximant is a uniform interpolant"
+    SubClassOf: Approximant
+	
+Class: Approximation
+    Annotations: 
+	skos:definition "structured OMS that delivers an approximation."
+    SubClassOf: StructuredOMS
+	
+Class: Filtering
+    Annotations: 
+	skos:definition "verbatim removal of symbols or axioms from an OMS."
+    SubClassOf: StructuredOMS
+	
+Class: Tool
+    Annotations: 
+	skos:definition "software for processing DOL libraries and OMS."
+
+Class: Combination	
+    Annotations: 
+        skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.",
+        skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "
+    SubClassOf: StructuredOMS
+
+  
