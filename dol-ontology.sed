@@ -21,7 +21,7 @@
 /<owl:Ontology /,$ {
   s@http://www.w3.org/2000/01/rdf-schema#@\&rdfs;@g
   s@http://www.w3.org/2002/07/owl#@\&owl;@g
-  s@http://www.w3.org/2001/XMLSchema#@\&;xsd;@g
+  s@http://www.w3.org/2001/XMLSchema#@\&xsd;@g
   s@http://purl.org/dc/terms/@\&dct;@g
   s@http://www.w3.org/2004/02/skos/core#@\&skos;@g
   s@http://www.omg.org/techprocess/ab/SpecificationMetadata/@\&sm;@g
