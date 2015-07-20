@@ -900,8 +900,11 @@ Class: ExactMapping
 Class: DOLLibrary
 
     Annotations: 
-        skos:definition "collection of named OMS and OMS networks, possibly written in different OMS languages, linked by named OMS mappings."    
-    
+        skos:definition "collection of named OMS and OMS networks, possibly written in different OMS languages, linked by named OMS mappings.",    
+        skos:note "collection is used here in the sense of syntactic collection"
+    SubClassOf: DOLEntity
+
+
     
 Class: ModelExpansiveMapping
 
@@ -997,10 +1000,12 @@ Class: Embedding
 Class: OMS
 
     Annotations: 
-        skos:definition "a basic or structured ontology, specification or model",
+        skos:definition "a basic or structured ontology, specification or MDE model",
         rdfs:label "OMS (ontology, specification or model)",
         skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)",
-        skos:note "An OMS can be written in different OMS language serializations."
+        skos:note "An OMS can be written in different OMS language serializations.",
+        skos:note "collection is used here in the sense of syntactic collection"
+
     
     EquivalentTo: 
         HeterogeneousOMS
@@ -1010,6 +1015,7 @@ Class: OMS
     
     SubClassOf: 
         usesLanguage some OMSLanguage
+    SubClassOf: DOLEntity
     
     
 Class: Ontology
@@ -1090,7 +1096,8 @@ Class: Logic
     
     SubClassOf: 
         isFormalizedBy some Institution
-    
+    SubClassOf: MathematicalEntity
+
     
 Class: SimpleTheoroidalMapping
 
@@ -1185,8 +1192,8 @@ Class: BasicOMS
         hasPart exactly 1 OMSDocumentation,
         StructuredOMS,
         FlattenableOMS,
-        hasPart exactly 1 SetOfSentences,
-        hasPart exactly 1 Signature
+        induces exactly 1 SetOfSentences,
+        induces exactly 1 Signature
     
 
 Class: FaithfulMapping
@@ -1213,7 +1220,7 @@ Class: OMSMapping
          and (mapsTo exactly 1 OMS)
     
     SubClassOf: 
-        Mapping
+        DOLEntity
     
     
 Class: DefaultMapping
@@ -1251,7 +1258,7 @@ Class: Serialization
         rdfs:comment "synonymous to 'concrete syntax'"
     
     SubClassOf: 
-        serializes some OMSLanguage
+        serializes some OMSLanguage, LinguisticEntity
     
 
 Class: OMSLanguage
@@ -1280,10 +1287,12 @@ Class: Language
 
     Annotations: 
         skos:definition "collection of expressions",
+        skos:note "collection is used here in the sense of syntactic collection",
         rdfs:label "language"
     
     SubClassOf: 
-        hasPart some SetOfExpressions
+        hasPart some CollectionOfExpressions
+    SubClassOf: LinguisticEntity
     
 
     
@@ -1303,11 +1312,11 @@ Class: ModelBijectiveMapping
 Class: Alignment
 
     Annotations: 
-        skos:definition "an OMS mapping expressing a collection of semantic relations between entities of the two OMS",
+        skos:definition "an OMS mapping expressing a collection of relations between entities of the two OMS",
         rdfs:comment "an alignment between two heterogeneous OMS in a DOL library"
     
     SubClassOf: 
-        Mapping, hasPart some Correspondence
+        OMSMapping, hasPart some Correspondence
     
     DisjointWith: 
         Interpretation
@@ -1408,7 +1417,7 @@ ObjectProperty: isOMSUnionOf
         DOLStructuredOMS
     
     Range: 
-        SetOfOMS
+        CollectionOfOMS
     
     
 ObjectProperty: isLogicallyInteroperableWith
@@ -1715,22 +1724,23 @@ Class: OMSNetwork
     Annotations: 
         skos:note "An OMS network is a diagram of OMS in the sense of category theory, but different from a diagram in the sense of model-driven architecture.",
         skos:definition "collection of named OMS, possibly written in different OMS languages, linked by named OMS mappings and named OMS networks",
+        skos:note "collection is used here in the sense of syntactic collection",
         skos:altLabel "hyperontology",
         rdfs:label "OMS network"
     
     SubClassOf: 
-        Graph
+        DOLEntity
 	
 
     
-Class: SetOfCorrespondences
+Class: CollectionOfCorrespondences
 
     Annotations: 
-        skos:definition "set whose members are correspondences.",
-        rdfs:label "set of correspondences"
+        skos:definition "collection whose members are correspondences.",
+         skos:note "collection is used here in the sense of syntactic collection",
+       rdfs:label "collection of correspondences"
     
-    SubClassOf: 
-        SetOfMappings
+    SubClassOf: DOLEntity
     
     
 Class: LanguageMapping
@@ -1795,7 +1805,7 @@ Class: SetOfNonlogicalSymbols
         rdfs:label "set of non-logical symbols"
     
     SubClassOf: 
-        SetOfExpressions
+        CollectionOfExpressions
     
     
 Class: ModelTheoreticConservativeExtensionMapping
@@ -1843,14 +1853,14 @@ Class: StandoffMarkup
         Language
     
     
-Class: SetOfOMS
+Class: CollectionOfOMS
 
     Annotations: 
-        rdfs:label "set of OMS",
-        skos:definition "set whose members are OMS."
-    
+        rdfs:label "collection of OMS",
+        skos:definition "collection whose members are OMS.",
+        skos:note "collection is used here in the sense of syntactic collection"
     SubClassOf: 
-        Set
+        DOLEntity
     
     
     
@@ -1874,7 +1884,7 @@ Class: SetOfSentences
         rdfs:label "set of sentences"
     
     SubClassOf: 
-        SetOfExpressions
+        Set
     
     
 Class: Institution
@@ -1885,7 +1895,8 @@ Class: Institution
     
     SubClassOf: 
         formalizes some Logic, hasPart some Signature, hasPart some SignatureMorphism, hasPart some Model, hasPart some Sentence, hasPart some SatisfactionRelation, hasPart some Category
-    
+        SubClassOf: MathematicalEntity
+
     
     
 Class: Signature
@@ -1896,7 +1907,7 @@ Class: Signature
         skos:definition "set (or otherwise structured entity) of non-logical symbols of an OMS"
     
     SubClassOf: 
-        hasPart some SetOfNonlogicalSymbols
+        hasPart some SetOfNonlogicalSymbols, MathematicalEntity
     
     
 Class: AxiomSentence
@@ -1918,6 +1929,7 @@ Class: LogicalTheory
     SubClassOf: 
         hasPart exactly 1 SetOfSentences,
         hasPart exactly 1 Signature
+    SubClassOf: MathematicalEntity
     
     
 Class: FlattenableOMS
@@ -1968,6 +1980,7 @@ Class: Set
     Annotations: 
         skos:definition "set whose members have a certain type, as specified by the type parameter.",
         rdfs:label "set"
+    SubClassOf: MathematicalEntity
     
 ObjectProperty: impliedExtensionOf
     
@@ -2003,6 +2016,7 @@ Class: Model
    
     SubClassOf: 
         isModelOfSignature some Signature
+    SubClassOf: MathematicalEntity
     
     
 Class: StructuringLanguageAspect
@@ -2046,6 +2060,7 @@ Class: SatisfactionRelation
         rdfs:label "satisfaction relation",
         rdfs:seeAlso satisfies,
         skos:definition "relation between models and sentences indicating which sentences hold true in the model"
+    SubClassOf: MathematicalEntity
     
     
 Class: ConservativeExtensionMapping
@@ -2071,13 +2086,15 @@ Class: HeterogeneousEnvironment
         hasPart some LanguageGraph,
         hasPart some LogicGraph,
         hasPart some SupportsRelation
-    
+        SubClassOf: MathematicalEntity
+
     
 Class: LanguageAspect
 
     Annotations: 
         skos:definition "set of language constructs of a given language, not necessarily forming a sublanguage",
         rdfs:label "language aspect"
+    SubClassOf: LinguisticEntity
     
     
     
@@ -2114,9 +2131,8 @@ Class: OMSDocumentation
     Annotations: 
         skos:definition "set of all annotations to an OMS, plus any other documents and explanatory comments generated during the entire OMS building process",
         rdfs:label "OMS documentation",
-        sm:informativeReference "  
-    Adapted from \\cite{SuarezFigueroaEtAl:OntologyGlossary2008}
-  "
+        sm:informativeReference "Adapted from \\cite{SuarezFigueroaEtAl:OntologyGlossary2008}"
+    SubClassOf: LinguisticEntity
     
     
 Class: SupportsRelation
@@ -2148,7 +2164,7 @@ Class: SetOfAnnotationExpressions
         skos:definition "set whose members are annotation expressions."
     
     SubClassOf: 
-        SetOfExpressions
+        CollectionOfExpressions
     
     
 Class: ElusiveOMS
@@ -2202,6 +2218,7 @@ Class: Mapping
     EquivalentTo: 
         (mapsFrom exactly 1 owl:Thing)
          and (mapsTo exactly 1 owl:Thing)
+    SubClassOf: MathematicalEntity
     
     
 Class: AnnotationExpressionLanguageAspect
@@ -2243,7 +2260,7 @@ Class: Resource
 
     Annotations: 
         skos:example "Familiar examples include an electronic document, an image, a source of information with a consistent purpose (e.g., ``today's weather report for Los Angeles''), a service (e.g., an HTTP-to-SMS gateway), and a collection of other resources. A resource is not necessarily accessible via the Internet; e.g., human beings, corporations, and bound books in a library can also be resources. Likewise, abstract concepts can be resources, such as the operators and operands of a mathematical equation, the types of a relationship (e.g., ``parent'' or ``employee''), or numeric values (e.g., zero, one, and infinity). \\nisref{IETF/RFC 3986:2005, Section 1.1}",
-        skos:definition "something that can be globally identified} ",
+        skos:definition "something that can be globally identified",
         skos:note "\\nisref{IETF/RFC 3986:2005, Section 1.1} deliberately defines a resource as ``in a general sense \\textelp{} whatever might be identified by \\textins*{an IRI}''. The original source refers to URIs, but DOL uses the compatible IRI standard \\nisref{IETF/RFC 3987:2005} for identification.",
         rdfs:label "resource"
     
@@ -2358,16 +2375,16 @@ Class: Graph
         skos:definition "set of objects (nodes) that are connected by links (edges)",
         rdfs:label "graph",
         skos:altLabel "network"
+    SubClassOf: MathematicalEntity
     
     
-Class: SetOfExpressions
+Class: CollectionOfExpressions
 
     Annotations: 
-        rdfs:label "set of expressions",
-        skos:definition "set whose members are expressions"
+        rdfs:label "collection of expressions",
+        skos:definition "collection whose members are expressions"
+    SubClassOf: LinguisticEntity
     
-    SubClassOf: 
-        Set
     
     
 Class: LogicReduction
@@ -2388,6 +2405,7 @@ Class: Expression
     
     SubClassOf: 
         usesLanguage exactly 1 Language
+    SubClassOf: LinguisticEntity
     
     
     
@@ -2429,13 +2447,14 @@ Annotations:
         skos:note "An abstract syntax can be specified as a MOF metamodel. Then abstract abstract syntax documents can be represented as  XMI documents.",
         rdfs:label "abstract syntax",
         skos:definition	"term language for representing documents in a machine-processable way"
+    SubClassOf: LinguisticEntity
 	
 Class: Category
 Annotations: 
         skos:definition "a collection of objects with suitable morphisms between them",
         skos:note "In DOL, objects of a category are usually signatures or OMS, and morphisms are signature morphisms, or OMS mappings. In principle, no assumption about the exact nature of objects and morphisms is made.",
         skos:note "The morphisms determine which part of the structure of the objects is relevant, i.e. preserved by morphisms. Hence, objects can be seen as 'sets with structure', and morphisms as 'structure-preserving maps'.  However note that not all categories can be obtained in this way."
-	
+    SubClassOf: MathematicalEntity
 	
 	
 Class: Closure
@@ -2588,11 +2607,12 @@ Class: DOLDocument
     Annotations: 
         rdfs:label "DOL document",
 	skos:definition "document containing a DOL library."
-    SubClassOf: Document
+    SubClassOf: Document, DOLEntity
 	
 Class: Document
     Annotations: 
 	skos:definition "result of serializing an OMS or DOL library using a given serialization."
+    SubClassOf: LinguisticEntity
 	
 Class: Approximant
     Annotations: 
@@ -2635,6 +2655,7 @@ where $R$ denotes the type of relationship that is asserted to hold between the 
 symbols/terms, and 0<=c<=1 is a confidence value.  $R$ and $c$ may be omitted: When $R$ is 
 omitted, it defaults to the equivalence relation, unless another default
 relation has been explicitly specified; when $c$ is omitted, it defaults to 1."
+    SubClassOf: DOLEntity
 	
 	
 Class: DOLStructuredOMS
@@ -2664,17 +2685,20 @@ Class: SemanticDomain
     Annotations: 
         rdfs:label "semantic domain",
 	skos:definition "mathematically-defined set of values that can represent the intended meanings of language constructs."
+    SubClassOf: MathematicalEntity
 
 Class: SemanticRule
     Annotations: 
         rdfs:label "semantic rule",
 	skos:definition "specification of a mapping from abstract syntax to a semantic domain."
+    SubClassOf: MathematicalEntity
 
 Class: GlobalEnvironment
     Annotations: 
         rdfs:label "global environment",
 	skos:definition "mapping from identifiers (IRIs) to values in  semantics domains representing the global knowledge about OMS."
     SubClassOf: hasPart some LocalEnvironment
+    SubClassOf: MathematicalEntity
 	
 Class: Import
     Annotations: 
@@ -2722,6 +2746,7 @@ Class: SignatureMorphism
 	skos:definition "mapping between two signatures, preserving the structure of the source signature within the target signature",
         skos:note "A list of symbol map items induces a signature morphism."
     SubClassOf: hasPart some SymbolMapItem
+    SubClassOf: MathematicalEntity
 	
 	
 Class: SymbolMapItem
@@ -2730,6 +2755,7 @@ Class: SymbolMapItem
 	skos:definition "pair of symbols of two OMS, indicating how a symbol from the first OMS is mapped by a signature morphism to a symbol of the second OMS.",
         skos:note "A symbol map item is given as s_1 |-> s_2, where $s_1$ is a symbol from the source OMS and $s_2$ is a symbol from the target  of the OMS mapping."
     SubClassOf: hasPart some NonLogicalSymbol
+    SubClassOf: LinguisticEntity
 	
 Class: TheoremProver
     Annotations: 
@@ -2738,3 +2764,10 @@ Class: TheoremProver
     SubClassOf: Tool
 	
 	
+Class: LinguisticEntity
+Class: DOLEntity
+    SubClassOf: LinguisticEntity
+
+Class: MathematicalEntity
+	
+ObjectProperty: induces
