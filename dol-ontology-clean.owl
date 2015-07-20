@@ -1412,21 +1412,21 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#hasPart"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMSDocumentation"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#induces"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Signature"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#induces"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#SetOfSentences"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>a basic OMS (in a single language, logic, and serialization)</rdfs:comment>
@@ -1767,7 +1767,7 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#usesLanguage"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Language"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition>a finite combination of symbols that are well-formed according to applicable rules (depending on the language)</skos:definition>
@@ -2132,12 +2132,12 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Language"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Language"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2217,12 +2217,12 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Logic"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Logic"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2234,12 +2234,12 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Logic"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Logic"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2293,14 +2293,14 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#hasPart"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#SetOfSentences"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#hasPart"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#Signature"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition>signature equipped with a set of sentences over the signature</skos:definition>
@@ -2328,11 +2328,11 @@ of logic (model theory).</skos:note>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
-                        <owl:cardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:cardinality>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
-                        <owl:cardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:cardinality>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2657,12 +2657,12 @@ of logic (model theory).</skos:note>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMSLanguage"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMSLanguage"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2671,14 +2671,14 @@ of logic (model theory).</skos:note>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMSLanguage"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
                 <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMSLanguage"/>
-                <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <propagatesToAdjoint rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#boolean">true</propagatesToAdjoint>
@@ -2699,12 +2699,12 @@ of logic (model theory).</skos:note>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsFrom"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMS"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#mapsTo"/>
                         <owl:onClass rdf:resource="http://www.omg.org/spec/DOL/Current/ontology#OMS"/>
-                        <owl:qualifiedCardinality rdf:datatype="&;xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
