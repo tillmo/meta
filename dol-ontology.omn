@@ -89,7 +89,7 @@ AnnotationProperty: supportsSymbolKind
     Annotations: 
         rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: OMSLanguage
-Range: owl:Class that rdfs:subClassOf value Symbol"
+Range: owl:Class that rdfs:subClassOf value NonLogicalSymbol"
     
     
 AnnotationProperty: symbolKindIn
@@ -145,18 +145,6 @@ ObjectProperty: omsIn
 
     InverseOf: 
         hasOMS
-    
-    
-ObjectProperty: exactlyCorrespondingMapping
-
-    Annotations: 
-        rdfs:comment "The subject language mapping exactly corresponds to the object logic mapping."
-    
-    Domain: 
-        OMSLanguageTranslation
-    
-    Range: 
-        LogicMapping
     
     
 ObjectProperty: translatableFrom
@@ -927,16 +915,24 @@ Class: ModelExpansiveMapping
     
     
 Class: Translation
-
     Annotations: 
-        rdfs:comment "a generic translation",
-        reifies translatableTo
+	skos:definition "mapping between languages or logics representing all structure, in contrast to reduction", 
+	reifies translatableTo
     
     SubClassOf: 
         Mapping
     
     DisjointWith: 
         Reduction
+	
+Class: Reduction
+    Annotations: 
+	skos:definition "mapping between languages or logics forgetting parts of the structure, projection to a smaller language or logic", 
+	reifies reducibleTo 
+    SubClassOf: 
+        Mapping
+    DisjointWith: 
+        Translation
     
     
 Class: SubLogic
@@ -1027,8 +1023,9 @@ Class: Ontology
 Class: MDEModel
 
     Annotations: 
-        skos:definition "logical theory that is used as a model in the sense of model-driven engineering (MDE)"
-
+        skos:definition "logical theory that is used as a model in the sense of model-driven engineering (MDE)",
+    	skos:note "Not to be confused with the term \termref{model} in the sense
+of logic (model theory)."
     SubClassOf:
         OMS
 
@@ -1144,13 +1141,6 @@ Class: LogicMapping
         Mapping
     
     
-Class: Symbol
-
-    Annotations: 
-        skos:definition "atomic expression or syntactic constituent of an OMS that requires an interpretation through a model",
-        rdfs:comment "a non-logical symbol in an OMS",
-        rdfs:label "symbol"
-    
 Class: Refinement
     Annotations: 
 	skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures",
@@ -1162,7 +1152,7 @@ Class: Refinement
         OMSMapping
     
     
-Class: Reduction
+Class: OMSReduction
 
     Annotations: 
         reifies reducibleTo,
@@ -1831,7 +1821,7 @@ Class: QueryVariable
         rdfs:label "query variable"
     
     SubClassOf: 
-        Symbol
+        NonLogicalSymbol
     
     
 Class: ModuleExtraction
@@ -1958,18 +1948,17 @@ Class: HomogeneousOMS
         HeterogeneousOMS
     
     
-Class: NonLogicalSymbol
-
+Class: NonLogicalSymbol    
     Annotations: 
+        skos:definition "atomic expression or syntactic constituent of an OMS that requires an interpretation through a model",
+        rdfs:comment "a non-logical symbol in an OMS",
         skos:example "Non-logical symbols in OWL \\nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities'') comprise \\begin{itemize} \\item individuals (denoting objects from the domain of discourse), \\item classes (denoting sets of objects; also called concepts), and \\item properties (denoting binary relations over objects; also called roles). \\end{itemize} This is opposed to logical symbols in OWL, e.g.\\ those for intersection and union of classes. ",
-        skos:definition "OMS symbol atomic expression or syntactic constituent of an OMS that requires an interpretation through a model",
         skos:note "The notion of ``atomic sentence'' used in logic is different, it usually may involve several non-logical symbols. ",
         rdfs:label "non-logical symbol",
         skos:example " Non-logical symbols in Common Logic \\nisref{ISO/IEC 24707:2007} comprise \\begin{itemize} \\item names (denoting objects from the domain of discourse), \\item sequence markers (denoting sequences of objects). \\end{itemize} This is opposed to logical symbols in Common Logic, e.g.\\ logical connectives and quantifiers.",
         skos:altLabel "OMS symbol"
     
     SubClassOf: 
-        Symbol,
         Term
     
     
@@ -2079,8 +2068,8 @@ Class: HeterogeneousEnvironment
         skos:definition "environment for the expression of homogeneous and heterogeneous OMS, comprising a logic graph, an OMS language graph and a supports relation"
     
     SubClassOf: 
-        hasPart some OMSLanguageGraph,
-        hasPart some OMSLogicGraph,
+        hasPart some LanguageGraph,
+        hasPart some LogicGraph,
         hasPart some SupportsRelation
     
     
@@ -2092,15 +2081,6 @@ Class: LanguageAspect
     
     
     
-Class: LogicApproximation
-
-    Annotations: 
-        rdfs:label "logic approximation",
-        skos:definition "mapping of a source logic onto a (usually less expressive) target logic that tries to approximate the OMS expressed in the source logic with means of the expressivity of the target logic",
-        skos:note " A unique maximal approximation need not exist. "
-    
-    SubClassOf: 
-        LogicMapping
     
     
 Class: Profile
@@ -2144,7 +2124,21 @@ Class: SupportsRelation
     Annotations: 
         rdfs:label "supports relation",
         skos:definition "relation between OMS languages and logics expressing the logical language aspect of the former, namely that the constructs of the former lead to a logical theory in the latter.",
-	skos:note "There is also a supports relation between OMS languages and serializations."	
+	skos:note "There is also a supports relation between OMS languages and serializations, and one between language mappings and logic mappings.",
+        reifies supportsLogic,
+        reifies supportsSerialization,
+        reifies supportsLogicMapping
+	
+ObjectProperty: supportsLogicMapping
+
+    Annotations: 
+        rdfs:comment "The subject language mapping corresponds to the object logic mapping."
+    
+    Domain: 
+        OMSLanguageTranslation
+    
+    Range: 
+        LogicMapping
     
     
 Class: SetOfAnnotationExpressions
@@ -2203,7 +2197,8 @@ Class: Mapping
         rdfs:comment "a generic mapping (translation or reduction)",   
         skos:definition "relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.",
         rdfs:label "mapping",
-        skos:note "in some cases is a morphism, as in Category Theory."
+        skos:note "alternative term: function",
+        skos:note "in some cases is a morphism, as in Category Theory."	
     EquivalentTo: 
         (mapsFrom exactly 1 owl:Thing)
          and (mapsTo exactly 1 owl:Thing)
@@ -2253,7 +2248,7 @@ Class: Resource
         rdfs:label "resource"
     
     
-Class: OMSLogicGraph
+Class: LogicGraph
 
     Annotations: 
         skos:definition "graph of logics, logic translations and logic reductions, typically used in a heterogeneous environment.",
@@ -2300,7 +2295,7 @@ Class: Query
         Sentence
     
     
-Class: OMSLanguageGraph
+Class: LanguageGraph
 
     Annotations: 
         rdfs:label "OMS language graph",
@@ -2351,7 +2346,7 @@ Class: LogicTranslation
 
     Annotations: 
         rdfs:label "logic translation",
-        skos:definition "mapping of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS"
+        skos:definition "translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS"
     
     SubClassOf: 
         LogicMapping
@@ -2378,11 +2373,11 @@ Class: SetOfExpressions
 Class: LogicReduction
 
     Annotations: 
-        skos:definition "mapping of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic",
+        skos:definition "reduction of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic",
         rdfs:label "logic reduction"
     
     SubClassOf: 
-        LogicMapping
+        Reduction, LogicMapping
     
     
 Class: Expression
@@ -2659,9 +2654,11 @@ Class: Entailment
 Class: FormalSemantics
     Annotations: 
         rdfs:label "formal semantics",
-	skos:definition "assignment of a mathematical meaning to a language by mapping abstract syntax to suitable semantic domains"
+	skos:definition "assignment of a mathematical meaning to a language by mapping abstract syntax to suitable semantic domains",
+        skos:note "A formal semantics is a formalization of the meaning of a language."
     SubClassOf: hasPart some SemanticDomain
     SubClassOf: hasPart some SemanticRule
+    SubClassOf: formalizes some Language	
 
 Class: SemanticDomain
     Annotations: 
@@ -2715,8 +2712,8 @@ ObjectProperty: share
   relates different OMS. That is, two given OMS symbols
   can share with respect to one OMS network, and not share with respect to some
   other OMS network."
-    Domain: Symbol 
-    Range: Symbol 
+    Domain: NonLogicalSymbol 
+    Range: NonLogicalSymbol 
 	
 	
 Class: SignatureMorphism
@@ -2732,7 +2729,7 @@ Class: SymbolMapItem
         rdfs:label "symbol map item",
 	skos:definition "pair of symbols of two OMS, indicating how a symbol from the first OMS is mapped by a signature morphism to a symbol of the second OMS.",
         skos:note "A symbol map item is given as s_1 |-> s_2, where $s_1$ is a symbol from the source OMS and $s_2$ is a symbol from the target  of the OMS mapping."
-    SubClassOf: hasPart some Symbol
+    SubClassOf: hasPart some NonLogicalSymbol
 	
 Class: TheoremProver
     Annotations: 
