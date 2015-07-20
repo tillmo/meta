@@ -1177,7 +1177,7 @@ Class: Reduction
 
     
     SubClassOf: 
-        OMSMapping
+        OMSMapping, hasPart some DOLStructuredOMS
     
 
 Class: BasicOMS
@@ -1196,7 +1196,7 @@ Class: BasicOMS
         StructuredOMS,
         FlattenableOMS,
         hasPart exactly 1 SetOfSentences,
-        hasPart exactly 1 Vocabulary
+        hasPart exactly 1 Signature
     
 
 Class: FaithfulMapping
@@ -1611,7 +1611,7 @@ ObjectProperty: isModelOfSignature
         Model
     
     Range: 
-        Vocabulary
+        Signature
     
     
 ObjectProperty: satisfies
@@ -1894,15 +1894,13 @@ Class: Institution
         rdfs:label "institution"
     
     SubClassOf: 
-        formalizes some Logic
+        formalizes some Logic, hasPart some Signature, hasPart some SignatureMorphism, hasPart some Model, hasPart some Sentence, hasPart some SatisfactionRelation, hasPart some Category
     
     
     
-    
-Class: Vocabulary
+Class: Signature
 
     Annotations: 
-        skos:prefLabel "vocabulary",
         skos:note "The signature of a term is the set of all non-logical symbols occuring in the term. The signature of an OMS language is the set of all non-logical symbols possible in that language.",
         skos:altLabel "signature",
         skos:definition "set (or otherwise structured entity) of non-logical symbols of an OMS"
@@ -1929,7 +1927,7 @@ Class: LogicalTheory
     
     SubClassOf: 
         hasPart exactly 1 SetOfSentences,
-        hasPart exactly 1 Vocabulary
+        hasPart exactly 1 Signature
     
     
 Class: FlattenableOMS
@@ -2015,7 +2013,7 @@ Class: Model
         skos:definition " semantic interpretation of all non-logical symbols of a signature"
    
     SubClassOf: 
-        isModelOfSignature some Vocabulary
+        isModelOfSignature some Signature
     
     
 Class: StructuringLanguageAspect
@@ -2259,6 +2257,7 @@ Class: OMSLogicGraph
 
     Annotations: 
         skos:definition "graph of logics, logic translations and logic reductions, typically used in a heterogeneous environment.",
+        skos:note "In a logic graph, some of the logic translations and reductions can be marked to be default translations.",
         rdfs:label "OMS logic graph"
     
     SubClassOf: 
@@ -2417,7 +2416,7 @@ Class: Renaming
         skos:note " A renaming results in an OMS mapping between the original and the renamed OMS. "
     
     SubClassOf: 
-        DOLStructuredOMS
+        DOLStructuredOMS, hasPart some DOLStructuredOMS
     
     
 Individual: DOL
@@ -2449,7 +2448,7 @@ Annotations:
         skos:definition "way of implementing the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown.",
         skos:note "Symbols from the local environment are assumed to have a fixed interpretation. Only the symbols newly declared in the closure are forced to have minimal or maximal interpretation.",
         skos:note "DOL supports four different forms of closure: minimization and maximization as well as freeness and cofreeness."
-        SubClassOf: DOLStructuredOMS
+        SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 	
 Class: Cofreeness
@@ -2478,12 +2477,12 @@ Class: Maximization
 Class: Union
     Annotations: 
 	skos:definition "aggregation of several OMS to a new OMS, without any renaming."
-    SubClassOf: DOLStructuredOMS
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Extension
     Annotations: 
 	skos:definition "OMS whose sets of non-logical symbols and sentences are supersets of those present in the OMS given by the local environment."
-    SubClassOf: DOLStructuredOMS
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: ConservativeExtension
     Annotations: 
@@ -2576,7 +2575,7 @@ Class: ModelFinder
 Class: Module
     Annotations: 
 	skos:definition "subOMS that conservatively extends to conservative extension the whole OMS."
-    SubClassOf: DOLStructuredOMS
+    SubClassOf: DOLStructuredOMS, hasPart some InterfaceSignature, hasPart some DOLStructuredOMS
 
 Class: NativeOMS
     Annotations: 
@@ -2588,6 +2587,12 @@ Class: NativeDocument
     Annotations: 
         rdfs:label "native document",
 	skos:definition "document containing a native OMS."
+    SubClassOf: Document
+	
+Class: DOLDocument
+    Annotations: 
+        rdfs:label "DOL document",
+	skos:definition "document containing a DOL library."
     SubClassOf: Document
 	
 Class: Document
@@ -2609,12 +2614,12 @@ Class: MaximumApproximant
 Class: Approximation
     Annotations: 
 	skos:definition "structured OMS that delivers an approximation."
-    SubClassOf: DOLStructuredOMS
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Filtering
     Annotations: 
 	skos:definition "verbatim removal of symbols or axioms from an OMS."
-    SubClassOf: DOLStructuredOMS
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Tool
     Annotations: 
@@ -2624,7 +2629,7 @@ Class: Combination
     Annotations: 
         skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.",
         skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "
-    SubClassOf: DOLStructuredOMS
+    SubClassOf: DOLStructuredOMS, hasPart some OMSNetwork
 
 Class: Correspondence
     Annotations: 
@@ -2650,3 +2655,89 @@ Class: Entailment
 	skos:note "Entailment expresses that each model satisfying the first OMS also satisfies the second OMS (or the sentence, respectively).",
 	skos:note "Entailments can also be stated between networks, or networks and OMS."
     SubClassOf: OMSMapping	
+	
+Class: FormalSemantics
+    Annotations: 
+        rdfs:label "formal semantics",
+	skos:definition "assignment of a mathematical meaning to a language by mapping abstract syntax to suitable semantic domains"
+    SubClassOf: hasPart some SemanticDomain
+    SubClassOf: hasPart some SemanticRule
+
+Class: SemanticDomain
+    Annotations: 
+        rdfs:label "semantic domain",
+	skos:definition "mathematically-defined set of values that can represent the intended meanings of language constructs."
+
+Class: SemanticRule
+    Annotations: 
+        rdfs:label "semantic rule",
+	skos:definition "specification of a mapping from abstract syntax to a semantic domain."
+
+Class: GlobalEnvironment
+    Annotations: 
+        rdfs:label "global environment",
+	skos:definition "mapping from identifiers (IRIs) to values in  semantics domains representing the global knowledge about OMS."
+    SubClassOf: hasPart some LocalEnvironment
+	
+Class: Import
+    Annotations: 
+	skos:definition "reference to an OMS behaving as if it were verbatim included; also import of DOL libraries.",
+        skos:note "Semantically, an import of $O_2$ into $O_1$ is equivalent to the verbatim inclusion of $O_2$ in place of the import declaration.",
+	skos:note "The purpose of $O_2$ importing $O_1$ is to make non-logical symbols and sentences of $O_1$ available in $O_2$.",
+        skos:note "Importing $O_1$ into $O_2$ turns $O_2$ into an extension of $O_1$.",
+        skos:note "The import of a whole DOL library into another DOL library is also called import.",
+        skos:example "An owl:import in OWL is an import."
+    SubClassOf: DOLStructuredOMS
+
+Class: InterfaceSignature
+    Annotations: 
+        rdfs:label "interface signature",
+	skos:definition "signature mediating between an OMS and a module of that OMS in the sense that it contains those non-logical symbols that the sentences of the module and the sentences of the OMS have in common."
+    SubClassOf: Signature
+	
+Class: LocalEnvironment
+    Annotations: 
+        rdfs:label "local environment",
+	skos:definition "OMS built from all previously-declared symbols and axioms."
+    SubClassOf: OMS
+		
+	
+	
+Class: Matching
+    Annotations: 
+	skos:definition "algorithmic procedure that generates an alignment for two given OMS."
+    SubClassOf: Tool
+		
+ObjectProperty: share
+    Annotations: 
+	skos:definition "property of OMS symbols being mapped to the same symbol when computing a combination of an OMS network.",
+        skos:note "Sharing is always relative to a given OMS network that
+  relates different OMS. That is, two given OMS symbols
+  can share with respect to one OMS network, and not share with respect to some
+  other OMS network."
+    Domain: Symbol 
+    Range: Symbol 
+	
+	
+Class: SignatureMorphism
+    Annotations: 
+        rdfs:label "signature morphism",
+	skos:definition "mapping between two signatures, preserving the structure of the source signature within the target signature",
+        skos:note "A list of symbol map items induces a signature morphism."
+    SubClassOf: hasPart some SymbolMapItem
+	
+	
+Class: SymbolMapItem
+    Annotations: 
+        rdfs:label "symbol map item",
+	skos:definition "pair of symbols of two OMS, indicating how a symbol from the first OMS is mapped by a signature morphism to a symbol of the second OMS.",
+        skos:note "A symbol map item is given as s_1 |-> s_2, where $s_1$ is a symbol from the source OMS and $s_2$ is a symbol from the target  of the OMS mapping."
+    SubClassOf: hasPart some Symbol
+	
+Class: TheoremProver
+    Annotations: 
+        rdfs:label "theorem prover",
+	skos:definition "software tool that attempts to prove that a given sentence is the logical consequence of some given set of axioms and theorems."
+    SubClassOf: Tool
+	
+	
