@@ -1,3 +1,6 @@
+dol-ontology-clean.owl: dol-ontology.owl dol-ontology.sed
+	sed -f dol-ontology.sed $< > $@
+
 # this requires https://github.com/owlcollab/owltools
 %.owl: %.omn
 	owltools $< -o $@
