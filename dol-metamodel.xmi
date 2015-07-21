@@ -393,7 +393,7 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSOMS_OMS11_To_lower" xmi:uuid="0faf6b29-d6de-4388-836f-53d0c0264ce7" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoTranslationOMSTranslation_Translation11_To" xmi:uuid="d3fc3dde-a232-43b9-891f-6e617ba41158" name="translation" visibility="public" type="Translation" association="AssoTranslationOMSTranslation_Translation11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSTranslation_Translation11_To_upper" xmi:uuid="0f9081ae-96ff-41f8-9ea7-624659e7d096" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoTranslationOMSTranslation_Translation11_To" xmi:uuid="d3fc3dde-a232-43b9-891f-6e617ba41158" name="omsTranslation" visibility="public" type="OMSTranslation" association="AssoTranslationOMSTranslation_Translation11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSTranslation_Translation11_To_upper" xmi:uuid="0f9081ae-96ff-41f8-9ea7-624659e7d096" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSTranslation_Translation11_To_lower" xmi:uuid="4e6267fb-0e4e-474d-9fd0-a80ee781deea" value="1"/>
 		</ownedAttribute>
@@ -672,7 +672,7 @@
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircVarsSymbol_Symbol*0_From_lower" xmi:uuid="fb4a0cce-534f-4b1e-b48d-90e26151acfa"/>
 		</ownedEnd>
 			</packagedElement>
-		<packagedElement xmi:type="uml:Class" name="Translation" xmi:id="Translation" xmi:uuid="370eaa44-7108-4cc8-b877-4d7a8fb7b59a">
+		<packagedElement xmi:type="uml:Class" name="OMSTranslation" xmi:id="OMSTranslation" xmi:uuid="370eaa44-7108-4cc8-b877-4d7a8fb7b59a">
 			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To" xmi:uuid="ad879ef9-6fd3-46a7-8dcb-7d1e1dba5e69" name="omsLanguageTranslation" visibility="public" type="OMSLanguageTranslation" association="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To_upper" xmi:uuid="07196844-995d-49a2-830b-a567d52b381d" value="*"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To_lower" xmi:uuid="05eacbfd-0790-49ee-842f-4d9b7c29321f"/>
@@ -681,15 +681,15 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationSymbolMap_SymbolMap10_To_lower" xmi:uuid="37d4a48b-8501-4c40-9509-1fceaf5bcd98"/>
 		</ownedAttribute>
-		<ownedComment annotatedElement="Translation" xmi:type="uml:Comment" xmi:id="Translation_comment"><body>Specifies the way how an OMS shall be translated. Is part of a TranslationOMS.
+		<ownedComment annotatedElement="OMSTranslation" xmi:type="uml:Comment" xmi:id="Translation_comment"><body>Specifies the way how an OMS shall be translated. Is part of a TranslationOMS.
 </body></ownedComment></packagedElement>
 		<packagedElement xmi:type="uml:Association" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0" xmi:uuid="ad879ef9-6fd3-46a7-8dcb-7d1e1dba5e69" name="isPartOf" memberEnd="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To">
-			<ownedEnd xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From" xmi:uuid="90c5115f-0c15-4db4-9609-d3d0dd4f44de" xmi:type="uml:Property" visibility="public" type="Translation" name="translation" association="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From_upper" xmi:uuid="45f18b94-a0df-49a0-91db-dceb7acd0909" value="*"/>
+			<ownedEnd xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From" xmi:uuid="90c5115f-0c15-4db4-9609-d3d0dd4f44de" xmi:type="uml:Property" visibility="public" type="OMSTranslation" name="omsTranslation" association="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From_upper" xmi:uuid="45f18b94-a0df-49a0-91db-dceb7acd0909" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From_lower" xmi:uuid="330ecf1b-c776-48bc-b9e8-8daee795b030"/>
 		</ownedEnd>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoTranslationSymbolMap_SymbolMap10" xmi:uuid="d78842bb-5598-488c-b1f5-f0cfc9173693" name="isPartOf" memberEnd="AssoTranslationSymbolMap_SymbolMap10_From AssoTranslationSymbolMap_SymbolMap10_To">
-			<ownedEnd xmi:id="AssoTranslationSymbolMap_SymbolMap10_From" xmi:uuid="1d539a74-b9e1-4a91-a961-bf6b397dab91" xmi:type="uml:Property" visibility="public" type="Translation" name="translation" association="AssoTranslationSymbolMap_SymbolMap10">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationSymbolMap_SymbolMap10_From_upper" xmi:uuid="6d54f762-bb42-4bdc-9969-5aac2da9933b" value="*"/>
+			<ownedEnd xmi:id="AssoTranslationSymbolMap_SymbolMap10_From" xmi:uuid="1d539a74-b9e1-4a91-a961-bf6b397dab91" xmi:type="uml:Property" visibility="public" type="OMSTranslation" name="omsTranslation" association="AssoTranslationSymbolMap_SymbolMap10">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationSymbolMap_SymbolMap10_From_upper" xmi:uuid="6d54f762-bb42-4bdc-9969-5aac2da9933b" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationSymbolMap_SymbolMap10_From_lower" xmi:uuid="383b094e-e030-4326-8fd8-b7546a95b2ee"/>
 		</ownedEnd>
 			</packagedElement>
