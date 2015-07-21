@@ -145,7 +145,7 @@ ObjectProperty: omsIn
 
     InverseOf: 
         hasOMS
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
 
     
 ObjectProperty: translatableFrom
@@ -160,17 +160,28 @@ ObjectProperty: translatableFrom
         translatableTo
     
     
-ObjectProperty: hasMember
+ObjectProperty: hasSequenceMember
 	
     Annotations: 
         skos:definition "The inverse of the sequence membership relation."
 
+    InverseOf: 
+        isMemberOf
+    SubPropertyOf: isLinguisticallyRelatedTo
+	
+ObjectProperty: hasMember
+	
+    Annotations: 
+        skos:definition "The inverse of the set membership relation."
+
     Domain: 
-        DOLLibrary
+        Set
+    Range: 
+        MathematicalEntity
     
     InverseOf: 
-        memberOf
-    SubPropertyOf: linguisticProperty
+        isMemberOf
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: faithfullyMappableTo
@@ -183,7 +194,7 @@ ObjectProperty: faithfullyMappableTo
     
     Characteristics: 
         Transitive
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: mappableToLogic
@@ -199,7 +210,7 @@ ObjectProperty: mappableToLogic
     
     InverseOf: 
         mappableFromLogic
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
         
 ObjectProperty: isExtensionOf
 	
@@ -216,7 +227,7 @@ ObjectProperty: isExtensionOf
         skos:prefLabel "extends"
     
     SubPropertyOf: 
-        linguisticProperty
+        isLinguisticallyRelatedTo
     
     SubPropertyChain: 
         isMappedBy o extendsTo
@@ -254,7 +265,7 @@ ObjectProperty: isSubLanguageOf
         
     SubPropertyOf: 
         translatableTo,
-        mappableToLanguage, linguisticProperty
+        mappableToLanguage, isLinguisticallyRelatedTo
 
     Characteristics: 
         Transitive
@@ -279,7 +290,7 @@ ObjectProperty: specifiesSemanticsOf
 
     InverseOf: 
         supportsLogic
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: translatableTo
@@ -325,7 +336,7 @@ ObjectProperty: mapsFrom
     InverseOf: 
         isMappedBy
 	
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
 ObjectProperty: exactlyMappableTo
 
@@ -337,7 +348,7 @@ ObjectProperty: exactlyMappableTo
     
     Characteristics: 
         Transitive
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: language
@@ -355,7 +366,7 @@ SubPropertyChain: serialization o serializes",
     
     Range: 
         OMSLanguage
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: mappableToBijectivelyOnModels
@@ -377,7 +388,7 @@ ObjectProperty: mappingIn
 
     InverseOf: 
         hasMapping
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: hasOMS
@@ -393,7 +404,7 @@ ObjectProperty: hasOMS
     
     InverseOf: 
         omsIn
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: reducibleTo
@@ -409,7 +420,7 @@ ObjectProperty: reducibleTo
     
     InverseOf: 
         reducibleFrom
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: target
@@ -425,7 +436,7 @@ ObjectProperty: target
     
     Range: 
         OMS
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: source
@@ -441,7 +452,7 @@ ObjectProperty: source
     
     Range: 
         OMS
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: exactLogicalExpressivity
@@ -451,7 +462,7 @@ ObjectProperty: exactLogicalExpressivity
     
     SubPropertyOf: 
         supportsLogic
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: serializes
@@ -469,7 +480,7 @@ ObjectProperty: serializes
     
     Range: 
         OMSLanguage
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
     
@@ -496,7 +507,7 @@ ObjectProperty: hasInterpretation
     
     InverseOf: 
         interpretationIn
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: hasAlignment
@@ -512,17 +523,27 @@ ObjectProperty: hasAlignment
     
     InverseOf: 
         alignmentIn
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: memberOf
+ObjectProperty: isSequenceMemberOf
     Annotations: 
         skos:definition "The sequence membership relation."
 
     InverseOf: 
-        hasMember
-    SubPropertyOf: linguisticProperty
+        hasSequenceMember
+    SubPropertyOf: isLinguisticallyRelatedTo
     
+ObjectProperty: isMemberOf
+    Annotations: 
+        skos:definition "The set membership relation."
+
+    InverseOf: 
+        hasMember
+    SubPropertyOf: isMathematicallyRelatedTo
+    Domain: MathematicalEntity
+    Range: Set	
+	
     
 ObjectProperty: isModelTheoreticallyConservativeExtensionOf
 
@@ -538,7 +559,7 @@ ObjectProperty: supportsLogic
     Annotations: 
         rdfs:comment "The semantics of [a subset of] the subject language can be specified in terms of the object logic."
 	
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     SubPropertyChain: 
         inverse (isSubLanguageOf) o supportsLogic,
@@ -569,14 +590,14 @@ ObjectProperty: mappableToLanguage
         rdfs:comment "There is a mapping from the subject language to the object language."
     
     SubPropertyOf: 
-        mappableTo, linguisticProperty
+        mappableTo, isLinguisticallyRelatedTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
         mappableFromLanguage
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: alignmentIn
@@ -585,7 +606,7 @@ ObjectProperty: alignmentIn
 
     InverseOf: 
         hasAlignment
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: sourceOfMapping
@@ -594,7 +615,7 @@ ObjectProperty: sourceOfMapping
     InverseOf: 
         mapsFrom
     
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
 ObjectProperty: mapsTo
 
@@ -617,7 +638,7 @@ ObjectProperty: mapsTo
     Domain: 
         Mapping
     
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: isSubLogicOf
@@ -628,7 +649,7 @@ ObjectProperty: isSubLogicOf
     SubPropertyOf: 
         embeddableInto
     
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     SubPropertyChain: 
          inverse (exactLogicalExpressivity) o isSubLanguageOf o exactLogicalExpressivity
     
@@ -652,7 +673,7 @@ ObjectProperty: interpretationIn
 
     InverseOf: 
         hasInterpretation
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: mappableFrom
@@ -663,7 +684,7 @@ ObjectProperty: mappableFrom
     InverseOf: 
         mappableTo
 	
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: compositionOf
@@ -672,7 +693,7 @@ ObjectProperty: compositionOf
         rdfs:comment "Range can't be specified in OWL DL",
         rdfs:comment "Developers' note: The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"
     
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: simplyTheoroidallyMappableTo
@@ -682,13 +703,13 @@ ObjectProperty: simplyTheoroidallyMappableTo
     
     SubPropertyOf: 
         mappableToLogic
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
     
     
-ObjectProperty: logic
+ObjectProperty: hasLogic
 
     Annotations: 
         rdfs:comment "the logic in which an OMS is formalized",
@@ -697,12 +718,13 @@ ObjectProperty: logic
         Functional
     
     Domain: 
-        OMS
+        OMS or OMSSemanticObject
     
     Range: 
         Logic
     
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
+	SubPropertyChain: semanticallyDenotes o hasLogic	
     
 ObjectProperty: modelExpansivelyMappableTo
 
@@ -723,7 +745,7 @@ ObjectProperty: mappableFromLogic
     
     InverseOf: 
         mappableToLogic
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: isConsequenceTheoreticallyConservativeExtensionOf
@@ -740,7 +762,7 @@ ObjectProperty: isProfileOf
         skos:definition "see Class 'profile'"
     
     SubPropertyOf: 
-        isSubLanguageOf, linguisticProperty
+        isSubLanguageOf, isLinguisticallyRelatedTo
     
     Domain: 
         Profile
@@ -756,7 +778,7 @@ ObjectProperty: mappableFromLanguage
     
     InverseOf: 
         mappableToLanguage
-    SubPropertyOf: linguisticProperty, mappingProperty	
+    SubPropertyOf: isLinguisticallyRelatedTo, isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: serialization
@@ -773,7 +795,7 @@ ObjectProperty: serialization
     Range: 
         Serialization
     
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: mappableTo
 
@@ -789,7 +811,7 @@ ObjectProperty: mappableTo
     InverseOf: 
         mappableFrom
     
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
 ObjectProperty: hasMapping
 
@@ -797,7 +819,7 @@ ObjectProperty: hasMapping
         rdfs:comment "The subject is a DOL library, in which the object is a mapping between two participating OMS."
     
     SubPropertyOf: 
-        hasMember, linguisticProperty
+        hasMember, isLinguisticallyRelatedTo
     
     Range: 
         OMSMapping
@@ -809,17 +831,17 @@ ObjectProperty: isWeakDefinitionalExtensionOf
     Annotations: 
         rdfs:comment "The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
    non-logical symbols can be interpreted in at most one way."    
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
 ObjectProperty: adjoint
     Annotations: 
         rdfs:comment "The subject is a translation that shares its sentence and model translation with the object reduction. The signature translations are adjoint to each other (in the sense of category theory)."
     Domain: 
-        Translation
+        LogicTranslation
     
     Range: 
-        Reduction
-    SubPropertyOf: mathematicalProperty
+        LogicReduction
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: plainlyMappableTo
@@ -853,7 +875,7 @@ SubPropertyChain: isProfileOf o supportsSerialization",
     
     InverseOf: 
         serializes
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: reducibleFrom
@@ -954,25 +976,7 @@ Class: ModelExpansiveMapping
         FaithfulMapping
     
     
-Class: Translation
-    Annotations: 
-	skos:definition "mapping between languages or logics representing all structure, in contrast to reduction", 
-	reifies translatableTo
-    
-    SubClassOf: 
-        Mapping
-    
-    DisjointWith: 
-        Reduction
 	
-Class: Reduction
-    Annotations: 
-	skos:definition "mapping between languages or logics forgetting parts of the structure, projection to a smaller language or logic", 
-	reifies reducibleTo 
-    SubClassOf: 
-        Mapping
-    DisjointWith: 
-        Translation
     
     
 Class: SubLogic
@@ -1031,7 +1035,7 @@ Class: Embedding
     SubClassOf: 
         ExactMapping,
         LogicMapping,
-        Translation,
+        LogicTranslation,
         ModelBijectiveMapping
     
 Class: OMS
@@ -1051,7 +1055,10 @@ Class: OMS
          or FlattenableOMS
     
     SubClassOf: 
-        usesLanguage some OMSLanguage
+        usesLanguage some OMSLanguage, 
+ 	semanticallyDenotes some OMSSemanticObject,
+	hasLogic some Logic, hasSignature some Signature, 
+	hasSentences some SetOfSentences, hasModels some ClassOfModels
     SubClassOf: DOLEntity
     
     
@@ -1102,7 +1109,7 @@ Class: OMSLanguageTranslation
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
-        Mapping,
+        Mapping, 
         (mapsFrom exactly 1 OMSLanguage)
          and (mapsTo exactly 1 OMSLanguage)
     
@@ -1206,7 +1213,7 @@ Class: OMSReduction
         DOLStructuredOMS
     
     DisjointWith: 
-        Translation
+        OMSTranslation
 	
 
     
@@ -1218,16 +1225,14 @@ Class: BasicOMS
 
     Annotations: 
         rdfs:comment "a basic OMS (in a single language, logic, and serialization)",
-        skos:note " The sentences must use only those non-logical symbols that are present in the signature. ",
         rdfs:label "basic OMS",
-        skos:definition "signature equipped with a set of sentences and annotations, which may be used as a building block for a larger OMS"
+        skos:definition "unstructured native OMS that may be used as a building block for a larger OMS, denoting a logical theory"
     
     SubClassOf: 
         NativeOMS
     
     SubClassOf: 
         hasPart exactly 1 OMSDocumentation,
-        StructuredOMS,
         FlattenableOMS,
         semanticallyDenotes some LogicalTheory
     
@@ -1373,7 +1378,6 @@ ObjectProperty: impliedExtendsTo
     
     Domain: 
         ImpliedExtensionMapping
-    SubPropertyOf: semanticProperty
     
 	
 ObjectProperty: isSubOMSOf
@@ -1391,7 +1395,7 @@ ObjectProperty: isSubOMSOf
     Range: 
         OMS
 	
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
 	
 ObjectProperty: isCombinationOf
 	
@@ -1406,7 +1410,7 @@ ObjectProperty: isCombinationOf
     Range: 
         OMSNetwork
     
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
     
@@ -1421,7 +1425,7 @@ ObjectProperty: isAdjointOf
     
     Range: 
         LogicMapping
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: definitionallyExtendsTo
@@ -1440,7 +1444,7 @@ ObjectProperty: definitionallyExtendsTo
 ObjectProperty: isOMSUnionOf
 
     Annotations: 
-        skos:definition "aggregation of several OMS to a new OMS, without any renaming",
+        skos:definition "structured OMS expressing the combination of all constraints of a sequences of OMS",
         rdfs:label "is union of OMS"
     
     Domain: 
@@ -1449,7 +1453,7 @@ ObjectProperty: isOMSUnionOf
     Range: 
         SequenceOfOMS
     
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: isLogicallyInteroperableWith
 
@@ -1466,7 +1470,7 @@ ObjectProperty: isLogicallyInteroperableWith
     Range: 
         StructuredOMS
     
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: isDefinitionalExtensionOf
 
@@ -1504,7 +1508,7 @@ ObjectProperty: isOMSDocumentationOf
     Range: 
         OMS
     
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: isLanguageAspectOf
 
@@ -1514,7 +1518,7 @@ ObjectProperty: isLanguageAspectOf
     
     InverseOf: 
         hasLanguageAspect
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: formalizes
@@ -1525,23 +1529,9 @@ ObjectProperty: formalizes
     
     InverseOf: 
         isFormalizedBy
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
-ObjectProperty: isImpliedExtensionOf
-
-    Annotations: 
-        strictlyStrongerThan isConservativeExtensionOf,
-        skos:note "Each implied extension is also a definitional extension but not vice versa.",
-        skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols",
-        skos:note " A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$.",
-        rdfs:label "is implied extension of"
-    
-    SubPropertyOf: 
-        isDefinitionalExtensionOf
-    
-    SubPropertyChain: 
-        isMappedBy o impliedExtendsTo
     
     
 ObjectProperty: conservativelyExtendsTo
@@ -1550,9 +1540,7 @@ ObjectProperty: conservativelyExtendsTo
         rdfs:comment "The object is a conservative extension of the subject",
         rdfs:label "conservatively extends to"
     
-    SubPropertyOf: 
-        extendsTo
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: extendsTo, isLogicallyRelatedTo
     
     Domain: 
         ConservativeExtensionMapping
@@ -1563,7 +1551,7 @@ ObjectProperty: usesLanguage
     Annotations: 
         skos:definition "relation between something and a language used by one or more components of it.",
         rdfs:label "uses language"
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isElementOf
@@ -1573,7 +1561,7 @@ ObjectProperty: isElementOf
         rdfs:label "is element of OMS"
     
     SubPropertyOf: 
-        hasPart, linguisticProperty
+        hasPart, isLinguisticallyRelatedTo
     
     Range: 
         OMS
@@ -1591,7 +1579,7 @@ ObjectProperty: isModelOfOMS
     
     Range: 
         OMS
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: hasHeterogeneousEnvironment
@@ -1602,7 +1590,7 @@ ObjectProperty: hasHeterogeneousEnvironment
     
     Range: 
         HeterogeneousEnvironment
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
     
@@ -1614,7 +1602,7 @@ ObjectProperty: isConservativeExtensionOf
     
     SubPropertyOf: 
         isExtensionOf
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isLogicallyRelatedTo
     
     SubPropertyChain: 
         isMappedBy o conservativelyExtendsTo
@@ -1638,7 +1626,7 @@ ObjectProperty: hasLanguageAspect
     
     InverseOf: 
         isLanguageAspectOf
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isModelOfSignature
@@ -1652,7 +1640,7 @@ ObjectProperty: isModelOfSignature
     
     Range: 
         Signature
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: satisfies
@@ -1668,7 +1656,7 @@ ObjectProperty: satisfies
     
     Range: 
         Sentence
-    SubPropertyOf: mathematicalProperty
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: isMappedBy
@@ -1680,7 +1668,7 @@ ObjectProperty: isMappedBy
     InverseOf: 
         mapsFrom
     
-    SubPropertyOf: mappingProperty	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: extendsTo
@@ -1697,7 +1685,7 @@ ObjectProperty: extendsTo
     
     Range: 
         OMS
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
     
@@ -1709,7 +1697,7 @@ ObjectProperty: isFormalizedBy
     
     InverseOf: 
         formalizes
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: isApproximantOf
@@ -1726,7 +1714,7 @@ ObjectProperty: isApproximantOf
     
     Range: 
         OMS
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isEntailedBy
     
     
     
@@ -1742,7 +1730,7 @@ ObjectProperty: isModuleOf
     
     InverseOf: 
         isConservativeExtensionOf
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isLogicallyRelatedTo
     
     
 ObjectProperty: hasPart
@@ -1874,8 +1862,13 @@ Class: ModuleExtraction
         rdfs:label "module extraction",
         skos:definition "activity of obtaining from an OMS concrete modules to be used for a particular purpose (e.g. to contain a particular sub-signature of the original OMS)",
         skos:note "The goal of module extraction is ``decomposing an OMS into smaller, more manageable modules with appropriate dependencies'' \\cite{DBLP:series/lncs/5445}"
-    SubClassOf: SemanticEntity
+    SubClassOf: Process
     
+	
+Class: ModuleExtractor
+    Annotations: 
+	skos:definition "tool that implements module extraction"
+    SubClassOf: Tool, hasProficiency some ModuleExtraction
     
 Class: StandoffMarkup
 
@@ -1958,7 +1951,8 @@ Class: LogicalTheory
 
     Annotations: 
         rdfs:label "logical theory",
-        skos:definition "signature equipped with a set of sentences over the signature"
+        skos:definition "signature equipped with a set of sentences over the signature",
+        skos:note "The sentences must use only those non-logical symbols that are present in the signature."
     
     SubClassOf: 
         hasPart exactly 1 SetOfSentences,
@@ -2017,10 +2011,6 @@ Class: Set
     SubClassOf: MathematicalEntity
 	
 
-ObjectProperty: impliedExtensionOf
-    Annotations: 
-	rdfs:comment "the subject is a model-theoretic conservative extension of the object that that does not introduce new non-logical symbols"
-    SubPropertyOf: semanticProperty
 
 Class: ImpliedExtensionMapping
 
@@ -2029,7 +2019,7 @@ Class: ImpliedExtensionMapping
         skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols",
         skos:note "Each implied extension is also a definitional extension but not vice versa.",
         rdfs:label "implied extension mapping",
-        reifies impliedExtensionOf
+        reifies isImpliedExtensionOf
     
     SubClassOf: 
         DefinitionalExtensionMapping
@@ -2194,7 +2184,7 @@ ObjectProperty: supportsLogicMapping
     
     Range: 
         LogicMapping
-    SubPropertyOf: semanticProperty
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 Class: SetOfAnnotationExpressions
@@ -2391,7 +2381,7 @@ Class: Equivalence
 Class: LinkedData
 
     Annotations: 
-        skos:definition "structured data that is published on the Web in a machine-processable way, according to principles specified in \\cite{BernersLee:LinkedData2006,BizerHeath09}}",
+        skos:definition "structured data that is published on the Web in a machine-processable way, according to principles explained in http://linkeddata.org/",
         skos:note " The linked data principles (adapted from \\cite{BernersLee:LinkedData2006} and its paraphrase at \\cite{Wikipedia:LinkedData2011}) are the following: \\begin{enumerate} \\item Use IRIs as names for things. \\item Use HTTP IRIs so that these things can be referred to and looked up (``dereferenced'') by people and user agents.\\footnote{I.e., the IRI is treated as a URL (uniform resource locator).} \\item Provide useful machine-processable (plus optionally human-readable) information about the thing when its IRI is dereferenced, using standard formats. \\item Include links to other, related IRIs in the exposed data to improve discovery of other related information on the Web. \\end{enumerate} ",
         rdfs:label "linked data",
         skos:note " RDF, serialized as RDF/XML \\cite{W3C:REC-rdf-syntax-grammar-20040210}, is the most common format for publishing linked data. However, its usage is not mandatory. ",
@@ -2404,8 +2394,8 @@ Class: LogicTranslation
 
     Annotations: 
         rdfs:label "logic translation",
-        skos:definition "translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS"
-    
+        skos:definition "translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS",
+	skos:note "mapping between logics representing all structure, in contrast to reduction"
     SubClassOf: 
         LogicMapping
     
@@ -2432,10 +2422,11 @@ Class: LogicReduction
 
     Annotations: 
         skos:definition "reduction of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic",
+	skos:note "mapping between logics forgetting parts of the structure, projection to a smaller logic, in contrast to reduction",
         rdfs:label "logic reduction"
     
     SubClassOf: 
-        Reduction, LogicMapping
+        LogicMapping
     
     
 Class: Expression
@@ -2462,12 +2453,12 @@ Class: AnnotationExpression
         Expression
     
     
-Class: Renaming
+Class: OMSTranslation
 
     Annotations: 
-        rdfs:label "renaming",
-        skos:definition "assignment of new names to some non-logical symbols of an OMS",
-        skos:note " A renaming results in an OMS mapping between the original and the renamed OMS. "
+        rdfs:label "OMS translation",
+        skos:definition "assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation",
+        skos:note " An OMS translation results in an OMS mapping between the original and the translation OMS. "
     
     SubClassOf: 
         DOLStructuredOMS, hasPart some DOLStructuredOMS
@@ -2531,12 +2522,13 @@ Class: Maximization
 	
 Class: Union
     Annotations: 
-	skos:definition "aggregation of several OMS to a new OMS, without any renaming."
+        skos:definition "structured OMS expressing the combination of all symbols and axioms (and more general constraints) of a sequence of OMS"
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Extension
     Annotations: 
-	skos:definition "OMS whose sets of non-logical symbols and sentences are supersets of those present in the OMS given by the local environment."
+	skos:definition "structured OMS extending a given OMS with new symbols and axioms.",
+        skos:note "semantically, an extension will extend the signature and model class given by the local environment."
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: ConservativeExtension
@@ -2624,8 +2616,14 @@ Class: UnsatisfiableOMS
 Class: ModelFinder
     Annotations:
         rdfs:label "model finder",
-	skos:definition "Tool that finds models of an OMS and thus proves it to be satisfiable"
-    SubClassOf: Tool
+	skos:definition "Tool that implements model finding"
+    SubClassOf: Tool, hasProficiency some ModelFinding
+	
+Class: ModelFinding
+    Annotations:
+        rdfs:label "model finding",
+	skos:definition "process that finds models of an OMS and thus proves it to be satisfiable"
+    SubClassOf: Process
 
 Class: Module
     Annotations: 
@@ -2725,13 +2723,13 @@ Class: SemanticDomain
     Annotations: 
         rdfs:label "semantic domain",
 	skos:definition "mathematically-defined set of values that can represent the intended meanings of language constructs."
-    SubClassOf: MathematicalEntity
+    SubClassOf: Set, SemanticEntity
 
 Class: SemanticRule
     Annotations: 
         rdfs:label "semantic rule",
 	skos:definition "specification of a mapping from abstract syntax to a semantic domain."
-    SubClassOf: MathematicalEntity
+    SubClassOf: SemanticEntity
 
 Class: GlobalEnvironment
     Annotations: 
@@ -2767,7 +2765,12 @@ Class: LocalEnvironment
 Class: Matching
     Annotations: 
 	skos:definition "algorithmic procedure that generates an alignment for two given OMS."
-    SubClassOf: Tool
+    SubClassOf: Process
+
+Class: Matcher
+    Annotations: 
+	skos:definition "tool that implements matching"
+    SubClassOf: Tool, hasProficiency some Matching
 		
 ObjectProperty: share
     Annotations: 
@@ -2778,7 +2781,7 @@ ObjectProperty: share
   other OMS network."
     Domain: NonLogicalSymbol 
     Range: NonLogicalSymbol 
-    SubPropertyOf: linguisticProperty
+    SubPropertyOf: isLinguisticallyRelatedTo
 	
 	
 Class: SignatureMorphism
@@ -2801,8 +2804,25 @@ Class: SymbolMapItem
 Class: TheoremProver
     Annotations: 
         rdfs:label "theorem prover",
-	skos:definition "software tool that attempts to prove that a given sentence is the logical consequence of some given set of axioms and theorems."
-    SubClassOf: Tool
+	skos:definition "software tool implementing theorem proving."
+    SubClassOf: Tool, hasProficiency some TheoremProving
+	
+Class: TheoremProving
+    Annotations: 
+	skos:definition "process of demonstraing that a given sentence is the logical consequence of some given set of axioms and theorems."
+    SubClassOf: Process
+	
+Class: ConsistencyChecker
+    Annotations: 
+        rdfs:label "consistency checker",
+	skos:definition "software tool implementing consistency checking."
+    SubClassOf: Tool, hasProficiency some ConsistencyChecking
+	
+Class: ConsistencyChecking
+    Annotations: 
+        rdfs:label "consistency checking",
+	skos:definition "process of demonstraing that a given OMS is consistent."
+    SubClassOf: Process
 	
 	
 Class: LinguisticEntity
@@ -2837,26 +2857,102 @@ ObjectProperty: semanticallyDenotes
         rdfs:label "semantically denotes",
 	skos:definition "relation between a linguistic entity and its semantic denotation."
     Domain: LinguisticEntity
+    Range: MathematicalEntity or SemanticEntity	
+    SubPropertyOf: isSemanticallyRelatedTo	
+	
+ObjectProperty: isMathematicallyRelatedTo
+    Annotations: 
+        rdfs:label "is mathematically related to",
+	skos:definition "relation between mathematical entities."
+    Domain: MathematicalEntity
     Range: MathematicalEntity	
-    SubPropertyOf: semanticProperty	
-	
-ObjectProperty: mathematicalProperty
-    Annotations: 
-        rdfs:label "mathematical property",
-	skos:definition "property that is part of a mathematical theory."
 
-ObjectProperty: linguisticProperty
+ObjectProperty: isLinguisticallyRelatedTo
     Annotations: 
-        rdfs:label "linguistic property",
-	skos:definition "relation between textual, syntactic entities."
+        rdfs:label "is linguistically related to",
+	skos:definition "relation between linguistic entities."
+    Domain: LinguisticEntity
+    Range: LinguisticEntity
 
-ObjectProperty: semanticProperty
+ObjectProperty: isLogicallyRelatedTo
     Annotations: 
-        rdfs:label "semantic property",
-	skos:definition "relation that expresses a mathematical, semantic property of linguistic entities."
+        rdfs:label "is logically related to",
+	skos:definition "relation between lingustic entities that has a logical, semantic nature."
+    Domain: LinguisticEntity
+    Range: LinguisticEntity
+    SubPropertyOf: isSemanticallyRelatedTo	
 	
-ObjectProperty: mappingProperty
+	
+ObjectProperty: isSemanticallyRelatedTo
     Annotations: 
-        rdfs:label "mapping property",
+        rdfs:label "is semantically related to",
+	skos:definition "relation that has a semantic nature."
+    Domain: LinguisticEntity or MathematicalEntity or SemanticEntity
+    Range: LinguisticEntity or MathematicalEntity or SemanticEntity
+	
+ObjectProperty: isRelatedAsPartOfMapsTo
+    Annotations: 
+        rdfs:label "is related as part of maps to",
 	skos:definition "property used in the context of mappings, for both linguistic and mathematical entities."
 
+ObjectProperty:	hasProficiency
+Class: Process
+	
+ObjectProperty: isImpliedExtensionOf
+
+    Annotations: 
+        strictlyStrongerThan isConservativeExtensionOf,
+        skos:note "Each implied extension is also a definitional extension but not vice versa.",
+        skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols",
+        skos:note " A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$.",
+        rdfs:label "is implied extension of"
+    
+    SubPropertyOf: 
+        isDefinitionalExtensionOf
+    
+    SubPropertyChain: 
+        isMappedBy o impliedExtendsTo
+	
+ObjectProperty: entails
+    Annotations:
+	skos:definition "relation of logical entailment, expressing that all models of the subject are also models of the object"
+    SubPropertyOf: isLogicallyRelatedTo	
+    Domain: OMS or OMSNetwork
+    Range: OMS or OMSNetwork or Sentence
+	
+ObjectProperty: isEntailedBy
+    Annotations:
+	skos:definition "inverse of relation of logical entailment"
+    SubPropertyOf: isLogicallyRelatedTo	
+    InverseOf: entails
+    Domain: OMS or OMSNetwork or Sentence
+    Range: OMS or OMSNetwork
+
+	
+Class: OMSSemanticObject
+    SubClassOf: SemanticEntity, isMemberOf some SemanticDomain,
+        hasLogic some Logic, hasSignature some Signature, 
+	hasSentences some SetOfSentences, hasModels some ClassOfModels
+	
+Class: ClassOfModels
+    SubClassOf: SemanticEntity
+
+ObjectProperty: hasSignature
+    SubPropertyOf: isSemanticallyRelatedTo	
+ObjectProperty: hasSentences
+    SubPropertyOf: isSemanticallyRelatedTo	
+ObjectProperty: hasModels
+    SubPropertyOf: isSemanticallyRelatedTo	
+	
+Class: TranslationProcess
+    Annotations:
+	rdfs:label "translation (process)",
+	skos:definition "process of applying a language or logic translation, or flattening an OMS translation"
+    SubClassOf: Process
+	
+Class: Flattening
+    Annotations:
+	rdfs:label "flattening",
+	skos:definition "process of transforming an OMS to an equivalent basic OMS"
+    SubClassOf: Process
+	
