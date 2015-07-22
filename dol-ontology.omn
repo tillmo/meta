@@ -1091,7 +1091,8 @@ Class: OMS
     SubClassOf: 
         usesLanguage some OMSLanguage, 
  	semanticallyDenotes some OMSSemanticObject,
-	hasLogic some Logic, hasSignature some Signature, 
+	hasLogic some Logic,
+        hasSignature some Signature, 
 	hasSentences some SetOfSentences, hasModels some ClassOfModels
     SubClassOf: DOLEntity
     
@@ -2914,7 +2915,8 @@ Class: OMSSemanticObject
 	rdfs:label "OMS Semantic Object"@en,
         skos:definition "object giving the semantics of an OMS"@en
     SubClassOf: SemanticEntity, isMemberOf some SemanticDomain,
-        hasLogic some Logic, hasSignature some Signature, 
+        hasLogic some Logic,
+        hasSignature some Signature, 
 	hasSentences some SetOfSentences, hasModels some ClassOfModels
 	
 Class: ClassOfModels
