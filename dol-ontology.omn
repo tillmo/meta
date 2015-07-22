@@ -1269,7 +1269,7 @@ Class: BasicOMS
 Class: FaithfulMapping
 
     Annotations: 
-	rdfs:label "faithful Mmpping"@en,
+	rdfs:label "faithful mapping"@en,
         skos:definition "logic mapping that preserves and reflects logical consequence"@en,
         propagatesToAdjoint "true"^^xsd:boolean,
         reifies isFaithfullyMappableTo
