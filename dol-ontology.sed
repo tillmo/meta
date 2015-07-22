@@ -15,14 +15,15 @@
 <!ENTITY sm "http://www.omg.org/techprocess/ab/SpecificationMetadata/" >\
 ]>
 
-# delete XML Base and some other prefixes that we don't need
-0,/xml:base=/ {//d;}
-0,/xmlns:ontology2=/ {//d;}
+# delete default XML namespace
+0,/xmlns="[^"]*"/ {s///;}
 
 # rename some namespace prefixes
-0,/xmlns:dol-language=/ {s/\(xmlns:dol\)-language\(=\)/\1\2/}
 0,/xmlns:SpecificationMetadata=/ {s//xmlns:sm=/}
 s@\(</\?\)SpecificationMetadata:@\1sm:@g
+0,/xmlns:dol-language=/ {s/\(xmlns:dol\)-language\(=\)/\1\2/}
+0,/xmlns:terms=/ {s//xmlns:dct=/}
+s@\(</\?\)terms:@\1dct:@g
 
 # rewrite full IRIs into &prefix;localname using XML entities as defined above
 # to be kept in sync with the definitions above
