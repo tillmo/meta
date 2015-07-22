@@ -22,6 +22,7 @@
 0,/xmlns:SpecificationMetadata=/ {s//xmlns:sm=/}
 s@\(</\?\)SpecificationMetadata:@\1sm:@g
 0,/xmlns:dol-language=/ {s/\(xmlns:dol\)-language\(=\)/\1\2/}
+s@\(</\?\)\([^!?]\)\([^: ]*\)\([ >]\)@\1dol:\2\3\4@g
 0,/xmlns:terms=/ {s//xmlns:dct=/}
 s@\(</\?\)terms:@\1dct:@g
 
