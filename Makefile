@@ -1,7 +1,9 @@
+CATALOG = catalog-v001.xml 
+
 # converting OWL Manchester Syntax to RDF/XML
 # this requires https://github.com/owlcollab/owltools
 OMN2RDF_DEF = omn2rdf() { \
-		owltools $$1 -o $$2 ; \
+		owltools --catalog-xml $(CATALOG) $$1 -o $$2 ; \
 	}
 OMN2RDF = $(OMN2RDF_DEF); omn2rdf
 
@@ -24,14 +26,12 @@ all: dol-ontology.owl
 
 dol-ontology.owl: dol-ontology.raw.owl dol-ontology.sed
 	sed -f dol-ontology.sed $< > $@
-# ^ once you import other ontologies, you'll need local copies of them and map their namespace URIs to these local files using a catalog XML file.  They you'll need the following rule:
-# owltools --catalog-xml catalog-v001.xml $< -o $@
 
-dol-ontology.raw.owl: dol-ontology.omn
+dol-ontology.raw.owl: dol-ontology.omn $(CATALOG)
 	$(OMN2RDF) $< $@
 
 # the same rule for other ontologies that we may have (and which don't require post-processing)
-%.owl: %.omn
+%.owl: %.omn $(CATALOG)
 	$(OMN2RDF) $< $@
 
 # make sure that rewriting the RDF/XML version dol-ontology.owl with sed doesn't break anything.
