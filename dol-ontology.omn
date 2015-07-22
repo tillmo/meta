@@ -1131,6 +1131,8 @@ Class: Specification
 Class: Interpretation
     Annotations: 
 	rdfs:label "interpretation",
+	rdfs:altLabel "view",
+	rdfs:altLabel "refinement",
         skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures"
 
     EquivalentTo: 
@@ -2684,6 +2686,7 @@ Class: DOLStructuredOMS
 Class: Entailment
     Annotations: 
 	rdfs:label "entailment",
+	rdfs:altLabel "logical consequence",
 	skos:definition "relation between two OMS (or an OMS and a sentence) expressing that the second one is logically implied by the first one.",
 	skos:note "Entailment expresses that each model satisfying the first OMS also satisfies the second OMS (or the sentence, respectively).",
 	skos:note "Entailments can also be stated between networks, or networks and OMS."
@@ -2792,19 +2795,7 @@ Class: TheoremProver
 Class: TheoremProving
     Annotations: 
 	rdfs:label "theorem proving",
-	skos:definition "process of demonstraing that a given sentence is the logical consequence of some given set of axioms and theorems."
-    SubClassOf: Process
-	
-Class: ConsistencyChecker
-    Annotations: 
-        rdfs:label "consistency checker",
-	skos:definition "software tool implementing consistency checking."
-    SubClassOf: Tool, hasProficiency some ConsistencyChecking
-	
-Class: ConsistencyChecking
-    Annotations: 
-        rdfs:label "consistency checking",
-	skos:definition "process of demonstraing that a given OMS is consistent."
+	skos:definition "process of demonstraing that a sentence (or OMS) is the logical consequence of some OMS."
     SubClassOf: Process
 	
 	
