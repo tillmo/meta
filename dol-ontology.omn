@@ -124,24 +124,24 @@ Datatype: xsd:string
 
 
     
-ObjectProperty: embeddableInto
+ObjectProperty: isEmbeddableInto
 
     Annotations: 
-	rdfs:label "embeddable into",
+	rdfs:label "is embeddable into",
         rdfs:comment "The subject is embeddable into the object logic."
     
     SubPropertyOf: 
-        translatableTo,
-        exactlyMappableTo,
-        mappableToBijectivelyOnModels,
-        mappableToLogic
+        isTranslatableTo,
+        isExactlyMappableTo,
+        isMappableToBijectivelyOnModels,
+        isMappableToLogic
     
     Characteristics: 
         Transitive
     
-ObjectProperty: omsIn
+ObjectProperty: isOmsIn
     Annotations: 
-	rdfs:label "oms in",
+	rdfs:label "is oms in",
         rdfs:comment "The subject is an OMS participating in a DOL library, which is the object."
 
     InverseOf: 
@@ -149,17 +149,17 @@ ObjectProperty: omsIn
     SubPropertyOf: isLinguisticallyRelatedTo
 
     
-ObjectProperty: translatableFrom
+ObjectProperty: isTranslatableFrom
 
     Annotations: 
-	rdfs:label "translatable from",
+	rdfs:label "is translatable from",
         rdfs:comment "There is a translation from the object to the subject."
     
     SubPropertyOf: 
-        mappableFrom
+        isMappableFrom
     
     InverseOf: 
-        translatableTo
+        isTranslatableTo
     
     
 ObjectProperty: hasSequenceMember
@@ -189,34 +189,34 @@ ObjectProperty: hasMember
     SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: faithfullyMappableTo
+ObjectProperty: isFaithfullyMappableTo
 
     Annotations: 
-	rdfs:label "faithfully mappable to",
+	rdfs:label "is faithfully mappable to",
         rdfs:comment "There is a faithful mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        mappableToLogic
+        isMappableToLogic
     
     Characteristics: 
         Transitive
     SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: mappableToLogic
+ObjectProperty: isMappableToLogic
 
     Annotations: 
-	rdfs:label "mappable to logic",
+	rdfs:label "is mappable to logic",
         rdfs:comment "There is a mapping from the subject logic to the object logic."
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        mappableFromLogic
+        isMappableFromLogic
     SubPropertyOf: isMathematicallyRelatedTo
         
 ObjectProperty: isExtensionOf
@@ -253,14 +253,14 @@ ObjectProperty: isExtensionOf
     
     
     
-ObjectProperty: weaklyExactlyMappableTo
+ObjectProperty: isWeaklyExactlyMappableTo
 
     Annotations: 
-	rdfs:label "weakly exactly mappable to",
+	rdfs:label "is weakly exactly mappable to",
         rdfs:comment "There is a weakly exact mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        mappableToLogic
+        isMappableToLogic
     
     Characteristics: 
         Transitive
@@ -274,8 +274,8 @@ ObjectProperty: isSubLanguageOf
         rdfs:label "is sublanguage of"
         
     SubPropertyOf: 
-        translatableTo,
-        mappableToLanguage, isLinguisticallyRelatedTo
+        isTranslatableTo,
+        isMappableToLanguage, isLinguisticallyRelatedTo
 
     
     Characteristics: 
@@ -298,20 +298,20 @@ ObjectProperty: specifiesSemanticsOf
     SubPropertyOf: isSemanticallyRelatedTo
     
     
-ObjectProperty: translatableTo
+ObjectProperty: isTranslatableTo
 
     Annotations: 
-	rdfs:label "translatable to",
+	rdfs:label "is translatable to",
         rdfs:comment "There is a translation from the subject to the object."
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        translatableFrom
+        isTranslatableFrom
     
     
 ObjectProperty: mapsFrom
@@ -327,7 +327,7 @@ ObjectProperty: mapsFrom
         Mapping
     
     InverseOf: 
-        sourceOfMapping
+        isSourceOfMapping
     
     Annotations: 
         skos:definition "relationship between a mapping and its domain",
@@ -344,24 +344,24 @@ ObjectProperty: mapsFrom
 	
     SubPropertyOf: isRelatedAsPartOfMapsTo	
     
-ObjectProperty: exactlyMappableTo
+ObjectProperty: isExactlyMappableTo
 
     Annotations: 
-	rdfs:label "exactly mappable to",
+	rdfs:label "is exactly mappable to",
         rdfs:comment "There is an exact mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        weaklyExactlyMappableTo
+        isWeaklyExactlyMappableTo
     
     Characteristics: 
         Transitive
     SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: language
+ObjectProperty: isLanguageOf
 
     Annotations: 
-	rdfs:label "language",
+	rdfs:label "is language of",
         rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
 SubPropertyChain: serialization o serializes",
         skos:definition "the language of an OMS"
@@ -377,23 +377,23 @@ SubPropertyChain: serialization o serializes",
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: mappableToBijectivelyOnModels
+ObjectProperty: isMappableToBijectivelyOnModels
 
     Annotations: 
-	rdfs:label "mappable to bijectively on models",
+	rdfs:label "is mappable to bijectively on models",
         rdfs:comment "There is a model-bijective mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        modelExpansivelyMappableTo,
-        weaklyExactlyMappableTo
+        isModelExpansivelyMappableTo,
+        isWeaklyExactlyMappableTo
     
     Characteristics: 
         Transitive
     
     
-ObjectProperty: mappingIn
+ObjectProperty: isMappingIn
     Annotations: 
-	rdfs:label "mapping in",
+	rdfs:label "is mapping in",
         rdfs:comment "The object is a DOL library, in which the subject is a mapping between two participating OMS."
 
     InverseOf: 
@@ -414,31 +414,31 @@ ObjectProperty: hasOMS
         OMS
     
     InverseOf: 
-        omsIn
+        isOmsIn
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: reducibleTo
+ObjectProperty: isReducibleTo
 
     Annotations: 
-	rdfs:label "reducible To",
+	rdfs:label "is reducible to",
         rdfs:comment "There is a reduction from the subject to the object."
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        reducibleFrom
+        isReducibleFrom
     SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: target
+ObjectProperty: hasTarget
 
     Annotations: 
-	rdfs:label "target",
+	rdfs:label "has target",
         skos:definition "the target OMS of a mapping"
     
     Characteristics: 
@@ -452,10 +452,10 @@ ObjectProperty: target
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: source
+ObjectProperty: hasSource
 
     Annotations: 
-	rdfs:label "source",
+	rdfs:label "has source",
         skos:definition "the source OMS of a mapping"
     
     Characteristics: 
@@ -469,10 +469,10 @@ ObjectProperty: source
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: exactLogicalExpressivity
+ObjectProperty: hasExactLogicalExpressivity
 
     Annotations: 
-	rdfs:label "exact logical expressivity",
+	rdfs:label "has exact logical expressivity",
         rdfs:comment "The subject language has exactly the expressivity of the object logic."
     
     SubPropertyOf: 
@@ -523,7 +523,7 @@ ObjectProperty: hasInterpretation
         Interpretation
     
     InverseOf: 
-        interpretationIn
+        isInterpretationIn
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
@@ -540,7 +540,7 @@ ObjectProperty: hasAlignment
         Alignment
     
     InverseOf: 
-        alignmentIn
+        isAlignmentIn
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
@@ -606,26 +606,26 @@ ObjectProperty: supportsLogic
     Range: 
         Logic
     
-ObjectProperty: mappableToLanguage
+ObjectProperty: isMappableToLanguage
 
     Annotations: 
-	rdfs:label "mappable to language",
+	rdfs:label "is mappable to language",
         rdfs:comment "There is a mapping from the subject language to the object language."
     
     SubPropertyOf: 
-        mappableTo, isLinguisticallyRelatedTo
+        isMappableTo, isLinguisticallyRelatedTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        mappableFromLanguage
+        isMappableFromLanguage
     SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
-ObjectProperty: alignmentIn
+ObjectProperty: isAlignmentIn
     Annotations: 
-	rdfs:label "alignment in",
+	rdfs:label "is alignment in",
         rdfs:comment "The obbject is a DOL library, in which the subject is an alignment between two participating OMS."
 
     InverseOf: 
@@ -633,9 +633,9 @@ ObjectProperty: alignmentIn
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: sourceOfMapping
+ObjectProperty: isSourceOfMapping
    Annotations: 
-	rdfs:label "source of mapping",
+	rdfs:label "is source of mapping",
         rdfs:comment "The object mapping maps from the subject into something of the same type as the subject."
     InverseOf: 
         mapsFrom
@@ -672,11 +672,11 @@ ObjectProperty: isSubLogicOf
         rdfs:comment "The subject is a sublogic of the object."
     
     SubPropertyOf: 
-        embeddableInto
+        isEmbeddableInto
     
     SubPropertyOf: isMathematicallyRelatedTo
     SubPropertyChain: 
-         inverse (exactLogicalExpressivity) o isSubLanguageOf o exactLogicalExpressivity
+         inverse (hasExactLogicalExpressivity) o isSubLanguageOf o hasExactLogicalExpressivity
     
     Annotations: 
         skos:definition "a logic that is a syntactic restriction of another logic, inheriting its semantics",
@@ -692,9 +692,9 @@ ObjectProperty: isSubLogicOf
         Logic
     
     
-ObjectProperty: interpretationIn
+ObjectProperty: isInterpretationIn
     Annotations: 
-	rdfs:label "interpretation in",
+	rdfs:label "is interpretation in",
         rdfs:comment "The object is a DOL library, in which the subject is an interpretation between two participating OMS."
 
     InverseOf: 
@@ -702,36 +702,36 @@ ObjectProperty: interpretationIn
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: mappableFrom
+ObjectProperty: isMappableFrom
 
     Annotations: 
-	rdfs:label "mappable from",
+	rdfs:label "is mappable from",
         rdfs:comment "There is a mapping from the object to the subject."
     
     InverseOf: 
-        mappableTo
+        isMappableTo
 	
     SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
-ObjectProperty: compositionOf
+ObjectProperty: isCompositionOf
 
     Annotations: 
-	rdfs:label "composition of",
+	rdfs:label "is composition of",
         rdfs:comment "Range can't be specified in OWL DL",
         rdfs:comment "Developers' note: The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"
     
     SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: simplyTheoroidallyMappableTo
+ObjectProperty: isSimplyTheoroidallyMappableTo
 
     Annotations: 
-	rdfs:label "simply theoroidally mappable to",
+	rdfs:label "is simply theoroidally mappable to",
         rdfs:comment "There is a simple theoroidal mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        mappableToLogic
+        isMappableToLogic
     SubPropertyOf: isMathematicallyRelatedTo
     
     Characteristics: 
@@ -756,27 +756,27 @@ ObjectProperty: hasLogic
     SubPropertyOf: isSemanticallyRelatedTo
 	SubPropertyChain: semanticallyDenotes o hasLogic	
     
-ObjectProperty: modelExpansivelyMappableTo
+ObjectProperty: isModelExpansivelyMappableTo
 
     Annotations: 
-	rdfs:label "model expansively mappable to",
+	rdfs:label "is model expansively mappable to",
         rdfs:comment "There is a model-expansive mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        faithfullyMappableTo
+        isFaithfullyMappableTo
     
     Characteristics: 
         Transitive
     
     
-ObjectProperty: mappableFromLogic
+ObjectProperty: isMappableFromLogic
 
     Annotations: 
 	rdfs:label "mappable from logic",
         rdfs:comment "There is a mapping from the object logic to the subject logic."
     
     InverseOf: 
-        mappableToLogic
+        isMappableToLogic
     SubPropertyOf: isMathematicallyRelatedTo
     
     
@@ -803,21 +803,21 @@ ObjectProperty: isProfileOf
         OMSLanguage
     
 
-ObjectProperty: mappableFromLanguage
+ObjectProperty: isMappableFromLanguage
 
     Annotations: 
 	rdfs:label "mappable from language",
         rdfs:comment "There is a mapping from the object language to the subject language."
     
     InverseOf: 
-        mappableToLanguage
+        isMappableToLanguage
     SubPropertyOf: isLinguisticallyRelatedTo, isRelatedAsPartOfMapsTo	
     
     
-ObjectProperty: serialization
+ObjectProperty: isSerializedIn
 
     Annotations: 
-	rdfs:label "serialization",
+	rdfs:label "is serialized in",
         rdfs:comment "the textual syntax in which an OMS is written"
     
     Characteristics: 
@@ -831,20 +831,20 @@ ObjectProperty: serialization
     
     SubPropertyOf: isLinguisticallyRelatedTo
     
-ObjectProperty: mappableTo
+ObjectProperty: isMappableTo
 
     Annotations: 
-	rdfs:label "mappable to",
+	rdfs:label "is mappable to",
         rdfs:comment "There is a mapping from the subject to the object."
     
     SubPropertyChain: 
-        sourceOfMapping o mapsTo
+        isSourceOfMapping o mapsTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        mappableFrom
+        isMappableFrom
     
     SubPropertyOf: isRelatedAsPartOfMapsTo	
     
@@ -861,7 +861,7 @@ ObjectProperty: hasMapping
         OMSMapping
     
     InverseOf: 
-        mappingIn
+        isMappingIn
     
 ObjectProperty: isWeakDefinitionalExtensionOf
     Annotations: 
@@ -872,14 +872,14 @@ ObjectProperty: isWeakDefinitionalExtensionOf
     
     
     
-ObjectProperty: plainlyMappableTo
+ObjectProperty: isPlainlyMappableTo
 
     Annotations: 
-	rdfs:label "plainly mappable to",
+	rdfs:label "is plainly mappable to",
         rdfs:comment "There is a plain mapping from the subject to the object logic."
     
     SubPropertyOf: 
-        simplyTheoroidallyMappableTo
+        isSimplyTheoroidallyMappableTo
     
     Characteristics: 
         Transitive
@@ -908,17 +908,17 @@ SubPropertyChain: isProfileOf o supportsSerialization",
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: reducibleFrom
+ObjectProperty: isReducibleFrom
 
     Annotations: 
-	rdfs:label "reducible from",
+	rdfs:label "is reducible from",
         rdfs:comment "There is a reduction from the object to the subject."
     
     SubPropertyOf: 
-        mappableFrom
+        isMappableFrom
     
     InverseOf: 
-        reducibleTo
+        isReducibleTo
     
     
 DataProperty: mediaType
@@ -971,7 +971,7 @@ Class: WeaklyExactMapping
 	rdfs:label "weakly exact mapping",
         skos:definition "logic mapping that is weakly compatible with certain DOL structuring constructs",
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies weaklyExactlyMappableTo
+        reifies isWeaklyExactlyMappableTo
     
     SubClassOf: 
         LogicMapping
@@ -983,7 +983,7 @@ Class: ExactMapping
 	rdfs:label "exact mapping",
         skos:definition "logic mapping that is compatible with certain DOL structuring constructs",
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies exactlyMappableTo
+        reifies isExactlyMappableTo
     
     SubClassOf: 
         WeaklyExactMapping
@@ -1005,7 +1005,7 @@ Class: ModelExpansiveMapping
 	rdfs:label "model expansive mapping",
         skos:definition "logic mapping that has a surjective model translation (ensuring faithfulness of the mapping)",
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies modelExpansivelyMappableTo
+        reifies isModelExpansivelyMappableTo
     
     SubClassOf: 
         FaithfulMapping
@@ -1066,7 +1066,7 @@ Class: Embedding
     Annotations: 
 	rdfs:label "embedding",
         skos:definition "logic mapping that embeds the source into the target logic, using components that are embeddings and (in the case of model translations) isomorphism",
-        reifies embeddableInto
+        reifies isEmbeddableInto
     
     SubClassOf: 
         ExactMapping,
@@ -1131,8 +1131,8 @@ Class: Specification
 Class: Interpretation
     Annotations: 
 	rdfs:label "interpretation",
-	rdfs:altLabel "view",
-	rdfs:altLabel "refinement",
+	skos:altLabel "view",
+	skos:altLabel "refinement",
         skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures"
 
     EquivalentTo: 
@@ -1193,7 +1193,7 @@ Class: SimpleTheoroidalMapping
 	skos:definition "logic mapping that maps signatures to theories",
 	rdfs:comment "the resulting theory tpyically contains infrastructure axioms that are needed for expressing the logic mapping",
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies simplyTheoroidallyMappableTo,
+        reifies isSimplyTheoroidallyMappableTo,
         rdfs:comment "orthogonal to WeaklyExactMapping and FaithfulMapping"
     
     EquivalentTo: 
@@ -1251,7 +1251,7 @@ Class: OMSReduction
 
     Annotations: 
 	rdfs:label "OMS reduction",
-        reifies reducibleTo,
+        reifies isReducibleTo,
         skos:definition "DOL structured OMS expressing the restriction of an OMS to a smaller signature."
     
     SubClassOf: 
@@ -1285,7 +1285,7 @@ Class: FaithfulMapping
 	rdfs:label "faithful Mmpping",
         skos:definition "logic mapping that preserves and reflects logical consequence",
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies faithfullyMappableTo
+        reifies isFaithfullyMappableTo
     
     SubClassOf: 
         LogicMapping
@@ -1295,7 +1295,7 @@ Class: OMSMapping
 
     Annotations: 
         rdfs:comment "a mapping between two heterogeneous OMS in a DOL library", 
-        reifies mappableTo,
+        reifies isMappableTo,
         rdfs:label "OMS mapping",
         skos:definition "relationship between two OMS, typically given as a set of correspondences"
     
@@ -1321,7 +1321,7 @@ Class: PlainMapping
     Annotations: 
 	rdfs:label "plain mapping",
         skos:definition "logic mapping that maps signatures to signatures and therefore does not use infrastructure axioms",
-        reifies plainlyMappableTo,
+        reifies isPlainlyMappableTo,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
@@ -1384,7 +1384,7 @@ Class: ModelBijectiveMapping
     Annotations: 
 	rdfs:label "model bijective mapping",
         skos:definition "logic mapping that has a bijective mapping of models",
-        reifies mappableToBijectivelyOnModels,
+        reifies isMappableToBijectivelyOnModels,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
@@ -2228,7 +2228,7 @@ Class: TheoremSentence
     
 Class: Mapping
     Annotations: 
-        reifies mappableTo,
+        reifies isMappableTo,
         rdfs:comment "a generic mapping (translation or reduction)",   
         skos:definition "relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.",
         rdfs:label "mapping",
@@ -2686,7 +2686,7 @@ Class: DOLStructuredOMS
 Class: Entailment
     Annotations: 
 	rdfs:label "entailment",
-	rdfs:altLabel "logical consequence",
+	skos:altLabel "logical consequence",
 	skos:definition "relation between two OMS (or an OMS and a sentence) expressing that the second one is logically implied by the first one.",
 	skos:note "Entailment expresses that each model satisfying the first OMS also satisfies the second OMS (or the sentence, respectively).",
 	skos:note "Entailments can also be stated between networks, or networks and OMS."
