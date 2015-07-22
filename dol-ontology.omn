@@ -14,6 +14,8 @@ Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
 
 Ontology: <http://www.omg.org/spec/DOL/dol-language/> <http://www.omg.org/spec/DOL/20150801/dol-language/>
 
+Import: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+
     Annotations: 
         owl:versionInfo "1.0",
         rdfs:comment "RDF serialization of DOL, implemented as an OWL ontology.  Actually some axioms that we would like to have go beyond OWL."@en,
@@ -33,9 +35,19 @@ Copyright (c) 2014-2015 Athan Services"@en,
         sm:isNormative "true"^^xsd:boolean,
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
     sm:fileAbstract "This ontology covers the terminology of the Distributed Ontology, Model, and Specification Language (DOL) and is a normative part of its specification."@en,
-    sm:filename "ontology.omn",
+    sm:filename "dol-ontology.omn",
     dct:license "http://www.omg.org/techprocess/ab/SpecificationMetadata/MITLicense"^^xsd:anyURI,
     sm:contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all"^^xsd:anyURI
+
+AnnotationProperty: sm:copyright
+AnnotationProperty: sm:isNormative
+AnnotationProperty: sm:contentLanguage
+AnnotationProperty: sm:fileAbstract
+AnnotationProperty: sm:filename
+AnnotationProperty: sm:license
+AnnotationProperty: sm:contentLanguage
+
+AnnotationProperty: dct:license
 
 AnnotationProperty: omv:hasFormalityLevel
 AnnotationProperty: omv:hasFormalityLevel
@@ -43,30 +55,12 @@ AnnotationProperty: omv:conformsToKnowledgeRepresentationParadigm
 AnnotationProperty: omv:isOfType
 AnnotationProperty: dct:creator
 	
-AnnotationProperty: sm:informativeReference
-AnnotationProperty: dct:abstract
-AnnotationProperty: skos:prefLabel
-AnnotationProperty: sm:fileAbbreviation
-AnnotationProperty: sm:filename
-AnnotationProperty: sm:copyright
 AnnotationProperty: rdfs:label
-AnnotationProperty: dct:license
-AnnotationProperty: skos:scopeNote
-AnnotationProperty: sm:contentLanguage
 AnnotationProperty: rdfs:seeAlso
-AnnotationProperty: skos:note
-AnnotationProperty: sm:fileAbstract
-AnnotationProperty: skos:definition
-AnnotationProperty: skos:example
-AnnotationProperty: skos:editorialNote
-AnnotationProperty: skos:altLabel
-AnnotationProperty: dct:source	
-AnnotationProperty: dct:date
 AnnotationProperty: rdfs:comment
 AnnotationProperty: rdfs:seeAlso
 AnnotationProperty: owl:versionInfo
 AnnotationProperty: owl:sameAs
-AnnotationProperty: sm:isNormative
 	
 
 AnnotationProperty: strictlyStrongerThan
