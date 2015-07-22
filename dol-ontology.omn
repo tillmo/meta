@@ -143,7 +143,6 @@ ObjectProperty: omsIn
     Annotations: 
 	rdfs:label "oms in",
         rdfs:comment "The subject is an OMS participating in a DOL library, which is the object."
-    
 
     InverseOf: 
         hasOMS
@@ -167,7 +166,8 @@ ObjectProperty: hasSequenceMember
 	
     Annotations: 
 	rdfs:label "has sequence member",
-        skos:definition "The inverse of the sequence membership relation."
+        skos:definition "The inverse of the sequence membership relation.",
+        skos:note "this is a lingustic property, because it is about sequences of linguistic entities that occur in a text."
 
     InverseOf: 
         isMemberOf
@@ -269,18 +269,14 @@ ObjectProperty: weaklyExactlyMappableTo
 ObjectProperty: isSubLanguageOf
 
     Annotations: 
-        rdfs:comment "The subject is a sublanguage of the object language.  Supported logics are shared along the inverse of this property."
+        rdfs:comment "The subject is a sublanguage of the object language.  Supported logics are shared along the inverse of this property.",
+        skos:definition "syntactically specified subset of a given language, consisting of a subset of its terminal and nonterminal symbols and grammar rules",
+        rdfs:label "is sublanguage of"
         
     SubPropertyOf: 
         translatableTo,
         mappableToLanguage, isLinguisticallyRelatedTo
 
-    Characteristics: 
-        Transitive
-
-    Annotations: 
-        skos:definition "syntactically specified subset of a given language, consisting of a subset of its terminal and nonterminal symbols and grammar rules",
-        rdfs:label "is sublanguage of"
     
     Characteristics: 
         Transitive
@@ -1083,9 +1079,10 @@ Class: OMS
     Annotations: 
         skos:definition "a basic or structured ontology, specification or MDE model",
         rdfs:label "OMS (ontology, specification or MDE model)",
-        skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)",
+        skos:note "An OMS is a collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)",
         skos:note "An OMS can be written in different OMS language serializations.",
-        skos:note "collection is used here in the sense of syntactic collection"
+        skos:note "collection is used here in the sense of syntactic collection",
+        skos:note "An OMS has a single signature and model class over that signature as its model-theoretic semantics."
 
     
     EquivalentTo: 
@@ -1253,7 +1250,7 @@ Class: OMSReduction
     Annotations: 
 	rdfs:label "OMS reduction",
         reifies reducibleTo,
-        skos:definition "restriction of an OMS to a smaller signature."
+        skos:definition "DOL structured OMS expressing the restriction of an OMS to a smaller signature."
     
     SubClassOf: 
         DOLStructuredOMS
@@ -2290,19 +2287,12 @@ Class: LogicGraph
     SubClassOf: 
         Graph
     
-    
 Class: Approximation
     Annotations: 
-        skos:definition "OMS mapping to a logically implied theory (possibly after suitable translation) in a smaller signature or OMS language",
-        skos:editorialNote "this definition is derived from the defintion of approximant in the spec",
-        rdfs:label "approximation"
-    
-    SubClassOf: 
-        OMSMapping
-    
-	
-    
-    
+	rdfs:label "approximation",
+	skos:definition "structured OMS that expresses a maximum approximant."
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
+	    
     
 Class: QueryLanguage
     Annotations: 
@@ -2428,7 +2418,7 @@ Class: AnnotationExpression
 Class: OMSTranslation
     Annotations: 
         rdfs:label "OMS translation",
-        skos:definition "assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation",
+        skos:definition "DOL structured OMS expressing the assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation",
         skos:note " An OMS translation results in an OMS mapping between the original and the translation OMS. "
     
     SubClassOf: 
@@ -2464,7 +2454,7 @@ Annotations:
 Class: Closure
 Annotations: 
 	rdfs:label "closure",
-        skos:definition "way of implementing the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown.",
+        skos:definition "structured OMS expressing a variant of the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown.",
         skos:note "Symbols from the local environment are assumed to have a fixed interpretation. Only the symbols newly declared in the closure are forced to have minimal or maximal interpretation.",
         skos:note "DOL supports four different forms of closure: minimization and maximization as well as freeness and cofreeness."
         SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
@@ -2506,8 +2496,9 @@ Class: Union
 Class: Extension
     Annotations: 
 	rdfs:label "extension",
-	skos:definition "structured OMS extending a given OMS with new symbols and axioms.",
-        skos:note "semantically, an extension will extend the signature and model class given by the local environment."
+	skos:definition "structured OMS extending a given OMS with new symbols and sentences.",
+        skos:note "The new symbols and sentences are interpreted relative to the
+local envorinment, which is the signature of the 'given OMS'."
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: ConservativeExtension
@@ -2611,7 +2602,7 @@ Class: ModelFinding
 Class: Module
     Annotations: 
 	rdfs:label "module",
-	skos:definition "subOMS that conservatively extends to conservative extension the whole OMS."
+	skos:definition "structured OMS expressing a subOMS that conservatively extends to conservative extension the whole OMS."
     SubClassOf: DOLStructuredOMS, hasPart some InterfaceSignature, hasPart some DOLStructuredOMS
 
 Class: NativeOMS
@@ -2651,16 +2642,11 @@ Class: MaximumApproximant
         skos:note "Technically, a maximum approximant is a uniform interpolant"
     SubClassOf: Approximant
 	
-Class: Approximation
-    Annotations: 
-	rdfs:label "approximation",
-	skos:definition "structured OMS that delivers an approximation."
-    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
-	
 Class: Filtering
     Annotations: 
 	rdfs:label "filtering",
-	skos:definition "OMS expressesing the verbatim removal of symbols or axioms from an OMS."
+	skos:definition "structured OMS expressing the verbatim removal of symbols or axioms from an OMS.",
+        skos:note "If a symbol is removed, all axioms containing that symbol are removed, too."
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Tool
@@ -2672,7 +2658,7 @@ Class: Combination
     Annotations: 
 	rdfs:label "combination",	
         skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.",
-        skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "
+        skos:definition "structured OMS expressing the aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "
     SubClassOf: DOLStructuredOMS, hasPart some OMSNetwork
 
 Class: Correspondence
