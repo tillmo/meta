@@ -1390,7 +1390,10 @@ Class: Alignment
         OMSMapping, hasPart some Correspondence
     
 DisjointClasses: 
-        Alignment,Interpretation,Logic,OMSMapping,OMS,OMSLanguage,Serialization
+        Alignment,Interpretation
+
+DisjointClasses:
+        Logic,OMSMapping,OMS,OMSLanguage,Serialization
 
 	
 ObjectProperty: impliedExtendsTo
