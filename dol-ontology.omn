@@ -1135,9 +1135,6 @@ Class: Interpretation
 
     EquivalentTo: 
         View
-    
-    DisjointWith: 
-        Alignment
 	    
     SubClassOf: 
         OMSMapping
@@ -1153,10 +1150,6 @@ Class: OMSLanguageTranslation
         Mapping, 
         (mapsFrom exactly 1 OMSLanguage)
          and (mapsTo exactly 1 OMSLanguage)
-    
-    DisjointWith: 
-        LogicMapping
-	
 
     Annotations: 
         rdfs:label "OMS language translation"@en,
@@ -1167,8 +1160,7 @@ Class: OMSLanguageTranslation
         LanguageMapping,
         mapsFrom exactly 1 OMSLanguage,
         mapsTo exactly 1 OMSLanguage
-    
-    
+
 Class: Logic
     Annotations: 
         rdfs:label "logic"@en,
@@ -1218,9 +1210,6 @@ Class: LogicMapping
         Mapping,
         (mapsFrom exactly 1 Logic)
          and (mapsTo exactly 1 Logic)
-    
-    DisjointWith: 
-        OMSLanguageTranslation
 
     Annotations: 
         rdfs:label "logic mapping"@en,
@@ -1400,12 +1389,8 @@ Class: Alignment
     SubClassOf: 
         OMSMapping, hasPart some Correspondence
     
-    DisjointWith: 
-        Interpretation
-    
-    
 DisjointClasses: 
-    Alignment,Logic,OMSMapping,OMS,OMSLanguage,Serialization
+        Alignment,Interpretation,Logic,OMSMapping,OMS,OMSLanguage,Serialization
 
 	
 ObjectProperty: impliedExtendsTo
@@ -1793,7 +1778,9 @@ Class: LanguageMapping
     SubClassOf: 
         Mapping
     
-    
+DisjointClasses:
+        LanguageMapping, LogicMapping, OMSMapping
+
 Class: SetOfMappings
 
     Annotations: 
@@ -1832,10 +1819,9 @@ Class: LogicalLanguageAspect
     SubClassOf: 
         LanguageAspect
     
-    DisjointWith: 
-        StructuringLanguageAspect, AnnotationExpressionLanguageAspect
-    
-    
+DisjointClasses:
+        LogicalLanguageAspect,StructuringLanguageAspect, AnnotationExpressionLanguageAspect
+
 Class: SetOfNonlogicalSymbols
 
     Annotations: 
@@ -2059,12 +2045,7 @@ Class: StructuringLanguageAspect
     
     SubClassOf: 
         LanguageAspect
-    
-    DisjointWith: 
-        LogicalLanguageAspect, AnnotationExpressionLanguageAspect
-    
-    
-    
+
     
 Class: AnswerSubstitution
     Annotations: 
@@ -2244,11 +2225,7 @@ Class: AnnotationExpressionLanguageAspect
     
     SubClassOf: 
         LanguageAspect
-    
-    DisjointWith: 
-        LogicalLanguageAspect, StructuringLanguageAspect
-    
-    
+
 Class: Term
     Annotations: 
         skos:definition "syntactic expression either consisting of a single non-logical symbol or recursively composed of other terms (a.k.a. its subterms)"@en,
