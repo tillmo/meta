@@ -1044,9 +1044,6 @@ Class: View
     EquivalentTo: 
         Interpretation
     
-    SubClassOf: 
-        OMSMapping
-    
     Annotations: 
         skos:note "An interpretation typically leads to proof obligations, \\ie one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS."@en,
         skos:definition "OMS mapping that postulates a relation between two OMS"@en,
@@ -1135,11 +1132,7 @@ Class: Interpretation
 
     EquivalentTo: 
         View
-	    
-    SubClassOf: 
-        OMSMapping
-   
-    
+
 Class: OMSLanguageTranslation
 
     Annotations: 
