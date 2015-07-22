@@ -1414,6 +1414,7 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
                 <owl:someValuesFrom rdf:resource="&dol;Correspondence"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&dol;Interpretation"/>
         <skos:definition xml:lang="en">an OMS mapping expressing a collection of relations between entities of the two OMS</skos:definition>
         <rdfs:comment xml:lang="en">an alignment between two heterogeneous OMS in a DOL library</rdfs:comment>
     </owl:Class>
@@ -3504,8 +3505,6 @@ of logic (model theory).</skos:note>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&dol;Alignment"/>
-            <rdf:Description rdf:about="&dol;Interpretation"/>
             <rdf:Description rdf:about="&dol;Logic"/>
             <rdf:Description rdf:about="&dol;OMS"/>
             <rdf:Description rdf:about="&dol;OMSLanguage"/>
