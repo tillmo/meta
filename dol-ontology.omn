@@ -739,7 +739,9 @@ ObjectProperty: hasLogic
     Annotations: 
 	rdfs:label "has logic"@en,
         rdfs:comment "the logic in which an OMS is formalized"@en,
-        skos:definition "specification of valid reasoning that comprises signatures (user defined vocabularies), models (interpretations of these), sentences (constraints on models), and a satisfaction relation between models and sentences."@en
+        skos:definition "specification of valid reasoning that comprises signatures (user defined vocabularies), models (interpretations of these), sentences (constraints on models), and a satisfaction relation between models and sentences."@en,
+        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following, which makes hasLogic a non-simple property.  hasLogic is not used in cardinality restrictions, so it _should_ be OK to say the following, but in practice it doesn't work.
+SubPropertyChain: semanticallyDenotes o hasLogic"@en
     Characteristics: 
         Functional
     
