@@ -10,7 +10,8 @@ Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
 Prefix: sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 Prefix: dol: <http://www.omg.org/spec/DOL/dol-language/>
 	
-Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
+# We can't use the non-standard community ontology OMV in an OMG standard
+# Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
 
 Ontology: <http://www.omg.org/spec/DOL/dol-language/> <http://www.omg.org/spec/DOL/20150801/dol-language/>
 
@@ -21,9 +22,12 @@ Import: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
         rdfs:comment "RDF serialization of DOL, implemented as an OWL ontology.  Actually some axioms that we would like to have go beyond OWL."@en,
         rdfs:comment "Developers' note: When scaling this ontology implementation up to DOL, look below for annotations marked as 'beyond OWL'.  These things can be modeled in FOL."@en,
         rdfs:seeAlso <http://www.informatik.uni-bremen.de/~till/papers/womo2012.pdf>,
-        omv:hasFormalityLevel <http://omv.ontoware.org/2005/05/ontology#Vocabulary>,
-        omv:conformsToKnowledgeRepresentationParadigm <http://omv.ontoware.org/2005/05/ontology#DescriptionLogics>,
-        omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>,
+        # omv:hasFormalityLevel <http://omv.ontoware.org/2005/05/ontology#Vocabulary>,
+        # ^ actually this ontology is now more expressive than a vocabulary; plus, we can't use OMV
+        # omv:conformsToKnowledgeRepresentationParadigm <http://omv.ontoware.org/2005/05/ontology#DescriptionLogics>,
+        # ^ we can't use OMV; however "logic = description logic" should be clear from the fact that this is an OWL ontology
+        # omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>,
+        # ^ we can't use OMV, and "domain ontology" is not quite right anyway.
 		
 	sm:copyright "Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
@@ -49,10 +53,9 @@ AnnotationProperty: sm:contentLanguage
 
 AnnotationProperty: dct:license
 
-AnnotationProperty: omv:hasFormalityLevel
-AnnotationProperty: omv:hasFormalityLevel
-AnnotationProperty: omv:conformsToKnowledgeRepresentationParadigm
-AnnotationProperty: omv:isOfType
+# AnnotationProperty: omv:hasFormalityLevel
+# AnnotationProperty: omv:conformsToKnowledgeRepresentationParadigm
+# AnnotationProperty: omv:isOfType
 AnnotationProperty: dct:creator
 	
 AnnotationProperty: rdfs:label
