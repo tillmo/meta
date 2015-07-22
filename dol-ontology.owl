@@ -9,9 +9,10 @@
 <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
 <!ENTITY sm "http://www.omg.org/techprocess/ab/SpecificationMetadata/" >
 ]>
-<rdf:RDF xmlns="http://www.omg.org/spec/DOL/dol-language/"
+<rdf:RDF 
+     xml:base="http://www.omg.org/spec/DOL/dol-language/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:dct="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:dol="http://www.omg.org/spec/DOL/dol-language/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -22,10 +23,10 @@
     <owl:Ontology rdf:about="&dol;">
         <rdfs:label xml:lang="en">Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology</rdfs:label>
         <sm:contentLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#anyURI">http://www.omg.org/spec/ODM/</sm:contentLanguage>
-        <terms:license rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#anyURI">&sm;MITLicense</terms:license>
+        <dct:license rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#anyURI">&sm;MITLicense</dct:license>
         <sm:contentLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#anyURI">http://www.w3.org/standards/techs/owl#w3c_all</sm:contentLanguage>
         <sm:isNormative rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#boolean">true</sm:isNormative>
-        <sm:filename>ontology.omn</sm:filename>
+        <sm:filename>dol-ontology.omn</sm:filename>
         <owl:versionInfo>1.0</owl:versionInfo>
         <sm:copyright xml:lang="en">Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
@@ -41,6 +42,7 @@ Copyright (c) 2014-2015 Athan Services</sm:copyright>
         <ontology:hasFormalityLevel rdf:resource="http://omv.ontoware.org/2005/05/ontology#Vocabulary"/>
         <rdfs:seeAlso rdf:resource="http://www.informatik.uni-bremen.de/~till/papers/womo2012.pdf"/>
         <owl:versionIRI rdf:resource="http://www.omg.org/spec/DOL/20150801/dol-language/"/>
+        <owl:imports rdf:resource="&sm;"/>
     </owl:Ontology>
     
 
@@ -74,33 +76,9 @@ Copyright (c) 2014-2015 Athan Services</sm:copyright>
     
 
 
-    <!-- &dct;abstract -->
-
-    <owl:AnnotationProperty rdf:about="&dct;abstract"/>
     
 
 
-    <!-- &dct;creator -->
-
-    <owl:AnnotationProperty rdf:about="&dct;creator"/>
-    
-
-
-    <!-- &dct;date -->
-
-    <owl:AnnotationProperty rdf:about="&dct;date"/>
-    
-
-
-    <!-- &dct;license -->
-
-    <owl:AnnotationProperty rdf:about="&dct;license"/>
-    
-
-
-    <!-- &dct;source -->
-
-    <owl:AnnotationProperty rdf:about="&dct;source"/>
     
 
 
@@ -161,45 +139,21 @@ InverseOf: supportsSymbolKind</rdfs:comment>
     
 
 
-    <!-- &sm;contentLanguage -->
-
-    <owl:AnnotationProperty rdf:about="&sm;contentLanguage"/>
     
 
 
-    <!-- &sm;copyright -->
-
-    <owl:AnnotationProperty rdf:about="&sm;copyright"/>
     
 
 
-    <!-- &sm;fileAbbreviation -->
-
-    <owl:AnnotationProperty rdf:about="&sm;fileAbbreviation"/>
     
 
 
-    <!-- &sm;fileAbstract -->
-
-    <owl:AnnotationProperty rdf:about="&sm;fileAbstract"/>
     
 
 
-    <!-- &sm;filename -->
-
-    <owl:AnnotationProperty rdf:about="&sm;filename"/>
     
 
 
-    <!-- &sm;informativeReference -->
-
-    <owl:AnnotationProperty rdf:about="&sm;informativeReference"/>
-    
-
-
-    <!-- &sm;isNormative -->
-
-    <owl:AnnotationProperty rdf:about="&sm;isNormative"/>
     
 
 
@@ -230,48 +184,6 @@ InverseOf: supportsSymbolKind</rdfs:comment>
     <!-- &owl;versionInfo -->
 
     <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
-    
-
-
-    <!-- &skos;altLabel -->
-
-    <owl:AnnotationProperty rdf:about="&skos;altLabel"/>
-    
-
-
-    <!-- &skos;definition -->
-
-    <owl:AnnotationProperty rdf:about="&skos;definition"/>
-    
-
-
-    <!-- &skos;editorialNote -->
-
-    <owl:AnnotationProperty rdf:about="&skos;editorialNote"/>
-    
-
-
-    <!-- &skos;example -->
-
-    <owl:AnnotationProperty rdf:about="&skos;example"/>
-    
-
-
-    <!-- &skos;note -->
-
-    <owl:AnnotationProperty rdf:about="&skos;note"/>
-    
-
-
-    <!-- &skos;prefLabel -->
-
-    <owl:AnnotationProperty rdf:about="&skos;prefLabel"/>
-    
-
-
-    <!-- &skos;scopeNote -->
-
-    <owl:AnnotationProperty rdf:about="&skos;scopeNote"/>
     
 
 
@@ -1067,7 +979,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;satisfies">
         <rdfs:label xml:lang="en">satisfies</rdfs:label>
-        <terms:abstract xml:lang="en"></terms:abstract>
+        <dct:abstract xml:lang="en"></dct:abstract>
         <skos:definition xml:lang="en">relationship between a model and a sentence indicating that the sentence holds true in the model</skos:definition>
         <rdfs:domain rdf:resource="&dol;Model"/>
         <rdfs:seeAlso rdf:resource="&dol;SatisfactionRelation"/>
@@ -1412,13 +1324,6 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&dol;StructuredOMS"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:onClass rdf:resource="&dol;OMSDocumentation"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;induces"/>
                 <owl:onClass rdf:resource="&dol;SetOfSentences"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -1428,6 +1333,13 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;induces"/>
                 <owl:onClass rdf:resource="&dol;Signature"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:onClass rdf:resource="&dol;OMSDocumentation"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1846,6 +1758,12 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <rdfs:label xml:lang="en">formal semantics</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;formalizes"/>
+                <owl:someValuesFrom rdf:resource="&dol;Language"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;SemanticRule"/>
             </owl:Restriction>
@@ -1854,12 +1772,6 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;SemanticDomain"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;formalizes"/>
-                <owl:someValuesFrom rdf:resource="&dol;Language"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">A formal semantics is a formalization of the meaning of a language.</skos:note>
@@ -1913,7 +1825,7 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SupportsRelation"/>
+                <owl:someValuesFrom rdf:resource="&dol;LanguageGraph"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1925,7 +1837,7 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;LanguageGraph"/>
+                <owl:someValuesFrom rdf:resource="&dol;SupportsRelation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">environment for the expression of homogeneous and heterogeneous OMS, comprising a logic graph, an OMS language graph and a supports relation</skos:definition>
@@ -2023,7 +1935,13 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Signature"/>
+                <owl:someValuesFrom rdf:resource="&dol;SignatureMorphism"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;SatisfactionRelation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2035,19 +1953,7 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SignatureMorphism"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;Category"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SatisfactionRelation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2060,6 +1966,12 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;Sentence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;Signature"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">metaframework mathematically formalising the notion of a logic</skos:definition>
@@ -2476,13 +2388,13 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;InterfaceSignature"/>
+                <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
+                <owl:someValuesFrom rdf:resource="&dol;InterfaceSignature"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">subOMS that conservatively extends to conservative extension the whole OMS.</skos:definition>
@@ -2567,16 +2479,16 @@ of logic (model theory).</skos:note>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&dol;HeterogeneousOMS"/>
-                    <rdf:Description rdf:about="&dol;HomogeneousOMS"/>
+                    <rdf:Description rdf:about="&dol;ElusiveOMS"/>
+                    <rdf:Description rdf:about="&dol;FlattenableOMS"/>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&dol;ElusiveOMS"/>
-                    <rdf:Description rdf:about="&dol;FlattenableOMS"/>
+                    <rdf:Description rdf:about="&dol;HeterogeneousOMS"/>
+                    <rdf:Description rdf:about="&dol;HomogeneousOMS"/>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -2612,12 +2524,6 @@ of logic (model theory).</skos:note>
         <rdfs:label xml:lang="en">OMS language</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Language"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;supportsLogic"/>
-                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
@@ -2638,6 +2544,12 @@ of logic (model theory).</skos:note>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;supportsLogic"/>
+                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en"> An OMS language is used for the formal specification of OMS.</skos:note>
         <skos:example xml:lang="en"> OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO. </skos:example>
@@ -2671,14 +2583,14 @@ of logic (model theory).</skos:note>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;mapsFrom"/>
+                <owl:onProperty rdf:resource="&dol;mapsTo"/>
                 <owl:onClass rdf:resource="&dol;OMSLanguage"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;mapsTo"/>
+                <owl:onProperty rdf:resource="&dol;mapsFrom"/>
                 <owl:onClass rdf:resource="&dol;OMSLanguage"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
