@@ -2134,7 +2134,6 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
     <owl:Class rdf:about="&dol;Interpretation">
         <rdfs:label xml:lang="en">interpretation</rdfs:label>
         <owl:equivalentClass rdf:resource="&dol;View"/>
-        <rdfs:subClassOf rdf:resource="&dol;OMSMapping"/>
         <skos:definition xml:lang="en">OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures</skos:definition>
         <skos:altLabel xml:lang="en">refinement</skos:altLabel>
         <skos:altLabel xml:lang="en">view</skos:altLabel>
