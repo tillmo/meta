@@ -118,78 +118,100 @@ Datatype: xsd:string
 
 
     
-ObjectProperty: embeddableInto
+ObjectProperty: isEmbeddableInto
 
     Annotations: 
+	rdfs:label "is embeddable into"@en,
         rdfs:comment "The subject is embeddable into the object logic."@en
     
     SubPropertyOf: 
-        translatableTo,
-        exactlyMappableTo,
-        mappableToBijectivelyOnModels,
-        mappableToLogic
+        isTranslatableTo,
+        isExactlyMappableTo,
+        isMappableToBijectivelyOnModels,
+        isMappableToLogic
     
     Characteristics: 
         Transitive
     
-ObjectProperty: omsIn
+ObjectProperty: isOmsIn
     Annotations: 
+	rdfs:label "is OMS in"@en,
         rdfs:comment "The subject is an OMS participating in a DOL library, which is the object."@en
-    
 
     InverseOf: 
         hasOMS
+    SubPropertyOf: isLinguisticallyRelatedTo
+
     
-    
-ObjectProperty: translatableFrom
+ObjectProperty: isTranslatableFrom
 
     Annotations: 
+	rdfs:label "is translatable from"@en,
         rdfs:comment "There is a translation from the object to the subject."@en
     
     SubPropertyOf: 
-        mappableFrom
+        isMappableFrom
     
     InverseOf: 
-        translatableTo
+        isTranslatableTo
     
     
+ObjectProperty: hasSequenceMember
+	
+    Annotations: 
+	rdfs:label "has sequence member"@en,
+        skos:definition "The inverse of the sequence membership relation."@en,
+        skos:note "this is a lingustic property, because it is about sequences of linguistic entities that occur in a text."@en
+
+    InverseOf: 
+        isMemberOf
+    SubPropertyOf: isLinguisticallyRelatedTo
+	
 ObjectProperty: hasMember
 	
     Annotations: 
+	rdfs:label "has member"@en,
         skos:definition "The inverse of the set membership relation."@en
 
     Domain: 
-        DOLLibrary
+        Set
+    Range: 
+        MathematicalEntity
     
     InverseOf: 
-        memberOf
+        isMemberOf
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: faithfullyMappableTo
+ObjectProperty: isFaithfullyMappableTo
 
     Annotations: 
+	rdfs:label "is faithfully mappable to"@en,
         rdfs:comment "There is a faithful mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        mappableToLogic
+        isMappableToLogic
     
     Characteristics: 
         Transitive
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: mappableToLogic
+ObjectProperty: isMappableToLogic
 
     Annotations: 
+	rdfs:label "is mappable to logic"@en,
         rdfs:comment "There is a mapping from the subject logic to the object logic."@en
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        mappableFromLogic
+        isMappableFromLogic
+    SubPropertyOf: isMathematicallyRelatedTo
         
 ObjectProperty: isExtensionOf
 	
@@ -206,7 +228,7 @@ ObjectProperty: isExtensionOf
         skos:prefLabel "extends"@en
     
     SubPropertyOf: 
-        isMappableTo
+        isLinguisticallyRelatedTo
     
     SubPropertyChain: 
         isMappedBy o extendsTo
@@ -225,13 +247,14 @@ ObjectProperty: isExtensionOf
     
     
     
-ObjectProperty: weaklyExactlyMappableTo
+ObjectProperty: isWeaklyExactlyMappableTo
 
     Annotations: 
+	rdfs:label "is weakly exactly mappable to"@en,
         rdfs:comment "There is a weakly exact mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        mappableToLogic
+        isMappableToLogic
     
     Characteristics: 
         Transitive
@@ -240,19 +263,14 @@ ObjectProperty: weaklyExactlyMappableTo
 ObjectProperty: isSubLanguageOf
 
     Annotations: 
-        rdfs:comment "The subject is a sublanguage of the object language.  Supported logics are shared along the inverse of this property."@en
-        
-    SubPropertyOf: 
-        translatableTo,
-        mappableToLanguage
-    
-    Characteristics: 
-        Transitive
-
-    Annotations: 
+        rdfs:comment "The subject is a sublanguage of the object language.  Supported logics are shared along the inverse of this property."@en,
         skos:definition "syntactically specified subset of a given language, consisting of a subset of its terminal and nonterminal symbols and grammar rules"@en,
         rdfs:label "is sublanguage of"@en
-    
+        
+    SubPropertyOf: 
+        isTranslatableTo,
+        isMappableToLanguage, isLinguisticallyRelatedTo
+
     Characteristics: 
         Transitive
     
@@ -265,25 +283,28 @@ ObjectProperty: isSubLanguageOf
     
 ObjectProperty: specifiesSemanticsOf
     Annotations: 
+	rdfs:label "specifies semantics of"@en,
         rdfs:comment "The semantics of [a subset of] the object language can be specified in terms of the subject logic."@en
 
     InverseOf: 
         supportsLogic
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
-ObjectProperty: translatableTo
+ObjectProperty: isTranslatableTo
 
     Annotations: 
+	rdfs:label "is translatable to"@en,
         rdfs:comment "There is a translation from the subject to the object."@en
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        translatableFrom
+        isTranslatableFrom
     
     
 ObjectProperty: mapsFrom
@@ -299,7 +320,7 @@ ObjectProperty: mapsFrom
         Mapping
     
     InverseOf: 
-        sourceOfMapping
+        isSourceOfMapping
     
     Annotations: 
         skos:definition "relationship between a mapping and its domain"@en,
@@ -313,22 +334,27 @@ ObjectProperty: mapsFrom
     
     InverseOf: 
         isMappedBy
+	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
-ObjectProperty: exactlyMappableTo
+ObjectProperty: isExactlyMappableTo
 
     Annotations: 
+	rdfs:label "is exactly mappable to"@en,
         rdfs:comment "There is an exact mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        weaklyExactlyMappableTo
+        isWeaklyExactlyMappableTo
     
     Characteristics: 
         Transitive
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: language
+ObjectProperty: isLanguageOf
 
     Annotations: 
+	rdfs:label "is language of"@en,
         rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
 SubPropertyChain: serialization o serializes"@en,
         skos:definition "the language of an OMS"@en
@@ -341,32 +367,37 @@ SubPropertyChain: serialization o serializes"@en,
     
     Range: 
         OMSLanguage
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: mappableToBijectivelyOnModels
+ObjectProperty: isMappableToBijectivelyOnModels
 
     Annotations: 
+	rdfs:label "is mappable to bijectively on models"@en,
         rdfs:comment "There is a model-bijective mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        modelExpansivelyMappableTo,
-        weaklyExactlyMappableTo
+        isModelExpansivelyMappableTo,
+        isWeaklyExactlyMappableTo
     
     Characteristics: 
         Transitive
     
     
-ObjectProperty: mappingIn
+ObjectProperty: isMappingIn
     Annotations: 
+	rdfs:label "is mapping in"@en,
         rdfs:comment "The object is a DOL library, in which the subject is a mapping between two participating OMS."@en
 
     InverseOf: 
         hasMapping
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: hasOMS
 
     Annotations: 
+	rdfs:label "has OMS"@en,
         rdfs:comment "The subject is a DOL library, in which the object is a participating heterogeneous OMS."@en
     
     SubPropertyOf: 
@@ -376,27 +407,31 @@ ObjectProperty: hasOMS
         OMS
     
     InverseOf: 
-        omsIn
+        isOmsIn
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: reducibleTo
+ObjectProperty: isReducibleTo
 
     Annotations: 
+	rdfs:label "is reducible to"@en,
         rdfs:comment "There is a reduction from the subject to the object."@en
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        reducibleFrom
+        isReducibleFrom
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: target
+ObjectProperty: hasTarget
 
     Annotations: 
+	rdfs:label "has target"@en,
         skos:definition "the target OMS of a mapping"@en
     
     Characteristics: 
@@ -407,11 +442,13 @@ ObjectProperty: target
     
     Range: 
         OMS
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: source
+ObjectProperty: hasSource
 
     Annotations: 
+	rdfs:label "has source"@en,
         skos:definition "the source OMS of a mapping"@en
     
     Characteristics: 
@@ -422,15 +459,18 @@ ObjectProperty: source
     
     Range: 
         OMS
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: exactLogicalExpressivity
+ObjectProperty: hasExactLogicalExpressivity
 
     Annotations: 
+	rdfs:label "has exact logical expressivity"@en,
         rdfs:comment "The subject language has exactly the expressivity of the object logic."@en
     
     SubPropertyOf: 
         supportsLogic
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: serializes
@@ -448,12 +488,14 @@ ObjectProperty: serializes
     
     Range: 
         OMSLanguage
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
     
 ObjectProperty: isMonomorphicExtensionOf
 
     Annotations: 
+	rdfs:label "is monomorphic extension of"@en,
         rdfs:comment "The subject OMS is a monomorphic extension of the object OMS. A monomorphic extension is an extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism."@en,
         strictlyStrongerThan isModelTheoreticallyConservativeExtensionOf
     
@@ -464,6 +506,7 @@ ObjectProperty: isMonomorphicExtensionOf
 ObjectProperty: hasInterpretation
 
     Annotations: 
+	rdfs:label "has interpretation"@en,
         rdfs:comment "The subject is a DOL library, in which the object is an interpretation between two participating OMS."@en
     
     SubPropertyOf: 
@@ -473,12 +516,14 @@ ObjectProperty: hasInterpretation
         Interpretation
     
     InverseOf: 
-        interpretationIn
+        isInterpretationIn
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: hasAlignment
 
     Annotations: 
+	rdfs:label "has alignment"@en,
         rdfs:comment "The subject is a DOL library, in which the object is an alignment between two participating OMS."@en
     
     SubPropertyOf: 
@@ -488,20 +533,35 @@ ObjectProperty: hasAlignment
         Alignment
     
     InverseOf: 
-        alignmentIn
+        isAlignmentIn
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: memberOf
+ObjectProperty: isSequenceMemberOf
     Annotations: 
+	rdfs:label "is sequence memberOf"@en,
+        skos:definition "The sequence membership relation."@en
+
+    InverseOf: 
+        hasSequenceMember
+    SubPropertyOf: isLinguisticallyRelatedTo
+    
+ObjectProperty: isMemberOf
+    Annotations: 
+	rdfs:label "is member of"@en,
         skos:definition "The set membership relation."@en
 
     InverseOf: 
         hasMember
-    
+    SubPropertyOf: isMathematicallyRelatedTo
+    Domain: MathematicalEntity
+    Range: Set	
+	
     
 ObjectProperty: isModelTheoreticallyConservativeExtensionOf
 
     Annotations: 
+	rdfs:label "is model theoretically conservative extension of"@en,
         rdfs:comment "The subject OMS is a model-theoretic conservative extension of the object OMS. A model-theoretic conservative extension is an extension that does not lead to a restriction of class of models of an OMS."@en,
         strictlyStrongerThan isConsequenceTheoreticallyConservativeExtensionOf
     
@@ -511,7 +571,10 @@ ObjectProperty: isModelTheoreticallyConservativeExtensionOf
 ObjectProperty: supportsLogic
 
     Annotations: 
+	rdfs:label "supportsL lgic"@en,
         rdfs:comment "The semantics of [a subset of] the subject language can be specified in terms of the object logic."@en
+	
+    SubPropertyOf: isSemanticallyRelatedTo
     
     SubPropertyChain: 
         inverse (isSubLanguageOf) o supportsLogic,
@@ -536,35 +599,41 @@ ObjectProperty: supportsLogic
     Range: 
         Logic
     
-ObjectProperty: mappableToLanguage
+ObjectProperty: isMappableToLanguage
 
     Annotations: 
+	rdfs:label "is mappable to language"@en,
         rdfs:comment "There is a mapping from the subject language to the object language."@en
     
     SubPropertyOf: 
-        mappableTo
+        isMappableTo, isLinguisticallyRelatedTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        mappableFromLanguage
+        isMappableFromLanguage
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
-ObjectProperty: alignmentIn
+ObjectProperty: isAlignmentIn
     Annotations: 
+	rdfs:label "is alignment in"@en,
         rdfs:comment "The obbject is a DOL library, in which the subject is an alignment between two participating OMS."@en
 
     InverseOf: 
         hasAlignment
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: sourceOfMapping
+ObjectProperty: isSourceOfMapping
    Annotations: 
+	rdfs:label "is source of mapping"@en,
         rdfs:comment "The object mapping maps from the subject into something of the same type as the subject."@en
     InverseOf: 
         mapsFrom
     
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
 ObjectProperty: mapsTo
 
@@ -587,6 +656,7 @@ ObjectProperty: mapsTo
     Domain: 
         Mapping
     
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: isSubLogicOf
@@ -595,10 +665,11 @@ ObjectProperty: isSubLogicOf
         rdfs:comment "The subject is a sublogic of the object."@en
     
     SubPropertyOf: 
-        embeddableInto
+        isEmbeddableInto
     
+    SubPropertyOf: isMathematicallyRelatedTo
     SubPropertyChain: 
-         inverse (exactLogicalExpressivity) o isSubLanguageOf o exactLogicalExpressivity
+         inverse (hasExactLogicalExpressivity) o isSubLanguageOf o hasExactLogicalExpressivity
     
     Annotations: 
         skos:definition "a logic that is a syntactic restriction of another logic, inheriting its semantics"@en,
@@ -614,96 +685,109 @@ ObjectProperty: isSubLogicOf
         Logic
     
     
-ObjectProperty: interpretationIn
+ObjectProperty: isInterpretationIn
     Annotations: 
+	rdfs:label "is interpretation in"@en,
         rdfs:comment "The object is a DOL library, in which the subject is an interpretation between two participating OMS."@en
 
     InverseOf: 
         hasInterpretation
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: mappableFrom
+ObjectProperty: isMappableFrom
 
     Annotations: 
+	rdfs:label "is mappable from"@en,
         rdfs:comment "There is a mapping from the object to the subject."@en
     
     InverseOf: 
-        mappableTo
+        isMappableTo
+	
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
-ObjectProperty: compositionOf
+ObjectProperty: isCompositionOf
 
     Annotations: 
+	rdfs:label "is composition of"@en,
         rdfs:comment "Range can't be specified in OWL DL"@en,
         rdfs:comment "Developers' note: The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)"@en
     
-    Domain: 
-        OMSMapping
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: simplyTheoroidallyMappableTo
+ObjectProperty: isSimplyTheoroidallyMappableTo
 
     Annotations: 
+	rdfs:label "is simply theoroidally mappable to"@en,
         rdfs:comment "There is a simple theoroidal mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        mappableToLogic
+        isMappableToLogic
+    SubPropertyOf: isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
     
     
-ObjectProperty: logic
+ObjectProperty: hasLogic
 
     Annotations: 
+	rdfs:label "has logic"@en,
         rdfs:comment "the logic in which an OMS is formalized"@en,
         skos:definition "specification of valid reasoning that comprises signatures (user defined vocabularies), models (interpretations of these), sentences (constraints on models), and a satisfaction relation between models and sentences."@en
     Characteristics: 
         Functional
     
     Domain: 
-        OMS
+        OMS or OMSSemanticObject
     
     Range: 
         Logic
     
+    SubPropertyOf: isSemanticallyRelatedTo
+	SubPropertyChain: semanticallyDenotes o hasLogic	
     
-ObjectProperty: modelExpansivelyMappableTo
+ObjectProperty: isModelExpansivelyMappableTo
 
     Annotations: 
+	rdfs:label "is model expansively mappable to"@en,
         rdfs:comment "There is a model-expansive mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        faithfullyMappableTo
+        isFaithfullyMappableTo
     
     Characteristics: 
         Transitive
     
     
-ObjectProperty: mappableFromLogic
+ObjectProperty: isMappableFromLogic
 
     Annotations: 
+	rdfs:label "mappable from logic"@en,
         rdfs:comment "There is a mapping from the object logic to the subject logic."@en
     
     InverseOf: 
-        mappableToLogic
+        isMappableToLogic
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: isConsequenceTheoreticallyConservativeExtensionOf
     Annotations: 
+	rdfs:label "is consequence theoretically conservative extension of"@en,
         rdfs:comment "The subject OMS is a consequence-theoretic conservative extension of the object OMS. A consequence-theoretic conservative extension is an extension that does not add new theorems (in terms of the unextended signature)."@en
     SubPropertyOf: 
         isConservativeExtensionOf
     
 ObjectProperty: isProfileOf
-
     Annotations: 
         rdfs:comment "The subject is a isProfile of the object language.  This is a stronger notion than just being a sublanguage.  Supported serializations are shared along this property."@en,
         rdfs:label "is profile of"@en,
         skos:definition "see Class 'profile'"@en
     
     SubPropertyOf: 
-        isSubLanguageOf
+        isSubLanguageOf, isLinguisticallyRelatedTo
     
     Domain: 
         Profile
@@ -712,18 +796,21 @@ ObjectProperty: isProfileOf
         OMSLanguage
     
 
-ObjectProperty: mappableFromLanguage
+ObjectProperty: isMappableFromLanguage
 
     Annotations: 
+	rdfs:label "mappable from language"@en,
         rdfs:comment "There is a mapping from the object language to the subject language."@en
     
     InverseOf: 
-        mappableToLanguage
+        isMappableToLanguage
+    SubPropertyOf: isLinguisticallyRelatedTo, isRelatedAsPartOfMapsTo	
     
     
-ObjectProperty: serialization
+ObjectProperty: isSerializedIn
 
     Annotations: 
+	rdfs:label "is serialized in"@en,
         rdfs:comment "the textual syntax in which an OMS is written"@en
     
     Characteristics: 
@@ -735,58 +822,57 @@ ObjectProperty: serialization
     Range: 
         Serialization
     
+    SubPropertyOf: isLinguisticallyRelatedTo
     
-ObjectProperty: mappableTo
+ObjectProperty: isMappableTo
 
     Annotations: 
+	rdfs:label "is mappable to"@en,
         rdfs:comment "There is a mapping from the subject to the object."@en
     
     SubPropertyChain: 
-        sourceOfMapping o mapsTo
+        isSourceOfMapping o mapsTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
-        mappableFrom
+        isMappableFrom
     
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
 ObjectProperty: hasMapping
 
     Annotations: 
+	rdfs:label "has mapping"@en,
         rdfs:comment "The subject is a DOL library, in which the object is a mapping between two participating OMS."@en
     
     SubPropertyOf: 
-        hasMember
+        hasMember, isLinguisticallyRelatedTo
     
     Range: 
         OMSMapping
     
     InverseOf: 
-        mappingIn
+        isMappingIn
     
 ObjectProperty: isWeakDefinitionalExtensionOf
     Annotations: 
+	rdfs:label "is weak definitional extension of"@en,
         rdfs:comment "The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
-   non-logical symbols can be interpreted in at most one way."@en    
-    
-ObjectProperty: adjoint
-    Annotations: 
-        rdfs:comment "The subject is a translation that shares its sentence and model translation with the object reduction. The signature translations are adjoint to each other (in the sense of category theory)."@en
-    Domain: 
-        Translation
-    
-    Range: 
-        Reduction
+   non-logical symbols can be interpreted in at most one way."    
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
-ObjectProperty: plainlyMappableTo
+    
+ObjectProperty: isPlainlyMappableTo
 
     Annotations: 
+	rdfs:label "is plainly mappable to"@en,
         rdfs:comment "There is a plain mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        simplyTheoroidallyMappableTo
+        isSimplyTheoroidallyMappableTo
     
     Characteristics: 
         Transitive
@@ -795,6 +881,7 @@ ObjectProperty: plainlyMappableTo
 ObjectProperty: supportsSerialization
 
     Annotations: 
+	rdfs:label "supports serialization"@en,
         rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
 SubPropertyChain: isProfileOf o supportsSerialization"@en,
         rdfs:comment "Note that the serialization should be as specific as possible, i.e. one should not say that ``OWL can be serialized in XML'' and ``Common Logic can be serialized in XML'', but instead ``OWL can be serialized in OWL XML'' and ``Common Logic can be serialized in XCL'', taking into account that OWL XML and XCL are two different XML languages."@en,
@@ -811,18 +898,20 @@ SubPropertyChain: isProfileOf o supportsSerialization"@en,
     
     InverseOf: 
         serializes
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: reducibleFrom
+ObjectProperty: isReducibleFrom
 
     Annotations: 
+	rdfs:label "is reducible from"@en,
         rdfs:comment "There is a reduction from the object to the subject."@en
     
     SubPropertyOf: 
-        mappableFrom
+        isMappableFrom
     
     InverseOf: 
-        reducibleTo
+        isReducibleTo
     
     
 DataProperty: mediaType
@@ -872,9 +961,10 @@ DataProperty: altFilenameExtension
 Class: WeaklyExactMapping
 
     Annotations: 
+	rdfs:label "weakly exact mapping"@en,
         skos:definition "logic mapping that is weakly compatible with certain DOL structuring constructs"@en,
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies weaklyExactlyMappableTo
+        reifies isWeaklyExactlyMappableTo
     
     SubClassOf: 
         LogicMapping
@@ -883,9 +973,10 @@ Class: WeaklyExactMapping
 Class: ExactMapping
 
     Annotations: 
+	rdfs:label "exact mapping"@en,
         skos:definition "logic mapping that is compatible with certain DOL structuring constructs"@en,
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies exactlyMappableTo
+        reifies isExactlyMappableTo
     
     SubClassOf: 
         WeaklyExactMapping
@@ -894,47 +985,32 @@ Class: ExactMapping
 Class: DOLLibrary
 
     Annotations: 
+	rdfs:label "DOL library"@en,
         skos:definition "collection of named OMS and OMS networks, possibly written in different OMS languages, linked by named OMS mappings."@en,    
         skos:note "collection is used here in the sense of syntactic collection"@en
-    SubClassOf: DOLEntity
+    SubClassOf: DOLEntity, semanticallyDenotes some GlobalEnvironment
 
 
     
 Class: ModelExpansiveMapping
 
     Annotations: 
+	rdfs:label "model expansive mapping"@en,
         skos:definition "logic mapping that has a surjective model translation (ensuring faithfulness of the mapping)"@en,
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies modelExpansivelyMappableTo
+        reifies isModelExpansivelyMappableTo
     
     SubClassOf: 
         FaithfulMapping
     
     
-Class: Translation
-    Annotations: 
-	skos:definition "mapping between languages or logics representing all structure, in contrast to reduction"@en, 
-	reifies translatableTo
-    
-    SubClassOf: 
-        Mapping
-    
-    DisjointWith: 
-        Reduction
 	
-Class: Reduction
-    Annotations: 
-	skos:definition "mapping between languages or logics forgetting parts of the structure, projection to a smaller language or logic"@en, 
-	reifies reducibleTo 
-    SubClassOf: 
-        Mapping
-    DisjointWith: 
-        Translation
     
     
 Class: SubLogic
 
     Annotations: 
+	rdfs:label "sublogic"@en,
         rdfs:comment "logic embedding that is 'syntactic' in the sense that signature and sentence translations are inclusions."@en,
         reifies isSubLogicOf
     
@@ -943,7 +1019,6 @@ Class: SubLogic
     
     
 Class: Sentence
-
     Annotations: 
         rdfs:comment "a sentence in an OMS"@en,
         skos:note "It is quite common that sentences are required to be closed (i.e.\\ have no free variables). However, this depends on the OMS language at hand."@en,
@@ -982,23 +1057,25 @@ Class: View
 Class: Embedding
 
     Annotations: 
+	rdfs:label "embedding"@en,
         skos:definition "logic mapping that embeds the source into the target logic, using components that are embeddings and (in the case of model translations) isomorphism"@en,
-        reifies embeddableInto
+        reifies isEmbeddableInto
     
     SubClassOf: 
         ExactMapping,
         LogicMapping,
-        Translation,
+        LogicTranslation,
         ModelBijectiveMapping
     
 Class: OMS
 
     Annotations: 
         skos:definition "a basic or structured ontology, specification or MDE model"@en,
-        rdfs:label "OMS (ontology, specification or model)"@en,
-        skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)"@en,
+        rdfs:label "OMS (ontology, specification or MDE model)"@en,
+        skos:note "An OMS is a collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)"@en,
         skos:note "An OMS can be written in different OMS language serializations."@en,
-        skos:note "collection is used here in the sense of syntactic collection"@en
+        skos:note "collection is used here in the sense of syntactic collection"@en,
+        skos:note "An OMS has a single signature and model class over that signature as its model-theoretic semantics."@en
 
     
     EquivalentTo: 
@@ -1008,14 +1085,18 @@ Class: OMS
          or FlattenableOMS
     
     SubClassOf: 
-        usesLanguage some OMSLanguage
+        usesLanguage some OMSLanguage, 
+ 	semanticallyDenotes some OMSSemanticObject,
+	hasLogic some Logic, hasSignature some Signature, 
+	hasSentences some SetOfSentences, hasModels some ClassOfModels
     SubClassOf: DOLEntity
     
     
 Class: Ontology
 
     Annotations: 
-        skos:definition "logical theory that is used as a shared conceptualization"@en
+	rdfs:label "ontology"@en,
+        skos:definition "logical theory that is used as a shard conceptualization"@en
 
     SubClassOf:
         OMS
@@ -1023,6 +1104,7 @@ Class: Ontology
 Class: MDEModel
 
     Annotations: 
+	rdfs:label "MDE model"@en,
         skos:definition "logical theory that is used as a model in the sense of model-driven engineering (MDE)"@en,
     	skos:note "Not to be confused with the term \termref{model} in the sense
 of logic (model theory)."@en
@@ -1033,6 +1115,7 @@ of logic (model theory)."@en
 Class: Specification
 
     Annotations: 
+	rdfs:label "specification"@en,
         skos:definition "logical theory that is used as a formal specification"@en
 
     SubClassOf:
@@ -1040,6 +1123,9 @@ Class: Specification
     
 Class: Interpretation
     Annotations: 
+	rdfs:label "interpretation"@en,
+	skos:altLabel "view"@en,
+	skos:altLabel "refinement"@en,
         skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures"@en
 
     EquivalentTo: 
@@ -1059,7 +1145,7 @@ Class: OMSLanguageTranslation
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
-        Mapping,
+        Mapping, 
         (mapsFrom exactly 1 OMSLanguage)
          and (mapsTo exactly 1 OMSLanguage)
     
@@ -1079,9 +1165,9 @@ Class: OMSLanguageTranslation
     
     
 Class: Logic
-
     Annotations: 
-        rdfs:comment "a logic that defines the semantics of an language"@en,
+        rdfs:label "logic"@en,
+	rdfs:comment "a logic that defines the semantics of an language"@en,
         skos:example " $\\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL. "@en,
         skos:note " Most OMS languages have an underlying logic. "@en,
         rdfs:label "logic"@en,
@@ -1096,10 +1182,11 @@ Class: Logic
 Class: SimpleTheoroidalMapping
 
     Annotations: 
+	rdfs:label "simple theoroidal mapping"@en,
 	skos:definition "logic mapping that maps signatures to theories"@en,
 	rdfs:comment "the resulting theory tpyically contains infrastructure axioms that are needed for expressing the logic mapping"@en,
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies simplyTheoroidallyMappableTo,
+        reifies isSimplyTheoroidallyMappableTo,
         rdfs:comment "orthogonal to WeaklyExactMapping and FaithfulMapping"@en
     
     EquivalentTo: 
@@ -1114,7 +1201,7 @@ Class: SimpleTheoroidalMapping
         
             Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"@en
         PlainMapping
-    
+   
 
 Class: LogicMapping
 
@@ -1156,46 +1243,42 @@ Class: Refinement
 Class: OMSReduction
 
     Annotations: 
-        reifies reducibleTo,
-        skos:definition "restriction of an OMS to a smaller signature."@en
+	rdfs:label "OMS reduction"@en,
+        reifies isReducibleTo,
+        skos:definition "DOL structured OMS expressing the restriction of an OMS to a smaller signature."@en
     
     SubClassOf: 
         DOLStructuredOMS
     
     DisjointWith: 
-        Translation
-	
-
-    
+        OMSTranslation
+	    
     SubClassOf: 
         OMSMapping, hasPart some DOLStructuredOMS
     
 
 Class: BasicOMS
-
     Annotations: 
         rdfs:comment "a basic OMS (in a single language, logic, and serialization)"@en,
-        skos:note " The sentences must use only those non-logical symbols that are present in the signature. "@en,
         rdfs:label "basic OMS"@en,
-        skos:definition "signature equipped with a set of sentences and annotations, which may be used as a building block for a larger OMS"@en
+        skos:definition "unstructured native OMS that may be used as a building block for a larger OMS, denoting a logical theory"@en
     
     SubClassOf: 
         NativeOMS
     
     SubClassOf: 
         hasPart exactly 1 OMSDocumentation,
-        StructuredOMS,
         FlattenableOMS,
-        induces exactly 1 SetOfSentences,
-        induces exactly 1 Signature
+        semanticallyDenotes some LogicalTheory
     
 
 Class: FaithfulMapping
 
     Annotations: 
+	rdfs:label "faithful Mmpping"@en,
         skos:definition "logic mapping that preserves and reflects logical consequence"@en,
         propagatesToAdjoint "true"^^xsd:boolean,
-        reifies faithfullyMappableTo
+        reifies isFaithfullyMappableTo
     
     SubClassOf: 
         LogicMapping
@@ -1205,7 +1288,7 @@ Class: OMSMapping
 
     Annotations: 
         rdfs:comment "a mapping between two heterogeneous OMS in a DOL library"@en, 
-        reifies mappableTo,
+        reifies isMappableTo,
         rdfs:label "OMS mapping"@en,
         skos:definition "relationship between two OMS, typically given as a set of correspondences"@en
     
@@ -1219,6 +1302,7 @@ Class: OMSMapping
     
 Class: DefaultMapping
     Annotations: 
+	rdfs:label "default mapping"@en,
         skos:definition "logic mapping that will be chosen by default if only the source and target logic are given"@en,
         propagatesToAdjoint "true"^^xsd:boolean
 
@@ -1228,8 +1312,9 @@ Class: DefaultMapping
     
 Class: PlainMapping
     Annotations: 
+	rdfs:label "plain mapping"@en,
         skos:definition "logic mapping that maps signatures to signatures and therefore does not use infrastructure axioms"@en,
-        reifies plainlyMappableTo,
+        reifies isPlainlyMappableTo,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
@@ -1241,7 +1326,6 @@ Class: PlainMapping
             Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"@en
     
 Class: Serialization
-
     Annotations: 
         rdfs:comment "a serialization of an language"@en,
         skos:definition "specific syntactic encoding of a given OMS language"@en,
@@ -1256,7 +1340,6 @@ Class: Serialization
     
 
 Class: OMSLanguage
-
     Annotations: 
         rdfs:comment "a language for OMS (ontologies, models or specifications)"@en
     
@@ -1278,7 +1361,6 @@ Class: OMSLanguage
 
 	
 Class: Language
-
     Annotations: 
         skos:definition "collection of expressions"@en,
         skos:note "collection is used here in the sense of syntactic collection"@en,
@@ -1292,10 +1374,10 @@ Class: Language
     
     
 Class: ModelBijectiveMapping
-
     Annotations: 
+	rdfs:label "model bijective mapping"@en,
         skos:definition "logic mapping that has a bijective mapping of models"@en,
-        reifies mappableToBijectivelyOnModels,
+        reifies isMappableToBijectivelyOnModels,
         propagatesToAdjoint "true"^^xsd:boolean
     
     SubClassOf: 
@@ -1306,6 +1388,7 @@ Class: ModelBijectiveMapping
 Class: Alignment
 
     Annotations: 
+	rdfs:label "alignment"@en,
         skos:definition "an OMS mapping expressing a collection of relations between entities of the two OMS"@en,
         rdfs:comment "an alignment between two heterogeneous OMS in a DOL library"@en
     
@@ -1332,18 +1415,6 @@ ObjectProperty: impliedExtendsTo
     Domain: 
         ImpliedExtensionMapping
     
-ObjectProperty: hasSubset
-
-    Annotations: 
-        rdfs:label "has subset"@en,
-        skos:definition "relationship between two sets where every member of the second set belongs to the first set"@en
-    
-    Domain: 
-        Set
-    
-    Range: 
-        Set
-	
 ObjectProperty: isSubOMSOf
 
     Annotations: 
@@ -1359,6 +1430,8 @@ ObjectProperty: isSubOMSOf
     Range: 
         OMS
 	
+    SubPropertyOf: isLinguisticallyRelatedTo
+	
 ObjectProperty: isCombinationOf
 	
     Annotations: 
@@ -1372,24 +1445,24 @@ ObjectProperty: isCombinationOf
     Range: 
         OMSNetwork
     
-    
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isAdjointOf
 
     Annotations: 
-        rdfs:comment "The subject is a translation that shares its sentence and model translation with the object reduction. The signature translations are adjoint to each other (in the sense of category theory)."@en,
+        rdfs:comment "The subject is a translation (or reduction) that shares its sentence and model translation with the object reduction (or translation). The signature translations are adjoint to each other (in the sense of category theory)."@en,
         rdfs:label "is adjoint of"@en
     
     Domain: 
-        LogicMapping
+        LogicTranslation
     
     Range: 
-        LogicMapping
+        LogicReduction
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: definitionallyExtendsTo
-
     Annotations: 
         rdfs:comment "the object is a definitional extension of the subject"@en,
         rdfs:label "definitionally extends to"@en
@@ -1402,20 +1475,19 @@ ObjectProperty: definitionallyExtendsTo
     
     
 ObjectProperty: isOMSUnionOf
-
     Annotations: 
-        skos:definition "aggregation of several OMS to a new OMS, without any renaming"@en,
+        skos:definition "structured OMS expressing the combination of all constraints of a sequences of OMS"@en,
         rdfs:label "is union of OMS"@en
     
     Domain: 
         DOLStructuredOMS
     
     Range: 
-        CollectionOfOMS
+        SequenceOfOMS
     
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: isLogicallyInteroperableWith
-
     Annotations: 
         skos:definition "property of structured OMS, which may be written in different OMS languages supporting different logics, of being usable jointly in a coherent way (via suitable OMS language translations), such that the notions of their overall consistency and logical entailment have a precise logical semantics"@en,
         rdfs:label "is logically interoperable with"@en
@@ -1429,9 +1501,9 @@ ObjectProperty: isLogicallyInteroperableWith
     Range: 
         StructuredOMS
     
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: isDefinitionalExtensionOf
-
     Annotations: 
         strictlyStrongerThan isMonomorphicExtensionOf,
         rdfs:comment "Developers' note: We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative."@en,
@@ -1449,7 +1521,6 @@ ObjectProperty: isDefinitionalExtensionOf
     
     
 ObjectProperty: isOMSDocumentationOf
-
     Annotations: 
         rdfs:label "is OMS documentation of"@en,
         skos:definition "relationship between an OMS documentation and the documented OMS"@en
@@ -1466,71 +1537,55 @@ ObjectProperty: isOMSDocumentationOf
     Range: 
         OMS
     
+    SubPropertyOf: isLinguisticallyRelatedTo
     
 ObjectProperty: isLanguageAspectOf
-
     Annotations: 
         skos:definition "a language asecpt is a set of language constructs of a given language, not necessarily forming a sublanguage"@en,
         rdfs:label "is language aspect of"@en
     
     InverseOf: 
         hasLanguageAspect
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: formalizes
-
     Annotations: 
         rdfs:comment "The subject is a precise mathematical entity capturing the object (which is an informal or semi-formal entity)"@en,
         rdfs:label "formalizes"@en
     
     InverseOf: 
         isFormalizedBy
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
-ObjectProperty: isImpliedExtensionOf
-
-    Annotations: 
-        strictlyStrongerThan isConservativeExtensionOf,
-        skos:note "Each implied extension is also a definitional extension but not vice versa."@en,
-        skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols"@en,
-        skos:note " A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$."@en,
-        rdfs:label "is implied extension of"@en
-    
-    SubPropertyOf: 
-        isDefinitionalExtensionOf
-    
-    SubPropertyChain: 
-        isMappedBy o impliedExtendsTo
     
     
 ObjectProperty: conservativelyExtendsTo
-
     Annotations: 
         rdfs:comment "The object is a conservative extension of the subject"@en,
         rdfs:label "conservatively extends to"@en
     
-    SubPropertyOf: 
-        extendsTo
+    SubPropertyOf: extendsTo, isLogicallyRelatedTo
     
     Domain: 
         ConservativeExtensionMapping
     
     
 ObjectProperty: usesLanguage
-
     Annotations: 
         skos:definition "relation between something and a language used by one or more components of it."@en,
         rdfs:label "uses language"@en
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isElementOf
-
     Annotations: 
         skos:definition "any resource in an OMS (e.g. a non-logical symbol, a sentence, a correspondence, the OMS itself, ...) or a named set of such resources."@en,
         rdfs:label "is element of OMS"@en
     
     SubPropertyOf: 
-        hasPart
+        hasPart, isLinguisticallyRelatedTo
     
     Range: 
         OMS
@@ -1538,7 +1593,6 @@ ObjectProperty: isElementOf
     
     
 ObjectProperty: isModelOfOMS
-
     Annotations: 
         rdfs:label "is a model of the OMS"@en,
         skos:definition "relationship between a model and an OMS where the model is a member of the model class of the OMS (which for flattenable OMS is equivalent to being a model of the signature of the OMS and satisfying all sentences in the OMS)."@en
@@ -1548,27 +1602,28 @@ ObjectProperty: isModelOfOMS
     
     Range: 
         OMS
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: hasHeterogeneousEnvironment
-
     Annotations: 
         skos:definition "relationship between the subject and a heterogeneous environment in which it is embedded or is associated with."@en,
-        rdfs:label "has logical environment"@en
+        rdfs:label "has heterogeneous environment"@en
     
     Range: 
         HeterogeneousEnvironment
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
     
 ObjectProperty: isConservativeExtensionOf
-
     Annotations: 
         rdfs:comment "the subject is a conservative extension of the object"@en,
         rdfs:label "is conservative extension of"@en
     
     SubPropertyOf: 
         isExtensionOf
+    SubPropertyOf: isLogicallyRelatedTo
     
     SubPropertyChain: 
         isMappedBy o conservativelyExtendsTo
@@ -1579,7 +1634,6 @@ ObjectProperty: isConservativeExtensionOf
     
     
 ObjectProperty: hasLanguageAspect
-
     Annotations: 
         rdfs:label "has language aspect"@en,
         skos:definition "the relation between an OMS language and its language aspects"@en
@@ -1592,10 +1646,10 @@ ObjectProperty: hasLanguageAspect
     
     InverseOf: 
         isLanguageAspectOf
+    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isModelOfSignature
-
     Annotations: 
         rdfs:label "is a model of the signature"@en,
         skos:definition "relationship between a model and a signature (vocabulary) such that the model provides a semantic interpretation of all non-logical symbols in the signature"@en
@@ -1605,10 +1659,10 @@ ObjectProperty: isModelOfSignature
     
     Range: 
         Signature
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: satisfies
-
     Annotations: 
         skos:definition "relationship between a model and a sentence indicating that the sentence holds true in the model"@en,
         dct:abstract ""@en,
@@ -1620,10 +1674,10 @@ ObjectProperty: satisfies
     
     Range: 
         Sentence
+    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: isMappedBy
-
     Annotations:
         rdfs:comment "The object mapping maps from the subject into something of the same type as the subject."@en, 
         rdfs:label "is mapped by"@en
@@ -1631,12 +1685,10 @@ ObjectProperty: isMappedBy
     InverseOf: 
         mapsFrom
     
-    
-    
+    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: extendsTo
-
     Annotations: 
         rdfs:comment "The subject is a mapping of an extension, the object is the target of the extension mapping, i.e. the extended OMS."@en,
         rdfs:label "extends to"@en
@@ -1649,34 +1701,21 @@ ObjectProperty: extendsTo
     
     Range: 
         OMS
+    SubPropertyOf: isLinguisticallyRelatedTo
     
-    
-ObjectProperty: isMappableTo
-
-    Annotations: 
-        skos:editorialNote "reification of this property, and its subproperties, is illustrated by property chain"@en,
-        rdfs:label "is mappable to"@en
-    
-    SubPropertyChain: 
-        isMappedBy o mapsTo
-    
-    Characteristics: 
-        Symmetric,
-        Transitive
     
     
 ObjectProperty: isFormalizedBy
-
     Annotations: 
         rdfs:label "is formalized by"@en,
         rdfs:comment "The object is a precise mathematical entity capturing the subject (which is an informal or semi-formal entity)"@en
     
     InverseOf: 
         formalizes
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 ObjectProperty: isApproximantOf
-
     Annotations: 
         skos:definition "approximation (in the sense of a logically implied theory, possibly aftersuitable translation) of an OMS in a smaller signature or OMS language"@en,
         rdfs:label "is approximant of"@en
@@ -1689,12 +1728,12 @@ ObjectProperty: isApproximantOf
     
     Range: 
         OMS
+    SubPropertyOf: isEntailedBy
     
     
     
     
 ObjectProperty: isModuleOf
-
     Annotations: 
         skos:definition "relationship between two OMS where the first conservatively extends to the second OMS"@en,
         rdfs:label "is module of"@en
@@ -1704,10 +1743,10 @@ ObjectProperty: isModuleOf
     
     InverseOf: 
         isConservativeExtensionOf
+    SubPropertyOf: isLogicallyRelatedTo
     
     
 ObjectProperty: hasPart
-
     Annotations: 
         rdfs:label "has part"@en,
         skos:definition "relationship between two things were the second is a component of the first"@en
@@ -1727,12 +1766,11 @@ Class: OMSNetwork
 	
 
     
-Class: CollectionOfCorrespondences
-
+Class: SequenceOfCorrespondences
     Annotations: 
-        skos:definition "collection whose members are correspondences."@en,
-         skos:note "collection is used here in the sense of syntactic collection"@en,
-       rdfs:label "collection of correspondences"@en
+        skos:definition "sequence whose members are correspondences."@en,
+         skos:note "sequence is used here in the sense of syntactic sequence"@en,
+       rdfs:label "sequence of correspondences"@en
     
     SubClassOf: DOLEntity
     
@@ -1764,6 +1802,7 @@ Class: SetOfMappings
 Class: DefinitionalExtensionMapping
 
     Annotations: 
+	rdfs:label "definitional extension mapping"@en,
         skos:note "Each definitional extension is also a monomorphic extension but not vice versa."@en,
         skos:note "An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$."@en,
         rdfs:label "definitional extension mapping"@en,
@@ -1831,14 +1870,21 @@ Class: QueryVariable
 Class: ModuleExtraction
 
     Annotations: 
+	rdfs:label "module extraction"@en,
         sm:informativeReference "Cited and slightly adapted from \\cite{SuarezFigueroaEtAl:OntologyGlossary2008}"@en,
         rdfs:label "module extraction"@en,
         skos:definition "activity of obtaining from an OMS concrete modules to be used for a particular purpose (e.g. to contain a particular sub-signature of the original OMS)"@en,
         skos:note "The goal of module extraction is ``decomposing an OMS into smaller, more manageable modules with appropriate dependencies'' \\cite{DBLP:series/lncs/5445}"@en
+    SubClassOf: Process
     
+	
+Class: ModuleExtractor
+    Annotations: 
+	rdfs:label "module extractor"@en,
+	skos:definition "tool that implements module extraction"@en
+    SubClassOf: Tool, hasProficiency some ModuleExtraction
     
 Class: StandoffMarkup
-
     Annotations: 
         skos:definition "way of providing annotations to subjects in external resources, without embedding them into the original resource (here: OMS)"@en,
         rdfs:label "standoff markup"@en
@@ -1847,19 +1893,17 @@ Class: StandoffMarkup
         Language
     
     
-Class: CollectionOfOMS
-
+Class: SequenceOfOMS
     Annotations: 
-        rdfs:label "collection of OMS"@en,
-        skos:definition "collection whose members are OMS."@en,
-        skos:note "collection is used here in the sense of syntactic collection"@en
+        rdfs:label "sequence of OMS"@en,
+        skos:definition "sequence whose members are OMS."@en,
+        skos:note "sequence is used here in the sense of syntactic sequence"@en
     SubClassOf: 
         DOLEntity
     
     
     
 Class: MonomorphicExtensionMapping
-
     Annotations: 
         skos:note "Each monomorphic extension is also a model-theoretic conservative extension but not vice versa."@en,
         rdfs:label "monomorphic extension mapping"@en,
@@ -1872,7 +1916,6 @@ Class: MonomorphicExtensionMapping
     
     
 Class: SetOfSentences
-
     Annotations: 
         skos:definition "set whose members are sentences"@en,
         rdfs:label "set of sentences"@en
@@ -1882,7 +1925,6 @@ Class: SetOfSentences
     
     
 Class: Institution
-
     Annotations: 
         skos:definition "metaframework mathematically formalising the notion of a logic"@en,
         rdfs:label "institution"@en
@@ -1894,10 +1936,9 @@ Class: Institution
     
     
 Class: Signature
-
     Annotations: 
         skos:note "The signature of a term is the set of all non-logical symbols occuring in the term. The signature of an OMS language is the set of all non-logical symbols possible in that language."@en,
-        skos:altLabel "signature"@en,
+        rdfs:label "signature"@en,
         skos:definition "set (or otherwise structured entity) of non-logical symbols of an OMS"@en
     
     SubClassOf: 
@@ -1905,7 +1946,6 @@ Class: Signature
     
     
 Class: AxiomSentence
-
     Annotations: 
         skos:definition "sentence postulated to be valid (i.e.\\ true in every model)"@en,
         rdfs:label "axiom sentence"@en
@@ -1915,10 +1955,10 @@ Class: AxiomSentence
     
     
 Class: LogicalTheory
-
     Annotations: 
         rdfs:label "logical theory"@en,
-        skos:definition "signature equipped with a set of sentences over the signature"@en
+        skos:definition "signature equipped with a set of sentences over the signature"@en,
+        skos:note "The sentences must use only those non-logical symbols that are present in the signature."@en
     
     SubClassOf: 
         hasPart exactly 1 SetOfSentences,
@@ -1927,7 +1967,6 @@ Class: LogicalTheory
     
     
 Class: FlattenableOMS
-
     Annotations: 
         rdfs:label "flattenable OMS"@en,
         skos:note "More precisely, an OMS is flattenable if and only if it is either a basic OMS or it is an extension, union, translation, module extraction, approximation, filtering, or reference of named OMS involving only flattenable OMS."@en,
@@ -1942,7 +1981,6 @@ Class: FlattenableOMS
     
     
 Class: HomogeneousOMS
-
     Annotations: 
         skos:definition "OMS whose parts are supported by one logic"@en,
         rdfs:label "homogeneous OMS"@en
@@ -1954,7 +1992,7 @@ Class: HomogeneousOMS
         HeterogeneousOMS
     
     
-Class: NonLogicalSymbol    
+Class: NonLogicalSymbol
     Annotations: 
         skos:definition "atomic expression or syntactic constituent of an OMS that requires an interpretation through a model"@en,
         rdfs:comment "a non-logical symbol in an OMS"@en,
@@ -1970,28 +2008,25 @@ Class: NonLogicalSymbol
     
     
 Class: Set
-
     Annotations: 
         skos:definition "set whose members have a certain type, as specified by the type parameter."@en,
         rdfs:label "set"@en
     SubClassOf: MathematicalEntity
-    
-ObjectProperty: impliedExtensionOf
-    
-Class: ImpliedExtensionMapping
+	
 
+
+Class: ImpliedExtensionMapping
     Annotations: 
         skos:note "A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$."@en,
         skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols"@en,
         skos:note "Each implied extension is also a definitional extension but not vice versa."@en,
         rdfs:label "implied extension mapping"@en,
-        reifies impliedExtensionOf
+        reifies isImpliedExtensionOf
     
     SubClassOf: 
         DefinitionalExtensionMapping
     
 Class: StructuredOMS
-
     Annotations: 
         skos:definition "OMS that results from other OMS by import, union, combination, renaming or other structuring operations"@en,
         rdfs:label "structured OMS"@en
@@ -2001,7 +2036,6 @@ Class: StructuredOMS
     
     
 Class: Model
-
     Annotations: 
         skos:note "A model of an OMS is a model of the signature of the OMS that also satisfies all the additional constraints expressed by the OMS. In case of flattenable OMS, these constraints are expressed by the axioms of the OMS."@en,
         rdfs:label "model"@en,
@@ -2014,7 +2048,6 @@ Class: Model
     
     
 Class: StructuringLanguageAspect
-
     Annotations: 
         skos:definition "the (unique) language aspect of an OMS language that covers structured OMS as well as the relations of basic OMS and structured OMS to each other, including, but not limited to imports, OMS mappings, conservative extensions, and the handling of prefixes for CURIEs"@en,
         rdfs:label "structuring language aspect"@en
@@ -2029,7 +2062,6 @@ Class: StructuringLanguageAspect
     
     
 Class: AnswerSubstitution
-
     Annotations: 
         skos:definition "substitution that, when applied to a given query, turns the latter into a logical consequence of a given OMS"@en,
         rdfs:label "answer substitution"@en
@@ -2039,7 +2071,6 @@ Class: AnswerSubstitution
     
     
 Class: Substitution
-
     Annotations: 
         rdfs:label "substitution"@en,
         skos:definition "OMS mapping that maps query variables of one OMS to complex terms of another OMS"@en
@@ -2049,7 +2080,6 @@ Class: Substitution
     
     
 Class: SatisfactionRelation
-
     Annotations: 
         rdfs:label "satisfaction relation"@en,
         rdfs:seeAlso satisfies,
@@ -2058,7 +2088,6 @@ Class: SatisfactionRelation
     
     
 Class: ConservativeExtensionMapping
-
     Annotations: 
         skos:definition "extension mapping of a consequence-theoretic or model-theoretic conservative extension"@en,
         rdfs:label "conservative extension mapping"@en,
@@ -2071,7 +2100,6 @@ Class: ConservativeExtensionMapping
     
     
 Class: HeterogeneousEnvironment
-
     Annotations: 
         rdfs:label "heterogeneous environment"@en,
         skos:definition "environment for the expression of homogeneous and heterogeneous OMS, comprising a logic graph, an OMS language graph and a supports relation"@en
@@ -2084,7 +2112,6 @@ Class: HeterogeneousEnvironment
 
     
 Class: LanguageAspect
-
     Annotations: 
         skos:definition "set of language constructs of a given language, not necessarily forming a sublanguage"@en,
         rdfs:label "language aspect"@en
@@ -2095,7 +2122,6 @@ Class: LanguageAspect
     
     
 Class: Profile
-
     Annotations: 
         skos:note "Profiles typically correspond to sublogics. "@en,
         skos:definition "(syntactic) sublanguage of an OMS language interpreting according to a particular logic that targets specific applications or reasoning methods} "@en,
@@ -2110,7 +2136,6 @@ Class: Profile
     
     
 Class: ExtensionMapping
-
     Annotations: 
         skos:definition "mapping between two OMS where the sets of non-logical symbols and sentences of the second OMS are supersets of those present in the first OMS"@en,
         rdfs:label "extension mapping"@en,
@@ -2121,7 +2146,6 @@ Class: ExtensionMapping
     
     
 Class: OMSDocumentation
-
     Annotations: 
         skos:definition "set of all annotations to an OMS, plus any other documents and explanatory comments generated during the entire OMS building process"@en,
         rdfs:label "OMS documentation"@en,
@@ -2130,7 +2154,6 @@ Class: OMSDocumentation
     
     
 Class: SupportsRelation
-
     Annotations: 
         rdfs:label "supports relation"@en,
         skos:definition "relation between OMS languages and logics expressing the logical language aspect of the former, namely that the constructs of the former lead to a logical theory in the latter."@en,
@@ -2138,10 +2161,11 @@ Class: SupportsRelation
         reifies supportsLogic,
         reifies supportsSerialization,
         reifies supportsLogicMapping
-	
-ObjectProperty: supportsLogicMapping
+    SubClassOf: SemanticEntity
 
+ObjectProperty: supportsLogicMapping
     Annotations: 
+	rdfs:label "supports logic mapping"@en,
         rdfs:comment "The subject language mapping corresponds to the object logic mapping."@en
     
     Domain: 
@@ -2149,10 +2173,10 @@ ObjectProperty: supportsLogicMapping
     
     Range: 
         LogicMapping
+    SubPropertyOf: isSemanticallyRelatedTo
     
     
 Class: SetOfAnnotationExpressions
-
     Annotations: 
         rdfs:label "set of annotation expressions"@en,
         skos:definition "set whose members are annotation expressions."@en
@@ -2162,7 +2186,6 @@ Class: SetOfAnnotationExpressions
     
     
 Class: ElusiveOMS
-
     Annotations: 
         skos:definition "OMS that is not flattenable"@en,
         rdfs:label "elusive OMS"@en
@@ -2173,12 +2196,8 @@ Class: ElusiveOMS
     DisjointWith: 
         FlattenableOMS
     
-    
-    
-    
-    
+	
 Class: WeakDefinitionalExtensionMapping
-
     Annotations: 
         skos:note "An extension is definitional if and only if it is both weakly definitional and model-theoretically conservative."@en,
         skos:definition "extension whose newly introduced non-logical symbols can be interpreted in at most one way"@en,
@@ -2191,7 +2210,6 @@ Class: WeakDefinitionalExtensionMapping
     
     
 Class: TheoremSentence
-
     Annotations: 
         rdfs:label "theorem sentence"@en,
         skos:definition "sentence that has been proven from other axioms and theorems"@en
@@ -2201,9 +2219,8 @@ Class: TheoremSentence
     
     
 Class: Mapping
-
     Annotations: 
-        reifies mappableTo,
+        reifies isMappableTo,
         rdfs:comment "a generic mapping (translation or reduction)"@en,   
         skos:definition "relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output."@en,
         rdfs:label "mapping"@en,
@@ -2216,7 +2233,6 @@ Class: Mapping
     
     
 Class: AnnotationExpressionLanguageAspect
-
     Annotations: 
         skos:definition "the (unique) language aspect of an OMS language that enables the expression of comments and annotations"@en,
         rdfs:label "annotation expression language aspect"@en
@@ -2229,7 +2245,6 @@ Class: AnnotationExpressionLanguageAspect
     
     
 Class: Term
-
     Annotations: 
         skos:definition "syntactic expression either consisting of a single non-logical symbol or recursively composed of other terms (a.k.a. its subterms)"@en,
         rdfs:label "term"@en
@@ -2239,7 +2254,6 @@ Class: Term
     
     
 Class: ConsequenceTheoreticConservativeExtensionMapping
-
     Annotations: 
         skos:definition "extension that does not add new theorems (in terms of the unextended signature)"@en,
         rdfs:label "consequence-theoretic conservative extension mapping"@en,
@@ -2251,41 +2265,30 @@ Class: ConsequenceTheoreticConservativeExtensionMapping
     
     
 Class: Resource
-
     Annotations: 
         skos:example "Familiar examples include an electronic document, an image, a source of information with a consistent purpose (e.g., ``today's weather report for Los Angeles''), a service (e.g., an HTTP-to-SMS gateway), and a collection of other resources. A resource is not necessarily accessible via the Internet; e.g., human beings, corporations, and bound books in a library can also be resources. Likewise, abstract concepts can be resources, such as the operators and operands of a mathematical equation, the types of a relationship (e.g., ``parent'' or ``employee''), or numeric values (e.g., zero, one, and infinity). \\nisref{IETF/RFC 3986:2005, Section 1.1}"@en,
         skos:definition "something that can be globally identified"@en,
         skos:note "\\nisref{IETF/RFC 3986:2005, Section 1.1} deliberately defines a resource as ``in a general sense \\textelp{} whatever might be identified by \\textins*{an IRI}''. The original source refers to URIs, but DOL uses the compatible IRI standard \\nisref{IETF/RFC 3987:2005} for identification."@en,
         rdfs:label "resource"@en
-    
+    SubClassOf: WebEntity    
     
 Class: LogicGraph
-
     Annotations: 
         skos:definition "graph of logics, logic translations and logic reductions, typically used in a heterogeneous environment."@en,
         skos:note "In a logic graph, some of the logic translations and reductions can be marked to be default translations."@en,
-        rdfs:label "OMS logic graph"@en
+        rdfs:label "logic graph"@en
     
     SubClassOf: 
         Graph
     
-    
 Class: Approximation
-
     Annotations: 
-        skos:definition "OMS mapping to a logically implied theory (possibly after suitable translation) in a smaller signature or OMS language"@en,
-        skos:editorialNote "this definition is derived from the defintion of approximant in the spec"@en,
-        rdfs:label "approximation"@en
-    
-    SubClassOf: 
-        OMSMapping
-    
-	
-    
-    
+	rdfs:label "approximation"@en,
+	skos:definition "structured OMS that expresses a maximum approximant."@en
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
+	    
     
 Class: QueryLanguage
-
     Annotations: 
         skos:scopeNote " There are also general purpose OMS languages, which can express both OMS and quries."@en,
         skos:definition "OMS language specifically dedicated to queries"@en,
@@ -2297,7 +2300,6 @@ Class: QueryLanguage
     
     
 Class: Query
-
     Annotations: 
         skos:definition "sentence containing query variables that can be instantiated by a substitution"@en,
         rdfs:label "query"@en
@@ -2307,7 +2309,6 @@ Class: Query
     
     
 Class: LanguageGraph
-
     Annotations: 
         rdfs:label "OMS language graph"@en,
         skos:definition "graph of OMS languages and OMS language translations, typically used in a heterogeneous environment."@en
@@ -2317,7 +2318,6 @@ Class: LanguageGraph
     
     
 Class: HeterogeneousOMS
-
     Annotations: 
         skos:definition "OMS whose parts are supported by different logics"@en,
         rdfs:label "heterogeneous OMS"@en
@@ -2331,7 +2331,6 @@ Class: HeterogeneousOMS
     
     
 Class: Equivalence
-
     Annotations: 
         skos:definition "OMS mapping ensuring that two OMS share the same definable concepts"@en,
         rdfs:label "equivalence"@en,
@@ -2343,28 +2342,26 @@ Class: Equivalence
     
     
 Class: LinkedData
-
     Annotations: 
-        skos:definition "structured data that is published on the Web in a machine-processable way, according to principles specified in \\cite{BernersLee:LinkedData2006,BizerHeath09}}"@en,
+        skos:definition "structured data that is published on the Web in a machine-processable way, according to principles explained in http://linkeddata.org/"@en,
         skos:note " The linked data principles (adapted from \\cite{BernersLee:LinkedData2006} and its paraphrase at \\cite{Wikipedia:LinkedData2011}) are the following: \\begin{enumerate} \\item Use IRIs as names for things. \\item Use HTTP IRIs so that these things can be referred to and looked up (``dereferenced'') by people and user agents.\\footnote{I.e., the IRI is treated as a URL (uniform resource locator).} \\item Provide useful machine-processable (plus optionally human-readable) information about the thing when its IRI is dereferenced, using standard formats. \\item Include links to other, related IRIs in the exposed data to improve discovery of other related information on the Web. \\end{enumerate} "@en,
         rdfs:label "linked data"@en,
         skos:note " RDF, serialized as RDF/XML \\cite{W3C:REC-rdf-syntax-grammar-20040210}, is the most common format for publishing linked data. However, its usage is not mandatory. "@en,
         skos:note " Using HTTP content negotiation \\cite{rfc2616} it is possible to serve representations in different formats from the same URL. "@en
     
+    SubClassOf: WebEntity    
     
     
 Class: LogicTranslation
-
     Annotations: 
         rdfs:label "logic translation"@en,
-        skos:definition "translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS"@en
-    
+        skos:definition "translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS"@en,
+	skos:note "mapping between logics representing all structure, in contrast to reduction"@en
     SubClassOf: 
         LogicMapping
     
     
 Class: Graph
-
     Annotations: 
         skos:definition "set of objects (nodes) that are connected by links (edges)"@en,
         rdfs:label "graph"@en,
@@ -2373,7 +2370,6 @@ Class: Graph
     
     
 Class: CollectionOfExpressions
-
     Annotations: 
         rdfs:label "collection of expressions"@en,
         skos:definition "collection whose members are expressions"@en
@@ -2382,17 +2378,16 @@ Class: CollectionOfExpressions
     
     
 Class: LogicReduction
-
     Annotations: 
         skos:definition "reduction of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic"@en,
+	skos:note "mapping between logics forgetting parts of the structure, projection to a smaller logic, in contrast to reduction"@en,
         rdfs:label "logic reduction"@en
     
     SubClassOf: 
-        Reduction, LogicMapping
+        LogicMapping
     
     
 Class: Expression
-
     Annotations: 
         skos:definition "a finite combination of symbols that are well-formed according to applicable rules (depending on the language)"@en,
         rdfs:label "expression"@en
@@ -2404,7 +2399,6 @@ Class: Expression
     
     
 Class: AnnotationExpression
-
     Annotations: 
         skos:definition "additional information without a logical semantics that is attached to an element of an OMS"@en,
         skos:note "\\label{note:annotation-rdf} Formally, an annotation is given as a $(\\text{subject}, \\text{predicate}, \\text{object})$ triple as defined by \\nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject. "@en,
@@ -2415,12 +2409,11 @@ Class: AnnotationExpression
         Expression
     
     
-Class: Renaming
-
+Class: OMSTranslation
     Annotations: 
-        rdfs:label "renaming"@en,
-        skos:definition "assignment of new names to some non-logical symbols of an OMS"@en,
-        skos:note " A renaming results in an OMS mapping between the original and the renamed OMS. "@en
+        rdfs:label "OMS translation"@en,
+        skos:definition "DOL structured OMS expressing the assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation"@en,
+        skos:note " An OMS translation results in an OMS mapping between the original and the translation OMS. "@en
     
     SubClassOf: 
         DOLStructuredOMS, hasPart some DOLStructuredOMS
@@ -2445,7 +2438,8 @@ Annotations:
 	
 Class: Category
 Annotations: 
-        skos:definition "a collection of objects with suitable morphisms between them"@en,
+	rdfs:label "category"@en,
+        skos:definition "a class of objects with suitable morphisms between them"@en,
         skos:note "In DOL, objects of a category are usually signatures or OMS, and morphisms are signature morphisms, or OMS mappings. In principle, no assumption about the exact nature of objects and morphisms is made."@en,
         skos:note "The morphisms determine which part of the structure of the objects is relevant, i.e. preserved by morphisms. Hence, objects can be seen as 'sets with structure', and morphisms as 'structure-preserving maps'.  However note that not all categories can be obtained in this way."@en
     SubClassOf: MathematicalEntity
@@ -2453,7 +2447,8 @@ Annotations:
 	
 Class: Closure
 Annotations: 
-        skos:definition "way of implementing the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown."@en,
+	rdfs:label "closure"@en,
+        skos:definition "structured OMS expressing a variant of the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown."@en,
         skos:note "Symbols from the local environment are assumed to have a fixed interpretation. Only the symbols newly declared in the closure are forced to have minimal or maximal interpretation."@en,
         skos:note "DOL supports four different forms of closure: minimization and maximization as well as freeness and cofreeness."@en
         SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
@@ -2461,35 +2456,43 @@ Annotations:
 	
 Class: Cofreeness
 Annotations: 
+	rdfs:label "cofreeness"@en,
         skos:definition "special type of closure, restriction of models to those that are cofree (with respect to the local environment)."@en,
         skos:note "In first-order-like logics, cofreeness means maximal interpretation of predicates and equality being observable equivalence. Cofreeness can be used for the specification of coinductive datatypes like infinite lists and streams."@en
     SubClassOf: Closure
 
 Class: Freeness
 Annotations: 
+	rdfs:label "freeness"@en,
         skos:definition "special type of closure, restriction of models to those that are free (with respect to the local environment)."@en,
         skos:note "In first-order logic (and similar logics), freeness means minimal interpretation of predicates and minimal equality among data values. Freeness can be used for the specification of inductive datatypes like numbers, lists, trees, bags etc. In order to specify e.g. lists over some elements, the specification of the elements should be in the local environment."@en
     SubClassOf: Closure
 	
 Class: Minimization
     Annotations: 
+	rdfs:label "minimization"@en,
         skos:definition "form of closure that restricts the models to those that are minimal (with respect to the local environment)."@en,
         skos:note "Also known as circumscription."@en
     SubClassOf: Closure
 
 Class: Maximization
     Annotations: 
+	rdfs:label "maximization"@en,
 	skos:definition "form of closure that restricts the models to those that are maximal (with respect to the local environment)."@en
     SubClassOf: Closure
 	
 Class: Union
     Annotations: 
-	skos:definition "aggregation of several OMS to a new OMS, without any renaming."@en
+	rdfs:label "union"@en,
+        skos:definition "structured OMS expressing the combination of all symbols and axioms (and more general constraints) of a sequence of OMS"@en
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Extension
     Annotations: 
-	skos:definition "OMS whose sets of non-logical symbols and sentences are supersets of those present in the OMS given by the local environment."@en
+	rdfs:label "extension"@en,
+	skos:definition "structured OMS extending a given OMS with new symbols and sentences."@en,
+        skos:note "The new symbols and sentences are interpreted relative to the
+local envorinment, which is the signature of the 'given OMS'."@en
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: ConservativeExtension
@@ -2552,24 +2555,28 @@ Class: ImpliedExtension
 
 Class: ConsistentOMS
     Annotations: 
+	rdfs:label "consistent OMS"@en,
 	skos:definition "OMS that has a non-trivial set of logical consequences in the sense that not every sentence follows from the OMS."@en
     SubClassOf: OMS
     EquivalentTo: OMS and not InconsistentOMS	
 	
 Class: InconsistentOMS
     Annotations: 
+	rdfs:label "inconsistent OMS"@en,
 	skos:definition "OMS that has a trivial set of logical consequences in the sense that every sentence follows from the OMS."@en
     SubClassOf: UnsatisfiableOMS
     EquivalentTo: OMS and not ConsistentOMS	
 
 Class: SatisfiableOMS
     Annotations: 
+	rdfs:label "satisfiable OMS"@en,
 	skos:definition "OMS that is satisfied by least one model."@en
     SubClassOf: ConsistentOMS
     EquivalentTo: OMS and not UnsatisfiableOMS	
 	
 Class: UnsatisfiableOMS
     Annotations: 
+	rdfs:label "unsatisfiable OMS"@en,
 	skos:definition "OMS that is not satisfied by any model."@en
     SubClassOf: OMS
     EquivalentTo: OMS and not SatisfiableOMS	
@@ -2577,18 +2584,25 @@ Class: UnsatisfiableOMS
 Class: ModelFinder
     Annotations:
         rdfs:label "model finder"@en,
-	skos:definition "Tool that finds models of an OMS and thus proves it to be satisfiable"@en
-    SubClassOf: Tool
+	skos:definition "Tool that implements model finding"@en
+    SubClassOf: Tool, hasProficiency some ModelFinding
+	
+Class: ModelFinding
+    Annotations:
+        rdfs:label "model finding"@en,
+	skos:definition "process that finds models of an OMS and thus proves it to be satisfiable"@en
+    SubClassOf: Process
 
 Class: Module
     Annotations: 
-	skos:definition "subOMS that conservatively extends to conservative extension the whole OMS."@en
+	rdfs:label "module"@en,
+	skos:definition "structured OMS expressing a subOMS that conservatively extends to conservative extension the whole OMS."@en
     SubClassOf: DOLStructuredOMS, hasPart some InterfaceSignature, hasPart some DOLStructuredOMS
 
 Class: NativeOMS
     Annotations: 
         rdfs:label "native OMS"@en,
-	skos:definition "collection of expressions (like non-logical symbols, sentences and structuring elements) from a given OMS language."@en
+	skos:definition "sequence of expressions (like non-logical symbols, sentences and structuring elements) from a given OMS language."@en
     SubClassOf: OMS
 
 Class: NativeDocument
@@ -2605,11 +2619,13 @@ Class: DOLDocument
 	
 Class: Document
     Annotations: 
+	rdfs:label "document"@en,
 	skos:definition "result of serializing an OMS or DOL library using a given serialization."@en
     SubClassOf: LinguisticEntity
 	
 Class: Approximant
     Annotations: 
+	rdfs:label "approximant"@en,
 	skos:definition "approximation (in the sense of a logically implied theory, possibly after suitable translation)  of an OMS in a smaller signature or a sublanguage."@en
     SubClassOf: OMS
 	
@@ -2620,28 +2636,28 @@ Class: MaximumApproximant
         skos:note "Technically, a maximum approximant is a uniform interpolant"@en
     SubClassOf: Approximant
 	
-Class: Approximation
-    Annotations: 
-	skos:definition "structured OMS that delivers an approximation."@en
-    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
-	
 Class: Filtering
     Annotations: 
-	skos:definition "verbatim removal of symbols or axioms from an OMS."@en
+	rdfs:label "filtering"@en,
+	skos:definition "structured OMS expressing the verbatim removal of symbols or axioms from an OMS."@en,
+        skos:note "If a symbol is removed, all axioms containing that symbol are removed, too."@en
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: Tool
     Annotations: 
+	rdfs:label "tool"@en,
 	skos:definition "software for processing DOL libraries and OMS."@en
 
-Class: Combination	
+Class: Combination
     Annotations: 
+	rdfs:label "combination"@en,	
         skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being."@en,
-        skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "@en
+        skos:definition "structured OMS expressing the aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "@en
     SubClassOf: DOLStructuredOMS, hasPart some OMSNetwork
 
 Class: Correspondence
     Annotations: 
+	rdfs:label "correspondence"@en,
 	skos:definition "relationship between an non-logical symbol $e_1$ from an OMS $O_1$ and an non-logical symbol $e_2$ from an OMS $O_2$, or between an non-logical symbol $e_1$ from $O_1$ and a term $t_2$ formed from non-logical symbols\index{non-logical symbol from $O_2$."@en,
         skos:note "A correspondence is given as a quadruple 
 $(e_1, R, e_2, c)$,
@@ -2661,6 +2677,8 @@ Class: DOLStructuredOMS
 	
 Class: Entailment
     Annotations: 
+	rdfs:label "entailment"@en,
+	skos:altLabel "logical consequence"@en,
 	skos:definition "relation between two OMS (or an OMS and a sentence) expressing that the second one is logically implied by the first one."@en,
 	skos:note "Entailment expresses that each model satisfying the first OMS also satisfies the second OMS (or the sentence, respectively)."@en,
 	skos:note "Entailments can also be stated between networks, or networks and OMS."@en
@@ -2671,21 +2689,20 @@ Class: FormalSemantics
         rdfs:label "formal semantics"@en,
 	skos:definition "assignment of a mathematical meaning to a language by mapping abstract syntax to suitable semantic domains"@en,
         skos:note "A formal semantics is a formalization of the meaning of a language."@en
-    SubClassOf: hasPart some SemanticDomain
-    SubClassOf: hasPart some SemanticRule
-    SubClassOf: formalizes some Language	
+    SubClassOf: hasPart some SemanticDomain, hasPart some SemanticRule,
+        SemanticEntity, formalizes some Language	
 
 Class: SemanticDomain
     Annotations: 
         rdfs:label "semantic domain"@en,
 	skos:definition "mathematically-defined set of values that can represent the intended meanings of language constructs."@en
-    SubClassOf: MathematicalEntity
+    SubClassOf: Set, SemanticEntity
 
 Class: SemanticRule
     Annotations: 
         rdfs:label "semantic rule"@en,
 	skos:definition "specification of a mapping from abstract syntax to a semantic domain."@en
-    SubClassOf: MathematicalEntity
+    SubClassOf: SemanticEntity
 
 Class: GlobalEnvironment
     Annotations: 
@@ -2696,6 +2713,7 @@ Class: GlobalEnvironment
 	
 Class: Import
     Annotations: 
+	rdfs:label "import"@en,
 	skos:definition "reference to an OMS behaving as if it were verbatim included; also import of DOL libraries."@en,
         skos:note "Semantically, an import of $O_2$ into $O_1$ is equivalent to the verbatim inclusion of $O_2$ in place of the import declaration."@en,
 	skos:note "The purpose of $O_2$ importing $O_1$ is to make non-logical symbols and sentences of $O_1$ available in $O_2$."@en,
@@ -2713,18 +2731,26 @@ Class: InterfaceSignature
 Class: LocalEnvironment
     Annotations: 
         rdfs:label "local environment"@en,
-	skos:definition "OMS built from all previously-declared symbols and axioms."@en
-    SubClassOf: OMS
+	skos:definition "signature built from all previously-declared symbols and axioms."@en
+    SubClassOf: Signature
 		
 	
 	
 Class: Matching
     Annotations: 
+	rdfs:label "matching"@en,
 	skos:definition "algorithmic procedure that generates an alignment for two given OMS."@en
-    SubClassOf: Tool
-		
-ObjectProperty: share
+    SubClassOf: Process
+
+Class: Matcher
     Annotations: 
+	rdfs:label "matcher"@en,
+	skos:definition "tool that implements matching"@en
+    SubClassOf: Tool, hasProficiency some Matching
+		
+ObjectProperty: sharesWith
+    Annotations: 
+	rdfs:label "shares with"@en,
 	skos:definition "property of OMS symbols being mapped to the same symbol when computing a combination of an OMS network."@en,
         skos:note "Sharing is always relative to a given OMS network that
   relates different OMS. That is, two given OMS symbols
@@ -2732,6 +2758,7 @@ ObjectProperty: share
   other OMS network."@en
     Domain: NonLogicalSymbol 
     Range: NonLogicalSymbol 
+    SubPropertyOf: isLinguisticallyRelatedTo
 	
 	
 Class: SignatureMorphism
@@ -2749,19 +2776,182 @@ Class: SymbolMapItem
 	skos:definition "pair of symbols of two OMS, indicating how a symbol from the first OMS is mapped by a signature morphism to a symbol of the second OMS."@en,
         skos:note "A symbol map item is given as s_1 |-> s_2, where $s_1$ is a symbol from the source OMS and $s_2$ is a symbol from the target  of the OMS mapping."@en
     SubClassOf: hasPart some NonLogicalSymbol
-    SubClassOf: LinguisticEntity
+    SubClassOf: DOLEntity
 	
 Class: TheoremProver
     Annotations: 
         rdfs:label "theorem prover"@en,
-	skos:definition "software tool that attempts to prove that a given sentence is the logical consequence of some given set of axioms and theorems."@en
-    SubClassOf: Tool
+	skos:definition "software tool implementing theorem proving."@en
+    SubClassOf: Tool, hasProficiency some TheoremProving
+	
+Class: TheoremProving
+    Annotations: 
+	rdfs:label "theorem proving"@en,
+	skos:definition "process of demonstraing that a sentence (or OMS) is the logical consequence of some OMS."@en
+    SubClassOf: Process
 	
 	
 Class: LinguisticEntity
+    Annotations: 
+        rdfs:label "linguistic entity"@en,
+	skos:definition "entity that is of linguistic, syntactic nature."@en
+
 Class: DOLEntity
+    Annotations: 
+        rdfs:label "DOL entity"@en,
+	skos:definition "entity that is used in DOL texts."@en
+
     SubClassOf: LinguisticEntity
 
 Class: MathematicalEntity
+    Annotations: 
+        rdfs:label "mathematical entity"@en,
+	skos:definition "entity that is part of a mathematical theory."@en
+
+Class: SemanticEntity
+    Annotations: 
+        rdfs:label "semantic entity"@en,
+	skos:definition "entity that is of semantic nature, i.e. relating linguistic objects with their semantic denotation in a mathematical structure."@en
 	
-ObjectProperty: induces
+Class: WebEntity
+    Annotations: 
+        rdfs:label "web entity"@en,
+	skos:definition "entity that is related to the world wide web."@en
+	
+ObjectProperty: semanticallyDenotes
+    Annotations: 
+        rdfs:label "semantically denotes"@en,
+	skos:definition "relation between a linguistic entity and its semantic denotation."@en
+    Domain: LinguisticEntity
+    Range: MathematicalEntity or SemanticEntity	
+    SubPropertyOf: isSemanticallyRelatedTo	
+	
+ObjectProperty: isMathematicallyRelatedTo
+    Annotations: 
+        rdfs:label "is mathematically related to"@en,
+	skos:definition "relation between mathematical entities."@en
+    Domain: MathematicalEntity
+    Range: MathematicalEntity	
+
+ObjectProperty: isLinguisticallyRelatedTo
+    Annotations: 
+        rdfs:label "is linguistically related to"@en,
+	skos:definition "relation between linguistic entities."@en
+    Domain: LinguisticEntity
+    Range: LinguisticEntity
+
+ObjectProperty: isLogicallyRelatedTo
+    Annotations: 
+        rdfs:label "is logically related to"@en,
+	skos:definition "relation between lingustic entities that has a logical, semantic nature."@en
+    Domain: LinguisticEntity
+    Range: LinguisticEntity
+    SubPropertyOf: isSemanticallyRelatedTo	
+	
+	
+ObjectProperty: isSemanticallyRelatedTo
+    Annotations: 
+        rdfs:label "is semantically related to"@en,
+	skos:definition "relation that has a semantic nature."@en
+    Domain: LinguisticEntity or MathematicalEntity or SemanticEntity
+    Range: LinguisticEntity or MathematicalEntity or SemanticEntity
+	
+ObjectProperty: isRelatedAsPartOfMapsTo
+    Annotations: 
+        rdfs:label "is related as part of maps to"@en,
+	skos:definition "property used in the context of mappings, for both linguistic and mathematical entities."@en
+
+ObjectProperty:	hasProficiency
+    Annotations: 
+        rdfs:label "has proficiency"@en,
+	skos:definition "property of a tool that is capable of implementing a process."@en
+    Domain: Tool
+    Range: Process
+	
+Class: Process
+    Annotations: 
+        rdfs:label "process"@en,
+	skos:definition "algorithmic procedure working on DOL-related linguistic entities as input."@en
+	
+ObjectProperty: isImpliedExtensionOf
+    Annotations: 
+        strictlyStrongerThan isConservativeExtensionOf,
+        skos:note "Each implied extension is also a definitional extension but not vice versa."@en,
+        skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols"@en,
+        skos:note " A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$."@en,
+        rdfs:label "is implied extension of"@en
+    
+    SubPropertyOf: 
+        isDefinitionalExtensionOf
+    
+    SubPropertyChain: 
+        isMappedBy o impliedExtendsTo
+	
+ObjectProperty: entails
+    Annotations:
+	rdfs:label "entails"@en,
+	skos:definition "relation of logical entailment, expressing that all models of the subject are also models of the object"@en
+    SubPropertyOf: isLogicallyRelatedTo	
+    Domain: OMS or OMSNetwork
+    Range: OMS or OMSNetwork or Sentence
+	
+ObjectProperty: isEntailedBy
+    Annotations:
+	rdfs:label "is entailed by"@en,
+	skos:definition "inverse of relation of logical entailment"@en
+    SubPropertyOf: isLogicallyRelatedTo	
+    InverseOf: entails
+    Domain: OMS or OMSNetwork or Sentence
+    Range: OMS or OMSNetwork
+
+	
+Class: OMSSemanticObject
+    Annotations:
+	rdfs:label "OMS Semantic Object"@en,
+        skos:definition "object giving the semantics of an OMS"@en
+    SubClassOf: SemanticEntity, isMemberOf some SemanticDomain,
+        hasLogic some Logic, hasSignature some Signature, 
+	hasSentences some SetOfSentences, hasModels some ClassOfModels
+	
+Class: ClassOfModels
+    Annotations:
+	rdfs:label "class of models"@en,
+        skos:definition "a class of models (over some signature in some logic)"@en
+    SubClassOf: SemanticEntity
+
+ObjectProperty: hasSignature
+    Annotations:
+	rdfs:label "has signature"@en,
+        skos:definition "an OMS (resp. its semantic object) has an assoicated signature, which is the signature of the OMS"@en
+    Domain: OMS or OMSSemanticObject 
+    Range: Signature 
+    SubPropertyOf: isSemanticallyRelatedTo
+	
+ObjectProperty: hasSentences
+    Annotations:
+rdfs:label "has sentences"@en,
+        skos:definition "an OMS (resp. its semantic object) has an assoicated set of sentences, which is the set of sentences of the OMS"@en
+    Domain: OMS or OMSSemanticObject 
+    Range: SetOfSentences
+    SubPropertyOf: isSemanticallyRelatedTo
+	
+ObjectProperty: hasModels
+    Annotations:
+	rdfs:label "has models"@en,
+        skos:definition "an OMS (resp. its semantic object) has an assoicated class of models, which is the class of models of the OMS"@en
+    Domain: OMS or OMSSemanticObject 
+    Range: ClassOfModels
+    SubPropertyOf: isSemanticallyRelatedTo	
+	
+Class: TranslationProcess
+    Annotations:
+	rdfs:label "translation (process)"@en,
+	skos:definition "process of applying a language or logic translation, or flattening an OMS translation"@en
+    SubClassOf: Process
+	
+Class: Flattening
+    Annotations:
+	rdfs:label "flattening"@en,
+	skos:definition "process of transforming an OMS to an equivalent basic OMS"@en
+    SubClassOf: Process
+	
