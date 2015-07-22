@@ -8,20 +8,27 @@
 <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >\
 <!ENTITY owl "http://www.w3.org/2002/07/owl#" >\
 <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >\
+<!ENTITY dol "http://www.omg.org/spec/DOL/dol-language/" >\
 <!ENTITY dct "http://purl.org/dc/terms/" >\
 <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >\
 <!ENTITY sm "http://www.omg.org/techprocess/ab/SpecificationMetadata/" >\
 ]>
 
 # delete XML Base and some other prefixes that we don't need
-0,/xml:base=/{//d;}
-0,/xmlns:ontology2=/{//d;}
+0,/xml:base=/ {//d;}
+0,/xmlns:ontology2=/ {//d;}
+
+# rename some namespace prefixes
+0,/xmlns:dol-language=/ {s/\(xmlns:dol\)-language\(=\)/\1\2/}
+0,/xmlns:SpecificationMetadata=/ {s//xmlns:sm=/}
+s@\(</\?\)SpecificationMetadata:@\1sm:@g
 
 # rewrite full IRIs into &prefix;localname using XML entities as defined above
 /<owl:Ontology /,$ {
   s@http://www.w3.org/2000/01/rdf-schema#@\&rdfs;@g
   s@http://www.w3.org/2002/07/owl#@\&owl;@g
   s@http://www.w3.org/2001/XMLSchema#@\&xsd;@g
+  s@http://www.omg.org/spec/DOL/dol-language/@\&dol;@g
   s@http://purl.org/dc/terms/@\&dct;@g
   s@http://www.w3.org/2004/02/skos/core#@\&skos;@g
   s@http://www.omg.org/techprocess/ab/SpecificationMetadata/@\&sm;@g
