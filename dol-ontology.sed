@@ -2,6 +2,7 @@
 1s/<?xml version="1.0"?>/<?xml version="1.0" encoding="UTF-8"?>/
 
 # add entities for namespaces
+# to be kept in sync with the _usage_ of these entities below
 1a\
 <!DOCTYPE rdf:RDF [\
 <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >\
@@ -24,6 +25,7 @@
 s@\(</\?\)SpecificationMetadata:@\1sm:@g
 
 # rewrite full IRIs into &prefix;localname using XML entities as defined above
+# to be kept in sync with the definitions above
 /<owl:Ontology /,$ {
   s@http://www.w3.org/2000/01/rdf-schema#@\&rdfs;@g
   s@http://www.w3.org/2002/07/owl#@\&owl;@g
