@@ -1021,7 +1021,7 @@ Class: OMS
 Class: Ontology
 
     Annotations: 
-        skos:definition "logical theory that is used as a shard conceptualization"
+        skos:definition "logical theory that is used as a shared conceptualization"
 
     SubClassOf:
         OMS
