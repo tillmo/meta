@@ -1,6 +1,6 @@
 # merged from LoLa and https://github.com/API4KBs/api4kbs/raw/master/ontologies/OntoIOpTerminology.rdf
 
-Prefix: : <http://www.omg.org/spec/DOL/Current/ontology#>
+Prefix: : <http://www.omg.org/spec/DOL/dol-language/>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
@@ -8,11 +8,11 @@ Prefix: xsd: <http://www.w3.org/2001/XMLSchema-datatypes#>
 Prefix: dct: <http://purl.org/dc/terms/>
 Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
 Prefix: sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
-Prefix: dol: <http://www.omg.org/spec/DOL/dol/>
+Prefix: dol: <http://www.omg.org/spec/DOL/dol-language/>
 	
 Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
 
-Ontology: <http://www.omg.org/spec/DOL/Current/ontology#> <http://www.omg.org/spec/DOL/20150706/ontology.owl>
+Ontology: <http://www.omg.org/spec/DOL/dol-language/> <http://www.omg.org/spec/DOL/20150801/dol-language/>
 
     Annotations: 
         owl:versionInfo "1.0",
