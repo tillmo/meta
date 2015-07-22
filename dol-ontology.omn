@@ -750,7 +750,6 @@ ObjectProperty: hasLogic
         Logic
     
     SubPropertyOf: isSemanticallyRelatedTo
-	SubPropertyChain: semanticallyDenotes o hasLogic	
     
 ObjectProperty: isModelExpansivelyMappableTo
 
