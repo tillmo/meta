@@ -1241,7 +1241,7 @@ Class: OMSReduction
         OMSTranslation
 	    
     SubClassOf: 
-        OMSMapping, hasPart some DOLStructuredOMS
+        hasPart some DOLStructuredOMS
     
 
 Class: BasicOMS
