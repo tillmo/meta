@@ -2841,7 +2841,6 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;OMSReduction">
         <rdfs:label xml:lang="en">OMS reduction</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;DOLStructuredOMS"/>
-        <rdfs:subClassOf rdf:resource="&dol;OMSMapping"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
