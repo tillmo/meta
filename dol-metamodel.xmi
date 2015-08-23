@@ -17,8 +17,10 @@
 		<ownedComment annotatedElement="BasicOMS" xmi:type="uml:Comment" xmi:id="BasicOMS_comment"><body>A native OMS that does not utilize any elements from the structuring language aspects of its language.
 </body></ownedComment></packagedElement>
 		
-		<packagedElement xmi:type="uml:Class" name="RemovalKind" xmi:id="RemovalKind" xmi:uuid="d5c861a1-3b08-454c-9928-c8218d896ebe"><ownedComment annotatedElement="RemovalKind" xmi:type="uml:Comment" xmi:id="RemovalKind_comment"><body>Specifies the kind of extraction, approximation or filtering, namely whether the specified symbols shall be kept ('keep') or removed ('remove').
-</body></ownedComment></packagedElement>
+		<packagedElement xmi:type="uml:Enumeration" name="RemovalKind" xmi:id="RemovalKind" xmi:uuid="d5c861a1-3b08-454c-9928-c8218d896ebe">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="keep" xmi:uuid="d9a7c258-47f3-11e5-a151-feff819cdc9f" name="keep"/>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="remove" xmi:uuid="d9a7c60e-47f3-11e5-a151-feff819cdc9f" name="remove"/>
+        </packagedElement>
 		<packagedElement xmi:type="uml:Class" name="DefaultCorrespondence" xmi:id="DefaultCorrespondence" xmi:uuid="7b8b4010-af7e-41ac-9a0f-478be198fca6">
 			<generalization xmi:type="uml:Generalization" xmi:id="DefaultCorrespondence_is_Correspondence" general="Correspondence"/>
 			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoEnumDefaultCorrespondence_To" xmi:uuid="bdd4adcb-19eb-4eb8-83b1-86ef62cc6f8d" name="EnumDefaultCorrespondence" visibility="public" type="EnumDefaultCorrespondence" association="AssoEnumDefaultCorrespondence">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoEnumDefaultCorrespondence_To_upper" xmi:uuid="d5b22d5d-e202-4f44-ab5e-9c1db899406c" value="1"/>
@@ -31,7 +33,8 @@
 		<packagedElement xmi:type="uml:Class" name="Double" xmi:id="Double" xmi:uuid="30a8ed86-72a3-4c01-a2da-54d00219b59c"/>
 		<packagedElement xmi:type="uml:Class" name="Sentence" xmi:id="Sentence" xmi:uuid="8cc7f1c5-e248-4eaa-8cd8-07dfe230e7b2"><ownedComment annotatedElement="Sentence" xmi:type="uml:Comment" xmi:id="Sentence_comment"><body>term that is either true or false in a given model, i.e. which is assigned a truth value in this model.
 </body></ownedComment></packagedElement>
-		<packagedElement xmi:type="uml:Enumeration" name="Complete" xmi:id="Complete" xmi:uuid="499cb3e2-eab9-4205-ab36-1f89c4e8a498"><ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="complete" xmi:uuid="86ffdbd4-560e-4ca1-a95d-b8833448aad5" name="complete"/></packagedElement>
+		<packagedElement xmi:type="uml:Class" name="Complete" xmi:id="Complete" xmi:uuid="499cb3e2-eab9-4205-ab36-1f89c4e8a498"><ownedComment annotatedElement="Complete" xmi:type="uml:Comment" xmi:id="Complete_comment"><body>Flag indicating whether a given result set will be the complete sets of results for a given query.
+</body></ownedComment></packagedElement>
 		<packagedElement xmi:type="uml:Class" name="Document" xmi:id="Document" xmi:uuid="70654fe0-5d77-41ce-99fc-d62823c2ed56" isAbstract="true"><ownedComment annotatedElement="Document" xmi:type="uml:Comment" xmi:id="Document_comment"><body>A document consists of a collection of (named) OMS, OMS networks, and mappings between these. Alternatively, a Library can be a (possibly structured) NativeDocument.
 </body></ownedComment></packagedElement>
 		<packagedElement xmi:type="uml:Class" name="DOLLibrary" xmi:id="DOLLibrary" xmi:uuid="1e220846-4340-4b29-a5ba-e95163e0b46a">
@@ -48,7 +51,7 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoDOLLibraryQualification_Qualification11_To_lower" xmi:uuid="66fa143d-0d5b-4c53-aadf-bf0f3dd0ed31" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoDOLLibraryLibraryItem_LibraryItem*0_To" xmi:uuid="3cd3f974-1130-495b-ae95-2898c740ac11" name="libraryItem" visibility="public" type="LibraryItem" association="AssoDOLLibraryLibraryItem_LibraryItem*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoDOLLibraryLibraryItem_LibraryItem*0_To_upper" xmi:uuid="5dd4f41c-d54e-424e-b93e-e76fcdd8da07" value="*"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoDOLLibraryLibraryItem_LibraryItem*0_To" xmi:uuid="3cd3f974-1130-495b-ae95-2898c740ac11" name="libraryItem" visibility="public" type="LibraryItem" association="AssoDOLLibraryLibraryItem_LibraryItem*0" isOrdered="true" isUnique="false">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoDOLLibraryLibraryItem_LibraryItem*0_To_upper" xmi:uuid="5dd4f41c-d54e-424e-b93e-e76fcdd8da07" value="*"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoDOLLibraryLibraryItem_LibraryItem*0_To_lower" xmi:uuid="23828e06-28b9-4a5b-a798-398266bf0e2e"/>
 		</ownedAttribute>
@@ -277,11 +280,11 @@
 </body></ownedComment></packagedElement>
 		<packagedElement xmi:type="uml:Class" name="PathReference" xmi:id="PathReference" xmi:uuid="4624b898-a756-453c-a920-59607b7dcdd5">
 			<generalization xmi:type="uml:Generalization" xmi:id="PathReference_is_ExcludedElement" general="ExcludedElement"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoPathReferenceElementRef_ElementRef11_To" xmi:uuid="d525e970-a8f4-4711-971e-4372986e7c96" name="elementRef" visibility="public" type="ElementRef" association="AssoPathReferenceElementRef_ElementRef11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoPathReferenceElementRef_ElementRef11_To_upper" xmi:uuid="f9d35d63-d459-49a5-b242-bb938d189639" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoPathReferenceElementRef_ElementRef11_To" xmi:uuid="d525e970-a8f4-4711-971e-4372986e7c96" name="source" visibility="public" type="ElementRef" association="AssoPathReferenceElementRef_ElementRef11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoPathReferenceElementRef_ElementRef11_To_upper" xmi:uuid="f9d35d63-d459-49a5-b242-bb938d189639" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoPathReferenceElementRef_ElementRef11_To_lower" xmi:uuid="185eb819-05a5-47dc-86dc-325b904af1f7" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoPathReferenceElementRef2_ElementRef11_To" xmi:uuid="a07c1e23-be1e-4f4b-b961-63cff917df60" name="elementRef2" visibility="public" type="ElementRef" association="AssoPathReferenceElementRef2_ElementRef11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoPathReferenceElementRef2_ElementRef11_To_upper" xmi:uuid="f8385ba1-fc58-402a-8288-46d529f31b49" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoPathReferenceElementRef2_ElementRef11_To" xmi:uuid="a07c1e23-be1e-4f4b-b961-63cff917df60" name="target" visibility="public" type="ElementRef" association="AssoPathReferenceElementRef2_ElementRef11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoPathReferenceElementRef2_ElementRef11_To_upper" xmi:uuid="f8385ba1-fc58-402a-8288-46d529f31b49" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoPathReferenceElementRef2_ElementRef11_To_lower" xmi:uuid="9e7b6549-5007-4bdb-b91d-7710d30b0cde" value="1"/>
 		</ownedAttribute>
@@ -393,7 +396,7 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSOMS_OMS11_To_lower" xmi:uuid="0faf6b29-d6de-4388-836f-53d0c0264ce7" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoTranslationOMSTranslation_Translation11_To" xmi:uuid="d3fc3dde-a232-43b9-891f-6e617ba41158" name="omsTranslation" visibility="public" type="OMSTranslation" association="AssoTranslationOMSTranslation_Translation11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSTranslation_Translation11_To_upper" xmi:uuid="0f9081ae-96ff-41f8-9ea7-624659e7d096" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoTranslationOMSTranslation_Translation11_To" xmi:uuid="d3fc3dde-a232-43b9-891f-6e617ba41158" name="translation" visibility="public" type="Translation" association="AssoTranslationOMSTranslation_Translation11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSTranslation_Translation11_To_upper" xmi:uuid="0f9081ae-96ff-41f8-9ea7-624659e7d096" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSTranslation_Translation11_To_lower" xmi:uuid="4e6267fb-0e4e-474d-9fd0-a80ee781deea" value="1"/>
 		</ownedAttribute>
@@ -499,7 +502,7 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="UnionOMS" xmi:id="UnionOMS" xmi:uuid="83425bbc-1565-46f6-a827-716d5d605bed">
 			<generalization xmi:type="uml:Generalization" xmi:id="UnionOMS_is_OMS" general="OMS"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoUnionOMSOMS_OMS11_To" xmi:uuid="9e7e6359-cba3-44f7-ae37-d9e1de29d8bd" name="oms" visibility="public" type="OMS" association="AssoUnionOMSOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoUnionOMSOMS_OMS11_To_upper" xmi:uuid="551824de-5ccd-4870-b076-8d45b20a3940" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoUnionOMSOMS_OMS11_To" xmi:uuid="9e7e6359-cba3-44f7-ae37-d9e1de29d8bd" name="oms1" visibility="public" type="OMS" association="AssoUnionOMSOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoUnionOMSOMS_OMS11_To_upper" xmi:uuid="551824de-5ccd-4870-b076-8d45b20a3940" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoUnionOMSOMS_OMS11_To_lower" xmi:uuid="3c6e61c1-d55b-459d-9a58-57d3e13d8330" value="1"/>
 		</ownedAttribute>
@@ -641,21 +644,12 @@
 			<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="maximize" xmi:uuid="8253f0e5-3be6-4d6e-b175-4694519ea967" name="maximize"/>
 			<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="free" xmi:uuid="3c681122-5ebc-4fe4-9f52-7079d8cd9bed" name="free"/>
 			<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="cofree" xmi:uuid="1c95a0cb-79a3-4668-9a2a-0ddb1c63d212" name="cofree"/></packagedElement>
-		<packagedElement xmi:type="uml:Class" name="CircClosure" xmi:id="CircClosure" xmi:uuid="7ed172e2-5f53-4a84-af76-cf653c7d45d7">
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoCircClosureSymbol_Symbol11_To" xmi:uuid="74466bfe-6575-46d3-83c0-5aaaac0c23fa" name="symbol" visibility="public" type="Symbol" association="AssoCircClosureSymbol_Symbol11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircClosureSymbol_Symbol11_To_upper" xmi:uuid="323c8bea-d54f-4f5d-9481-bd7c60c17b4c" value="1"/>
-		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircClosureSymbol_Symbol11_To_lower" xmi:uuid="f8d43be0-cc6d-4647-aa77-7aa8c8e4f102" value="1"/>
-		</ownedAttribute>
+				<packagedElement xmi:type="uml:Class" name="CircClosure" xmi:id="CircClosure" xmi:uuid="7ed172e2-5f53-4a84-af76-cf653c7d45d7">
 			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoCircClosureSymbol2_Symbol*0_To" xmi:uuid="484fcef4-bcfd-4aa5-9a53-f3045a5925d5" name="symbol2" visibility="public" type="Symbol" association="AssoCircClosureSymbol2_Symbol*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoCircClosureSymbol2_Symbol*0_To_upper" xmi:uuid="3e14df16-b616-470f-8618-de194491785e" value="*"/>
 		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircClosureSymbol2_Symbol*0_To_lower" xmi:uuid="44de001e-a840-42bd-9b31-2f93bbc48a52"/>
+				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircClosureSymbol2_Symbol*0_To_lower" xmi:uuid="44de001e-a840-42bd-9b31-2f93bbc48a52" value="1"/>
 		</ownedAttribute>
 		</packagedElement>
-		<packagedElement xmi:type="uml:Association" xmi:id="AssoCircClosureSymbol_Symbol11" xmi:uuid="74466bfe-6575-46d3-83c0-5aaaac0c23fa" name="isPartOf" memberEnd="AssoCircClosureSymbol_Symbol11_From AssoCircClosureSymbol_Symbol11_To">
-			<ownedEnd xmi:id="AssoCircClosureSymbol_Symbol11_From" xmi:uuid="cbc36517-c449-4b8b-a0a3-851c7a1c0a61" xmi:type="uml:Property" visibility="public" type="CircClosure" name="circClosure" association="AssoCircClosureSymbol_Symbol11">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoCircClosureSymbol_Symbol11_From_upper" xmi:uuid="e903a496-9644-434e-85ca-7ee7e49f5631" value="*"/>
-			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircClosureSymbol_Symbol11_From_lower" xmi:uuid="59ec4da4-c2ab-4b2e-b732-1d42e7de4355"/>
-		</ownedEnd>
-			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoCircClosureSymbol2_Symbol*0" xmi:uuid="484fcef4-bcfd-4aa5-9a53-f3045a5925d5" name="isPartOf" memberEnd="AssoCircClosureSymbol2_Symbol*0_From AssoCircClosureSymbol2_Symbol*0_To">
 			<ownedEnd xmi:id="AssoCircClosureSymbol2_Symbol*0_From" xmi:uuid="54c6b1c9-c06d-4683-83e6-21efab310f50" xmi:type="uml:Property" visibility="public" type="CircClosure" name="circClosure" association="AssoCircClosureSymbol2_Symbol*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoCircClosureSymbol2_Symbol*0_From_upper" xmi:uuid="b6ecf824-8340-4638-bb64-bae0442ac3c1" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircClosureSymbol2_Symbol*0_From_lower" xmi:uuid="7a683c2a-3d5f-46bd-8b38-4684cc07bfae"/>
@@ -672,7 +666,7 @@
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCircVarsSymbol_Symbol*0_From_lower" xmi:uuid="fb4a0cce-534f-4b1e-b48d-90e26151acfa"/>
 		</ownedEnd>
 			</packagedElement>
-		<packagedElement xmi:type="uml:Class" name="OMSTranslation" xmi:id="OMSTranslation" xmi:uuid="370eaa44-7108-4cc8-b877-4d7a8fb7b59a">
+		<packagedElement xmi:type="uml:Class" name="Translation" xmi:id="Translation" xmi:uuid="370eaa44-7108-4cc8-b877-4d7a8fb7b59a">
 			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To" xmi:uuid="ad879ef9-6fd3-46a7-8dcb-7d1e1dba5e69" name="omsLanguageTranslation" visibility="public" type="OMSLanguageTranslation" association="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To_upper" xmi:uuid="07196844-995d-49a2-830b-a567d52b381d" value="*"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To_lower" xmi:uuid="05eacbfd-0790-49ee-842f-4d9b7c29321f"/>
@@ -681,15 +675,15 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationSymbolMap_SymbolMap10_To_lower" xmi:uuid="37d4a48b-8501-4c40-9509-1fceaf5bcd98"/>
 		</ownedAttribute>
-		<ownedComment annotatedElement="OMSTranslation" xmi:type="uml:Comment" xmi:id="Translation_comment"><body>Specifies the way how an OMS shall be translated. Is part of a TranslationOMS.
+		<ownedComment annotatedElement="Translation" xmi:type="uml:Comment" xmi:id="Translation_comment"><body>Specifies the way how an OMS shall be translated. Is part of a TranslationOMS.
 </body></ownedComment></packagedElement>
 		<packagedElement xmi:type="uml:Association" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0" xmi:uuid="ad879ef9-6fd3-46a7-8dcb-7d1e1dba5e69" name="isPartOf" memberEnd="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_To">
-			<ownedEnd xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From" xmi:uuid="90c5115f-0c15-4db4-9609-d3d0dd4f44de" xmi:type="uml:Property" visibility="public" type="OMSTranslation" name="omsTranslation" association="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From_upper" xmi:uuid="45f18b94-a0df-49a0-91db-dceb7acd0909" value="*"/>
+			<ownedEnd xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From" xmi:uuid="90c5115f-0c15-4db4-9609-d3d0dd4f44de" xmi:type="uml:Property" visibility="public" type="Translation" name="translation" association="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From_upper" xmi:uuid="45f18b94-a0df-49a0-91db-dceb7acd0909" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationOMSLanguageTranslation_OMSLanguageTranslation*0_From_lower" xmi:uuid="330ecf1b-c776-48bc-b9e8-8daee795b030"/>
 		</ownedEnd>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoTranslationSymbolMap_SymbolMap10" xmi:uuid="d78842bb-5598-488c-b1f5-f0cfc9173693" name="isPartOf" memberEnd="AssoTranslationSymbolMap_SymbolMap10_From AssoTranslationSymbolMap_SymbolMap10_To">
-			<ownedEnd xmi:id="AssoTranslationSymbolMap_SymbolMap10_From" xmi:uuid="1d539a74-b9e1-4a91-a961-bf6b397dab91" xmi:type="uml:Property" visibility="public" type="OMSTranslation" name="omsTranslation" association="AssoTranslationSymbolMap_SymbolMap10">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationSymbolMap_SymbolMap10_From_upper" xmi:uuid="6d54f762-bb42-4bdc-9969-5aac2da9933b" value="*"/>
+			<ownedEnd xmi:id="AssoTranslationSymbolMap_SymbolMap10_From" xmi:uuid="1d539a74-b9e1-4a91-a961-bf6b397dab91" xmi:type="uml:Property" visibility="public" type="Translation" name="translation" association="AssoTranslationSymbolMap_SymbolMap10">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoTranslationSymbolMap_SymbolMap10_From_upper" xmi:uuid="6d54f762-bb42-4bdc-9969-5aac2da9933b" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoTranslationSymbolMap_SymbolMap10_From_lower" xmi:uuid="383b094e-e030-4326-8fd8-b7546a95b2ee"/>
 		</ownedEnd>
 			</packagedElement>
@@ -724,20 +718,12 @@
 		</ownedEnd>
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="SymbolList" xmi:id="SymbolList" xmi:uuid="d3c4f972-a2fd-4796-8399-5c660b9818af">
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolListSymbol_Symbol11_To" xmi:uuid="c7cc83b3-4c88-4efd-bd32-7c67ae78636b" name="symbol" visibility="public" type="Symbol" association="AssoSymbolListSymbol_Symbol11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolListSymbol_Symbol11_To_upper" xmi:uuid="d55e9e82-9a7d-4013-b80a-16acd021d314" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolListSymbol2_Symbol*0_To" xmi:uuid="7a4a87c7-feab-49e3-9c0f-0f5a33c29d55" name="symbol2" visibility="public" type="Symbol" association="AssoSymbolListSymbol2_Symbol*0">	
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoSymbolListSymbol2_Symbol*0_To_upper" xmi:uuid="56fbf201-fe06-45b6-ac98-91780c3fd820" value="*"/>
 		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolListSymbol_Symbol11_To_lower" xmi:uuid="b89e25fc-d5ff-414c-8491-18eae4469913" value="1"/>
-		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolListSymbol2_Symbol*0_To" xmi:uuid="7a4a87c7-feab-49e3-9c0f-0f5a33c29d55" name="symbol2" visibility="public" type="Symbol" association="AssoSymbolListSymbol2_Symbol*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoSymbolListSymbol2_Symbol*0_To_upper" xmi:uuid="56fbf201-fe06-45b6-ac98-91780c3fd820" value="*"/>
-		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolListSymbol2_Symbol*0_To_lower" xmi:uuid="aa7e97fd-4715-4a3a-9203-467dc292d3a1"/>
+				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolListSymbol2_Symbol*0_To_lower" xmi:uuid="aa7e97fd-4715-4a3a-9203-467dc292d3a1" value="1"/>
 		</ownedAttribute>
 		</packagedElement>
-		<packagedElement xmi:type="uml:Association" xmi:id="AssoSymbolListSymbol_Symbol11" xmi:uuid="c7cc83b3-4c88-4efd-bd32-7c67ae78636b" name="isPartOf" memberEnd="AssoSymbolListSymbol_Symbol11_From AssoSymbolListSymbol_Symbol11_To">
-			<ownedEnd xmi:id="AssoSymbolListSymbol_Symbol11_From" xmi:uuid="bf4ac9f2-c525-41df-82a3-a3f91c906ab3" xmi:type="uml:Property" visibility="public" type="SymbolList" name="symbolList" association="AssoSymbolListSymbol_Symbol11">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoSymbolListSymbol_Symbol11_From_upper" xmi:uuid="0472e8d4-0d8b-441d-a6a3-8c3c3adf352c" value="*"/>
-			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolListSymbol_Symbol11_From_lower" xmi:uuid="444bb7ba-4553-45b0-b5de-b99324b100c9"/>
-		</ownedEnd>
-			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoSymbolListSymbol2_Symbol*0" xmi:uuid="7a4a87c7-feab-49e3-9c0f-0f5a33c29d55" name="isPartOf" memberEnd="AssoSymbolListSymbol2_Symbol*0_From AssoSymbolListSymbol2_Symbol*0_To">
 			<ownedEnd xmi:id="AssoSymbolListSymbol2_Symbol*0_From" xmi:uuid="2d464eb9-8640-48a9-a8fd-e9acbce0071b" xmi:type="uml:Property" visibility="public" type="SymbolList" name="symbolList" association="AssoSymbolListSymbol2_Symbol*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoSymbolListSymbol2_Symbol*0_From_upper" xmi:uuid="5a9d920a-1bc8-4d49-964b-870af6d635f7" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolListSymbol2_Symbol*0_From_lower" xmi:uuid="8323b4d8-c522-4c22-8fff-23052d1a4ca6"/>
@@ -931,11 +917,11 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="SymbolMapItem" xmi:id="SymbolMapItem" xmi:uuid="2be1c4a0-ef88-43f3-a7c6-bd2c69310d80">
 			<generalization xmi:type="uml:Generalization" xmi:id="SymbolMapItem_is_GeneralSymbolMapItem" general="GeneralSymbolMapItem"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolMapItemSymbol_Symbol11_To" xmi:uuid="e3656699-acd2-44f0-82b6-074f2b450017" name="symbol" visibility="public" type="Symbol" association="AssoSymbolMapItemSymbol_Symbol11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolMapItemSymbol_Symbol11_To_upper" xmi:uuid="0838b3ca-244e-4de3-aaa5-671d175e5f4a" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolMapItemSymbol_Symbol11_To" xmi:uuid="e3656699-acd2-44f0-82b6-074f2b450017" name="source" visibility="public" type="Symbol" association="AssoSymbolMapItemSymbol_Symbol11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolMapItemSymbol_Symbol11_To_upper" xmi:uuid="0838b3ca-244e-4de3-aaa5-671d175e5f4a" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolMapItemSymbol_Symbol11_To_lower" xmi:uuid="07d69f6f-a4af-43ad-8fd7-36feebe2e318" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolMapItemSymbol2_Symbol11_To" xmi:uuid="44dc0773-88b8-4b1b-b167-823697b5095b" name="symbol2" visibility="public" type="Symbol" association="AssoSymbolMapItemSymbol2_Symbol11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolMapItemSymbol2_Symbol11_To_upper" xmi:uuid="04d191c7-ffe1-4fd6-8d8f-7d276c9206ff" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSymbolMapItemSymbol2_Symbol11_To" xmi:uuid="44dc0773-88b8-4b1b-b167-823697b5095b" name="target" visibility="public" type="Symbol" association="AssoSymbolMapItemSymbol2_Symbol11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolMapItemSymbol2_Symbol11_To_upper" xmi:uuid="04d191c7-ffe1-4fd6-8d8f-7d276c9206ff" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSymbolMapItemSymbol2_Symbol11_To_lower" xmi:uuid="55ab07b6-5306-4816-b95f-767e59d3b1c0" value="1"/>
 		</ownedAttribute>
@@ -1058,11 +1044,11 @@
 		</ownedEnd>
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="InterpretationType" xmi:id="InterpretationType" xmi:uuid="e8058d09-a644-4b42-bc90-9062326a97bd">
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoInterpretationTypeOMS_OMS11_To" xmi:uuid="f8b3436c-c6b9-4fc0-9aef-55deb77da678" name="oms" visibility="public" type="OMS" association="AssoInterpretationTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoInterpretationTypeOMS_OMS11_To_upper" xmi:uuid="3cab1baf-4da5-404e-8cc3-2826bcd0a007" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoInterpretationTypeOMS_OMS11_To" xmi:uuid="f8b3436c-c6b9-4fc0-9aef-55deb77da678" name="source" visibility="public" type="OMS" association="AssoInterpretationTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoInterpretationTypeOMS_OMS11_To_upper" xmi:uuid="3cab1baf-4da5-404e-8cc3-2826bcd0a007" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoInterpretationTypeOMS_OMS11_To_lower" xmi:uuid="7e788f93-6956-448e-b4d5-d35c15ddb5bf" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoInterpretationTypeOMS2_OMS11_To" xmi:uuid="acc30fbe-3b58-4836-916a-0eaf3b74ffed" name="oms2" visibility="public" type="OMS" association="AssoInterpretationTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoInterpretationTypeOMS2_OMS11_To_upper" xmi:uuid="60a2ab04-520d-47a7-a374-a10db76a2a45" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoInterpretationTypeOMS2_OMS11_To" xmi:uuid="acc30fbe-3b58-4836-916a-0eaf3b74ffed" name="target" visibility="public" type="OMS" association="AssoInterpretationTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoInterpretationTypeOMS2_OMS11_To_upper" xmi:uuid="60a2ab04-520d-47a7-a374-a10db76a2a45" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoInterpretationTypeOMS2_OMS11_To_lower" xmi:uuid="ee9d1137-2de6-4111-bf3c-7b88305df3fc" value="1"/>
 		</ownedAttribute>
@@ -1108,7 +1094,7 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="RefinementComposition" xmi:id="RefinementComposition" xmi:uuid="9370491d-82e8-4296-abcc-fdaefc3f2e43">
 			<generalization xmi:type="uml:Generalization" xmi:id="RefinementComposition_is_Refinement" general="Refinement"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoRefinementCompositionRefinement_Refinement11_To" xmi:uuid="285aabcb-4705-45ce-af4d-23f020e7a491" name="refinement" visibility="public" type="Refinement" association="AssoRefinementCompositionRefinement_Refinement11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoRefinementCompositionRefinement_Refinement11_To_upper" xmi:uuid="40cc189c-20f8-43eb-b4eb-f2e87aee8c48" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoRefinementCompositionRefinement_Refinement11_To" xmi:uuid="285aabcb-4705-45ce-af4d-23f020e7a491" name="refinement1" visibility="public" type="Refinement" association="AssoRefinementCompositionRefinement_Refinement11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoRefinementCompositionRefinement_Refinement11_To_upper" xmi:uuid="40cc189c-20f8-43eb-b4eb-f2e87aee8c48" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoRefinementCompositionRefinement_Refinement11_To_lower" xmi:uuid="5199fe97-871d-46ba-a1aa-80a42a1790b8" value="1"/>
 		</ownedAttribute>
@@ -1286,11 +1272,11 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="OMSOMSEntailment" xmi:id="OMSOMSEntailment" xmi:uuid="7999e764-a892-4299-8a04-f6946d56cbfe">
 			<generalization xmi:type="uml:Generalization" xmi:id="OMSOMSEntailment_is_EntailmentType" general="EntailmentType"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSOMSEntailmentOMS_OMS11_To" xmi:uuid="3a0c6e28-4072-4b7a-a872-532b1803d7f6" name="oms" visibility="public" type="OMS" association="AssoOMSOMSEntailmentOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSOMSEntailmentOMS_OMS11_To_upper" xmi:uuid="82504d5a-8b2f-474d-9517-8a59026e5f51" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSOMSEntailmentOMS_OMS11_To" xmi:uuid="3a0c6e28-4072-4b7a-a872-532b1803d7f6" name="remise" visibility="public" type="OMS" association="AssoOMSOMSEntailmentOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSOMSEntailmentOMS_OMS11_To_upper" xmi:uuid="82504d5a-8b2f-474d-9517-8a59026e5f51" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSOMSEntailmentOMS_OMS11_To_lower" xmi:uuid="9f44cb1e-7fd5-4a13-885d-011c577c99f5" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSOMSEntailmentOMS2_OMS11_To" xmi:uuid="cc8026b7-b41a-4994-96ed-3b4c930ee271" name="oms2" visibility="public" type="OMS" association="AssoOMSOMSEntailmentOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSOMSEntailmentOMS2_OMS11_To_upper" xmi:uuid="e3c2d52e-117a-4079-a9b8-9dada7976839" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSOMSEntailmentOMS2_OMS11_To" xmi:uuid="cc8026b7-b41a-4994-96ed-3b4c930ee271" name="conclusion" visibility="public" type="OMS" association="AssoOMSOMSEntailmentOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSOMSEntailmentOMS2_OMS11_To_upper" xmi:uuid="e3c2d52e-117a-4079-a9b8-9dada7976839" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSOMSEntailmentOMS2_OMS11_To_lower" xmi:uuid="ba8283a8-d375-4df7-9dcc-1d43a17df87f" value="1"/>
 		</ownedAttribute>
@@ -1308,7 +1294,7 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="NetworkOMSEntailment" xmi:id="NetworkOMSEntailment" xmi:uuid="8861a99f-010a-4311-a4a3-2dee4d23e3a4">
 			<generalization xmi:type="uml:Generalization" xmi:id="NetworkOMSEntailment_is_EntailmentType" general="EntailmentType"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkOMSEntailmentNetwork_Network11_To" xmi:uuid="f90caab5-6f01-49d1-a8aa-649142316f9f" name="network" visibility="public" type="Network" association="AssoNetworkOMSEntailmentNetwork_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentNetwork_Network11_To_upper" xmi:uuid="13b87d95-bf86-40ac-9e3b-2fd230d0eca6" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkOMSEntailmentNetwork_Network11_To" xmi:uuid="f90caab5-6f01-49d1-a8aa-649142316f9f" name="premise" visibility="public" type="Network" association="AssoNetworkOMSEntailmentNetwork_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentNetwork_Network11_To_upper" xmi:uuid="13b87d95-bf86-40ac-9e3b-2fd230d0eca6" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentNetwork_Network11_To_lower" xmi:uuid="5451feba-ddbe-4f62-8f38-c6808ffaa7ca" value="1"/>
 		</ownedAttribute>
@@ -1316,7 +1302,7 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentOMSName_IRI11_To_lower" xmi:uuid="6c7a5397-47a0-4419-977b-1ef745ba6c2c" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkOMSEntailmentOMS_OMS11_To" xmi:uuid="99dc13ec-97af-4029-aa68-15c9545575b3" name="oms" visibility="public" type="OMS" association="AssoNetworkOMSEntailmentOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentOMS_OMS11_To_upper" xmi:uuid="be186722-4703-4e4f-ab74-cda1b6fa02fc" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkOMSEntailmentOMS_OMS11_To" xmi:uuid="99dc13ec-97af-4029-aa68-15c9545575b3" name="conclusion" visibility="public" type="OMS" association="AssoNetworkOMSEntailmentOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentOMS_OMS11_To_upper" xmi:uuid="be186722-4703-4e4f-ab74-cda1b6fa02fc" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkOMSEntailmentOMS_OMS11_To_lower" xmi:uuid="4e3a0ca4-1ad8-45e1-a981-24339f978fdd" value="1"/>
 		</ownedAttribute>
@@ -1339,11 +1325,11 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="NetworkNetworkEntailment" xmi:id="NetworkNetworkEntailment" xmi:uuid="5c043e22-4a4a-4e61-b88a-fc5fe1f29f9f">
 			<generalization xmi:type="uml:Generalization" xmi:id="NetworkNetworkEntailment_is_EntailmentType" general="EntailmentType"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkNetworkEntailmentNetwork_Network11_To" xmi:uuid="f32ad3d0-6dc8-4f99-a940-6da4b91144e3" name="network" visibility="public" type="Network" association="AssoNetworkNetworkEntailmentNetwork_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkNetworkEntailmentNetwork_Network11_To_upper" xmi:uuid="1649cec4-031a-4ab7-80d8-48b3d2ed2ea1" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkNetworkEntailmentNetwork_Network11_To" xmi:uuid="f32ad3d0-6dc8-4f99-a940-6da4b91144e3" name="premise" visibility="public" type="Network" association="AssoNetworkNetworkEntailmentNetwork_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkNetworkEntailmentNetwork_Network11_To_upper" xmi:uuid="1649cec4-031a-4ab7-80d8-48b3d2ed2ea1" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkNetworkEntailmentNetwork_Network11_To_lower" xmi:uuid="08358593-9e90-484d-8fe9-59087ff6caa2" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkNetworkEntailmentNetwork2_Network11_To" xmi:uuid="bf679fbc-9126-4c9c-a56a-4a06e896eb9d" name="network2" visibility="public" type="Network" association="AssoNetworkNetworkEntailmentNetwork2_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkNetworkEntailmentNetwork2_Network11_To_upper" xmi:uuid="ffc20e16-d3c2-433b-9a67-2aef4453d102" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkNetworkEntailmentNetwork2_Network11_To" xmi:uuid="bf679fbc-9126-4c9c-a56a-4a06e896eb9d" name="conclusion" visibility="public" type="Network" association="AssoNetworkNetworkEntailmentNetwork2_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkNetworkEntailmentNetwork2_Network11_To_upper" xmi:uuid="ffc20e16-d3c2-433b-9a67-2aef4453d102" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkNetworkEntailmentNetwork2_Network11_To_lower" xmi:uuid="1355d35f-9eb1-483f-9ffb-2bd386546a90" value="1"/>
 		</ownedAttribute>
@@ -1387,7 +1373,7 @@
 </body></ownedComment></packagedElement>
 		<packagedElement xmi:type="uml:Class" name="OMSEquivalence" xmi:id="OMSEquivalence" xmi:uuid="78b6d351-2ba3-4f1d-9726-1053d7adccce">
 			<generalization xmi:type="uml:Generalization" xmi:id="OMSEquivalence_is_EquivalenceType" general="EquivalenceType"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSEquivalenceOMS_OMS11_To" xmi:uuid="2a39ab96-7d10-4a5a-a1f4-35b0b2189050" name="oms" visibility="public" type="OMS" association="AssoOMSEquivalenceOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS_OMS11_To_upper" xmi:uuid="47329db9-0364-4c1d-9fa5-4ce17d4a9648" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSEquivalenceOMS_OMS11_To" xmi:uuid="2a39ab96-7d10-4a5a-a1f4-35b0b2189050" name="oms1" visibility="public" type="OMS" association="AssoOMSEquivalenceOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS_OMS11_To_upper" xmi:uuid="47329db9-0364-4c1d-9fa5-4ce17d4a9648" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS_OMS11_To_lower" xmi:uuid="36fde672-5d95-4172-8453-1b817e753ec3" value="1"/>
 		</ownedAttribute>
@@ -1395,7 +1381,7 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS2_OMS11_To_lower" xmi:uuid="0f3c07d2-a9c1-4f7b-864a-6f7199c3a786" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSEquivalenceOMS3_OMS11_To" xmi:uuid="b28844fb-661f-4be2-8b57-3f2ff9fa61da" name="oms3" visibility="public" type="OMS" association="AssoOMSEquivalenceOMS3_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS3_OMS11_To_upper" xmi:uuid="774f077b-f6f3-46fb-b336-d9a076e51045" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoOMSEquivalenceOMS3_OMS11_To" xmi:uuid="b28844fb-661f-4be2-8b57-3f2ff9fa61da" name="mediatingOms" visibility="public" type="OMS" association="AssoOMSEquivalenceOMS3_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS3_OMS11_To_upper" xmi:uuid="774f077b-f6f3-46fb-b336-d9a076e51045" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoOMSEquivalenceOMS3_OMS11_To_lower" xmi:uuid="ada30bfe-3773-4940-af72-3b789a99863b" value="1"/>
 		</ownedAttribute>
@@ -1418,7 +1404,7 @@
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="NetworkEquivalence" xmi:id="NetworkEquivalence" xmi:uuid="dd13f5ba-ef7a-4de1-848d-835576bb1575">
 			<generalization xmi:type="uml:Generalization" xmi:id="NetworkEquivalence_is_EquivalenceType" general="EquivalenceType"/>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkEquivalenceNetwork_Network11_To" xmi:uuid="0c9973a3-3c08-4693-b599-43a6b164d77f" name="network" visibility="public" type="Network" association="AssoNetworkEquivalenceNetwork_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork_Network11_To_upper" xmi:uuid="57220b73-52e9-4545-acc3-7254432c20a0" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkEquivalenceNetwork_Network11_To" xmi:uuid="0c9973a3-3c08-4693-b599-43a6b164d77f" name="network1" visibility="public" type="Network" association="AssoNetworkEquivalenceNetwork_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork_Network11_To_upper" xmi:uuid="57220b73-52e9-4545-acc3-7254432c20a0" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork_Network11_To_lower" xmi:uuid="15c8fcd4-4884-45e2-b005-830f52739f35" value="1"/>
 		</ownedAttribute>
@@ -1426,7 +1412,7 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork2_Network11_To_lower" xmi:uuid="0dbee6f9-f4e5-4730-b20d-eb0553385520" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkEquivalenceNetwork3_Network11_To" xmi:uuid="9f0aa9f1-67d7-4953-a7b7-1e66765e2004" name="network3" visibility="public" type="Network" association="AssoNetworkEquivalenceNetwork3_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork3_Network11_To_upper" xmi:uuid="2515a59c-55ac-4d22-ac7c-9af5bb5724f3" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoNetworkEquivalenceNetwork3_Network11_To" xmi:uuid="9f0aa9f1-67d7-4953-a7b7-1e66765e2004" name="mediatingNetwork" visibility="public" type="Network" association="AssoNetworkEquivalenceNetwork3_Network11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork3_Network11_To_upper" xmi:uuid="2515a59c-55ac-4d22-ac7c-9af5bb5724f3" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoNetworkEquivalenceNetwork3_Network11_To_lower" xmi:uuid="dc1e60d1-7ef1-409a-bd05-047e302eb10f" value="1"/>
 		</ownedAttribute>
@@ -1488,11 +1474,11 @@
 		</ownedEnd>
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="ModuleType" xmi:id="ModuleType" xmi:uuid="46897ae6-e344-402e-8a17-9ceb3df40908">
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS_OMS11_To" xmi:uuid="f3773e84-33b8-4c25-a206-8390f195f23a" name="oms" visibility="public" type="OMS" association="AssoModuleTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS_OMS11_To_upper" xmi:uuid="9de5139a-4536-4166-b163-299706e0ce64" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS_OMS11_To" xmi:uuid="f3773e84-33b8-4c25-a206-8390f195f23a" name="source" visibility="public" type="OMS" association="AssoModuleTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS_OMS11_To_upper" xmi:uuid="9de5139a-4536-4166-b163-299706e0ce64" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS_OMS11_To_lower" xmi:uuid="82a144a2-2cfa-4c96-b13b-903a7bb4dd4f" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS2_OMS11_To" xmi:uuid="b1078f26-fd3d-430e-a569-7849a481baf7" name="oms2" visibility="public" type="OMS" association="AssoModuleTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS2_OMS11_To_upper" xmi:uuid="50fbfb03-ef45-4c19-8947-d985916ad379" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS2_OMS11_To" xmi:uuid="b1078f26-fd3d-430e-a569-7849a481baf7" name="target" visibility="public" type="OMS" association="AssoModuleTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS2_OMS11_To_upper" xmi:uuid="50fbfb03-ef45-4c19-8947-d985916ad379" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS2_OMS11_To_lower" xmi:uuid="e84f5146-1a8f-4ee8-9b75-a653098bd837" value="1"/>
 		</ownedAttribute>
@@ -1607,11 +1593,11 @@
 			<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="total" xmi:uuid="aabe838d-57e4-4fde-bd40-219c9c968ae3" name="total"/>
 			<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="neither-injective-nor-total" xmi:uuid="9346d7cd-0233-498c-875f-6fcd61a39e1f" name="neither-injective-nor-total"/></packagedElement>
 		<packagedElement xmi:type="uml:Class" name="AlignmentType" xmi:id="AlignmentType" xmi:uuid="85fb4d4e-60a4-4e4a-bb75-c7e555222d3c">
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoAlignmentTypeOMS_OMS11_To" xmi:uuid="10ff8bb9-ea3b-425c-8ee9-dadac075f156" name="oms" visibility="public" type="OMS" association="AssoAlignmentTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoAlignmentTypeOMS_OMS11_To_upper" xmi:uuid="3507cef5-c172-4e9d-bb02-3ee3e5aaac7f" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoAlignmentTypeOMS_OMS11_To" xmi:uuid="10ff8bb9-ea3b-425c-8ee9-dadac075f156" name="source" visibility="public" type="OMS" association="AssoAlignmentTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoAlignmentTypeOMS_OMS11_To_upper" xmi:uuid="3507cef5-c172-4e9d-bb02-3ee3e5aaac7f" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoAlignmentTypeOMS_OMS11_To_lower" xmi:uuid="52295d61-76bb-4853-8342-6f9a40cbdfbc" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoAlignmentTypeOMS2_OMS11_To" xmi:uuid="0d6d381a-0a12-493a-ae2a-75620ce763fd" name="oms2" visibility="public" type="OMS" association="AssoAlignmentTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoAlignmentTypeOMS2_OMS11_To_upper" xmi:uuid="18cf06ff-a920-4ac4-b3d9-eb0ab5e1d190" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoAlignmentTypeOMS2_OMS11_To" xmi:uuid="0d6d381a-0a12-493a-ae2a-75620ce763fd" name="target" visibility="public" type="OMS" association="AssoAlignmentTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoAlignmentTypeOMS2_OMS11_To_upper" xmi:uuid="18cf06ff-a920-4ac4-b3d9-eb0ab5e1d190" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoAlignmentTypeOMS2_OMS11_To_lower" xmi:uuid="570b5a3d-9c9d-472a-966e-c34d8ab86fea" value="1"/>
 		</ownedAttribute>
@@ -1642,13 +1628,9 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockConfidence_Confidence10_To_lower" xmi:uuid="13d7a78d-40b7-4fa7-995c-a520428b4c45"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11_To" xmi:uuid="cba11e6c-76e4-4f81-9214-974fbff0737d" name="correspondence" visibility="public" type="Correspondence" association="AssoCorrespondenceBlockCorrespondence_Correspondence11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11_To_upper" xmi:uuid="7a1c6dad-ac52-49cc-baa2-b873240fc198" value="1"/>
-		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11_To_lower" xmi:uuid="9468c3a6-2835-4dbf-8c25-ffee24218759" value="1"/>
-		</ownedAttribute>
 			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoCorrespondenceBlockCorrespondence2_Correspondence*0_To" xmi:uuid="4bc7ca32-055f-47c4-bf47-90e879937838" name="correspondence2" visibility="public" type="Correspondence" association="AssoCorrespondenceBlockCorrespondence2_Correspondence*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoCorrespondenceBlockCorrespondence2_Correspondence*0_To_upper" xmi:uuid="2a6f8273-02d2-494f-9558-aebd38006199" value="*"/>
 		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockCorrespondence2_Correspondence*0_To_lower" xmi:uuid="ca657183-ce25-409a-bd1c-594035cfe4c7"/>
+				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockCorrespondence2_Correspondence*0_To_lower" xmi:uuid="ca657183-ce25-409a-bd1c-594035cfe4c7" value="1"/>
 		</ownedAttribute>
 		<ownedComment annotatedElement="CorrespondenceBlock" xmi:type="uml:Comment" xmi:id="CorrespondenceBlock_comment"><body>Block assigning a certaion confidence and a certain relation to a set of correspondences.
 </body></ownedComment></packagedElement>
@@ -1660,11 +1642,6 @@
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoCorrespondenceBlockConfidence_Confidence10" xmi:uuid="32558cda-1794-4379-b1b2-74fb1a581352" name="isPartOf" memberEnd="AssoCorrespondenceBlockConfidence_Confidence10_From AssoCorrespondenceBlockConfidence_Confidence10_To">
 			<ownedEnd xmi:id="AssoCorrespondenceBlockConfidence_Confidence10_From" xmi:uuid="062361b8-b134-4774-bb0f-d510c34f95ef" xmi:type="uml:Property" visibility="public" type="CorrespondenceBlock" name="correspondenceBlock" association="AssoCorrespondenceBlockConfidence_Confidence10">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoCorrespondenceBlockConfidence_Confidence10_From_upper" xmi:uuid="23525ef4-5b8c-4e47-9b79-1f84802ed197" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockConfidence_Confidence10_From_lower" xmi:uuid="d264903f-6f2d-4d33-aeb0-f3a0ced2c49f"/>
-		</ownedEnd>
-			</packagedElement>
-			<packagedElement xmi:type="uml:Association" xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11" xmi:uuid="cba11e6c-76e4-4f81-9214-974fbff0737d" name="isPartOf" memberEnd="AssoCorrespondenceBlockCorrespondence_Correspondence11_From AssoCorrespondenceBlockCorrespondence_Correspondence11_To">
-			<ownedEnd xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11_From" xmi:uuid="36f59482-7de7-4dc9-bc3c-b8b5471fbfae" xmi:type="uml:Property" visibility="public" type="CorrespondenceBlock" name="correspondenceBlock" association="AssoCorrespondenceBlockCorrespondence_Correspondence11">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11_From_upper" xmi:uuid="39c18cd1-3458-4854-a014-1fc03a5ff40b" value="*"/>
-			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoCorrespondenceBlockCorrespondence_Correspondence11_From_lower" xmi:uuid="c309c95c-1bb0-4ed2-a8bd-8fb9696672a4"/>
 		</ownedEnd>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoCorrespondenceBlockCorrespondence2_Correspondence*0" xmi:uuid="4bc7ca32-055f-47c4-bf47-90e879937838" name="isPartOf" memberEnd="AssoCorrespondenceBlockCorrespondence2_Correspondence*0_From AssoCorrespondenceBlockCorrespondence2_Correspondence*0_To">
@@ -1855,11 +1832,11 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionSubstitutionName_IRI11_To_lower" xmi:uuid="5905c4d1-27b8-4f1f-8a04-fcb9a2254c1c" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSubstitutionDefinitionOMS_OMS11_To" xmi:uuid="09f4a356-794a-4608-892a-aadbc547e211" name="oms" visibility="public" type="OMS" association="AssoSubstitutionDefinitionOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionOMS_OMS11_To_upper" xmi:uuid="545f3f5c-9886-4d50-9e02-23638063714f" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSubstitutionDefinitionOMS_OMS11_To" xmi:uuid="09f4a356-794a-4608-892a-aadbc547e211" name="source" visibility="public" type="OMS" association="AssoSubstitutionDefinitionOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionOMS_OMS11_To_upper" xmi:uuid="545f3f5c-9886-4d50-9e02-23638063714f" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionOMS_OMS11_To_lower" xmi:uuid="0e1d3f59-a4af-4c94-8289-2c3c3328af0a" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSubstitutionDefinitionOMS2_OMS11_To" xmi:uuid="e3e9d3b5-b043-4d1f-ad5d-1cbc242ebdd3" name="oms2" visibility="public" type="OMS" association="AssoSubstitutionDefinitionOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionOMS2_OMS11_To_upper" xmi:uuid="e459bda5-b9d8-49b3-a894-4a2528b120e4" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoSubstitutionDefinitionOMS2_OMS11_To" xmi:uuid="e3e9d3b5-b043-4d1f-ad5d-1cbc242ebdd3" name="target" visibility="public" type="OMS" association="AssoSubstitutionDefinitionOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionOMS2_OMS11_To_upper" xmi:uuid="e459bda5-b9d8-49b3-a894-4a2528b120e4" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoSubstitutionDefinitionOMS2_OMS11_To_lower" xmi:uuid="3860c7c2-8252-4032-b22e-6f2a21c78a28" value="1"/>
 		</ownedAttribute>
@@ -1895,13 +1872,9 @@
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionResultName_IRI11_To_lower" xmi:uuid="c2368077-c729-4331-b6ae-fd5a0d28d857" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoResultDefinitionSubstitutionName_IRI11_To" xmi:uuid="7b6d2857-9d04-4308-a4e1-0046ff3dff54" name="substitutionName" visibility="public" type="IRI" association="AssoResultDefinitionSubstitutionName_IRI11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionSubstitutionName_IRI11_To_upper" xmi:uuid="19a1b11d-725d-45ff-97f4-0ab98d7b1985" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0_To" xmi:uuid="8b47e7d4-eeb1-40f6-b710-0fbfac5a400d" name="substitutionName" visibility="public" type="IRI" association="AssoResultDefinitionSubstitutionName2_IRI*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0_To_upper" xmi:uuid="02de867b-5896-4bfb-9fa4-3325e2edfc96" value="*"/>
 		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionSubstitutionName_IRI11_To_lower" xmi:uuid="ad5980be-2b3a-43fc-a90b-e5953712dabe" value="1"/>
-		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0_To" xmi:uuid="8b47e7d4-eeb1-40f6-b710-0fbfac5a400d" name="substitutionName2" visibility="public" type="IRI" association="AssoResultDefinitionSubstitutionName2_IRI*0">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0_To_upper" xmi:uuid="02de867b-5896-4bfb-9fa4-3325e2edfc96" value="*"/>
-		
-				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0_To_lower" xmi:uuid="298b726c-07e6-4c7a-9cd1-1d0a1078c8db"/>
+				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0_To_lower" xmi:uuid="298b726c-07e6-4c7a-9cd1-1d0a1078c8db" value="1"/>
 		</ownedAttribute>
 			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoResultDefinitionQueryName_IRI11_To" xmi:uuid="f2c222f1-07f1-4f83-b314-f262f2780142" name="queryName" visibility="public" type="IRI" association="AssoResultDefinitionQueryName_IRI11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionQueryName_IRI11_To_upper" xmi:uuid="5ceddbae-8df0-45ca-b175-fe8219ab73ec" value="1"/>
 		
@@ -1916,11 +1889,6 @@
 		<packagedElement xmi:type="uml:Association" xmi:id="AssoResultDefinitionResultName_IRI11" xmi:uuid="5b934e9d-d5a5-4fa3-8ae1-d07ef6b84c68" name="isPartOf" memberEnd="AssoResultDefinitionResultName_IRI11_From AssoResultDefinitionResultName_IRI11_To">
 			<ownedEnd xmi:id="AssoResultDefinitionResultName_IRI11_From" xmi:uuid="3776eb8f-8e4f-4034-9a98-e4fc2f4f5b1d" xmi:type="uml:Property" visibility="public" type="ResultDefinition" name="resultDefinition" association="AssoResultDefinitionResultName_IRI11">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoResultDefinitionResultName_IRI11_From_upper" xmi:uuid="dd467941-29b3-4070-8ed0-c3a71fba5741" value="*"/>
 			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionResultName_IRI11_From_lower" xmi:uuid="252e8c5a-2ccb-460c-ba85-bdd94ed36ea0"/>
-		</ownedEnd>
-			</packagedElement>
-			<packagedElement xmi:type="uml:Association" xmi:id="AssoResultDefinitionSubstitutionName_IRI11" xmi:uuid="7b6d2857-9d04-4308-a4e1-0046ff3dff54" name="isPartOf" memberEnd="AssoResultDefinitionSubstitutionName_IRI11_From AssoResultDefinitionSubstitutionName_IRI11_To">
-			<ownedEnd xmi:id="AssoResultDefinitionSubstitutionName_IRI11_From" xmi:uuid="e18ac815-4b85-42b5-8f96-d95b1b4f1dc5" xmi:type="uml:Property" visibility="public" type="ResultDefinition" name="resultDefinition" association="AssoResultDefinitionSubstitutionName_IRI11">	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssoResultDefinitionSubstitutionName_IRI11_From_upper" xmi:uuid="0564cd84-8a59-46a7-9236-d01199528a2d" value="*"/>
-			<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoResultDefinitionSubstitutionName_IRI11_From_lower" xmi:uuid="4bf74bfd-5755-4106-8605-a06c5160f9ae"/>
 		</ownedEnd>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="AssoResultDefinitionSubstitutionName2_IRI*0" xmi:uuid="8b47e7d4-eeb1-40f6-b710-0fbfac5a400d" name="isPartOf" memberEnd="AssoResultDefinitionSubstitutionName2_IRI*0_From AssoResultDefinitionSubstitutionName2_IRI*0_To">
