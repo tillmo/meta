@@ -1474,11 +1474,11 @@
 		</ownedEnd>
 			</packagedElement>
 		<packagedElement xmi:type="uml:Class" name="ModuleType" xmi:id="ModuleType" xmi:uuid="46897ae6-e344-402e-8a17-9ceb3df40908">
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS_OMS11_To" xmi:uuid="f3773e84-33b8-4c25-a206-8390f195f23a" name="source" visibility="public" type="OMS" association="AssoModuleTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS_OMS11_To_upper" xmi:uuid="9de5139a-4536-4166-b163-299706e0ce64" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS_OMS11_To" xmi:uuid="f3773e84-33b8-4c25-a206-8390f195f23a" name="module" visibility="public" type="OMS" association="AssoModuleTypeOMS_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS_OMS11_To_upper" xmi:uuid="9de5139a-4536-4166-b163-299706e0ce64" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS_OMS11_To_lower" xmi:uuid="82a144a2-2cfa-4c96-b13b-903a7bb4dd4f" value="1"/>
 		</ownedAttribute>
-			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS2_OMS11_To" xmi:uuid="b1078f26-fd3d-430e-a569-7849a481baf7" name="target" visibility="public" type="OMS" association="AssoModuleTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS2_OMS11_To_upper" xmi:uuid="50fbfb03-ef45-4c19-8947-d985916ad379" value="1"/>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="AssoModuleTypeOMS2_OMS11_To" xmi:uuid="b1078f26-fd3d-430e-a569-7849a481baf7" name="whole" visibility="public" type="OMS" association="AssoModuleTypeOMS2_OMS11">	<upperValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS2_OMS11_To_upper" xmi:uuid="50fbfb03-ef45-4c19-8947-d985916ad379" value="1"/>
 		
 				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="AssoModuleTypeOMS2_OMS11_To_lower" xmi:uuid="e84f5146-1a8f-4ee8-9b75-a653098bd837" value="1"/>
 		</ownedAttribute>
