@@ -17,6 +17,8 @@ Ontology: <http://www.omg.org/spec/DOL/dol-language/> <http://www.omg.org/spec/D
 
 Import: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
+Import: <http://www.w3.org/2004/02/skos/core>
+
     Annotations: 
         owl:versionInfo "1.0",
         rdfs:comment "RDF serialization of DOL, implemented as an OWL ontology.  Actually some axioms that we would like to have go beyond OWL."@en,
