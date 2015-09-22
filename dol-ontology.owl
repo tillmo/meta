@@ -68,7 +68,7 @@ Copyright (c) 2014-2015 Athan Services</sm:copyright>
         <rdfs:comment xml:lang="en">Developers&apos; note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn&apos;t work for annotation properties in Protégé
 Domain: owl:Class
 Range: xsd:boolean</rdfs:comment>
-        <rdfs:comment xml:lang="en">The subject class denotes a kind of mapping that, if it holds for a translation, also holds for the adjoint reduction.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject class denotes a kind of mapping that, if it holds for a translation, also holds for the adjoint reduction.</skos:definition>
     </owl:AnnotationProperty>
     
 
@@ -77,7 +77,7 @@ Range: xsd:boolean</rdfs:comment>
     <owl:AnnotationProperty rdf:about="&dol;reifiedBy">
         <rdfs:comment xml:lang="en">Developers&apos; note: This is just for informative purposes: It doesn&apos;t work for annotation properties
 InverseOf: reifies</rdfs:comment>
-        <rdfs:comment xml:lang="en">The subject property is reified by the object class.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject property is reified by the object class.</skos:definition>
     </owl:AnnotationProperty>
     
 
@@ -87,7 +87,7 @@ InverseOf: reifies</rdfs:comment>
         <rdfs:comment xml:lang="en">Developers&apos; note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn&apos;t work for annotation properties in Protégé
 Domain: owl:Class
 Range: owl:ObjectProperty</rdfs:comment>
-        <rdfs:comment xml:lang="en">The subject class reifies the object property.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject class reifies the object property.</skos:definition>
     </owl:AnnotationProperty>
     
 
@@ -193,7 +193,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;conservativelyExtendsTo">
         <rdfs:label xml:lang="en">conservatively extends to</rdfs:label>
-        <rdfs:comment xml:lang="en">The object is a conservative extension of the subject</rdfs:comment>
+        <skos:definition xml:lang="en">The object is a conservative extension of the subject</skos:definition>
         <rdfs:domain rdf:resource="&dol;ConservativeExtensionMapping"/>
         <rdfs:subPropertyOf rdf:resource="&dol;extendsTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLogicallyRelatedTo"/>
@@ -204,7 +204,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;definitionallyExtendsTo">
         <rdfs:label xml:lang="en">definitionally extends to</rdfs:label>
-        <rdfs:comment xml:lang="en">the object is a definitional extension of the subject</rdfs:comment>
+        <skos:definition xml:lang="en">the object is a definitional extension of the subject</skos:definition>
         <rdfs:domain rdf:resource="&dol;DefinitionalExtensionMapping"/>
         <rdfs:subPropertyOf rdf:resource="&dol;conservativelyExtendsTo"/>
     </owl:ObjectProperty>
@@ -240,7 +240,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;extendsTo">
         <rdfs:label xml:lang="en">extends to</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a mapping of an extension, the object is the target of the extension mapping, i.e. the extended OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a mapping of an extension, the object is the target of the extension mapping, i.e. the extended OMS.</skos:definition>
         <rdfs:domain rdf:resource="&dol;ExtensionMapping"/>
         <rdfs:range rdf:resource="&dol;OMS"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -252,7 +252,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;formalizes">
         <rdfs:label xml:lang="en">formalizes</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a precise mathematical entity capturing the object (which is an informal or semi-formal entity)</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a precise mathematical entity capturing the object (which is an informal or semi-formal entity)</skos:definition>
         <owl:inverseOf rdf:resource="&dol;isFormalizedBy"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isSemanticallyRelatedTo"/>
     </owl:ObjectProperty>
@@ -262,7 +262,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;hasAlignment">
         <rdfs:label xml:lang="en">has alignment</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a DOL library, in which the object is an alignment between two participating OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a DOL library, in which the object is an alignment between two participating OMS.</skos:definition>
         <rdfs:range rdf:resource="&dol;Alignment"/>
         <rdfs:subPropertyOf rdf:resource="&dol;hasMapping"/>
         <owl:inverseOf rdf:resource="&dol;isAlignmentIn"/>
@@ -274,7 +274,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;hasExactLogicalExpressivity">
         <rdfs:label xml:lang="en">has exact logical expressivity</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject language has exactly the expressivity of the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject language has exactly the expressivity of the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isSemanticallyRelatedTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;supportsLogic"/>
     </owl:ObjectProperty>
@@ -294,7 +294,7 @@ InverseOf: supportsSymbolKind</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;hasInterpretation">
         <rdfs:label xml:lang="en">has interpretation</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a DOL library, in which the object is an interpretation between two participating OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a DOL library, in which the object is an interpretation between two participating OMS.</skos:definition>
         <rdfs:range rdf:resource="&dol;Interpretation"/>
         <rdfs:subPropertyOf rdf:resource="&dol;hasMapping"/>
         <owl:inverseOf rdf:resource="&dol;isInterpretationIn"/>
@@ -339,7 +339,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;hasMapping">
         <rdfs:label xml:lang="en">has mapping</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a DOL library, in which the object is a mapping between two participating OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a DOL library, in which the object is a mapping between two participating OMS.</skos:definition>
         <rdfs:range rdf:resource="&dol;OMSMapping"/>
         <rdfs:subPropertyOf rdf:resource="&dol;hasMember"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -380,7 +380,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;hasOMS">
         <rdfs:label xml:lang="en">has OMS</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a DOL library, in which the object is a participating heterogeneous OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a DOL library, in which the object is a participating heterogeneous OMS.</skos:definition>
         <rdfs:range rdf:resource="&dol;OMS"/>
         <rdfs:subPropertyOf rdf:resource="&dol;hasMember"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -490,7 +490,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isAdjointOf">
         <rdfs:label xml:lang="en">is adjoint of</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a translation (or reduction) that shares its sentence and model translation with the object reduction (or translation). The signature translations are adjoint to each other (in the sense of category theory).</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a translation (or reduction) that shares its sentence and model translation with the object reduction (or translation). The signature translations are adjoint to each other (in the sense of category theory).</skos:definition>
         <rdfs:range rdf:resource="&dol;LogicReduction"/>
         <rdfs:domain rdf:resource="&dol;LogicTranslation"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
@@ -501,7 +501,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isAlignmentIn">
         <rdfs:label xml:lang="en">is alignment in</rdfs:label>
-        <rdfs:comment xml:lang="en">The obbject is a DOL library, in which the subject is an alignment between two participating OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The object is a DOL library, in which the subject is an alignment between two participating OMS.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -534,8 +534,9 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isCompositionOf">
         <rdfs:label xml:lang="en">is composition of</rdfs:label>
-        <rdfs:comment xml:lang="en">Developers&apos; note: The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).  All elements of the latter list must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)</rdfs:comment>
-        <rdfs:comment xml:lang="en">Range can&apos;t be specified in OWL DL</rdfs:comment>
+        <rdfs:comment xml:lang="en">All elements of the list (list item 1 ∘ list item 2 ∘ … ∘ list item n) must be instances of the same class as the subject.  (Enforcing the latter constraint goes beyond OWL.)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Developers&apos; note: Range can&apos;t be specified in OWL DL</rdfs:comment>
+        <skos:definition xml:lang="en">The subject mapping is the composition of the object list of mappings (list item 1 ∘ list item 2 ∘ … ∘ list item n).</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -544,7 +545,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isConsequenceTheoreticallyConservativeExtensionOf">
         <rdfs:label xml:lang="en">is consequence theoretically conservative extension of</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject OMS is a consequence-theoretic conservative extension of the object OMS. A consequence-theoretic conservative extension is an extension that does not add new theorems (in terms of the unextended signature).</rdfs:comment>
+        <skos:definition xml:lang="en">The subject OMS is a consequence-theoretic conservative extension of the object OMS. A consequence-theoretic conservative extension is an extension that does not add new theorems (in terms of the unextended signature).</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isConservativeExtensionOf"/>
     </owl:ObjectProperty>
     
@@ -553,7 +554,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isConservativeExtensionOf">
         <rdfs:label xml:lang="en">is conservative extension of</rdfs:label>
-        <rdfs:comment xml:lang="en">the subject is a conservative extension of the object</rdfs:comment>
+        <skos:definition xml:lang="en">the subject is a conservative extension of the object</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isExtensionOf"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLogicallyRelatedTo"/>
         <owl:inverseOf rdf:resource="&dol;isModuleOf"/>
@@ -600,7 +601,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isEmbeddableInto">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is embeddable into</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is embeddable into the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is embeddable into the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isExactlyMappableTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableToBijectivelyOnModels"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableToLogic"/>
@@ -640,7 +641,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isExactlyMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is exactly mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is an exact mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is an exact mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isWeaklyExactlyMappableTo"/>
     </owl:ObjectProperty>
@@ -650,7 +651,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isExtensionOf">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
-        <rdfs:comment xml:lang="en">Relation between two OMS. The subject OMS is an extension of the object OMS, i.e. the sets of non-logical symbols and sentences of the subject OMS are supersets of those of the object OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">Relation between two OMS. The subject OMS is an extension of the object OMS, i.e. the sets of non-logical symbols and sentences of the subject OMS are supersets of those of the object OMS.</skos:definition>
         <skos:prefLabel xml:lang="en">extends</skos:prefLabel>
         <skos:altLabel xml:lang="en">is extension of</skos:altLabel>
         <rdfs:range rdf:resource="&dol;OMS"/>
@@ -669,7 +670,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isFaithfullyMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is faithfully mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a faithful mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a faithful mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableToLogic"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
     </owl:ObjectProperty>
@@ -679,7 +680,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isFormalizedBy">
         <rdfs:label xml:lang="en">is formalized by</rdfs:label>
-        <rdfs:comment xml:lang="en">The object is a precise mathematical entity capturing the subject (which is an informal or semi-formal entity)</rdfs:comment>
+        <skos:definition xml:lang="en">The object is a precise mathematical entity capturing the subject (which is an informal or semi-formal entity)</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isSemanticallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -704,7 +705,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isInterpretationIn">
         <rdfs:label xml:lang="en">is interpretation in</rdfs:label>
-        <rdfs:comment xml:lang="en">The object is a DOL library, in which the subject is an interpretation between two participating OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The object is a DOL library, in which the subject is an interpretation between two participating OMS.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -770,7 +771,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isMappableFrom">
         <rdfs:label xml:lang="en">is mappable from</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a mapping from the object to the subject.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a mapping from the object to the subject.</skos:definition>
         <owl:inverseOf rdf:resource="&dol;isMappableTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isRelatedAsPartOfMapsTo"/>
     </owl:ObjectProperty>
@@ -780,7 +781,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isMappableFromLanguage">
         <rdfs:label xml:lang="en">mappable from language</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a mapping from the object language to the subject language.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a mapping from the object language to the subject language.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isRelatedAsPartOfMapsTo"/>
     </owl:ObjectProperty>
@@ -790,7 +791,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isMappableFromLogic">
         <rdfs:label xml:lang="en">mappable from logic</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a mapping from the object logic to the subject logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a mapping from the object logic to the subject logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -800,7 +801,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a mapping from the subject to the object.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a mapping from the subject to the object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isRelatedAsPartOfMapsTo"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&dol;isSourceOfMapping"/>
@@ -814,7 +815,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isMappableToBijectivelyOnModels">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is mappable to bijectively on models</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a model-bijective mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a model-bijective mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isModelExpansivelyMappableTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isWeaklyExactlyMappableTo"/>
     </owl:ObjectProperty>
@@ -825,7 +826,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isMappableToLanguage">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is mappable to language</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a mapping from the subject language to the object language.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a mapping from the subject language to the object language.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
         <owl:inverseOf rdf:resource="&dol;isMappableFromLanguage"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableTo"/>
@@ -838,7 +839,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isMappableToLogic">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is mappable to logic</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a mapping from the subject logic to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a mapping from the subject logic to the object logic.</skos:definition>
         <owl:inverseOf rdf:resource="&dol;isMappableFromLogic"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
@@ -849,7 +850,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isMappedBy">
         <rdfs:label xml:lang="en">is mapped by</rdfs:label>
-        <rdfs:comment xml:lang="en">The object mapping maps from the subject into something of the same type as the subject.</rdfs:comment>
+        <skos:definition xml:lang="en">The object mapping maps from the subject into something of the same type as the subject.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isRelatedAsPartOfMapsTo"/>
     </owl:ObjectProperty>
     
@@ -858,7 +859,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isMappingIn">
         <rdfs:label xml:lang="en">is mapping in</rdfs:label>
-        <rdfs:comment xml:lang="en">The object is a DOL library, in which the subject is a mapping between two participating OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The object is a DOL library, in which the subject is a mapping between two participating OMS.</skos:definition>
         <owl:inverseOf rdf:resource="&dol;hasMapping"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
     </owl:ObjectProperty>
@@ -890,7 +891,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isModelExpansivelyMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is model expansively mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a model-expansive mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a model-expansive mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isFaithfullyMappableTo"/>
     </owl:ObjectProperty>
     
@@ -921,7 +922,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isModelTheoreticallyConservativeExtensionOf">
         <rdfs:label xml:lang="en">is model theoretically conservative extension of</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject OMS is a model-theoretic conservative extension of the object OMS. A model-theoretic conservative extension is an extension that does not lead to a restriction of class of models of an OMS.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject OMS is a model-theoretic conservative extension of the object OMS. A model-theoretic conservative extension is an extension that does not lead to a restriction of class of models of an OMS.</skos:definition>
         <dol:strictlyStrongerThan rdf:resource="&dol;isConsequenceTheoreticallyConservativeExtensionOf"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isConservativeExtensionOf"/>
     </owl:ObjectProperty>
@@ -941,7 +942,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isMonomorphicExtensionOf">
         <rdfs:label xml:lang="en">is monomorphic extension of</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject OMS is a monomorphic extension of the object OMS. A monomorphic extension is an extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject OMS is a monomorphic extension of the object OMS. A monomorphic extension is an extension whose newly introduced non-logical symbols are interpreted in a way unique up to isomorphism.</skos:definition>
         <dol:strictlyStrongerThan rdf:resource="&dol;isModelTheoreticallyConservativeExtensionOf"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isModelTheoreticallyConservativeExtensionOf"/>
     </owl:ObjectProperty>
@@ -974,7 +975,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isOmsIn">
         <rdfs:label xml:lang="en">is OMS in</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is an OMS participating in a DOL library, which is the object.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is an OMS participating in a DOL library, which is the object.</skos:definition>
         <owl:inverseOf rdf:resource="&dol;hasOMS"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
     </owl:ObjectProperty>
@@ -985,7 +986,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isPlainlyMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is plainly mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a plain mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a plain mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isSimplyTheoroidallyMappableTo"/>
     </owl:ObjectProperty>
     
@@ -1007,7 +1008,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isReducibleFrom">
         <rdfs:label xml:lang="en">is reducible from</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a reduction from the object to the subject.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a reduction from the object to the subject.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableFrom"/>
     </owl:ObjectProperty>
     
@@ -1017,7 +1018,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isReducibleTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is reducible to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a reduction from the subject to the object.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a reduction from the subject to the object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableTo"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
         <owl:inverseOf rdf:resource="&dol;isReducibleFrom"/>
@@ -1037,15 +1038,6 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isSemanticallyRelatedTo">
         <rdfs:label xml:lang="en">is semantically related to</rdfs:label>
         <skos:definition xml:lang="en">relation that has a semantic nature.</skos:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&dol;LinguisticEntity"/>
-                    <rdf:Description rdf:about="&dol;MathematicalEntity"/>
-                    <rdf:Description rdf:about="&dol;SemanticEntity"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1055,6 +1047,15 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&dol;LinguisticEntity"/>
+                    <rdf:Description rdf:about="&dol;MathematicalEntity"/>
+                    <rdf:Description rdf:about="&dol;SemanticEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1073,7 +1074,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isSerializedIn">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">is serialized in</rdfs:label>
-        <rdfs:comment xml:lang="en">the textual syntax in which an OMS is written</rdfs:comment>
+        <skos:definition xml:lang="en">the textual syntax in which an OMS is written</skos:definition>
         <rdfs:domain rdf:resource="&dol;OMS"/>
         <rdfs:range rdf:resource="&dol;Serialization"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -1085,7 +1086,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isSimplyTheoroidallyMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is simply theoroidally mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a simple theoroidal mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a simple theoroidal mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableToLogic"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
     </owl:ObjectProperty>
@@ -1095,7 +1096,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isSourceOfMapping">
         <rdfs:label xml:lang="en">is source of mapping</rdfs:label>
-        <rdfs:comment xml:lang="en">The object mapping maps from the subject into something of the same type as the subject.</rdfs:comment>
+        <skos:definition xml:lang="en">The object mapping maps from the subject into something of the same type as the subject.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isRelatedAsPartOfMapsTo"/>
     </owl:ObjectProperty>
     
@@ -1120,7 +1121,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isSubLogicOf">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is sublogic of</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a sublogic of the object.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a sublogic of the object.</skos:definition>
         <skos:definition xml:lang="en">a logic that is a syntactic restriction of another logic, inheriting its semantics</skos:definition>
         <rdfs:domain rdf:resource="&dol;Logic"/>
         <rdfs:range rdf:resource="&dol;Logic"/>
@@ -1152,7 +1153,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isTranslatableFrom">
         <rdfs:label xml:lang="en">is translatable from</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a translation from the object to the subject.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a translation from the object to the subject.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableFrom"/>
         <owl:inverseOf rdf:resource="&dol;isTranslatableTo"/>
     </owl:ObjectProperty>
@@ -1163,7 +1164,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isTranslatableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is translatable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a translation from the subject to the object.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a translation from the subject to the object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableTo"/>
     </owl:ObjectProperty>
     
@@ -1172,8 +1173,8 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isWeakDefinitionalExtensionOf">
         <rdfs:label xml:lang="en">is weak definitional extension of</rdfs:label>
-        <rdfs:comment>The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
-   non-logical symbols can be interpreted in at most one way.</rdfs:comment>
+        <skos:definition>The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
+   non-logical symbols can be interpreted in at most one way.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -1183,7 +1184,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isWeaklyExactlyMappableTo">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">is weakly exactly mappable to</rdfs:label>
-        <rdfs:comment xml:lang="en">There is a weakly exact mapping from the subject to the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">There is a weakly exact mapping from the subject to the object logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMappableToLogic"/>
     </owl:ObjectProperty>
     
@@ -1194,7 +1195,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">maps from</rdfs:label>
         <rdfs:comment xml:lang="en">Developers&apos; note: enforcing the constraint that a mapping must map into something of the same type goes beyond OWL.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The subject mapping maps from the object into something of the same type as the object.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject mapping maps from the object into something of the same type as the object.</skos:definition>
         <skos:definition xml:lang="en">relationship between a mapping and its domain</skos:definition>
         <rdfs:domain rdf:resource="&dol;Mapping"/>
         <owl:inverseOf rdf:resource="&dol;isMappedBy"/>
@@ -1208,7 +1209,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;mapsTo">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">maps to</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject mapping maps from something into the object (which is of the same type).  Enforcing the latter constraint goes beyond OWL.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject mapping maps from something into the object (which is of the same type).  Enforcing the latter constraint goes beyond OWL.</skos:definition>
         <skos:definition xml:lang="en">relationship between a mapping and its codomain</skos:definition>
         <rdfs:domain rdf:resource="&dol;Mapping"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isRelatedAsPartOfMapsTo"/>
@@ -1250,7 +1251,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;serializes">
         <rdfs:label xml:lang="en">serializes</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject is a serialization for the object language. For example, Manchester syntax serializes OWL</rdfs:comment>
+        <skos:definition xml:lang="en">The subject is a serialization for the object language. For example, Manchester syntax serializes OWL</skos:definition>
         <rdfs:range rdf:resource="&dol;OMSLanguage"/>
         <rdfs:domain rdf:resource="&dol;Serialization"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -1277,7 +1278,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;specifiesSemanticsOf">
         <rdfs:label xml:lang="en">specifies semantics of</rdfs:label>
-        <rdfs:comment xml:lang="en">The semantics of [a subset of] the object language can be specified in terms of the subject logic.</rdfs:comment>
+        <skos:definition xml:lang="en">The semantics of [a subset of] the object language can be specified in terms of the subject logic.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isSemanticallyRelatedTo"/>
         <owl:inverseOf rdf:resource="&dol;supportsLogic"/>
     </owl:ObjectProperty>
@@ -1288,7 +1289,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;supportsLogic">
         <rdfs:label xml:lang="en">supports logic</rdfs:label>
         <rdfs:label xml:lang="en">supportsL lgic</rdfs:label>
-        <rdfs:comment xml:lang="en">The semantics of [a subset of] the subject language can be specified in terms of the object logic.</rdfs:comment>
+        <skos:definition xml:lang="en">The semantics of [a subset of] the subject language can be specified in terms of the object logic.</skos:definition>
         <skos:definition xml:lang="en">logic represented by a satisfaction relation of the language.</skos:definition>
         <rdfs:range rdf:resource="&dol;Logic"/>
         <rdfs:domain rdf:resource="&dol;OMSLanguage"/>
@@ -1312,7 +1313,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;supportsLogicMapping">
         <rdfs:label xml:lang="en">supports logic mapping</rdfs:label>
-        <rdfs:comment xml:lang="en">The subject language mapping corresponds to the object logic mapping.</rdfs:comment>
+        <skos:definition xml:lang="en">The subject language mapping corresponds to the object logic mapping.</skos:definition>
         <rdfs:range rdf:resource="&dol;LogicMapping"/>
         <rdfs:domain rdf:resource="&dol;OMSLanguageTranslation"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isSemanticallyRelatedTo"/>
@@ -1327,7 +1328,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
         <rdfs:comment xml:lang="en">Developers&apos; note: The reasoners in Protégé don&apos;t like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
 SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
         <rdfs:comment xml:lang="en">Note that the serialization should be as specific as possible, i.e. one should not say that ``OWL can be serialized in XML&apos;&apos; and ``Common Logic can be serialized in XML&apos;&apos;, but instead ``OWL can be serialized in OWL XML&apos;&apos; and ``Common Logic can be serialized in XCL&apos;&apos;, taking into account that OWL XML and XCL are two different XML languages.</rdfs:comment>
-        <rdfs:comment xml:lang="en">OMS in the subject language can be serialized in the object serialization.</rdfs:comment>
+        <skos:definition xml:lang="en">OMS in the subject language can be serialized in the object serialization.</skos:definition>
         <rdfs:domain rdf:resource="&dol;OMSLanguage"/>
         <rdfs:range rdf:resource="&dol;Serialization"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -1367,7 +1368,7 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&dol;mediaType">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment xml:lang="en">the media type (MIME type) of a serialization</rdfs:comment>
+        <skos:definition xml:lang="en">the media type (MIME type) of a serialization</skos:definition>
         <rdfs:domain rdf:resource="&dol;Serialization"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -1491,15 +1492,15 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&dol;NativeOMS"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;semanticallyDenotes"/>
-                <owl:someValuesFrom rdf:resource="&dol;LogicalTheory"/>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:onClass rdf:resource="&dol;OMSDocumentation"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:onClass rdf:resource="&dol;OMSDocumentation"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&dol;semanticallyDenotes"/>
+                <owl:someValuesFrom rdf:resource="&dol;LogicalTheory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">a basic OMS (in a single language, logic, and serialization)</rdfs:comment>
@@ -1910,6 +1911,12 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;SemanticRule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;SemanticDomain"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1917,12 +1924,6 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;formalizes"/>
                 <owl:someValuesFrom rdf:resource="&dol;Language"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SemanticRule"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">A formal semantics is a formalization of the meaning of a language.</skos:note>
@@ -1973,12 +1974,6 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SupportsRelation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;LogicGraph"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1986,6 +1981,12 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;LanguageGraph"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;SupportsRelation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">environment for the expression of homogeneous and heterogeneous OMS, comprising a logic graph, an OMS language graph and a supports relation</skos:definition>
@@ -2077,26 +2078,8 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Sentence"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Signature"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;formalizes"/>
                 <owl:someValuesFrom rdf:resource="&dol;Logic"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SatisfactionRelation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2108,13 +2091,31 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;Model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;Sentence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;SignatureMorphism"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Model"/>
+                <owl:someValuesFrom rdf:resource="&dol;Signature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;SatisfactionRelation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">metaframework mathematically formalising the notion of a logic</skos:definition>
@@ -2296,7 +2297,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             </owl:Class>
         </rdfs:subClassOf>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
-        <rdfs:comment xml:lang="en">a mapping (translation or reduction) between two logics</rdfs:comment>
+        <skos:definition xml:lang="en">a mapping (translation or reduction) between two logics</skos:definition>
         <skos:definition xml:lang="en">mapping between logics</skos:definition>
     </owl:Class>
     
@@ -2338,14 +2339,14 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:onClass rdf:resource="&dol;Signature"/>
+                <owl:onClass rdf:resource="&dol;SetOfSentences"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:onClass rdf:resource="&dol;SetOfSentences"/>
+                <owl:onClass rdf:resource="&dol;Signature"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2547,13 +2548,13 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
+                <owl:someValuesFrom rdf:resource="&dol;InterfaceSignature"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;InterfaceSignature"/>
+                <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">structured OMS expressing a subOMS that conservatively extends to conservative extension the whole OMS.</skos:definition>
@@ -2663,18 +2664,6 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasSentences"/>
-                <owl:someValuesFrom rdf:resource="&dol;SetOfSentences"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasLogic"/>
-                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;usesLanguage"/>
                 <owl:someValuesFrom rdf:resource="&dol;OMSLanguage"/>
             </owl:Restriction>
@@ -2693,8 +2682,20 @@ of logic (model theory).</skos:note>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasSentences"/>
+                <owl:someValuesFrom rdf:resource="&dol;SetOfSentences"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;semanticallyDenotes"/>
                 <owl:someValuesFrom rdf:resource="&dol;OMSSemanticObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasLogic"/>
+                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">An OMS can be written in different OMS language serializations.</skos:note>
@@ -2750,7 +2751,7 @@ of logic (model theory).</skos:note>
         </rdfs:subClassOf>
         <skos:note xml:lang="en"> An OMS language is used for the formal specification of OMS.</skos:note>
         <skos:example xml:lang="en"> OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO. </skos:example>
-        <rdfs:comment xml:lang="en">a language for OMS (ontologies, models or specifications)</rdfs:comment>
+        <skos:definition xml:lang="en">a language for OMS (ontologies, models or specifications)</skos:definition>
         <skos:definition xml:lang="en">language equipped with a formal, declarative, logic-based semantics, plus non-logical annotations</skos:definition>
     </owl:Class>
     
@@ -2761,13 +2762,6 @@ of logic (model theory).</skos:note>
         <rdfs:label xml:lang="en">OMS language translation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;LanguageMapping"/>
         <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;mapsFrom"/>
-                <owl:onClass rdf:resource="&dol;OMSLanguage"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -2783,6 +2777,13 @@ of logic (model theory).</skos:note>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;mapsFrom"/>
+                <owl:onClass rdf:resource="&dol;OMSLanguage"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2861,8 +2862,14 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf rdf:resource="&dol;SemanticEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasSignature"/>
-                <owl:someValuesFrom rdf:resource="&dol;Signature"/>
+                <owl:onProperty rdf:resource="&dol;hasLogic"/>
+                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasSentences"/>
+                <owl:someValuesFrom rdf:resource="&dol;SetOfSentences"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2873,20 +2880,14 @@ of logic (model theory).</skos:note>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasSignature"/>
+                <owl:someValuesFrom rdf:resource="&dol;Signature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;isMemberOf"/>
                 <owl:someValuesFrom rdf:resource="&dol;SemanticDomain"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasLogic"/>
-                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasSentences"/>
-                <owl:someValuesFrom rdf:resource="&dol;SetOfSentences"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">object giving the semantics of an OMS</skos:definition>
@@ -2925,7 +2926,7 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
         <owl:disjointWith rdf:resource="&dol;SimpleTheoroidalMapping"/>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
-        <rdfs:comment xml:lang="en">Developers&apos; note: Protégé 4.2 doesn&apos;t like &apos;Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping&apos;, so we do it this way:</rdfs:comment>
+        <skos:definition xml:lang="en">Developers&apos; note: Protégé 4.2 doesn&apos;t like &apos;Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping&apos;, so we do it this way:</skos:definition>
         <skos:definition xml:lang="en">logic mapping that maps signatures to signatures and therefore does not use infrastructure axioms</skos:definition>
         <dol:reifies rdf:resource="&dol;isPlainlyMappableTo"/>
     </owl:Class>
@@ -3273,7 +3274,7 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;SubLogic">
         <rdfs:label xml:lang="en">sublogic</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Embedding"/>
-        <rdfs:comment xml:lang="en">logic embedding that is &apos;syntactic&apos; in the sense that signature and sentence translations are inclusions.</rdfs:comment>
+        <skos:definition xml:lang="en">logic embedding that is &apos;syntactic&apos; in the sense that signature and sentence translations are inclusions.</skos:definition>
         <dol:reifies rdf:resource="&dol;isSubLogicOf"/>
     </owl:Class>
     
@@ -3417,7 +3418,7 @@ of logic (model theory).</skos:note>
         <skos:note xml:lang="en"> When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation. </skos:note>
         <skos:note xml:lang="en">An interpretation typically leads to proof obligations, \ie one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS.</skos:note>
         <skos:definition xml:lang="en">OMS mapping that postulates a relation between two OMS</skos:definition>
-        <rdfs:comment xml:lang="en">a view (also called interpretation) between two heterogeneous OMS in a DOL library</rdfs:comment>
+        <skos:definition xml:lang="en">a view (also called interpretation) between two heterogeneous OMS in a DOL library</skos:definition>
         <skos:altLabel xml:lang="en">interpretation</skos:altLabel>
     </owl:Class>
     
@@ -3496,14 +3497,6 @@ of logic (model theory).</skos:note>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&dol;LanguageMapping"/>
-            <rdf:Description rdf:about="&dol;LogicMapping"/>
-            <rdf:Description rdf:about="&dol;OMSMapping"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&dol;Logic"/>
             <rdf:Description rdf:about="&dol;OMS"/>
             <rdf:Description rdf:about="&dol;OMSLanguage"/>
@@ -3517,6 +3510,14 @@ of logic (model theory).</skos:note>
             <rdf:Description rdf:about="&dol;AnnotationExpressionLanguageAspect"/>
             <rdf:Description rdf:about="&dol;LogicalLanguageAspect"/>
             <rdf:Description rdf:about="&dol;StructuringLanguageAspect"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&dol;LanguageMapping"/>
+            <rdf:Description rdf:about="&dol;LogicMapping"/>
+            <rdf:Description rdf:about="&dol;OMSMapping"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
