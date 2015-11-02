@@ -1037,27 +1037,6 @@ Class: Sentence
     SubClassOf: 
         Term
     
-
-    
-Class: View
-
-    Annotations: 
-        skos:definition "a view (also called interpretation) between two heterogeneous OMS in a DOL library"@en
-    
-    EquivalentTo: 
-        Interpretation
-    
-    Annotations: 
-        skos:note "An interpretation typically leads to proof obligations, \\ie one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS."@en,
-        skos:definition "OMS mapping that postulates a relation between two OMS"@en,
-        skos:altLabel "interpretation"@en,
-        rdfs:label "view"@en,
-        skos:note "When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation."@en
-    
-    SubClassOf: 
-        OMSMapping
-    
-    
 Class: Embedding
 
     Annotations: 
@@ -1131,10 +1110,11 @@ Class: Interpretation
 	rdfs:label "interpretation"@en,
 	skos:altLabel "view"@en,
 	skos:altLabel "refinement"@en,
-        skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures"@en
-
-    EquivalentTo: 
-        View
+        skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures"@en,
+        skos:note "An interpretation typically leads to proof obligations, i.e. one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS."@en,
+    
+    SubClassOf: 
+        OMSMapping
 
 Class: OMSLanguageTranslation
 
