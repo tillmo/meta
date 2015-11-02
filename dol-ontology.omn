@@ -31,12 +31,12 @@ Import: <http://www.w3.org/2004/02/skos/core>
         # omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>,
         # ^ we can't use OMV, and "domain ontology" is not quite right anyway.
 		
-	sm:copyright "Copyright (c) 2014-2015 Object Management Group, Inc.
+	sm:copyright """Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
 Copyright (c) 2014-2015 Fraunhofer Fokus
 Copyright (c) 2014-2015 MITRE
 Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
-Copyright (c) 2014-2015 Athan Services"@en,
+Copyright (c) 2014-2015 Athan Services"""@en,
 	rdfs:label "Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology"@en,
         sm:isNormative "true"^^xsd:boolean,
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
@@ -74,9 +74,9 @@ AnnotationProperty: propagatesToAdjoint
 
     Annotations: 
         skos:definition "The subject class denotes a kind of mapping that, if it holds for a translation, also holds for the adjoint reduction."@en,
-        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment """Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: owl:Class
-Range: xsd:boolean"@en
+Range: xsd:boolean"""@en
     
     
 
@@ -86,24 +86,24 @@ Range: xsd:boolean"@en
 AnnotationProperty: supportsSymbolKind
 
     Annotations: 
-        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment """Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: OMSLanguage
-Range: owl:Class that rdfs:subClassOf value NonLogicalSymbol"@en
+Range: owl:Class that rdfs:subClassOf value NonLogicalSymbol"""@en
     
     
 AnnotationProperty: symbolKindIn
     
     Annotations: 
-        rdfs:comment "Developers' note: This is just for informative purposes: It doesn't work for annotation properties
-InverseOf: supportsSymbolKind"@en
+        rdfs:comment """Developers' note: This is just for informative purposes: It doesn't work for annotation properties
+InverseOf: supportsSymbolKind"""@en
     
     
 AnnotationProperty: reifiedBy
     
     Annotations: 
         skos:definition "The subject property is reified by the object class."@en,
-        rdfs:comment "Developers' note: This is just for informative purposes: It doesn't work for annotation properties
-InverseOf: reifies"@en
+        rdfs:comment """Developers' note: This is just for informative purposes: It doesn't work for annotation properties
+InverseOf: reifies"""@en
     
     
 
@@ -112,9 +112,9 @@ AnnotationProperty: reifies
 
     Annotations: 
         skos:definition "The subject class reifies the object property."@en,
-        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment """Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: owl:Class
-Range: owl:ObjectProperty"@en
+Range: owl:ObjectProperty"""@en
     
     
 
@@ -360,8 +360,8 @@ ObjectProperty: isLanguageOf
 
     Annotations: 
 	rdfs:label "is language of"@en,
-        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
-SubPropertyChain: serialization o serializes"@en,
+        rdfs:comment """Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
+SubPropertyChain: serialization o serializes"""@en,
         skos:definition "the language of an OMS"@en
     
     Characteristics: 
@@ -743,8 +743,8 @@ ObjectProperty: hasLogic
 	rdfs:label "has logic"@en,
         rdfs:comment "the logic in which an OMS is formalized"@en,
         skos:definition "specification of valid reasoning that comprises signatures (user defined vocabularies), models (interpretations of these), sentences (constraints on models), and a satisfaction relation between models and sentences."@en,
-        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following, which makes hasLogic a non-simple property.  hasLogic is not used in cardinality restrictions, so it _should_ be OK to say the following, but in practice it doesn't work.
-SubPropertyChain: semanticallyDenotes o hasLogic"@en
+        rdfs:comment """Developers' note: The reasoners in Protégé don't like us to say the following, which makes hasLogic a non-simple property.  hasLogic is not used in cardinality restrictions, so it _should_ be OK to say the following, but in practice it doesn't work.
+SubPropertyChain: semanticallyDenotes o hasLogic"""@en
     Characteristics: 
         Functional
     
@@ -866,8 +866,8 @@ ObjectProperty: hasMapping
 ObjectProperty: isWeakDefinitionalExtensionOf
     Annotations: 
 	rdfs:label "is weak definitional extension of"@en,
-        skos:definition "The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
-   non-logical symbols can be interpreted in at most one way."    
+        skos:definition """The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
+   non-logical symbols can be interpreted in at most one way."""@en
     SubPropertyOf: isMathematicallyRelatedTo
     
     
@@ -889,8 +889,8 @@ ObjectProperty: supportsSerialization
 
     Annotations: 
 	rdfs:label "supports serialization"@en,
-        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
-SubPropertyChain: isProfileOf o supportsSerialization"@en,
+        rdfs:comment """Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
+SubPropertyChain: isProfileOf o supportsSerialization"""@en,
         rdfs:comment "Note that the serialization should be as specific as possible, i.e. one should not say that ``OWL can be serialized in XML'' and ``Common Logic can be serialized in XML'', but instead ``OWL can be serialized in OWL XML'' and ``Common Logic can be serialized in XCL'', taking into account that OWL XML and XCL are two different XML languages."@en,
         skos:definition "OMS in the subject language can be serialized in the object serialization."@en
     
@@ -1052,7 +1052,7 @@ Class: View
         skos:definition "OMS mapping that postulates a relation between two OMS"@en,
         skos:altLabel "interpretation"@en,
         rdfs:label "view"@en,
-        skos:note " When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation. "@en
+        skos:note "When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation."@en
     
     SubClassOf: 
         OMSMapping
@@ -1111,8 +1111,8 @@ Class: MDEModel
     Annotations: 
 	rdfs:label "MDE model"@en,
         skos:definition "logical theory that is used as a model in the sense of model-driven engineering (MDE)"@en,
-    	skos:note "Not to be confused with the term \termref{model} in the sense
-of logic (model theory)."@en
+    	skos:note """Not to be confused with the term \termref{model} in the sense
+of logic (model theory)."""@en
     SubClassOf:
         OMS
 
@@ -1149,7 +1149,7 @@ Class: OMSLanguageTranslation
 
     Annotations: 
         rdfs:label "OMS language translation"@en,
-        skos:note " An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language. "@en,
+        skos:note "An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language."@en,
         skos:definition "mapping from constructs in the source OMS language to their equivalents in the target OMS language"@en
     
     SubClassOf: 
@@ -1161,11 +1161,11 @@ Class: Logic
     Annotations: 
         rdfs:label "logic"@en,
 	rdfs:comment "a logic that defines the semantics of an language"@en,
-        skos:example " $\\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL. "@en,
-        skos:note " Most OMS languages have an underlying logic. "@en,
+        skos:example "$\\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL."@en,
+        skos:note "Most OMS languages have an underlying logic."@en,
         rdfs:label "logic"@en,
         skos:definition "specification of valid reasoning that comprises signatures, sentences, models, and a satisfaction relation between models and sentences"@en,
-        skos:note " See annex~\\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations. "@en
+        skos:note "See annex~\\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations."@en
     
     SubClassOf: 
         isFormalizedBy some Institution
@@ -1319,10 +1319,10 @@ Class: Serialization
     Annotations: 
         rdfs:comment "a serialization of an language"@en,
         skos:definition "specific syntactic encoding of a given OMS language"@en,
-        skos:example " Common Logic uses the term ``dialect''; the following are standard Common Logic dialects: Common Logic Interchange Format (CLIF), Conceptual Graph Interchange Format (GCIF), eXtended Common Logic Markup Language (XCL)."@en,
+        skos:example "Common Logic uses the term ``dialect''; the following are standard Common Logic dialects: Common Logic Interchange Format (CLIF), Conceptual Graph Interchange Format (GCIF), eXtended Common Logic Markup Language (XCL)."@en,
         rdfs:label "OMS serialization"@en,
         skos:note "Serializations serve as standard formats for exchanging OMS between tools."@en,
-        skos:example "OWL uses the term ``serialization''; the following are standard OWL serializations: OWL functional-style syntax, OWL/XML, OWL Manchester syntax, plus any standard serialization of RDF (e.g.  RDF/XML, Turtle, \\dots). However, RDF/XML is the only one tools are required to implement. "@en,
+        skos:example "OWL uses the term ``serialization''; the following are standard OWL serializations: OWL functional-style syntax, OWL/XML, OWL Manchester syntax, plus any standard serialization of RDF (e.g.  RDF/XML, Turtle, \\dots). However, RDF/XML is the only one tools are required to implement."@en,
         rdfs:comment "synonymous to 'concrete syntax'"@en
     
     SubClassOf: 
@@ -1342,8 +1342,8 @@ Class: OMSLanguage
     Annotations: 
         skos:definition "language equipped with a formal, declarative, logic-based semantics, plus non-logical annotations"@en,
         rdfs:label "OMS language"@en,
-        skos:note " An OMS language is used for the formal specification of OMS."@en,
-        skos:example " OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO. "@en
+        skos:note "An OMS language is used for the formal specification of OMS."@en,
+        skos:example "OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO."@en
     
     SubClassOf: 
         supportsLogic some Logic,
@@ -1426,7 +1426,7 @@ ObjectProperty: isCombinationOf
     Annotations: 
         skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being."@en,
         rdfs:label "is combination of OMS"@en,
-        skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "@en
+        skos:definition "aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network"@en
     
     Domain: 
         Combination
@@ -1496,10 +1496,10 @@ ObjectProperty: isDefinitionalExtensionOf
     Annotations: 
         strictlyStrongerThan isMonomorphicExtensionOf,
         rdfs:comment "Developers' note: We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative."@en,
-        skos:note " An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$. "@en,
-        skos:note " Each definitional extension is also a monomorphic extension but not vice versa. "@en,
+        skos:note "An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$."@en,
+        skos:note "Each definitional extension is also a monomorphic extension but not vice versa."@en,
         skos:definition "extension whose newly introduced non-logical symbols are interpreted in a unique way"@en,
-        skos:note " $O_2$ being a definitional extension of $O_1$ implies a bijective correspondence between the classes of models of $O_2$ and $O_1$. "@en,
+        skos:note "$O_2$ being a definitional extension of $O_1$ implies a bijective correspondence between the classes of models of $O_2$ and $O_1$."@en,
         rdfs:label "is definitional extension of"@en
     
     SubPropertyOf: 
@@ -1986,10 +1986,10 @@ Class: NonLogicalSymbol
     Annotations: 
         skos:definition "atomic expression or syntactic constituent of an OMS that requires an interpretation through a model"@en,
         rdfs:comment "a non-logical symbol in an OMS"@en,
-        skos:example "Non-logical symbols in OWL \\nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities'') comprise \\begin{itemize} \\item individuals (denoting objects from the domain of discourse), \\item classes (denoting sets of objects; also called concepts), and \\item properties (denoting binary relations over objects; also called roles). \\end{itemize} This is opposed to logical symbols in OWL, e.g.\\ those for intersection and union of classes. "@en,
-        skos:note "The notion of ``atomic sentence'' used in logic is different, it usually may involve several non-logical symbols. "@en,
+        skos:example "Non-logical symbols in OWL \\nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities'') comprise \\begin{itemize} \\item individuals (denoting objects from the domain of discourse), \\item classes (denoting sets of objects; also called concepts), and \\item properties (denoting binary relations over objects; also called roles). \\end{itemize} This is opposed to logical symbols in OWL, e.g.\\ those for intersection and union of classes."@en,
+        skos:note "The notion of ``atomic sentence'' used in logic is different, it usually may involve several non-logical symbols."@en,
         rdfs:label "non-logical symbol"@en,
-        skos:example " Non-logical symbols in Common Logic \\nisref{ISO/IEC 24707:2007} comprise \\begin{itemize} \\item names (denoting objects from the domain of discourse), \\item sequence markers (denoting sequences of objects). \\end{itemize} This is opposed to logical symbols in Common Logic, e.g.\\ logical connectives and quantifiers."@en,
+        skos:example "Non-logical symbols in Common Logic \\nisref{ISO/IEC 24707:2007} comprise \\begin{itemize} \\item names (denoting objects from the domain of discourse), \\item sequence markers (denoting sequences of objects). \\end{itemize} This is opposed to logical symbols in Common Logic, e.g.\\ logical connectives and quantifiers."@en,
         skos:altLabel "OMS symbol"@en
     
     SubClassOf: 
@@ -2030,7 +2030,7 @@ Class: Model
         skos:note "A model of an OMS is a model of the signature of the OMS that also satisfies all the additional constraints expressed by the OMS. In case of flattenable OMS, these constraints are expressed by the axioms of the OMS."@en,
         rdfs:label "model"@en,
         skos:scopeNote "This term is not to be confused with model (here called MDEModel) in the sense of modeling (i.e., the ``M'' in OMS)."@en,
-        skos:definition " semantic interpretation of all non-logical symbols of a signature"@en
+        skos:definition "semantic interpretation of all non-logical symbols of a signature"@en
    
     SubClassOf: 
         isModelOfSignature some Signature
@@ -2108,10 +2108,10 @@ Class: LanguageAspect
     
 Class: Profile
     Annotations: 
-        skos:note "Profiles typically correspond to sublogics. "@en,
+        skos:note "Profiles typically correspond to sublogics."@en,
         skos:definition "(syntactic) sublanguage of an OMS language interpreting according to a particular logic that targets specific applications or reasoning methods} "@en,
-        skos:note " Profiles can have different logics, even with completely different semantics, e.g.\\ OWL 2 DL versus OWL 2 Full."@en,
-        skos:note " The logic needs to support the language. "@en,
+        skos:note "Profiles can have different logics, even with completely different semantics, e.g.\\ OWL 2 DL versus OWL 2 Full."@en,
+        skos:note "The logic needs to support the language."@en,
         skos:example "Profiles of OWL 2 include OWL 2 EL, OWL 2 QL, OWL 2 RL, OWL 2 DL, and OWL 2 Full."@en,
         rdfs:label "profile"@en
     
@@ -2271,10 +2271,10 @@ Class: Approximation
     
 Class: QueryLanguage
     Annotations: 
-        skos:scopeNote " There are also general purpose OMS languages, which can express both OMS and quries."@en,
+        skos:scopeNote "There are also general purpose OMS languages, which can express both OMS and quries."@en,
         skos:definition "OMS language specifically dedicated to queries"@en,
         rdfs:label "query language"@en,
-        skos:example " SPARQL, Prolog "@en
+        skos:example "SPARQL, Prolog"@en
     
     SubClassOf: 
         OMSLanguage
@@ -2315,7 +2315,7 @@ Class: Equivalence
     Annotations: 
         skos:definition "OMS mapping ensuring that two OMS share the same definable concepts"@en,
         rdfs:label "equivalence"@en,
-        skos:note " Two OMS are equivalent if they have a common definitional extension. The OMS may be written in different OMS languages. "@en
+        skos:note "Two OMS are equivalent if they have a common definitional extension. The OMS may be written in different OMS languages."@en
     
     SubClassOf: 
         OMSMapping
@@ -2325,10 +2325,10 @@ Class: Equivalence
 Class: LinkedData
     Annotations: 
         skos:definition "structured data that is published on the Web in a machine-processable way, according to principles explained in http://linkeddata.org/"@en,
-        skos:note " The linked data principles (adapted from \\cite{BernersLee:LinkedData2006} and its paraphrase at \\cite{Wikipedia:LinkedData2011}) are the following: \\begin{enumerate} \\item Use IRIs as names for things. \\item Use HTTP IRIs so that these things can be referred to and looked up (``dereferenced'') by people and user agents.\\footnote{I.e., the IRI is treated as a URL (uniform resource locator).} \\item Provide useful machine-processable (plus optionally human-readable) information about the thing when its IRI is dereferenced, using standard formats. \\item Include links to other, related IRIs in the exposed data to improve discovery of other related information on the Web. \\end{enumerate} "@en,
+        skos:note "The linked data principles (adapted from \\cite{BernersLee:LinkedData2006} and its paraphrase at \\cite{Wikipedia:LinkedData2011}) are the following: \\begin{enumerate} \\item Use IRIs as names for things. \\item Use HTTP IRIs so that these things can be referred to and looked up (``dereferenced'') by people and user agents.\\footnote{I.e., the IRI is treated as a URL (uniform resource locator).} \\item Provide useful machine-processable (plus optionally human-readable) information about the thing when its IRI is dereferenced, using standard formats. \\item Include links to other, related IRIs in the exposed data to improve discovery of other related information on the Web. \\end{enumerate}"@en,
         rdfs:label "linked data"@en,
-        skos:note " RDF, serialized as RDF/XML \\cite{W3C:REC-rdf-syntax-grammar-20040210}, is the most common format for publishing linked data. However, its usage is not mandatory. "@en,
-        skos:note " Using HTTP content negotiation \\cite{rfc2616} it is possible to serve representations in different formats from the same URL. "@en
+        skos:note "RDF, serialized as RDF/XML \\cite{W3C:REC-rdf-syntax-grammar-20040210}, is the most common format for publishing linked data. However, its usage is not mandatory."@en,
+        skos:note "Using HTTP content negotiation \\cite{rfc2616} it is possible to serve representations in different formats from the same URL."@en
     
     SubClassOf: WebEntity    
     
@@ -2382,8 +2382,8 @@ Class: Expression
 Class: AnnotationExpression
     Annotations: 
         skos:definition "additional information without a logical semantics that is attached to an element of an OMS"@en,
-        skos:note "\\label{note:annotation-rdf} Formally, an annotation is given as a $(\\text{subject}, \\text{predicate}, \\text{object})$ triple as defined by \\nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject. "@en,
-        skos:note " According to note~\\ref{note:annotation-rdf} it is possible to interpret annotations under an RDF semantics. ``Without a logical semantics'' in this definition means that annotations to an OMS are not considered sentences of that OMS. "@en,
+        skos:note "\\label{note:annotation-rdf} Formally, an annotation is given as a $(\\text{subject}, \\text{predicate}, \\text{object})$ triple as defined by \\nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject."@en,
+        skos:note "According to note~\\ref{note:annotation-rdf} it is possible to interpret annotations under an RDF semantics. ``Without a logical semantics'' in this definition means that annotations to an OMS are not considered sentences of that OMS."@en,
         rdfs:label "annotation expression"@en
     
     SubClassOf: 
@@ -2394,7 +2394,7 @@ Class: OMSTranslation
     Annotations: 
         rdfs:label "OMS translation"@en,
         skos:definition "DOL structured OMS expressing the assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation"@en,
-        skos:note " An OMS translation results in an OMS mapping between the original and the translation OMS. "@en
+        skos:note "An OMS translation results in an OMS mapping between the original and the translation OMS."@en
     
     SubClassOf: 
         DOLStructuredOMS, hasPart some DOLStructuredOMS
@@ -2472,8 +2472,8 @@ Class: Extension
     Annotations: 
 	rdfs:label "extension"@en,
 	skos:definition "structured OMS extending a given OMS with new symbols and sentences."@en,
-        skos:note "The new symbols and sentences are interpreted relative to the
-local envorinment, which is the signature of the 'given OMS'."@en
+        skos:note """The new symbols and sentences are interpreted relative to the
+local envorinment, which is the signature of the 'given OMS'."""@en
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: ConservativeExtension
@@ -2526,11 +2526,11 @@ Class: ImpliedExtension
     Annotations: 
         rdfs:label "implied extension"@en,
 	skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols."@en,
-        skos:note "A conservative extension $O_2$ of an OMS
+        skos:note """A conservative extension $O_2$ of an OMS
     $O_1$ is an implied extension, if and only if the signature of
     $O_2$ is the signature of $O_1$.  $O_2$ is an implied extension of
     $O_1$ if and only if the model class of $O_2$ is the model class
-    of $O_1$."@en
+    of $O_1$."""@en
     SubClassOf: DefinitionalExtension
 	
 
@@ -2633,19 +2633,19 @@ Class: Combination
     Annotations: 
 	rdfs:label "combination"@en,	
         skos:example "Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being."@en,
-        skos:definition "structured OMS expressing the aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network "@en
+        skos:definition "structured OMS expressing the aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network"@en
     SubClassOf: DOLStructuredOMS, hasPart some OMSNetwork
 
 Class: Correspondence
     Annotations: 
 	rdfs:label "correspondence"@en,
 	skos:definition "relationship between an non-logical symbol $e_1$ from an OMS $O_1$ and an non-logical symbol $e_2$ from an OMS $O_2$, or between an non-logical symbol $e_1$ from $O_1$ and a term $t_2$ formed from non-logical symbols\index{non-logical symbol from $O_2$."@en,
-        skos:note "A correspondence is given as a quadruple 
+        skos:note """A correspondence is given as a quadruple 
 $(e_1, R, e_2, c)$,
 where $R$ denotes the type of relationship that is asserted to hold between the two non-logical 
 symbols/terms, and 0<=c<=1 is a confidence value.  $R$ and $c$ may be omitted: When $R$ is 
 omitted, it defaults to the equivalence relation, unless another default
-relation has been explicitly specified; when $c$ is omitted, it defaults to 1."@en
+relation has been explicitly specified; when $c$ is omitted, it defaults to 1."""@en
     SubClassOf: DOLEntity
 	
 	
@@ -2733,10 +2733,10 @@ ObjectProperty: sharesWith
     Annotations: 
 	rdfs:label "shares with"@en,
 	skos:definition "property of OMS symbols being mapped to the same symbol when computing a combination of an OMS network."@en,
-        skos:note "Sharing is always relative to a given OMS network that
+        skos:note """Sharing is always relative to a given OMS network that
   relates different OMS. That is, two given OMS symbols
   can share with respect to one OMS network, and not share with respect to some
-  other OMS network."@en
+  other OMS network."""@en
     Domain: NonLogicalSymbol 
     Range: NonLogicalSymbol 
     SubPropertyOf: isLinguisticallyRelatedTo
@@ -2859,7 +2859,7 @@ ObjectProperty: isImpliedExtensionOf
         strictlyStrongerThan isConservativeExtensionOf,
         skos:note "Each implied extension is also a definitional extension but not vice versa."@en,
         skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols"@en,
-        skos:note " A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$."@en,
+        skos:note "A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$."@en,
         rdfs:label "is implied extension of"@en
     
     SubPropertyOf: 
