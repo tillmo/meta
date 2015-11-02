@@ -1880,7 +1880,7 @@ Class: StandoffMarkup
         rdfs:label "standoff markup"@en
     
     SubClassOf: 
-        Language
+        Expression
     
     
 Class: SequenceOfOMS
