@@ -1171,7 +1171,14 @@ Class: Logic
         isFormalizedBy some Institution
     SubClassOf: MathematicalEntity
 
-    
+Class: SimpleTheoroidalLogicTranslation
+    Annotations:
+        rdfs:label "simple theoroidal logic translation"@en,
+        skos:definition "translation that maps signatures of the source logic to theories (i.e. signatures and sets of sentences, playing the role of infrastructure axioms) of the target logic"@en,
+        skos:example "The translation from OWL to multi-sorted first-order logic translates each OWL built-in type to its first-order axiomatization as a datatype."@en
+    SubClassOf:
+        LogicTranslation, SimpleTheoroidalMapping
+        
 Class: SimpleTheoroidalMapping
 
     Annotations: 
