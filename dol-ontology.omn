@@ -2407,8 +2407,8 @@ Class: Expression
 Class: AnnotationExpression
     Annotations: 
         skos:definition "additional information without a logical semantics that is attached to an element of an OMS"@en,
-        skos:note "\\label{note:annotation-rdf} Formally, an annotation is given as a $(\\text{subject}, \\text{predicate}, \\text{object})$ triple as defined by \\nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject."@en,
-        skos:note "According to note~\\ref{note:annotation-rdf} it is possible to interpret annotations under an RDF semantics. ``Without a logical semantics'' in this definition means that annotations to an OMS are not considered sentences of that OMS."@en,
+        skos:note "Formally, an annotation is given as a subject, predicate, object)$ triple as defined by \\nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject."@en,
+        skos:note "According to the note that annotations are (subject, predicate, object) triples as defined by \\nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}, it is possible to interpret annotations under an RDF semantics. ``Without a logical semantics'' in this definition means that annotations to an OMS are not considered sentences of that OMS."@en,
         rdfs:label "annotation expression"@en
     
     SubClassOf: 
