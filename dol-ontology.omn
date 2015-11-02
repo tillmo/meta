@@ -1141,11 +1141,6 @@ Class: OMSLanguageTranslation
     Annotations: 
         skos:definition "a mapping (translation or reduction) between two OMS languages"@en,
         propagatesToAdjoint "true"^^xsd:boolean
-    
-    SubClassOf: 
-        Mapping, 
-        (mapsFrom exactly 1 OMSLanguage)
-         and (mapsTo exactly 1 OMSLanguage)
 
     Annotations: 
         rdfs:label "OMS language translation"@en,
