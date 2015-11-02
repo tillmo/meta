@@ -1195,6 +1195,12 @@ Class: SimpleTheoroidalMapping
             Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"@en
         PlainMapping
    
+Class: InfrastructureAxiom
+    Annotations:
+        skos:definition "axiom that is used in the target of a logic translation in order to encode a signature of the source logic"@en,
+        skos:example "The translation from OWL to multi-sorted first-order logic translates each OWL built-in type to its first-order axiomatization as a datatype.  These first order axioms are infrastructure axioms."@en
+    SubClassOf:
+        AxiomSentence
 
 Class: LogicMapping
 
