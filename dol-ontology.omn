@@ -1197,8 +1197,6 @@ Class: SimpleTheoroidalMapping
         LogicMapping
     
     DisjointWith: 
-        PlainMapping,
-        
             Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"@en
         PlainMapping
    
