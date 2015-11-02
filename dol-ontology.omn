@@ -2361,7 +2361,6 @@ Class: CollectionOfExpressions
 Class: LogicReduction
     Annotations: 
         skos:definition "reduction of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic"@en,
-	skos:note "mapping between logics forgetting parts of the structure, projection to a smaller logic, in contrast to reduction"@en,
         rdfs:label "logic reduction"@en
     
     SubClassOf: 
@@ -2394,7 +2393,8 @@ Class: OMSTranslation
     Annotations: 
         rdfs:label "OMS translation"@en,
         skos:definition "DOL structured OMS expressing the assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation"@en,
-        skos:note "An OMS translation results in an OMS mapping between the original and the translation OMS."@en
+        skos:note "An OMS translation results in an OMS mapping between the original and the translation OMS."@en,
+        skos:note "Typically, the resulting OMS mapping of a translation is surjective: the symbols of the original OMS can be identified by the renaming, but no new symbols are added."@en
     
     SubClassOf: 
         DOLStructuredOMS, hasPart some DOLStructuredOMS
