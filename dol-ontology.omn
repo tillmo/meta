@@ -2216,6 +2216,24 @@ Class: Mapping
          and (mapsTo exactly 1 owl:Thing)
     SubClassOf: MathematicalEntity
     
+Class: Translation
+    Annotations:
+        reifies isTranslatableTo,
+        skos:definition "mapping between languages or logics representing all structure, in contrast to reduction"@en
+
+    SubClassOf:
+        Mapping
+
+Class: Reduction
+    Annotations:
+        reifies isReducibleTo
+        skos:definition "mapping between languages or logics forgetting parts of the structure, projection to a smaller language or logic"@en
+
+    SubClassOf:
+        Mapping
+
+    DisjointWith:
+        Translation
     
 Class: AnnotationExpressionLanguageAspect
     Annotations: 
@@ -2339,7 +2357,8 @@ Class: LogicTranslation
         skos:definition "translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS"@en,
 	skos:note "mapping between logics representing all structure, in contrast to reduction"@en
     SubClassOf: 
-        LogicMapping
+        LogicMapping,
+        Translation
     
     
 Class: Graph
@@ -2364,7 +2383,8 @@ Class: LogicReduction
         rdfs:label "logic reduction"@en
     
     SubClassOf: 
-        LogicMapping
+        LogicMapping,
+        Reduction
     
     
 Class: Expression
