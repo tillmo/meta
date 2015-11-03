@@ -31,12 +31,12 @@ Import: <http://www.w3.org/2004/02/skos/core>
         # omv:isOfType <http://omv.ontoware.org/2005/05/ontology#DomainOntology>,
         # ^ we can't use OMV, and "domain ontology" is not quite right anyway.
 		
-	sm:copyright """Copyright (c) 2014-2015 Object Management Group, Inc.
+	sm:copyright "Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
 Copyright (c) 2014-2015 Fraunhofer Fokus
 Copyright (c) 2014-2015 MITRE
 Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
-Copyright (c) 2014-2015 Athan Services"""@en,
+Copyright (c) 2014-2015 Athan Services"@en,
 	rdfs:label "Distributed Ontology, Model, and Specification Language (DOL) Terminology Ontology"@en,
         sm:isNormative "true"^^xsd:boolean,
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
@@ -74,9 +74,9 @@ AnnotationProperty: propagatesToAdjoint
 
     Annotations: 
         skos:definition "The subject class denotes a kind of mapping that, if it holds for a translation, also holds for the adjoint reduction."@en,
-        rdfs:comment """Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: owl:Class
-Range: xsd:boolean"""@en
+Range: xsd:boolean"@en
     
     
 
@@ -86,24 +86,24 @@ Range: xsd:boolean"""@en
 AnnotationProperty: supportsSymbolKind
 
     Annotations: 
-        rdfs:comment """Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: OMSLanguage
-Range: owl:Class that rdfs:subClassOf value NonLogicalSymbol"""@en
+Range: owl:Class that rdfs:subClassOf value NonLogicalSymbol"@en
     
     
 AnnotationProperty: symbolKindIn
     
     Annotations: 
-        rdfs:comment """Developers' note: This is just for informative purposes: It doesn't work for annotation properties
-InverseOf: supportsSymbolKind"""@en
+        rdfs:comment "Developers' note: This is just for informative purposes: It doesn't work for annotation properties
+InverseOf: supportsSymbolKind"@en
     
     
 AnnotationProperty: reifiedBy
     
     Annotations: 
         skos:definition "The subject property is reified by the object class."@en,
-        rdfs:comment """Developers' note: This is just for informative purposes: It doesn't work for annotation properties
-InverseOf: reifies"""@en
+        rdfs:comment "Developers' note: This is just for informative purposes: It doesn't work for annotation properties
+InverseOf: reifies"@en
     
     
 
@@ -112,9 +112,9 @@ AnnotationProperty: reifies
 
     Annotations: 
         skos:definition "The subject class reifies the object property."@en,
-        rdfs:comment """Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
+        rdfs:comment "Developers' note: This is just for informative purposes: Even though it probably does not go beyond OWL, it doesn't work for annotation properties in Protégé
 Domain: owl:Class
-Range: owl:ObjectProperty"""@en
+Range: owl:ObjectProperty"@en
     
     
 
@@ -360,8 +360,8 @@ ObjectProperty: isLanguageOf
 
     Annotations: 
 	rdfs:label "is language of"@en,
-        rdfs:comment """Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
-SubPropertyChain: serialization o serializes"""@en,
+        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for supportsSerialization it would go beyond OWL DL anyway.
+SubPropertyChain: serialization o serializes"@en,
         skos:definition "the language of an OMS"@en
     
     Characteristics: 
@@ -743,8 +743,8 @@ ObjectProperty: hasLogic
 	rdfs:label "has logic"@en,
         rdfs:comment "the logic in which an OMS is formalized"@en,
         skos:definition "specification of valid reasoning that comprises signatures (user defined vocabularies), models (interpretations of these), sentences (constraints on models), and a satisfaction relation between models and sentences."@en,
-        rdfs:comment """Developers' note: The reasoners in Protégé don't like us to say the following, which makes hasLogic a non-simple property.  hasLogic is not used in cardinality restrictions, so it _should_ be OK to say the following, but in practice it doesn't work.
-SubPropertyChain: semanticallyDenotes o hasLogic"""@en
+        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following, which makes hasLogic a non-simple property.  hasLogic is not used in cardinality restrictions, so it _should_ be OK to say the following, but in practice it doesn't work.
+SubPropertyChain: semanticallyDenotes o hasLogic"@en
     Characteristics: 
         Functional
     
@@ -866,8 +866,8 @@ ObjectProperty: hasMapping
 ObjectProperty: isWeakDefinitionalExtensionOf
     Annotations: 
 	rdfs:label "is weak definitional extension of"@en,
-        skos:definition """The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
-   non-logical symbols can be interpreted in at most one way."""@en
+        skos:definition "The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
+   non-logical symbols can be interpreted in at most one way."@en
     SubPropertyOf: isMathematicallyRelatedTo
     
     
@@ -889,8 +889,8 @@ ObjectProperty: supportsSerialization
 
     Annotations: 
 	rdfs:label "supports serialization"@en,
-        rdfs:comment """Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
-SubPropertyChain: isProfileOf o supportsSerialization"""@en,
+        rdfs:comment "Developers' note: The reasoners in Protégé don't like us to say the following.  Together with the SubPropertyChain specified for language it would go beyond OWL DL anyway.
+SubPropertyChain: isProfileOf o supportsSerialization"@en,
         rdfs:comment "Note that the serialization should be as specific as possible, i.e. one should not say that ``OWL can be serialized in XML'' and ``Common Logic can be serialized in XML'', but instead ``OWL can be serialized in OWL XML'' and ``Common Logic can be serialized in XCL'', taking into account that OWL XML and XCL are two different XML languages."@en,
         skos:definition "OMS in the subject language can be serialized in the object serialization."@en
     
@@ -1090,8 +1090,8 @@ Class: MDEModel
     Annotations: 
 	rdfs:label "MDE model"@en,
         skos:definition "logical theory that is used as a model in the sense of model-driven engineering (MDE)"@en,
-    	skos:note """Not to be confused with the term \termref{model} in the sense
-of logic (model theory)."""@en
+    	skos:note "Not to be confused with the term \termref{model} in the sense
+of logic (model theory)."@en
     SubClassOf:
         OMS
 
@@ -2478,8 +2478,8 @@ Class: Extension
     Annotations: 
 	rdfs:label "extension"@en,
 	skos:definition "structured OMS extending a given OMS with new symbols and sentences."@en,
-        skos:note """The new symbols and sentences are interpreted relative to the
-local envorinment, which is the signature of the 'given OMS'."""@en
+        skos:note "The new symbols and sentences are interpreted relative to the
+local envorinment, which is the signature of the 'given OMS'."@en
     SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
 	
 Class: ConservativeExtension
@@ -2532,11 +2532,11 @@ Class: ImpliedExtension
     Annotations: 
         rdfs:label "implied extension"@en,
 	skos:definition "model-theoretic conservative extension that does not introduce new non-logical symbols."@en,
-        skos:note """A conservative extension $O_2$ of an OMS
+        skos:note "A conservative extension $O_2$ of an OMS
     $O_1$ is an implied extension, if and only if the signature of
     $O_2$ is the signature of $O_1$.  $O_2$ is an implied extension of
     $O_1$ if and only if the model class of $O_2$ is the model class
-    of $O_1$."""@en
+    of $O_1$."@en
     SubClassOf: DefinitionalExtension
 	
 
@@ -2646,12 +2646,12 @@ Class: Correspondence
     Annotations: 
 	rdfs:label "correspondence"@en,
 	skos:definition "relationship between an non-logical symbol $e_1$ from an OMS $O_1$ and an non-logical symbol $e_2$ from an OMS $O_2$, or between an non-logical symbol $e_1$ from $O_1$ and a term $t_2$ formed from non-logical symbols\index{non-logical symbol from $O_2$."@en,
-        skos:note """A correspondence is given as a quadruple 
+        skos:note "A correspondence is given as a quadruple 
 $(e_1, R, e_2, c)$,
 where $R$ denotes the type of relationship that is asserted to hold between the two non-logical 
 symbols/terms, and 0<=c<=1 is a confidence value.  $R$ and $c$ may be omitted: When $R$ is 
 omitted, it defaults to the equivalence relation, unless another default
-relation has been explicitly specified; when $c$ is omitted, it defaults to 1."""@en
+relation has been explicitly specified; when $c$ is omitted, it defaults to 1."@en
     SubClassOf: DOLEntity
 	
 	
@@ -2739,10 +2739,10 @@ ObjectProperty: sharesWith
     Annotations: 
 	rdfs:label "shares with"@en,
 	skos:definition "property of OMS symbols being mapped to the same symbol when computing a combination of an OMS network."@en,
-        skos:note """Sharing is always relative to a given OMS network that
+        skos:note "Sharing is always relative to a given OMS network that
   relates different OMS. That is, two given OMS symbols
   can share with respect to one OMS network, and not share with respect to some
-  other OMS network."""@en
+  other OMS network."@en
     Domain: NonLogicalSymbol 
     Range: NonLogicalSymbol 
     SubPropertyOf: isLinguisticallyRelatedTo
