@@ -523,7 +523,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isCombinationOf">
         <rdfs:label xml:lang="en">is combination of OMS</rdfs:label>
         <skos:example xml:lang="en">Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.</skos:example>
-        <skos:definition xml:lang="en">aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network </skos:definition>
+        <skos:definition xml:lang="en">aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network</skos:definition>
         <rdfs:domain rdf:resource="&dol;Combination"/>
         <rdfs:range rdf:resource="&dol;OMSNetwork"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
@@ -569,10 +569,10 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isDefinitionalExtensionOf">
         <rdfs:label xml:lang="en">is definitional extension of</rdfs:label>
-        <skos:note xml:lang="en"> $O_2$ being a definitional extension of $O_1$ implies a bijective correspondence between the classes of models of $O_2$ and $O_1$. </skos:note>
-        <skos:note xml:lang="en"> An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$. </skos:note>
-        <skos:note xml:lang="en"> Each definitional extension is also a monomorphic extension but not vice versa. </skos:note>
+        <skos:note xml:lang="en">$O_2$ being a definitional extension of $O_1$ implies a bijective correspondence between the classes of models of $O_2$ and $O_1$.</skos:note>
+        <skos:note xml:lang="en">An extension $O_2$ of an OMS $O_1$ is a definitional extension, if each model of $O_1$ can be uniquely expanded to a model of $O_2$.</skos:note>
         <rdfs:comment xml:lang="en">Developers&apos; note: We need FOL, or the same reification approach as chosen for the different kinds of translations, for capturing that an extension is definitional if and only if it is weakly definitional and model-theoretically conservative.</rdfs:comment>
+        <skos:note xml:lang="en">Each definitional extension is also a monomorphic extension but not vice versa.</skos:note>
         <skos:definition xml:lang="en">extension whose newly introduced non-logical symbols are interpreted in a unique way</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isModelTheoreticallyConservativeExtensionOf"/>
         <dol:strictlyStrongerThan rdf:resource="&dol;isMonomorphicExtensionOf"/>
@@ -689,7 +689,7 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isImpliedExtensionOf">
         <rdfs:label xml:lang="en">is implied extension of</rdfs:label>
-        <skos:note xml:lang="en"> A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$.</skos:note>
+        <skos:note xml:lang="en">A conservative extension $O_2$ of an OMS $O_1$ is an implied extension, if and only if the signature of $O_2$ is the signature of $O_1$. $O_2$ is an implied extension of $O_1$ if and only if the model class of $O_2$ is the model class of $O_1$.</skos:note>
         <skos:note xml:lang="en">Each implied extension is also a definitional extension but not vice versa.</skos:note>
         <skos:definition xml:lang="en">model-theoretic conservative extension that does not introduce new non-logical symbols</skos:definition>
         <dol:strictlyStrongerThan rdf:resource="&dol;isConservativeExtensionOf"/>
@@ -1173,7 +1173,7 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&dol;isWeakDefinitionalExtensionOf">
         <rdfs:label xml:lang="en">is weak definitional extension of</rdfs:label>
-        <skos:definition>The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
+        <skos:definition xml:lang="en">The subject OMS is a weak definitional extension of the object OMS. A weak definitional extension is an extension whose newly introduced
    non-logical symbols can be interpreted in at most one way.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dol;isMathematicallyRelatedTo"/>
     </owl:ObjectProperty>
@@ -1427,8 +1427,8 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
     <owl:Class rdf:about="&dol;AnnotationExpression">
         <rdfs:label xml:lang="en">annotation expression</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Expression"/>
-        <skos:note xml:lang="en"> According to note~\ref{note:annotation-rdf} it is possible to interpret annotations under an RDF semantics. ``Without a logical semantics&apos;&apos; in this definition means that annotations to an OMS are not considered sentences of that OMS. </skos:note>
-        <skos:note xml:lang="en">\label{note:annotation-rdf} Formally, an annotation is given as a $(\text{subject}, \text{predicate}, \text{object})$ triple as defined by \nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject. </skos:note>
+        <skos:note xml:lang="en">According to the note that annotations are (subject, predicate, object) triples as defined by \nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}, it is possible to interpret annotations under an RDF semantics. ``Without a logical semantics&apos;&apos; in this definition means that annotations to an OMS are not considered sentences of that OMS.</skos:note>
+        <skos:note xml:lang="en">Formally, an annotation is given as a subject, predicate, object)$ triple as defined by \nisref{SOURCE: W3C/TR REC-rdf-concepts:2004, Section 6}. The subject of an annotation is an element of an OMS. The predicate is an RDF property defined in an external OMS and describes in what way the annotation object is related to the annotation subject.</skos:note>
         <skos:definition xml:lang="en">additional information without a logical semantics that is attached to an element of an OMS</skos:definition>
     </owl:Class>
     
@@ -1576,7 +1576,7 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:example xml:lang="en">Consider an ontology involving a concept Person, and another one involving Human being, and an alignment that relates these to concepts. In the combination of the ontologies along the alignment, there is only one concept, representing both Person and Human being.</skos:example>
-        <skos:definition xml:lang="en">structured OMS expressing the aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network </skos:definition>
+        <skos:definition xml:lang="en">structured OMS expressing the aggregation of all the OMS in an OMS network, where non-logical symbols are shared according to the OMS mappings in the OMS network</skos:definition>
     </owl:Class>
     
 
@@ -1798,8 +1798,8 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
     <owl:Class rdf:about="&dol;Equivalence">
         <rdfs:label xml:lang="en">equivalence</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;OMSMapping"/>
-        <skos:note xml:lang="en"> Two OMS are equivalent if they have a common definitional extension. The OMS may be written in different OMS languages. </skos:note>
         <skos:definition xml:lang="en">OMS mapping ensuring that two OMS share the same definable concepts</skos:definition>
+        <skos:note xml:lang="en">Two OMS are equivalent if they have a common definitional extension. The OMS may be written in different OMS languages.</skos:note>
     </owl:Class>
     
 
@@ -2073,9 +2073,24 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
 
 
 
+    <owl:Class rdf:about="&dol;InfrastructureAxiom">
+        <rdfs:subClassOf rdf:resource="&dol;AxiomSentence"/>
+        <skos:example xml:lang="en">The translation from OWL to multi-sorted first-order logic translates each OWL built-in type to its first-order axiomatization as a datatype.  These first order axioms are infrastructure axioms.</skos:example>
+        <skos:definition xml:lang="en">axiom that is used in the target of a logic translation in order to encode a signature of the source logic</skos:definition>
+    </owl:Class>
+    
+
+
+
     <owl:Class rdf:about="&dol;Institution">
         <rdfs:label xml:lang="en">institution</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;SignatureMorphism"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;formalizes"/>
@@ -2091,19 +2106,13 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;SatisfactionRelation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
                 <owl:someValuesFrom rdf:resource="&dol;Model"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Sentence"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SignatureMorphism"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2115,7 +2124,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;SatisfactionRelation"/>
+                <owl:someValuesFrom rdf:resource="&dol;Sentence"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">metaframework mathematically formalising the notion of a logic</skos:definition>
@@ -2135,7 +2144,8 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
 
     <owl:Class rdf:about="&dol;Interpretation">
         <rdfs:label xml:lang="en">interpretation</rdfs:label>
-        <owl:equivalentClass rdf:resource="&dol;View"/>
+        <rdfs:subClassOf rdf:resource="&dol;OMSMapping"/>
+        <skos:note xml:lang="en">An interpretation typically leads to proof obligations, i.e. one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS.</skos:note>
         <skos:definition xml:lang="en">OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures</skos:definition>
         <skos:altLabel xml:lang="en">refinement</skos:altLabel>
         <skos:altLabel xml:lang="en">view</skos:altLabel>
@@ -2214,9 +2224,9 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
     <owl:Class rdf:about="&dol;LinkedData">
         <rdfs:label xml:lang="en">linked data</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;WebEntity"/>
-        <skos:note xml:lang="en"> RDF, serialized as RDF/XML \cite{W3C:REC-rdf-syntax-grammar-20040210}, is the most common format for publishing linked data. However, its usage is not mandatory. </skos:note>
-        <skos:note xml:lang="en"> The linked data principles (adapted from \cite{BernersLee:LinkedData2006} and its paraphrase at \cite{Wikipedia:LinkedData2011}) are the following: \begin{enumerate} \item Use IRIs as names for things. \item Use HTTP IRIs so that these things can be referred to and looked up (``dereferenced&apos;&apos;) by people and user agents.\footnote{I.e., the IRI is treated as a URL (uniform resource locator).} \item Provide useful machine-processable (plus optionally human-readable) information about the thing when its IRI is dereferenced, using standard formats. \item Include links to other, related IRIs in the exposed data to improve discovery of other related information on the Web. \end{enumerate} </skos:note>
-        <skos:note xml:lang="en"> Using HTTP content negotiation \cite{rfc2616} it is possible to serve representations in different formats from the same URL. </skos:note>
+        <skos:note xml:lang="en">RDF, serialized as RDF/XML \cite{W3C:REC-rdf-syntax-grammar-20040210}, is the most common format for publishing linked data. However, its usage is not mandatory.</skos:note>
+        <skos:note xml:lang="en">The linked data principles (adapted from \cite{BernersLee:LinkedData2006} and its paraphrase at \cite{Wikipedia:LinkedData2011}) are the following: \begin{enumerate} \item Use IRIs as names for things. \item Use HTTP IRIs so that these things can be referred to and looked up (``dereferenced&apos;&apos;) by people and user agents.\footnote{I.e., the IRI is treated as a URL (uniform resource locator).} \item Provide useful machine-processable (plus optionally human-readable) information about the thing when its IRI is dereferenced, using standard formats. \item Include links to other, related IRIs in the exposed data to improve discovery of other related information on the Web. \end{enumerate}</skos:note>
+        <skos:note xml:lang="en">Using HTTP content negotiation \cite{rfc2616} it is possible to serve representations in different formats from the same URL.</skos:note>
         <skos:definition xml:lang="en">structured data that is published on the Web in a machine-processable way, according to principles explained in http://linkeddata.org/</skos:definition>
     </owl:Class>
     
@@ -2241,9 +2251,9 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
                 <owl:someValuesFrom rdf:resource="&dol;Institution"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:example xml:lang="en"> $\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL. </skos:example>
-        <skos:note xml:lang="en"> Most OMS languages have an underlying logic. </skos:note>
-        <skos:note xml:lang="en"> See annex~\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations. </skos:note>
+        <skos:example xml:lang="en">$\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL.</skos:example>
+        <skos:note xml:lang="en">Most OMS languages have an underlying logic.</skos:note>
+        <skos:note xml:lang="en">See annex~\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations.</skos:note>
         <rdfs:comment xml:lang="en">a logic that defines the semantics of an language</rdfs:comment>
         <skos:definition xml:lang="en">specification of valid reasoning that comprises signatures, sentences, models, and a satisfaction relation between models and sentences</skos:definition>
     </owl:Class>
@@ -2307,7 +2317,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
     <owl:Class rdf:about="&dol;LogicReduction">
         <rdfs:label xml:lang="en">logic reduction</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
-        <skos:note xml:lang="en">mapping between logics forgetting parts of the structure, projection to a smaller logic, in contrast to reduction</skos:note>
+        <rdfs:subClassOf rdf:resource="&dol;Reduction"/>
         <skos:definition xml:lang="en">reduction of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic</skos:definition>
     </owl:Class>
     
@@ -2317,6 +2327,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
     <owl:Class rdf:about="&dol;LogicTranslation">
         <rdfs:label xml:lang="en">logic translation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
+        <rdfs:subClassOf rdf:resource="&dol;Translation"/>
         <skos:note xml:lang="en">mapping between logics representing all structure, in contrast to reduction</skos:note>
         <skos:definition xml:lang="en">translation of a source logic into a target logic (mapping signatures, sentences and models) that keeps or encodes the logical content of OMS</skos:definition>
     </owl:Class>
@@ -2465,9 +2476,9 @@ of logic (model theory).</skos:note>
                 <owl:someValuesFrom rdf:resource="&dol;Signature"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en"> semantic interpretation of all non-logical symbols of a signature</skos:definition>
         <skos:note xml:lang="en">A model of an OMS is a model of the signature of the OMS that also satisfies all the additional constraints expressed by the OMS. In case of flattenable OMS, these constraints are expressed by the axioms of the OMS.</skos:note>
         <skos:scopeNote xml:lang="en">This term is not to be confused with model (here called MDEModel) in the sense of modeling (i.e., the ``M&apos;&apos; in OMS).</skos:scopeNote>
+        <skos:definition xml:lang="en">semantic interpretation of all non-logical symbols of a signature</skos:definition>
     </owl:Class>
     
 
@@ -2548,13 +2559,13 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;InterfaceSignature"/>
+                <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
+                <owl:someValuesFrom rdf:resource="&dol;InterfaceSignature"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">structured OMS expressing a subOMS that conservatively extends to conservative extension the whole OMS.</skos:definition>
@@ -2632,10 +2643,10 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;NonLogicalSymbol">
         <rdfs:label xml:lang="en">non-logical symbol</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Term"/>
-        <skos:example xml:lang="en"> Non-logical symbols in Common Logic \nisref{ISO/IEC 24707:2007} comprise \begin{itemize} \item names (denoting objects from the domain of discourse), \item sequence markers (denoting sequences of objects). \end{itemize} This is opposed to logical symbols in Common Logic, e.g.\ logical connectives and quantifiers.</skos:example>
-        <skos:example xml:lang="en">Non-logical symbols in OWL \nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities&apos;&apos;) comprise \begin{itemize} \item individuals (denoting objects from the domain of discourse), \item classes (denoting sets of objects; also called concepts), and \item properties (denoting binary relations over objects; also called roles). \end{itemize} This is opposed to logical symbols in OWL, e.g.\ those for intersection and union of classes. </skos:example>
+        <skos:example xml:lang="en">Non-logical symbols in Common Logic \nisref{ISO/IEC 24707:2007} comprise \begin{itemize} \item names (denoting objects from the domain of discourse), \item sequence markers (denoting sequences of objects). \end{itemize} This is opposed to logical symbols in Common Logic, e.g.\ logical connectives and quantifiers.</skos:example>
+        <skos:example xml:lang="en">Non-logical symbols in OWL \nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities&apos;&apos;) comprise \begin{itemize} \item individuals (denoting objects from the domain of discourse), \item classes (denoting sets of objects; also called concepts), and \item properties (denoting binary relations over objects; also called roles). \end{itemize} This is opposed to logical symbols in OWL, e.g.\ those for intersection and union of classes.</skos:example>
         <skos:altLabel xml:lang="en">OMS symbol</skos:altLabel>
-        <skos:note xml:lang="en">The notion of ``atomic sentence&apos;&apos; used in logic is different, it usually may involve several non-logical symbols. </skos:note>
+        <skos:note xml:lang="en">The notion of ``atomic sentence&apos;&apos; used in logic is different, it usually may involve several non-logical symbols.</skos:note>
         <rdfs:comment xml:lang="en">a non-logical symbol in an OMS</rdfs:comment>
         <skos:definition xml:lang="en">atomic expression or syntactic constituent of an OMS that requires an interpretation through a model</skos:definition>
     </owl:Class>
@@ -2664,12 +2675,6 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;usesLanguage"/>
-                <owl:someValuesFrom rdf:resource="&dol;OMSLanguage"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasSignature"/>
                 <owl:someValuesFrom rdf:resource="&dol;Signature"/>
             </owl:Restriction>
@@ -2688,14 +2693,20 @@ of logic (model theory).</skos:note>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;semanticallyDenotes"/>
-                <owl:someValuesFrom rdf:resource="&dol;OMSSemanticObject"/>
+                <owl:onProperty rdf:resource="&dol;usesLanguage"/>
+                <owl:someValuesFrom rdf:resource="&dol;OMSLanguage"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasLogic"/>
                 <owl:someValuesFrom rdf:resource="&dol;Logic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;semanticallyDenotes"/>
+                <owl:someValuesFrom rdf:resource="&dol;OMSSemanticObject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">An OMS can be written in different OMS language serializations.</skos:note>
@@ -2749,8 +2760,8 @@ of logic (model theory).</skos:note>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <skos:note xml:lang="en"> An OMS language is used for the formal specification of OMS.</skos:note>
-        <skos:example xml:lang="en"> OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO. </skos:example>
+        <skos:note xml:lang="en">An OMS language is used for the formal specification of OMS.</skos:note>
+        <skos:example xml:lang="en">OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO.</skos:example>
         <skos:definition xml:lang="en">a language for OMS (ontologies, models or specifications)</skos:definition>
         <skos:definition xml:lang="en">language equipped with a formal, declarative, logic-based semantics, plus non-logical annotations</skos:definition>
     </owl:Class>
@@ -2761,23 +2772,6 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;OMSLanguageTranslation">
         <rdfs:label xml:lang="en">OMS language translation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;LanguageMapping"/>
-        <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dol;mapsFrom"/>
-                        <owl:onClass rdf:resource="&dol;OMSLanguage"/>
-                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dol;mapsTo"/>
-                        <owl:onClass rdf:resource="&dol;OMSLanguage"/>
-                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;mapsFrom"/>
@@ -2793,7 +2787,7 @@ of logic (model theory).</skos:note>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
-        <skos:note xml:lang="en"> An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language. </skos:note>
+        <skos:note xml:lang="en">An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language.</skos:note>
         <skos:definition xml:lang="en">a mapping (translation or reduction) between two OMS languages</skos:definition>
         <skos:definition xml:lang="en">mapping from constructs in the source OMS language to their equivalents in the target OMS language</skos:definition>
     </owl:Class>
@@ -2862,20 +2856,14 @@ of logic (model theory).</skos:note>
         <rdfs:subClassOf rdf:resource="&dol;SemanticEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasLogic"/>
-                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasSentences"/>
                 <owl:someValuesFrom rdf:resource="&dol;SetOfSentences"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dol;hasModels"/>
-                <owl:someValuesFrom rdf:resource="&dol;ClassOfModels"/>
+                <owl:onProperty rdf:resource="&dol;hasLogic"/>
+                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2888,6 +2876,12 @@ of logic (model theory).</skos:note>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;isMemberOf"/>
                 <owl:someValuesFrom rdf:resource="&dol;SemanticDomain"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasModels"/>
+                <owl:someValuesFrom rdf:resource="&dol;ClassOfModels"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">object giving the semantics of an OMS</skos:definition>
@@ -2905,8 +2899,9 @@ of logic (model theory).</skos:note>
                 <owl:someValuesFrom rdf:resource="&dol;DOLStructuredOMS"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:note xml:lang="en"> An OMS translation results in an OMS mapping between the original and the translation OMS. </skos:note>
+        <skos:note xml:lang="en">An OMS translation results in an OMS mapping between the original and the translation OMS.</skos:note>
         <skos:definition xml:lang="en">DOL structured OMS expressing the assignment of new names to some non-logical symbols of an OMS, or translation of an OMS along a language translation</skos:definition>
+        <skos:note xml:lang="en">Typically, the resulting OMS mapping of a translation is surjective: the symbols of the original OMS can be identified by the renaming, but no new symbols are added.</skos:note>
     </owl:Class>
     
 
@@ -2957,11 +2952,11 @@ of logic (model theory).</skos:note>
                 <owl:someValuesFrom rdf:resource="&dol;Logic"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:note xml:lang="en"> Profiles can have different logics, even with completely different semantics, e.g.\ OWL 2 DL versus OWL 2 Full.</skos:note>
-        <skos:note xml:lang="en"> The logic needs to support the language. </skos:note>
         <skos:definition xml:lang="en">(syntactic) sublanguage of an OMS language interpreting according to a particular logic that targets specific applications or reasoning methods} </skos:definition>
+        <skos:note xml:lang="en">Profiles can have different logics, even with completely different semantics, e.g.\ OWL 2 DL versus OWL 2 Full.</skos:note>
         <skos:example xml:lang="en">Profiles of OWL 2 include OWL 2 EL, OWL 2 QL, OWL 2 RL, OWL 2 DL, and OWL 2 Full.</skos:example>
-        <skos:note xml:lang="en">Profiles typically correspond to sublogics. </skos:note>
+        <skos:note xml:lang="en">Profiles typically correspond to sublogics.</skos:note>
+        <skos:note xml:lang="en">The logic needs to support the language.</skos:note>
     </owl:Class>
     
 
@@ -2979,9 +2974,9 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;QueryLanguage">
         <rdfs:label xml:lang="en">query language</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;OMSLanguage"/>
-        <skos:example xml:lang="en"> SPARQL, Prolog </skos:example>
-        <skos:scopeNote xml:lang="en"> There are also general purpose OMS languages, which can express both OMS and quries.</skos:scopeNote>
         <skos:definition xml:lang="en">OMS language specifically dedicated to queries</skos:definition>
+        <skos:example xml:lang="en">SPARQL, Prolog</skos:example>
+        <skos:scopeNote xml:lang="en">There are also general purpose OMS languages, which can express both OMS and quries.</skos:scopeNote>
     </owl:Class>
     
 
@@ -2994,6 +2989,16 @@ of logic (model theory).</skos:note>
         <skos:note xml:lang="en">If there are no variables in an OMS language, constants can be used as query variables.</skos:note>
         <skos:note xml:lang="en">Usually, query variables are the free variables of a sentence, whereas there can be other (bound) variables.</skos:note>
         <skos:definition xml:lang="en">symbol that will be used in a query and a substitution</skos:definition>
+    </owl:Class>
+    
+
+
+
+    <owl:Class rdf:about="&dol;Reduction">
+        <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
+        <owl:disjointWith rdf:resource="&dol;Translation"/>
+        <skos:definition xml:lang="en">mapping between languages or logics forgetting parts of the structure, projection to a smaller language or logic</skos:definition>
+        <dol:reifies rdf:resource="&dol;isReducibleTo"/>
     </owl:Class>
     
 
@@ -3118,8 +3123,8 @@ of logic (model theory).</skos:note>
                 <owl:someValuesFrom rdf:resource="&dol;OMSLanguage"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:example xml:lang="en"> Common Logic uses the term ``dialect&apos;&apos;; the following are standard Common Logic dialects: Common Logic Interchange Format (CLIF), Conceptual Graph Interchange Format (GCIF), eXtended Common Logic Markup Language (XCL).</skos:example>
-        <skos:example xml:lang="en">OWL uses the term ``serialization&apos;&apos;; the following are standard OWL serializations: OWL functional-style syntax, OWL/XML, OWL Manchester syntax, plus any standard serialization of RDF (e.g.  RDF/XML, Turtle, \dots). However, RDF/XML is the only one tools are required to implement. </skos:example>
+        <skos:example xml:lang="en">Common Logic uses the term ``dialect&apos;&apos;; the following are standard Common Logic dialects: Common Logic Interchange Format (CLIF), Conceptual Graph Interchange Format (GCIF), eXtended Common Logic Markup Language (XCL).</skos:example>
+        <skos:example xml:lang="en">OWL uses the term ``serialization&apos;&apos;; the following are standard OWL serializations: OWL functional-style syntax, OWL/XML, OWL Manchester syntax, plus any standard serialization of RDF (e.g.  RDF/XML, Turtle, \dots). However, RDF/XML is the only one tools are required to implement.</skos:example>
         <skos:note xml:lang="en">Serializations serve as standard formats for exchanging OMS between tools.</skos:note>
         <rdfs:comment xml:lang="en">a serialization of an language</rdfs:comment>
         <skos:definition xml:lang="en">specific syntactic encoding of a given OMS language</skos:definition>
@@ -3206,6 +3211,17 @@ of logic (model theory).</skos:note>
 
 
 
+    <owl:Class rdf:about="&dol;SimpleTheoroidalLogicTranslation">
+        <rdfs:label xml:lang="en">simple theoroidal logic translation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;LogicTranslation"/>
+        <rdfs:subClassOf rdf:resource="&dol;SimpleTheoroidalMapping"/>
+        <skos:example xml:lang="en">The translation from OWL to multi-sorted first-order logic translates each OWL built-in type to its first-order axiomatization as a datatype.</skos:example>
+        <skos:definition xml:lang="en">translation that maps signatures of the source logic to theories (i.e. signatures and sets of sentences, playing the role of infrastructure axioms) of the target logic</skos:definition>
+    </owl:Class>
+    
+
+
+
     <owl:Class rdf:about="&dol;SimpleTheoroidalMapping">
         <rdfs:label xml:lang="en">simple theoroidal mapping</rdfs:label>
         <owl:equivalentClass>
@@ -3246,7 +3262,7 @@ of logic (model theory).</skos:note>
 
     <owl:Class rdf:about="&dol;StandoffMarkup">
         <rdfs:label xml:lang="en">standoff markup</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;Language"/>
+        <rdfs:subClassOf rdf:resource="&dol;Expression"/>
         <skos:definition xml:lang="en">way of providing annotations to subjects in external resources, without embedding them into the original resource (here: OMS)</skos:definition>
     </owl:Class>
     
@@ -3369,6 +3385,15 @@ of logic (model theory).</skos:note>
 
 
 
+    <owl:Class rdf:about="&dol;Translation">
+        <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
+        <skos:definition xml:lang="en">mapping between languages or logics representing all structure, in contrast to reduction</skos:definition>
+        <dol:reifies rdf:resource="&dol;isTranslatableTo"/>
+    </owl:Class>
+    
+
+
+
     <owl:Class rdf:about="&dol;TranslationProcess">
         <rdfs:label xml:lang="en">translation (process)</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Process"/>
@@ -3407,19 +3432,6 @@ of logic (model theory).</skos:note>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&dol;OMS"/>
         <skos:definition xml:lang="en">OMS that is not satisfied by any model.</skos:definition>
-    </owl:Class>
-    
-
-
-
-    <owl:Class rdf:about="&dol;View">
-        <rdfs:label xml:lang="en">view</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;OMSMapping"/>
-        <skos:note xml:lang="en"> When an interpretation is given as a set of correspondences, these are given as tuples, where the type of relationship is given by the specific kind of interpretation. </skos:note>
-        <skos:note xml:lang="en">An interpretation typically leads to proof obligations, \ie one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS.</skos:note>
-        <skos:definition xml:lang="en">OMS mapping that postulates a relation between two OMS</skos:definition>
-        <skos:definition xml:lang="en">a view (also called interpretation) between two heterogeneous OMS in a DOL library</skos:definition>
-        <skos:altLabel xml:lang="en">interpretation</skos:altLabel>
     </owl:Class>
     
 
