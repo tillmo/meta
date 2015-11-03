@@ -1111,7 +1111,7 @@ Class: Interpretation
 	skos:altLabel "view"@en,
 	skos:altLabel "refinement"@en,
         skos:definition "OMS mapping that postulates a specialization relation between two OMS along a morphism between their signatures"@en,
-        skos:note "An interpretation typically leads to proof obligations, i.e. one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS."@en,
+        skos:note "An interpretation typically leads to proof obligations, i.e. one has to prove that axioms of the source OMS of the mapping are theorems in the target OMS."@en
     
     SubClassOf: 
         OMSMapping
@@ -2212,7 +2212,7 @@ Class: Translation
 
 Class: Reduction
     Annotations:
-        reifies isReducibleTo
+        reifies isReducibleTo,
         skos:definition "mapping between languages or logics forgetting parts of the structure, projection to a smaller language or logic"@en
 
     SubClassOf:
