@@ -195,12 +195,11 @@ ObjectProperty: isFaithfullyMappableTo
         skos:definition "There is a faithful mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        isMappableToLogic
+        isMappableToLogic,
+        isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
-    SubPropertyOf: isMathematicallyRelatedTo
-    
     
 ObjectProperty: isMappableToLogic
 
@@ -209,14 +208,14 @@ ObjectProperty: isMappableToLogic
         skos:definition "There is a mapping from the subject logic to the object logic."@en
     
     SubPropertyOf: 
-        isMappableTo
+        isMappableTo,
+        isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
         isMappableFromLogic
-    SubPropertyOf: isMathematicallyRelatedTo
         
 ObjectProperty: isExtensionOf
 	
@@ -240,12 +239,6 @@ ObjectProperty: isExtensionOf
     
     Characteristics: 
         Transitive
-    
-    Domain: 
-        OMS
-    
-    Range: 
-        OMS
     
     InverseOf: 
         isSubOMSOf
@@ -274,7 +267,8 @@ ObjectProperty: isSubLanguageOf
         
     SubPropertyOf: 
         isTranslatableTo,
-        isMappableToLanguage, isLinguisticallyRelatedTo
+        isMappableToLanguage,
+        isLinguisticallyRelatedTo
 
     Characteristics: 
         Transitive
@@ -315,20 +309,8 @@ ObjectProperty: isTranslatableTo
 ObjectProperty: mapsFrom
 
     Annotations: 
-        skos:definition "The subject mapping maps from the object into something of the same type as the object."@en,
-        rdfs:comment "Developers' note: enforcing the constraint that a mapping must map into something of the same type goes beyond OWL."@en
-    
-    Characteristics: 
-        Functional
-    
-    Domain: 
-        Mapping
-    
-    InverseOf: 
-        isSourceOfMapping
-    
-    Annotations: 
-        skos:definition "relationship between a mapping and its domain"@en,
+        skos:definition "relationship between a mapping and its domain; the mapping must map into something of the same type as its domain"@en,
+        rdfs:comment "Developers' note: enforcing the constraint that a mapping must map into something of the same type goes beyond OWL."@en,
         rdfs:label "maps from"@en
     
     Characteristics: 
@@ -349,11 +331,11 @@ ObjectProperty: isExactlyMappableTo
         skos:definition "There is an exact mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        isWeaklyExactlyMappableTo
+        isWeaklyExactlyMappableTo,
+        isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
-    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: isLanguageOf
@@ -406,6 +388,7 @@ ObjectProperty: hasOMS
         skos:definition "The subject is a DOL library, in which the object is a participating heterogeneous OMS."@en
     
     SubPropertyOf: 
+        isLinguisticallyRelatedTo,
         hasMember
     
     Range: 
@@ -413,7 +396,6 @@ ObjectProperty: hasOMS
     
     InverseOf: 
         isOmsIn
-    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isReducibleTo
@@ -423,14 +405,14 @@ ObjectProperty: isReducibleTo
         skos:definition "There is a reduction from the subject to the object."@en
     
     SubPropertyOf: 
-        isMappableTo
+        isMappableTo,
+        isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
         isReducibleFrom
-    SubPropertyOf: isMathematicallyRelatedTo
     
     
 ObjectProperty: hasTarget
@@ -474,20 +456,18 @@ ObjectProperty: hasExactLogicalExpressivity
         skos:definition "The subject language has exactly the expressivity of the object logic."@en
     
     SubPropertyOf: 
-        supportsLogic
-    SubPropertyOf: isSemanticallyRelatedTo
+        supportsLogic,
+        isSemanticallyRelatedTo
     
     
 ObjectProperty: serializes
     Annotations: 
-        skos:definition "The subject is a serialization for the object language. For example, Manchester syntax serializes OWL"@en
+        skos:definition "The subject is a serialization for the object language. For example, OWL Manchester syntax serializes OWL"@en,
+        rdfs:label "serializes"@en
 
     InverseOf: 
         supportsSerialization
 
-    Annotations: 
-        rdfs:label "serializes"@en
-    
     Domain: 
         Serialization
     
@@ -515,14 +495,14 @@ ObjectProperty: hasInterpretation
         skos:definition "The subject is a DOL library, in which the object is an interpretation between two participating OMS."@en
     
     SubPropertyOf: 
-        hasMapping
+        hasMapping,
+        isLinguisticallyRelatedTo
     
     Range: 
         Interpretation
     
     InverseOf: 
         isInterpretationIn
-    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: hasAlignment
@@ -532,14 +512,14 @@ ObjectProperty: hasAlignment
         skos:definition "The subject is a DOL library, in which the object is an alignment between two participating OMS."@en
     
     SubPropertyOf: 
-        hasMapping
+        hasMapping,
+        isLinguisticallyRelatedTo
     
     Range: 
         Alignment
     
     InverseOf: 
         isAlignmentIn
-    SubPropertyOf: isLinguisticallyRelatedTo
     
     
 ObjectProperty: isSequenceMemberOf
@@ -576,8 +556,8 @@ ObjectProperty: isModelTheoreticallyConservativeExtensionOf
 ObjectProperty: supportsLogic
 
     Annotations: 
-	rdfs:label "supportsL lgic"@en,
-        skos:definition "The semantics of [a subset of] the subject language can be specified in terms of the object logic."@en
+        rdfs:label "supports logic"@en,
+        skos:definition "logic represented by a satisfaction relation of the language"@en
 	
     SubPropertyOf: isSemanticallyRelatedTo
     
@@ -594,16 +574,6 @@ ObjectProperty: supportsLogic
     InverseOf: 
         specifiesSemanticsOf
 
-    Annotations: 
-        rdfs:label "supports logic"@en,
-        skos:definition "logic represented by a satisfaction relation of the language."@en
-    
-    Domain: 
-        OMSLanguage
-    
-    Range: 
-        Logic
-    
 ObjectProperty: isMappableToLanguage
 
     Annotations: 
@@ -611,14 +581,15 @@ ObjectProperty: isMappableToLanguage
         skos:definition "There is a mapping from the subject language to the object language."@en
     
     SubPropertyOf: 
-        isMappableTo, isLinguisticallyRelatedTo
+        isRelatedAsPartOfMapsTo,
+        isMappableTo,
+        isLinguisticallyRelatedTo
     
     Characteristics: 
         Transitive
     
     InverseOf: 
         isMappableFromLanguage
-    SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: isAlignmentIn
@@ -631,28 +602,11 @@ ObjectProperty: isAlignmentIn
     SubPropertyOf: isLinguisticallyRelatedTo
     
     
-ObjectProperty: isSourceOfMapping
-   Annotations: 
-	rdfs:label "is source of mapping"@en,
-        skos:definition "The object mapping maps from the subject into something of the same type as the subject."@en
-    InverseOf: 
-        mapsFrom
-    
-    SubPropertyOf: isRelatedAsPartOfMapsTo	
-    
 ObjectProperty: mapsTo
 
     Annotations: 
-        skos:definition "The subject mapping maps from something into the object (which is of the same type).  Enforcing the latter constraint goes beyond OWL."@en
-    
-    Characteristics: 
-        Functional
-    
-    Domain: 
-        Mapping
-
-    Annotations: 
-        skos:definition "relationship between a mapping and its codomain"@en,
+        skos:definition "relationship between a mapping and its codomain; the mapping must map from something of the same type as its codomain"@en,
+        rdfs:comment "Developers' note: enforcing the constraint that a mapping must map into something of the same type goes beyond OWL."@en,
         rdfs:label "maps to"@en
     
     Characteristics: 
@@ -660,25 +614,22 @@ ObjectProperty: mapsTo
     
     Domain: 
         Mapping
-    
+
     SubPropertyOf: isRelatedAsPartOfMapsTo	
     
     
 ObjectProperty: isSubLogicOf
 
     Annotations: 
-        skos:definition "The subject is a sublogic of the object."@en
-    
-    SubPropertyOf: 
-        isEmbeddableInto
-    
-    SubPropertyOf: isMathematicallyRelatedTo
-    SubPropertyChain: 
-         inverse (hasExactLogicalExpressivity) o isSubLanguageOf o hasExactLogicalExpressivity
-    
-    Annotations: 
         skos:definition "a logic that is a syntactic restriction of another logic, inheriting its semantics"@en,
         rdfs:label "is sublogic of"@en
+    
+    SubPropertyOf: 
+        isEmbeddableInto,
+        isMathematicallyRelatedTo
+
+    SubPropertyChain: 
+         inverse (hasExactLogicalExpressivity) o isSubLanguageOf o hasExactLogicalExpressivity
     
     Characteristics: 
         Transitive
@@ -730,8 +681,8 @@ ObjectProperty: isSimplyTheoroidallyMappableTo
         skos:definition "There is a simple theoroidal mapping from the subject to the object logic."@en
     
     SubPropertyOf: 
-        isMappableToLogic
-    SubPropertyOf: isMathematicallyRelatedTo
+        isMappableToLogic,
+        isMathematicallyRelatedTo
     
     Characteristics: 
         Transitive
@@ -794,7 +745,8 @@ ObjectProperty: isProfileOf
         skos:definition "see Class 'profile'"@en
     
     SubPropertyOf: 
-        isSubLanguageOf, isLinguisticallyRelatedTo
+        isSubLanguageOf,
+        isLinguisticallyRelatedTo
     
     Domain: 
         Profile
@@ -838,7 +790,7 @@ ObjectProperty: isMappableTo
         skos:definition "There is a mapping from the subject to the object."@en
     
     SubPropertyChain: 
-        isSourceOfMapping o mapsTo
+        isMappedBy o mapsTo
     
     Characteristics: 
         Transitive
@@ -855,7 +807,8 @@ ObjectProperty: hasMapping
         skos:definition "The subject is a DOL library, in which the object is a mapping between two participating OMS."@en
     
     SubPropertyOf: 
-        hasMember, isLinguisticallyRelatedTo
+        hasMember,
+        isLinguisticallyRelatedTo
     
     Range: 
         OMSMapping
@@ -995,7 +948,8 @@ Class: DOLLibrary
 	rdfs:label "DOL library"@en,
         skos:definition "collection of named OMS and OMS networks, possibly written in different OMS languages, linked by named OMS mappings."@en,    
         skos:note "collection is used here in the sense of syntactic collection"@en
-    SubClassOf: DOLEntity, semanticallyDenotes some GlobalEnvironment
+    SubClassOf: DOLEntity,
+        semanticallyDenotes some GlobalEnvironment
 
 
     
@@ -1062,18 +1016,17 @@ Class: OMS
 
     
     EquivalentTo: 
-        HeterogeneousOMS
-         or HomogeneousOMS,
-        ElusiveOMS
-         or FlattenableOMS
+        HeterogeneousOMS or HomogeneousOMS,
+        ElusiveOMS or FlattenableOMS
     
     SubClassOf: 
         usesLanguage some OMSLanguage, 
  	semanticallyDenotes some OMSSemanticObject,
 	hasLogic some Logic,
         hasSignature some Signature, 
-	hasSentences some SetOfSentences, hasModels some ClassOfModels
-    SubClassOf: DOLEntity
+	hasSentences some SetOfSentences,
+        hasModels some ClassOfModels,
+        DOLEntity
     
     
 Class: Ontology
@@ -1119,13 +1072,10 @@ Class: Interpretation
 Class: OMSLanguageTranslation
 
     Annotations: 
-        skos:definition "a mapping (translation or reduction) between two OMS languages"@en,
-        propagatesToAdjoint "true"^^xsd:boolean
-
-    Annotations: 
+        propagatesToAdjoint "true"^^xsd:boolean,
         rdfs:label "OMS language translation"@en,
         skos:note "An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language."@en,
-        skos:definition "mapping from constructs in the source OMS language to their equivalents in the target OMS language"@en
+        skos:definition "mapping (translation or reduction) from constructs in the source OMS language to their equivalents in the target OMS language"@en
     
     SubClassOf: 
         LanguageMapping,
@@ -1143,8 +1093,8 @@ Class: Logic
         skos:note "See annex~\\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations."@en
     
     SubClassOf: 
-        isFormalizedBy some Institution
-    SubClassOf: MathematicalEntity
+        isFormalizedBy some Institution,
+        MathematicalEntity
 
 Class: SimpleTheoroidalLogicTranslation
     Annotations:
@@ -1186,23 +1136,15 @@ Class: LogicMapping
 
     Annotations: 
         skos:definition "a mapping (translation or reduction) between two logics"@en,
-        propagatesToAdjoint "true"^^xsd:boolean
-    
-    SubClassOf: 
-        Mapping,
-        (mapsFrom exactly 1 Logic)
-         and (mapsTo exactly 1 Logic)
-
-    Annotations: 
-        rdfs:label "logic mapping"@en,
-        skos:definition "mapping between logics"@en
-    
-    EquivalentTo: 
-        (mapsFrom exactly 1 Logic)
-         and (mapsTo exactly 1 Logic)
+        propagatesToAdjoint "true"^^xsd:boolean,
+        rdfs:label "logic mapping"@en
     
     SubClassOf: 
         Mapping
+
+    EquivalentTo: 
+        (mapsFrom exactly 1 Logic)
+         and (mapsTo exactly 1 Logic)
     
     
 Class: Refinement
@@ -1224,15 +1166,12 @@ Class: OMSReduction
         skos:definition "DOL structured OMS expressing the restriction of an OMS to a smaller signature."@en
     
     SubClassOf: 
-        DOLStructuredOMS
+        DOLStructuredOMS,
+        hasPart some DOLStructuredOMS
     
     DisjointWith: 
         OMSTranslation
 	    
-    SubClassOf: 
-        hasPart some DOLStructuredOMS
-    
-
 Class: BasicOMS
     Annotations: 
         rdfs:comment "a basic OMS (in a single language, logic, and serialization)"@en,
@@ -1240,9 +1179,7 @@ Class: BasicOMS
         skos:definition "unstructured native OMS that may be used as a building block for a larger OMS, denoting a logical theory"@en
     
     SubClassOf: 
-        NativeOMS
-    
-    SubClassOf: 
+        NativeOMS,
         hasPart exactly 1 OMSDocumentation,
         FlattenableOMS,
         semanticallyDenotes some LogicalTheory
@@ -1297,9 +1234,8 @@ Class: PlainMapping
         LogicMapping
     
     DisjointWith: 
+            Annotations: rdfs:comment "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"@en
         SimpleTheoroidalMapping
-        
-            Annotations: skos:definition "Developers' note: Protégé 4.2 doesn't like 'Class: OMSMapping DisjointUnionOf: PlainMapping, SimpleTheoroidalMapping', so we do it this way:"@en
     
 Class: Serialization
     Annotations: 
@@ -1316,10 +1252,8 @@ Class: Serialization
     
 
 Class: OMSLanguage
-    Annotations: 
-        skos:definition "a language for OMS (ontologies, models or specifications)"@en
-    
     SubClassOf: 
+        Language,
         (supportsLogic some Logic)
          and (supportsSerialization some Serialization)
          and (supportsLogic only Logic)
@@ -1331,11 +1265,6 @@ Class: OMSLanguage
         skos:note "An OMS language is used for the formal specification of OMS."@en,
         skos:example "OMS languages include OWL, Common Logic, F-logic, UML class diagrams, RDFS, and OBO."@en
     
-    SubClassOf: 
-        supportsLogic some Logic,
-        Language
-
-	
 Class: Language
     Annotations: 
         skos:definition "collection of expressions"@en,
@@ -1343,8 +1272,8 @@ Class: Language
         rdfs:label "language"@en
     
     SubClassOf: 
-        hasPart some CollectionOfExpressions
-    SubClassOf: LinguisticEntity
+        hasPart some CollectionOfExpressions,
+        LinguisticEntity
     
 
     
@@ -1369,7 +1298,8 @@ Class: Alignment
         rdfs:comment "an alignment between two heterogeneous OMS in a DOL library"@en
     
     SubClassOf: 
-        OMSMapping, hasPart some Correspondence
+        OMSMapping,
+        hasPart some Correspondence
     
 DisjointClasses: 
         Alignment,Interpretation
@@ -1597,8 +1527,8 @@ ObjectProperty: isConservativeExtensionOf
         rdfs:label "is conservative extension of"@en
     
     SubPropertyOf: 
-        isExtensionOf
-    SubPropertyOf: isLogicallyRelatedTo
+        isExtensionOf,
+        isLogicallyRelatedTo
     
     SubPropertyChain: 
         isMappedBy o conservativelyExtendsTo
@@ -1669,6 +1599,7 @@ ObjectProperty: extendsTo
         rdfs:label "extends to"@en
     
     SubPropertyOf: 
+        isLinguisticallyRelatedTo,
         mapsTo
     
     Domain: 
@@ -1676,7 +1607,6 @@ ObjectProperty: extendsTo
     
     Range: 
         OMS
-    SubPropertyOf: isLinguisticallyRelatedTo
     
     
     
@@ -1714,11 +1644,11 @@ ObjectProperty: isModuleOf
         rdfs:label "is module of"@en
     
     SubPropertyOf: 
-        isSubOMSOf
+        isSubOMSOf,
+        isLogicallyRelatedTo
     
     InverseOf: 
         isConservativeExtensionOf
-    SubPropertyOf: isLogicallyRelatedTo
     
     
 ObjectProperty: hasPart
@@ -1906,8 +1836,8 @@ Class: Institution
         rdfs:label "institution"@en
     
     SubClassOf: 
-        formalizes some Logic, hasPart some Signature, hasPart some SignatureMorphism, hasPart some Model, hasPart some Sentence, hasPart some SatisfactionRelation, hasPart some Category
-        SubClassOf: MathematicalEntity
+        formalizes some Logic, hasPart some Signature, hasPart some SignatureMorphism, hasPart some Model, hasPart some Sentence, hasPart some SatisfactionRelation, hasPart some Category,
+        MathematicalEntity
 
     
     
@@ -1938,8 +1868,8 @@ Class: LogicalTheory
     
     SubClassOf: 
         hasPart exactly 1 SetOfSentences,
-        hasPart exactly 1 Signature
-    SubClassOf: MathematicalEntity
+        hasPart exactly 1 Signature,
+        MathematicalEntity
     
     
 Class: FlattenableOMS
@@ -2019,8 +1949,8 @@ Class: Model
         skos:definition "semantic interpretation of all non-logical symbols of a signature"@en
    
     SubClassOf: 
-        isModelOfSignature some Signature
-    SubClassOf: MathematicalEntity
+        isModelOfSignature some Signature,
+        MathematicalEntity
     
     
 Class: StructuringLanguageAspect
@@ -2379,8 +2309,8 @@ Class: Expression
         rdfs:label "expression"@en
     
     SubClassOf: 
-        usesLanguage exactly 1 Language
-    SubClassOf: LinguisticEntity
+        usesLanguage exactly 1 Language,
+        LinguisticEntity
     
     
     
@@ -2438,9 +2368,9 @@ Annotations:
         skos:definition "structured OMS expressing a variant of the closed world assumption by restricting the models to those that are minimal or maximal (with respect to the local environment). The closed world assumption is a default assumption about facts whose status in unknown."@en,
         skos:note "Symbols from the local environment are assumed to have a fixed interpretation. Only the symbols newly declared in the closure are forced to have minimal or maximal interpretation."@en,
         skos:note "DOL supports four different forms of closure: minimization and maximization as well as freeness and cofreeness."@en
-        SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
-	
-	
+    SubClassOf: DOLStructuredOMS, hasPart some DOLStructuredOMS
+        
+        
 Class: Cofreeness
 Annotations: 
 	rdfs:label "cofreeness"@en,
@@ -2695,8 +2625,8 @@ Class: GlobalEnvironment
     Annotations: 
         rdfs:label "global environment"@en,
 	skos:definition "mapping from identifiers (IRIs) to values in  semantics domains representing the global knowledge about OMS."@en
-    SubClassOf: hasPart some LocalEnvironment
-    SubClassOf: MathematicalEntity
+    SubClassOf: hasPart some LocalEnvironment,
+        MathematicalEntity
 	
 Class: Import
     Annotations: 
@@ -2753,8 +2683,8 @@ Class: SignatureMorphism
         rdfs:label "signature morphism"@en,
 	skos:definition "mapping between two signatures, preserving the structure of the source signature within the target signature"@en,
         skos:note "A list of symbol map items induces a signature morphism."@en
-    SubClassOf: hasPart some SymbolMapItem
-    SubClassOf: MathematicalEntity
+    SubClassOf: hasPart some SymbolMapItem,
+        MathematicalEntity
 	
 	
 Class: SymbolMapItem
@@ -2762,8 +2692,8 @@ Class: SymbolMapItem
         rdfs:label "symbol map item"@en,
 	skos:definition "pair of symbols of two OMS, indicating how a symbol from the first OMS is mapped by a signature morphism to a symbol of the second OMS."@en,
         skos:note "A symbol map item is given as s_1 |-> s_2, where $s_1$ is a symbol from the source OMS and $s_2$ is a symbol from the target  of the OMS mapping."@en
-    SubClassOf: hasPart some NonLogicalSymbol
-    SubClassOf: DOLEntity
+    SubClassOf: hasPart some NonLogicalSymbol,
+        DOLEntity
 	
 Class: TheoremProver
     Annotations: 
