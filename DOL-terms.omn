@@ -41,7 +41,7 @@ Copyright (c) 2014-2015 Athan Services"@en,
         sm:isNormative "true"^^xsd:boolean,
     sm:contentLanguage "http://www.omg.org/spec/ODM/"^^xsd:anyURI,
     sm:fileAbstract "This ontology covers the terminology of the Distributed Ontology, Model, and Specification Language (DOL) and is a normative part of its specification."@en,
-    sm:filename "dol-ontology.omn",
+    sm:filename "DOL-terms.rdf",
     dct:license "http://www.omg.org/techprocess/ab/SpecificationMetadata/MITLicense"^^xsd:anyURI,
     sm:contentLanguage "http://www.w3.org/standards/techs/owl#w3c_all"^^xsd:anyURI
 
