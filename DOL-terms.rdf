@@ -25,7 +25,7 @@
         <dct:license rdf:datatype="&xsd;anyURI">&sm;MITLicense</dct:license>
         <sm:contentLanguage rdf:datatype="&xsd;anyURI">http://www.w3.org/standards/techs/owl#w3c_all</sm:contentLanguage>
         <sm:isNormative rdf:datatype="&xsd;boolean">true</sm:isNormative>
-        <sm:filename>dol-ontology.omn</sm:filename>
+        <sm:filename>DOL-terms.rdf</sm:filename>
         <owl:versionInfo>1.0</owl:versionInfo>
         <sm:copyright xml:lang="en">Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
