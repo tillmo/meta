@@ -25,14 +25,14 @@
         <dct:license rdf:datatype="&xsd;anyURI">&sm;MITLicense</dct:license>
         <sm:contentLanguage rdf:datatype="&xsd;anyURI">http://www.w3.org/standards/techs/owl#w3c_all</sm:contentLanguage>
         <sm:isNormative rdf:datatype="&xsd;boolean">true</sm:isNormative>
-        <sm:filename>DOL-terms.rdf</sm:filename>
-        <owl:versionInfo>1.0</owl:versionInfo>
         <sm:copyright xml:lang="en">Copyright (c) 2014-2015 Object Management Group, Inc.
 Copyright (c) 2014-2015 Thematix Partners LLC
 Copyright (c) 2014-2015 Fraunhofer Fokus
 Copyright (c) 2014-2015 MITRE
 Copyright (c) 2014-2015 Otto-von-Guericke University of Magdeburg
 Copyright (c) 2014-2015 Athan Services</sm:copyright>
+        <sm:filename>DOL-terms.rdf</sm:filename>
+        <owl:versionInfo>1.0</owl:versionInfo>
         <rdfs:comment xml:lang="en">Developers&apos; note: When scaling this ontology implementation up to DOL, look below for annotations marked as &apos;beyond OWL&apos;.  These things can be modeled in FOL.</rdfs:comment>
         <rdfs:comment xml:lang="en">RDF serialization of DOL, implemented as an OWL ontology.  Actually some axioms that we would like to have go beyond OWL.</rdfs:comment>
         <sm:fileAbstract xml:lang="en">This ontology covers the terminology of the Distributed Ontology, Model, and Specification Language (DOL) and is a normative part of its specification.</sm:fileAbstract>
