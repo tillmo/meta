@@ -4,17 +4,17 @@
 <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
 <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
 <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-<!ENTITY dol "http://www.omg.org/spec/DOL/dol-language/" >
+<!ENTITY dol "http://www.omg.org/spec/DOL/DOL-terms/" >
 <!ENTITY dct "http://purl.org/dc/terms/" >
 <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
 <!ENTITY sm "http://www.omg.org/techprocess/ab/SpecificationMetadata/" >
 ]>
 <rdf:RDF 
-     xml:base="http://www.omg.org/spec/DOL/dol-language/"
+     xml:base="http://www.omg.org/spec/DOL/DOL-terms/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:dct="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:dol="http://www.omg.org/spec/DOL/dol-language/"
+     xmlns:dol="http://www.omg.org/spec/DOL/DOL-terms/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -37,7 +37,7 @@ Copyright (c) 2014-2015 Athan Services</sm:copyright>
         <rdfs:comment xml:lang="en">RDF serialization of DOL, implemented as an OWL ontology.  Actually some axioms that we would like to have go beyond OWL.</rdfs:comment>
         <sm:fileAbstract xml:lang="en">This ontology covers the terminology of the Distributed Ontology, Model, and Specification Language (DOL) and is a normative part of its specification.</sm:fileAbstract>
         <rdfs:seeAlso rdf:resource="http://www.informatik.uni-bremen.de/~till/papers/womo2012.pdf"/>
-        <owl:versionIRI rdf:resource="http://www.omg.org/spec/DOL/20150801/dol-language/"/>
+        <owl:versionIRI rdf:resource="http://www.omg.org/spec/DOL/20150801/DOL-terms/"/>
         <owl:imports rdf:resource="&sm;"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>

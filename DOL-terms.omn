@@ -1,6 +1,6 @@
 # merged from LoLa and https://github.com/API4KBs/api4kbs/raw/master/ontologies/OntoIOpTerminology.rdf
 
-Prefix: : <http://www.omg.org/spec/DOL/dol-language/>
+Prefix: : <http://www.omg.org/spec/DOL/DOL-terms/>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
@@ -8,12 +8,12 @@ Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
 Prefix: dct: <http://purl.org/dc/terms/>
 Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
 Prefix: sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
-Prefix: dol: <http://www.omg.org/spec/DOL/dol-language/>
+Prefix: dol: <http://www.omg.org/spec/DOL/DOL-terms/>
 	
 # We can't use the non-standard community ontology OMV in an OMG standard
 # Prefix: omv: <http://omv.ontoware.org/2005/05/ontology#>
 
-Ontology: <http://www.omg.org/spec/DOL/dol-language/> <http://www.omg.org/spec/DOL/20150801/dol-language/>
+Ontology: <http://www.omg.org/spec/DOL/DOL-terms/> <http://www.omg.org/spec/DOL/20150801/DOL-terms/>
 
 Import: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
