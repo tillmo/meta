@@ -1079,8 +1079,8 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
         <skos:definition xml:lang="en">structured OMS that expresses a maximum approximant.</skos:definition>
     </owl:Class>
     
-    <owl:Class rdf:about="&dol;AxiomSentence">
-        <rdfs:label xml:lang="en">axiom sentence</rdfs:label>
+    <owl:Class rdf:about="&dol;Axiom">
+        <rdfs:label xml:lang="en">axiom</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Sentence"/>
         <skos:definition xml:lang="en">sentence postulated to be valid (i.e.\ true in every model)</skos:definition>
     </owl:Class>
@@ -2561,8 +2561,8 @@ of logic (model theory).</skos:note>
         <skos:definition xml:lang="en">process of demonstraing that a sentence (or OMS) is the logical consequence of some OMS.</skos:definition>
     </owl:Class>
     
-    <owl:Class rdf:about="&dol;TheoremSentence">
-        <rdfs:label xml:lang="en">theorem sentence</rdfs:label>
+    <owl:Class rdf:about="&dol;Theorem">
+        <rdfs:label xml:lang="en">theorem</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Sentence"/>
         <skos:definition xml:lang="en">sentence that has been proven from other axioms and theorems</skos:definition>
     </owl:Class>
