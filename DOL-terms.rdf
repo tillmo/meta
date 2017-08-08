@@ -1033,7 +1033,7 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Correspondence"/>
+                <owl:someValuesFrom rdf:resource="&dol;SequenceOfCorrespondences"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&dol;Interpretation"/>
