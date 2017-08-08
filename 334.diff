@@ -1,0 +1,23 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index 430024c..8ccf686 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -1085,6 +1085,18 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
+         <skos:definition xml:lang="en">sentence postulated to be valid (i.e.\ true in every model)</skos:definition>
+     </owl:Class>
+     
++    <owl:Class rdf:about="&dol;InfrastructureAxiom">
++        <rdfs:label xml:lang="en">infrastructure axiom</rdfs:label>
++        <rdfs:subClassOf rdf:resource="&dol;Axiom"/>
++        <rdfs:subClassOf>
++            <owl:Restriction>
++                <owl:onProperty rdf:resource="&dol;partOf"/>
++                <owl:someValuesFrom rdf:resource="&dol;SimpleTheoroidalMapping"/>
++            </owl:Restriction>
++        </rdfs:subClassOf>
++        <skos:definition xml:lang="en">axiom that used in a simple theoroidal mapping</skos:definition>
++    </owl:Class>
++    
+     <owl:Class rdf:about="&dol;BasicOMS">
+         <rdfs:label xml:lang="en">basic OMS</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;FlattenableOMS"/>
