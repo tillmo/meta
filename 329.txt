@@ -1,0 +1,5 @@
+The former class Logic has been renamed to MonotonicLogic, and a class
+Logic has been added as a superclass of MonotonicLogic.
+Most object properties still have domain/range Logic. Only the
+formalises object properties has range MonotonicLogic:
+an Institution always formalises a MonotonicLogic.

@@ -1,0 +1,48 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index 502520a..de42e38 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -1564,7 +1564,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+         <rdfs:subClassOf>
+             <owl:Restriction>
+                 <owl:onProperty rdf:resource="&dol;formalizes"/>
+-                <owl:someValuesFrom rdf:resource="&dol;MonotonicLogic"/>
++                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
+             </owl:Restriction>
+         </rdfs:subClassOf>
+         <rdfs:subClassOf>
+@@ -1669,9 +1669,9 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+         <skos:definition xml:lang="en">signature built from all previously-declared symbols and axioms.</skos:definition>
+     </owl:Class>
+     
+-    <owl:Class rdf:about="&dol;MonotonicLogic">
+-        <rdfs:label xml:lang="en">monotonic logic</rdfs:label>
+-        <rdfs:subClassOf rdf:resource="&dol;Logic"/>
++    <owl:Class rdf:about="&dol;Logic">
++        <rdfs:label xml:lang="en">logic</rdfs:label>
++        <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
+         <rdfs:subClassOf>
+             <owl:Restriction>
+                 <owl:onProperty rdf:resource="&dol;isFormalizedBy"/>
+@@ -1681,20 +1681,9 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+         <skos:example xml:lang="en"> $\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL. </skos:example>
+         <skos:note xml:lang="en"> Most OMS languages have an underlying logic. </skos:note>
+         <skos:note xml:lang="en"> See annex~\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations. </skos:note>
+-        <rdfs:comment xml:lang="en">a (monotonic) logic that defines the semantics of an language</rdfs:comment>
++        <rdfs:comment xml:lang="en">a logic that defines the semantics of an language</rdfs:comment>
+         <skos:definition xml:lang="en">specification of valid reasoning that comprises signatures, sentences, models, and a satisfaction relation between models and sentences</skos:definition>
+     </owl:Class>
+-
+-    <owl:Class rdf:about="&dol;Logic">
+-        <rdfs:label xml:lang="en">logic</rdfs:label>
+-        <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
+-        <skos:example xml:lang="en"> $\mathcal{SROIQ}(D)$ is the monotonic logic underlying OWL 2 DL. </skos:example>
+-        <skos:example xml:lang="en"> Reiter's default logic is a logic that is not monotonic. </skos:example>
+-        <skos:note xml:lang="en"> Most OMS languages have an underlying logic. </skos:note>
+-        <skos:note xml:lang="en"> See annex~\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations. </skos:note>
+-        <rdfs:comment xml:lang="en">a (possibly non-monotonic) logic that defines the semantics of an language</rdfs:comment>
+-        <skos:definition xml:lang="en">specification of valid reasoning that comprises signatures, sentences, models, and a satisfaction relation between models and sentences. Possibly non-monotonic</skos:definition>
+-    </owl:Class>
+     
+     <owl:Class rdf:about="&dol;LogicGraph">
+         <rdfs:label xml:lang="en">logic graph</rdfs:label>
