@@ -7,8 +7,6 @@ DOL-terms.omn -  original source file of DOL ontology, shall no longer be modifi
 DOL-terms.rdf - current source file of DOL ontology. Modify only through dedicated workflow above
 DOL-terms.sed - script for adapting DOL-terms.rdf according to OMG's needs
 DOL-terms.ttl - outdated file, resulting from an attempt to switch to ttl as main input syntax
-DOL-terms-Protege.rdf
-DOL-terms-Protege1.rdf
 
 Domain_Fields_Core.owl - ontology of subjects for Ontohub; currently not used
 Domain_Fields_Extension.owl - dto.
