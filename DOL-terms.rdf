@@ -1235,6 +1235,24 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;OMS"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;OMSMapping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dol;hasPart"/>
+                <owl:someValuesFrom rdf:resource="&dol;OMSNetwork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;semanticallyDenotes"/>
                 <owl:someValuesFrom rdf:resource="&dol;GlobalEnvironment"/>
             </owl:Restriction>
