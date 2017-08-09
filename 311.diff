@@ -1,0 +1,13 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index de42e38..68b4501 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -1798,7 +1798,7 @@ of logic (model theory).</skos:note>
+             </owl:Class>
+         </owl:equivalentClass>
+         <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
+-        <rdfs:comment xml:lang="en">a generic mapping (translation or reduction)</rdfs:comment>
++        <rdfs:comment xml:lang="en">a generic set-theoretic mapping or family of set-theoretic mappings (translation or reduction)</rdfs:comment>
+         <skos:note xml:lang="en">alternative term: function</skos:note>
+         <skos:note xml:lang="en">in some cases is a morphism, as in Category Theory.</skos:note>
+         <skos:definition xml:lang="en">relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.</skos:definition>
