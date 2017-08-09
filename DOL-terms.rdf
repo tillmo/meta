@@ -1250,11 +1250,27 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
         <skos:definition xml:lang="en">syntactically valid DOL expression denoting an OMS that is built from smaller OMS as building blocks.</skos:definition>
     </owl:Class>
     
-    <owl:Class rdf:about="&dol;DefaultMapping">
-        <rdfs:label xml:lang="en">default mapping</rdfs:label>
+    <owl:Class rdf:about="&dol;DefaultLogicMapping">
+        <rdfs:label xml:lang="en">default logic mapping</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
+        <rdfs:subClassOf rdf:resource="&dol;DefaultMapping"/>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
         <skos:definition xml:lang="en">logic mapping that will be chosen by default if only the source and target logic are given</skos:definition>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&dol;DefaultLanguageMapping">
+        <rdfs:label xml:lang="en">default language mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;LanguageMapping"/>
+        <rdfs:subClassOf rdf:resource="&dol;DefaultMapping"/>
+        <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
+        <skos:definition xml:lang="en">language mapping that will be chosen by default if only the source and target language are given</skos:definition>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&dol;DefaultMapping">
+        <rdfs:label xml:lang="en">default mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
+        <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
+        <skos:definition xml:lang="en">mapping that will be chosen by default if only the source and target are given</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;DefinitionalExtension">
