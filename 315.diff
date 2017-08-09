@@ -1,0 +1,12 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index c27a671..ca8eb93 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -2158,7 +2158,6 @@ of logic (model theory).</skos:note>
+         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
+         <skos:note xml:lang="en"> An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language. </skos:note>
+         <skos:definition xml:lang="en">a mapping (translation) between two OMS languages that keeps or encodes the content of the source</skos:definition>
+-        <skos:definition xml:lang="en">mapping from constructs in the source OMS language to their equivalents in the target OMS language</skos:definition>
+     </owl:Class>
+     
+     <owl:Class rdf:about="&dol;OMSMapping">
