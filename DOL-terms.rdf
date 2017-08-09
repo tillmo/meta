@@ -2540,7 +2540,7 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;Term">
         <rdfs:label xml:lang="en">term</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Expression"/>
-        <skos:definition xml:lang="en">syntactic expression either consisting of a single non-logical symbol or recursively composed of other terms (a.k.a. its subterms)</skos:definition>
+        <skos:definition xml:lang="en">syntactic expression either consisting of a single non-logical symbol or recursively composed of other terms (a.k.a. its subterms) and possibly logical symbols</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;TheoremProver">
