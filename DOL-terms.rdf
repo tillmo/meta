@@ -2156,7 +2156,7 @@ of logic (model theory).</skos:note>
             </owl:Class>
         </rdfs:subClassOf>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
-        <skos:note xml:lang="en"> An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language. </skos:note>
+        <skos:note xml:lang="en"> An OMS language translation shall satisfy the property that the result of a translation is well-formed in the target language. </skos:note>
         <skos:definition xml:lang="en">a mapping (translation) between two OMS languages that keeps or encodes the content of the source</skos:definition>
         <skos:definition xml:lang="en">mapping from constructs in the source OMS language to their equivalents in the target OMS language</skos:definition>
     </owl:Class>
