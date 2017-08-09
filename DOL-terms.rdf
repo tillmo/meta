@@ -1462,7 +1462,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;LanguageGraph"/>
+                <owl:someValuesFrom rdf:resource="&dol;OMSLanguageGraph"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1621,7 +1621,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <skos:definition xml:lang="en">set of language constructs of a given language, not necessarily forming a sublanguage</skos:definition>
     </owl:Class>
     
-    <owl:Class rdf:about="&dol;LanguageGraph">
+    <owl:Class rdf:about="&dol;OMSLanguageGraph">
         <rdfs:label xml:lang="en">OMS language graph</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Graph"/>
         <skos:definition xml:lang="en">graph of OMS languages and OMS language translations, typically used in a heterogeneous environment.</skos:definition>
