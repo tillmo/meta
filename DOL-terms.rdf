@@ -2491,7 +2491,7 @@ of logic (model theory).</skos:note>
     
     <owl:Class rdf:about="&dol;StandoffMarkup">
         <rdfs:label xml:lang="en">standoff markup</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;Language"/>
+        <rdfs:subClassOf rdf:resource="&dol;FormalLanguage"/>
         <skos:definition xml:lang="en">way of providing annotations to subjects in external resources, without embedding them into the original resource (here: OMS)</skos:definition>
     </owl:Class>
     
