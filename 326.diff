@@ -11,7 +11,8 @@ index de42e38..e78dd55 100644
      </owl:Class>
      
      <owl:Class rdf:about="&dol;LanguageMapping">
-@@ -1689,7 +1689,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+@@ -1689,7 +1689,7 @@ 
+	<owl:Class rdf:about="&dol;LogicGraph">
          <rdfs:label xml:lang="en">logic graph</rdfs:label>
          <rdfs:subClassOf rdf:resource="&dol;Graph"/>
          <skos:note xml:lang="en">In a logic graph, some of the logic translations and reductions can be marked to be default translations.</skos:note>
