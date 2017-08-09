@@ -1981,15 +1981,29 @@ of logic (model theory).</skos:note>
     
     <owl:Class rdf:about="&dol;NonLogicalSymbol">
         <rdfs:label xml:lang="en">non-logical symbol</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;Term"/>
+        <rdfs:subClassOf rdf:resource="&dol;Symbol"/>
         <skos:example xml:lang="en"> Non-logical symbols in Common Logic \nisref{ISO/IEC 24707:2007} comprise \begin{itemize} \item names (denoting objects from the domain of discourse), \item sequence markers (denoting sequences of objects). \end{itemize} This is opposed to logical symbols in Common Logic, e.g.\ logical connectives and quantifiers.</skos:example>
         <skos:example xml:lang="en">Non-logical symbols in OWL \nisref{W3C/TR REC-owl2-syntax:2009} (there called ``entities&apos;&apos;) comprise \begin{itemize} \item individuals (denoting objects from the domain of discourse), \item classes (denoting sets of objects; also called concepts), and \item properties (denoting binary relations over objects; also called roles). \end{itemize} This is opposed to logical symbols in OWL, e.g.\ those for intersection and union of classes. </skos:example>
         <skos:altLabel xml:lang="en">OMS symbol</skos:altLabel>
         <skos:note xml:lang="en">The notion of ``atomic sentence&apos;&apos; used in logic is different, it usually may involve several non-logical symbols. </skos:note>
         <rdfs:comment xml:lang="en">a non-logical symbol in an OMS</rdfs:comment>
-        <skos:definition xml:lang="en">atomic expression or syntactic constituent of an OMS that requires an interpretation through a model</skos:definition>
+        <skos:definition xml:lang="en">symbol that requires an interpretation through a model</skos:definition>
     </owl:Class>
-    
+
+     <owl:Class rdf:about="&dol;LogicalSymbol">
+        <rdfs:label xml:lang="en">logical symbol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;Symbol"/>
+        <skos:example xml:lang="en">Logical symbols in Common Logic include propositional connectives and quantifiers.</skos:example>
+        <skos:example xml:lang="en">Logical symbols in OWL include propositional connectives (e.g. the intersection operator on classes) and quantifiers (e.g. the existential restriction operator).</skos:example>
+        <skos:definition xml:lang="en">symbol whose interpretation is fixed by the logic</skos:definition>
+    </owl:Class>
+
+        <owl:Class rdf:about="&dol;Symbol">
+        <rdfs:label xml:lang="en">symbol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;Term"/>
+        <skos:definition xml:lang="en">atomic expression or syntactic constituent of an OMS</skos:definition>
+    </owl:Class>
+
     <owl:Class rdf:about="&dol;OMS">
         <rdfs:label xml:lang="en">OMS (ontology, specification or MDE model)</rdfs:label>
         <owl:equivalentClass>
