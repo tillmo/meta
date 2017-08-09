@@ -936,7 +936,6 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     
     <owl:ObjectProperty rdf:about="&dol;supportsLogic">
         <rdfs:label xml:lang="en">supports logic</rdfs:label>
-        <rdfs:label xml:lang="en">supportsL lgic</rdfs:label>
         <rdfs:comment xml:lang="en">The semantics of [a subset of] the subject language can be specified in terms of the object logic.</rdfs:comment>
         <skos:definition xml:lang="en">logic represented by a satisfaction relation of the language.</skos:definition>
         <rdfs:range rdf:resource="&dol;Logic"/>
