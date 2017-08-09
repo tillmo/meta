@@ -1803,7 +1803,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf rdf:resource="&dol;OMS"/>
         <skos:note xml:lang="en">Not to be confused with the term \termref{model} in the sense
 of logic (model theory).</skos:note>
-        <skos:definition xml:lang="en">logical theory that is used as a model in the sense of model-driven engineering (MDE)</skos:definition>
+        <skos:definition xml:lang="en">representation of (the development of) a system (e.g. hardware, software or information system or organisation), or a domain related to a system, used in model-driven engineering (MDE)</skos:definition>
     </owl:Class>
 
     <owl:Class rdf:about="&dol;Mapping">
@@ -2072,7 +2072,7 @@ of logic (model theory).</skos:note>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">An OMS can be written in different OMS language serializations.</skos:note>
         <skos:note xml:lang="en">An OMS has a single signature and model class over that signature as its model-theoretic semantics.</skos:note>
-        <skos:note xml:lang="en">An OMS is a collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages)</skos:note>
+        <skos:note xml:lang="en">An OMS is a collection of expressions (like non-logical symbols, sentences and structuring elements) in a given OMS language (or several such languages) and denoting a class of models and, possibly, a logical theory</skos:note>
         <skos:definition xml:lang="en">a basic or structured ontology, specification or MDE model</skos:definition>
         <skos:note xml:lang="en">collection is used here in the sense of syntactic collection</skos:note>
     </owl:Class>
@@ -2259,7 +2259,7 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;Ontology">
         <rdfs:label xml:lang="en">ontology</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;OMS"/>
-        <skos:definition xml:lang="en">logical theory that is used as a shard conceptualization</skos:definition>
+        <skos:definition xml:lang="en">explicit and shared formal representation of a conceptualisation of a domain or of fundamental notions, including a controlled vocabulary and a taxonomy</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;PlainMapping">
@@ -2504,7 +2504,7 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;Specification">
         <rdfs:label xml:lang="en">specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;OMS"/>
-        <skos:definition xml:lang="en">logical theory that is used as a formal specification</skos:definition>
+        <skos:definition xml:lang="en">formal representation of (requirements of) a data structure, an algorithm or a hardware or software system used in systems analysis, requirements analysis and systems design</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;StandoffMarkup">
