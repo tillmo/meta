@@ -1,5 +1,5 @@
 diff --git a/DOL-terms.rdf b/DOL-terms.rdf
-index de42e38..a2c5981 100644
+index de42e38..c27a671 100644
 --- a/DOL-terms.rdf
 +++ b/DOL-terms.rdf
 @@ -1735,17 +1735,42 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
@@ -8,22 +8,22 @@ index de42e38..a2c5981 100644
          <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
 -        <skos:note xml:lang="en">mapping between logics forgetting parts of the structure, projection to a smaller logic, in contrast to reduction</skos:note>
 +        <rdfs:subClassOf rdf:resource="&dol;Reduction"/>
-+        <skos:note xml:lang="en">mapping between logics forgetting parts of the structure, projection to a smaller logic, in contrast to translation</skos:note>
++        <skos:note xml:lang="en">mapping between logics forgetting parts of the logical structure, projection to a smaller logic, in contrast to translation</skos:note>
          <skos:definition xml:lang="en">reduction of a source logic onto a (usually less expressive) target logic (mapping signatures, sentences and models) that simply forgets those parts of the logical structure not fitting the target logic</skos:definition>
      </owl:Class>
      
 +    <owl:Class rdf:about="&dol;Reduction">
 +        <rdfs:label xml:lang="en">reduction</rdfs:label>
 +        <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
-+        <skos:note xml:lang="en">mapping forgetting parts of the structure, projection to a smaller target, in contrast to translation</skos:note>
-+        <skos:definition xml:lang="en">reduction of a source onto a (usually less expressive) target that simply forgets those parts of the structure not fitting the target</skos:definition>
++        <skos:note xml:lang="en">mapping forgetting parts of the source, projection to a smaller target, in contrast to translation</skos:note>
++        <skos:definition xml:lang="en">reduction of a source onto a (usually less expressive) target that simply forgets those parts of the source not fitting the target</skos:definition>
 +    </owl:Class>
 +    
 +    <owl:Class rdf:about="&dol;OMSLanguageReduction">
 +        <rdfs:label xml:lang="en">OMS language reduction</rdfs:label>
 +        <rdfs:subClassOf rdf:resource="&dol;LanguageMapping"/>
 +        <rdfs:subClassOf rdf:resource="&dol;Reduction"/>
-+        <skos:note xml:lang="en">mapping between OMS languages forgetting parts of the structure, projection to a smaller language, in contrast to translation</skos:note>
++        <skos:note xml:lang="en">mapping between OMS languages forgetting parts of the source, projection to a smaller language, in contrast to translation</skos:note>
 +        <skos:definition xml:lang="en">reduction of a source language onto a (usually less expressive) target language that simply forgets those parts of the source language not fitting the target language</skos:definition>
 +        <skos:note xml:lang="en"> An OMS language reduction shall satisfy the property that the result of a reduction is a well-formed text in the target language. </skos:note>
 +    </owl:Class>
@@ -39,7 +39,7 @@ index de42e38..a2c5981 100644
 +    <owl:Class rdf:about="&dol;Translation">
 +        <rdfs:label xml:lang="en">translation</rdfs:label>
 +        <rdfs:subClassOf rdf:resource="&dol;Mapping"/>
-+        <skos:note xml:lang="en">mapping representing all structure, in contrast to reduction</skos:note>
++        <skos:note xml:lang="en">mapping representing the source completely, in contrast to reduction</skos:note>
 +        <skos:definition xml:lang="en">translation of a source into a target that keeps or encodes the content of the source</skos:definition>
 +    </owl:Class>
 +    
@@ -60,7 +60,7 @@ index de42e38..a2c5981 100644
          <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
          <skos:note xml:lang="en"> An OMS language translation shall satisfy the property that the result of a translation is a well-formed text in the target language. </skos:note>
 -        <skos:definition xml:lang="en">a mapping (translation or reduction) between two OMS languages</skos:definition>
-+        <skos:definition xml:lang="en">a mapping (translation) between two OMS languages that keeps or encodes the structure</skos:definition>
++        <skos:definition xml:lang="en">a mapping (translation) between two OMS languages that keeps or encodes the content of the source</skos:definition>
          <skos:definition xml:lang="en">mapping from constructs in the source OMS language to their equivalents in the target OMS language</skos:definition>
      </owl:Class>
      
