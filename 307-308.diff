@@ -1,5 +1,5 @@
 diff --git a/DOL-terms.rdf b/DOL-terms.rdf
-index de42e38..a08387f 100644
+index de42e38..0247cc4 100644
 --- a/DOL-terms.rdf
 +++ b/DOL-terms.rdf
 @@ -1778,7 +1778,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
@@ -20,16 +20,19 @@ index de42e38..a08387f 100644
          <skos:definition xml:lang="en">a basic or structured ontology, specification or MDE model</skos:definition>
          <skos:note xml:lang="en">collection is used here in the sense of syntactic collection</skos:note>
      </owl:Class>
-@@ -2235,7 +2235,7 @@ of logic (model theory).</skos:note>
+@@ -2235,7 +2235,10 @@ of logic (model theory).</skos:note>
      <owl:Class rdf:about="&dol;Ontology">
          <rdfs:label xml:lang="en">ontology</rdfs:label>
          <rdfs:subClassOf rdf:resource="&dol;OMS"/>
 -        <skos:definition xml:lang="en">logical theory that is used as a shard conceptualization</skos:definition>
-+        <skos:definition xml:lang="en">explicit and shared formal representation of a conceptualisation of a domain or of fundamental notions, including a controlled vocabulary and a taxonomy</skos:definition>
++        <skos:definition xml:lang="en">explicit and shared formal representation of the entities and their interrelationships of a given domain of discourse or of fundamental notions.</skos:definition>
++        <skos:note xml:lang="en">The explicit and shared formal representation is materialised in some OMS language (or several such languages).</skos:note>
++        <skos:note xml:lang="en">Ontologies also include definitions and explanations in natural language that capture the intended meaning of the formal expressions.</skos:note>
++        <skos:note xml:lang="en">Ontologies typically include a taxonomy and, frequently, a partonomy.</skos:note>
      </owl:Class>
      
      <owl:Class rdf:about="&dol;PlainMapping">
-@@ -2480,7 +2480,7 @@ of logic (model theory).</skos:note>
+@@ -2480,7 +2483,7 @@ of logic (model theory).</skos:note>
      <owl:Class rdf:about="&dol;Specification">
          <rdfs:label xml:lang="en">specification</rdfs:label>
          <rdfs:subClassOf rdf:resource="&dol;OMS"/>
