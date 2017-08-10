@@ -1,0 +1,13 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index e78dd55..c95c65d 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -1624,7 +1624,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+     <owl:Class rdf:about="&dol;LanguageGraph">
+         <rdfs:label xml:lang="en">OMS language graph</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;Graph"/>
+-        <skos:definition xml:lang="en">graph with OMS languages as nodes and OMS language translations as edges, typically used in a heterogeneous environment.</skos:definition>
++        <skos:definition xml:lang="en">graph with OMS languages as nodes and OMS language translations and OMS language reductions as edges, typically used in a heterogeneous environment.</skos:definition>
+     </owl:Class>
+     
+     <owl:Class rdf:about="&dol;LanguageMapping">

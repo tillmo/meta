@@ -1652,7 +1652,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
     <owl:Class rdf:about="&dol;OMSLanguageGraph">
         <rdfs:label xml:lang="en">OMS language graph</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;Graph"/>
-        <skos:definition xml:lang="en">graph with OMS languages as nodes and OMS language translations as edges, typically used in a heterogeneous environment.</skos:definition>
+        <skos:definition xml:lang="en">graph with OMS languages as nodes and OMS language translations and OMS language reductions as edges, typically used in a heterogeneous environment.</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;LanguageMapping">
