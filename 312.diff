@@ -1,0 +1,17 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index de42e38..e2fde93 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -1615,6 +1615,12 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+         <skos:definition xml:lang="en">collection of expressions</skos:definition>
+     </owl:Class>
+     
++    <owl:Class rdf:about="&dol;Construct">
++        <rdfs:label xml:lang="en">construct</rdfs:label>
++        <rdfs:subClassOf rdf:resource="&dol;LinguisticEntity"/>
++        <skos:definition xml:lang="en">syntactic pattern that is part of a language</skos:definition>
++    </owl:Class>
++
+     <owl:Class rdf:about="&dol;LanguageAspect">
+         <rdfs:label xml:lang="en">language aspect</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;LinguisticEntity"/>
