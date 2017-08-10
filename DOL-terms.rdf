@@ -1603,7 +1603,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
                 <owl:someValuesFrom rdf:resource="&dol;Category"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">metaframework mathematically formalising the notion of a logic</skos:definition>
+        <skos:definition xml:lang="en">metaframework mathematically formalising the notion of a logic in terms of notions of signature, signature morphism, model, sentence and satisfaction</skos:definition>
     </owl:Class>
 
     <owl:Class rdf:about="&dol;InterfaceSignature">
