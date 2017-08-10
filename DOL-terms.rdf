@@ -1446,7 +1446,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
                 <owl:someValuesFrom rdf:resource="&dol;LocalEnvironment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">mapping from identifiers (IRIs) to values in  semantics domains representing the global knowledge about OMS.</skos:definition>
+        <skos:definition xml:lang="en">mapping from identifiers (IRIs) to values in semantics domains representing semantic information about a set of documents (the latter typically being distributed over the internet)</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;Graph">
