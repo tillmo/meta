@@ -1767,7 +1767,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             </owl:Class>
         </rdfs:subClassOf>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
-        <rdfs:comment xml:lang="en">a mapping (translation or reduction) between two logics</rdfs:comment>
+        <rdfs:comment xml:lang="en">a mapping (translation or reduction) between two logics consisting of mappings for signatures, sentences and models</rdfs:comment>
         <skos:definition xml:lang="en">mapping between logics</skos:definition>
     </owl:Class>
     
@@ -2551,7 +2551,7 @@ of logic (model theory).</skos:note>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
         <dol:propagatesToAdjoint rdf:datatype="&xsd;boolean">true</dol:propagatesToAdjoint>
-        <skos:definition xml:lang="en">logic mapping that maps signatures to theories</skos:definition>
+        <skos:definition xml:lang="en">logic mapping that maps signatures of the source logic to theories of the target logic</skos:definition>
         <rdfs:comment xml:lang="en">orthogonal to WeaklyExactMapping and FaithfulMapping</rdfs:comment>
         <rdfs:comment xml:lang="en">the resulting theory tpyically contains infrastructure axioms that are needed for expressing the logic mapping</rdfs:comment>
         <dol:reifies rdf:resource="&dol;isSimplyTheoroidallyMappableTo"/>
