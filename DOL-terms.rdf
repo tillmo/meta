@@ -1602,9 +1602,9 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <skos:altLabel xml:lang="en">view</skos:altLabel>
     </owl:Class>
     
-    <owl:Class rdf:about="&dol;Language">
-        <rdfs:label xml:lang="en">language</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;LinguisticEntity"/>
+    <owl:Class rdf:about="&dol;FormalLanguage">
+        <rdfs:label xml:lang="en">formal language</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;Language"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
@@ -1612,7 +1612,13 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">collection is used here in the sense of syntactic collection</skos:note>
-        <skos:definition xml:lang="en">collection of expressions</skos:definition>
+        <skos:definition xml:lang="en">collection of expressions, following formal rules of well-formedness</skos:definition>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&dol;Language">
+        <rdfs:label xml:lang="en">language</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;LinguisticEntity"/>
+        <skos:definition xml:lang="en">a body of words, following a set of methods of combining them (called a grammar), understood by a community and used as a form of communication</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;Construct">
@@ -2117,7 +2123,7 @@ of logic (model theory).</skos:note>
 
     <owl:Class rdf:about="&dol;OMSLanguage">
         <rdfs:label xml:lang="en">OMS language</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;Language"/>
+        <rdfs:subClassOf rdf:resource="&dol;FormalLanguage"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -2549,7 +2555,7 @@ of logic (model theory).</skos:note>
     
     <owl:Class rdf:about="&dol;StandoffMarkup">
         <rdfs:label xml:lang="en">standoff markup</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;Language"/>
+        <rdfs:subClassOf rdf:resource="&dol;FormalLanguage"/>
         <skos:definition xml:lang="en">way of providing annotations to subjects in external resources, without embedding them into the original resource (here: OMS)</skos:definition>
     </owl:Class>
     
