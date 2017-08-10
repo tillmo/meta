@@ -1307,7 +1307,6 @@ relation has been explicitly specified; when $c$ is omitted, it defaults to 1.</
     <owl:Class rdf:about="&dol;Embedding">
         <rdfs:label xml:lang="en">embedding</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;ExactMapping"/>
-        <rdfs:subClassOf rdf:resource="&dol;LogicMapping"/>
         <rdfs:subClassOf rdf:resource="&dol;LogicTranslation"/>
         <rdfs:subClassOf rdf:resource="&dol;ModelBijectiveMapping"/>
         <skos:definition xml:lang="en">logic mapping that embeds the source into the target logic, using components that are embeddings and (in the case of model translations) isomorphism</skos:definition>
