@@ -1,0 +1,61 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index 502520a..78fe3c0 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -291,9 +291,10 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
+     <owl:ObjectProperty rdf:about="&dol;hasSequenceMember">
+         <rdfs:label xml:lang="en">has sequence member</rdfs:label>
+         <skos:definition xml:lang="en">The inverse of the sequence membership relation.</skos:definition>
+         <skos:note xml:lang="en">this is a lingustic property, because it is about sequences of linguistic entities that occur in a text.</skos:note>
++        <rdfs:domain rdf:resource="&dol;Sequence"/>
+         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
+-        <owl:inverseOf rdf:resource="&dol;isMemberOf"/>
++        <owl:inverseOf rdf:resource="&dol;isSequenceMemberOf"/>
+     </owl:ObjectProperty>
+ 
+     <owl:ObjectProperty rdf:about="&dol;hasSignature">
+@@ -766,7 +767,8 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
+     <owl:ObjectProperty rdf:about="&dol;isSequenceMemberOf">
+         <rdfs:label xml:lang="en">is sequence memberOf</rdfs:label>
+         <skos:definition xml:lang="en">The sequence membership relation.</skos:definition>
+-        <owl:inverseOf rdf:resource="&dol;hasSequenceMember"/>
++       <rdfs:range rdf:resource="&dol;Sequence"/>
++       <owl:inverseOf rdf:resource="&dol;hasSequenceMember"/>
+         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
+     </owl:ObjectProperty>
+     
+@@ -1033,7 +1035,7 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
+         <rdfs:subClassOf>
+             <owl:Restriction>
+                 <owl:onProperty rdf:resource="&dol;hasPart"/>
+-                <owl:someValuesFrom rdf:resource="&dol;Correspondence"/>
++                <owl:someValuesFrom rdf:resource="&dol;SequenceOfCorrespondences"/>
+             </owl:Restriction>
+         </rdfs:subClassOf>
+         <owl:disjointWith rdf:resource="&dol;Interpretation"/>
+@@ -2375,9 +2377,17 @@ of logic (model theory).</skos:note>
+         <skos:definition xml:lang="en">term that is either true or false in a given model, i.e., which is assigned a truth value in this model.</skos:definition>
+     </owl:Class>
+     
++    <owl:Class rdf:about="&dol;Sequence">
++        <rdfs:label xml:lang="en">sequence</rdfs:label>
++        <rdfs:subClassOf rdf:resource="&skos;OrderedCollection"/>
++        <skos:note xml:lang="en">sequence is used here in the sense of syntactic sequence</skos:note>
++        <skos:definition xml:lang="en">ordered collection where also multiplicity of elements matters.</skos:definition>
++    </owl:Class>
++    
+     <owl:Class rdf:about="&dol;SequenceOfCorrespondences">
+         <rdfs:label xml:lang="en">sequence of correspondences</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
++        <rdfs:subClassOf rdf:resource="&dol;Sequence"/>
+         <skos:note xml:lang="en">sequence is used here in the sense of syntactic sequence</skos:note>
+         <skos:definition xml:lang="en">sequence whose members are correspondences.</skos:definition>
+     </owl:Class>
+@@ -2385,6 +2395,7 @@ of logic (model theory).</skos:note>
+     <owl:Class rdf:about="&dol;SequenceOfOMS">
+         <rdfs:label xml:lang="en">sequence of OMS</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
++        <rdfs:subClassOf rdf:resource="&dol;Sequence"/>
+         <skos:note xml:lang="en">sequence is used here in the sense of syntactic sequence</skos:note>
+         <skos:definition xml:lang="en">sequence whose members are OMS.</skos:definition>
+     </owl:Class>
