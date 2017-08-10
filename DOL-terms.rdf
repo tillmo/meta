@@ -2235,7 +2235,10 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;Ontology">
         <rdfs:label xml:lang="en">ontology</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;OMS"/>
-        <skos:definition xml:lang="en">explicit and shared formal representation of a conceptualisation of a domain or of fundamental notions, including a controlled vocabulary and a taxonomy</skos:definition>
+        <skos:definition xml:lang="en">explicit and shared formal representation of the entities and their interrelationships of a given domain of discourse or of fundamental notions.</skos:definition>
+        <skos:note xml:lang="en">The explicit and shared formal representation is materialised in some OMS language (or several such languages).</skos:note>
+        <skos:note xml:lang="en">Ontologies also include definitions and explanations in natural language that capture the intended meaning of the formal expressions.</skos:note>
+        <skos:note xml:lang="en">Ontologies typically include a taxonomy and, frequently, a partonomy.</skos:note>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;PlainMapping">
