@@ -1,0 +1,2 @@
+A DOLLibrary is now (additionally) formalised as having OMS,
+OMSMappings and OMSNetworks as parts.
