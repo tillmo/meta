@@ -1494,6 +1494,8 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">environment for the expression of homogeneous and heterogeneous OMS, comprising a logic graph, an OMS language graph and a supports relation</skos:definition>
+	<skos:note xml:lang="en">The support relations specify which language supports which logics and which serializations, and which language translation supports which logic translation or reduction. Moreover, each language has a default logic and a default serialization.</skos:note>
+	<skos:note xml:lang="en">Although in principle, there can be many heterogeneous environments, for ensuring interoperability, there will be a global heterogeneous environment (maintained in some registry), with subenvironments for specific purposes.</skos:note>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;HeterogeneousOMS">
