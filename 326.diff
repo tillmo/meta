@@ -1,0 +1,23 @@
+diff --git a/DOL-terms.rdf b/DOL-terms.rdf
+index de42e38..e78dd55 100644
+--- a/DOL-terms.rdf
++++ b/DOL-terms.rdf
+@@ -1624,7 +1624,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
+     <owl:Class rdf:about="&dol;LanguageGraph">
+         <rdfs:label xml:lang="en">OMS language graph</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;Graph"/>
+-        <skos:definition xml:lang="en">graph of OMS languages and OMS language translations, typically used in a heterogeneous environment.</skos:definition>
++        <skos:definition xml:lang="en">graph with OMS languages as nodes and OMS language translations as edges, typically used in a heterogeneous environment.</skos:definition>
+     </owl:Class>
+     
+     <owl:Class rdf:about="&dol;LanguageMapping">
+@@ -1689,7 +1689,7 @@ 
+	<owl:Class rdf:about="&dol;LogicGraph">
+         <rdfs:label xml:lang="en">logic graph</rdfs:label>
+         <rdfs:subClassOf rdf:resource="&dol;Graph"/>
+         <skos:note xml:lang="en">In a logic graph, some of the logic translations and reductions can be marked to be default translations.</skos:note>
+-        <skos:definition xml:lang="en">graph of logics, logic translations and logic reductions, typically used in a heterogeneous environment.</skos:definition>
++        <skos:definition xml:lang="en">graph with logics as nodes and logic translations and logic reductions as edges, typically used in a heterogeneous environment.</skos:definition>
+     </owl:Class>
+     
+     <owl:Class rdf:about="&dol;LogicMapping">
