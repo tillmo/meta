@@ -291,8 +291,9 @@ SubPropertyChain: semanticallyDenotes o hasLogic</rdfs:comment>
         <rdfs:label xml:lang="en">has sequence member</rdfs:label>
         <skos:definition xml:lang="en">The inverse of the sequence membership relation.</skos:definition>
         <skos:note xml:lang="en">this is a lingustic property, because it is about sequences of linguistic entities that occur in a text.</skos:note>
+        <rdfs:domain rdf:resource="&dol;Sequence"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
-        <owl:inverseOf rdf:resource="&dol;isMemberOf"/>
+        <owl:inverseOf rdf:resource="&dol;isSequenceMemberOf"/>
     </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:about="&dol;hasSignature">
@@ -766,7 +767,8 @@ SubPropertyChain: serialization o serializes</rdfs:comment>
     <owl:ObjectProperty rdf:about="&dol;isSequenceMemberOf">
         <rdfs:label xml:lang="en">is sequence memberOf</rdfs:label>
         <skos:definition xml:lang="en">The sequence membership relation.</skos:definition>
-        <owl:inverseOf rdf:resource="&dol;hasSequenceMember"/>
+       <rdfs:range rdf:resource="&dol;Sequence"/>
+       <owl:inverseOf rdf:resource="&dol;hasSequenceMember"/>
         <rdfs:subPropertyOf rdf:resource="&dol;isLinguisticallyRelatedTo"/>
     </owl:ObjectProperty>
     
@@ -1033,7 +1035,7 @@ SubPropertyChain: isProfileOf o supportsSerialization</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;hasPart"/>
-                <owl:someValuesFrom rdf:resource="&dol;Correspondence"/>
+                <owl:someValuesFrom rdf:resource="&dol;SequenceOfCorrespondences"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&dol;Interpretation"/>
@@ -1564,7 +1566,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;formalizes"/>
-                <owl:someValuesFrom rdf:resource="&dol;Logic"/>
+                <owl:someValuesFrom rdf:resource="&dol;MonotonicLogic"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1669,9 +1671,9 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <skos:definition xml:lang="en">signature built from all previously-declared symbols and axioms.</skos:definition>
     </owl:Class>
     
-    <owl:Class rdf:about="&dol;Logic">
-        <rdfs:label xml:lang="en">logic</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
+    <owl:Class rdf:about="&dol;MonotonicLogic">
+        <rdfs:label xml:lang="en">monotonic logic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;Logic"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dol;isFormalizedBy"/>
@@ -1681,8 +1683,19 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
         <skos:example xml:lang="en"> $\mathcal{SROIQ}(D)$ is the logic underlying OWL 2 DL. </skos:example>
         <skos:note xml:lang="en"> Most OMS languages have an underlying logic. </skos:note>
         <skos:note xml:lang="en"> See annex~\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations. </skos:note>
-        <rdfs:comment xml:lang="en">a logic that defines the semantics of an language</rdfs:comment>
+        <rdfs:comment xml:lang="en">a (monotonic) logic that defines the semantics of an language</rdfs:comment>
         <skos:definition xml:lang="en">specification of valid reasoning that comprises signatures, sentences, models, and a satisfaction relation between models and sentences</skos:definition>
+    </owl:Class>
+
+    <owl:Class rdf:about="&dol;Logic">
+        <rdfs:label xml:lang="en">logic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dol;MathematicalEntity"/>
+        <skos:example xml:lang="en"> $\mathcal{SROIQ}(D)$ is the monotonic logic underlying OWL 2 DL. </skos:example>
+        <skos:example xml:lang="en"> Reiter's default logic is a logic that is not monotonic. </skos:example>
+        <skos:note xml:lang="en"> Most OMS languages have an underlying logic. </skos:note>
+        <skos:note xml:lang="en"> See annex~\ref{a:rdf-logic-vocab} for the organization of the relation between OMS languages and their logics and serializations. </skos:note>
+        <rdfs:comment xml:lang="en">a (possibly non-monotonic) logic that defines the semantics of an language</rdfs:comment>
+        <skos:definition xml:lang="en">specification of valid reasoning that comprises signatures, sentences, models, and a satisfaction relation between models and sentences. Possibly non-monotonic</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;LogicGraph">
@@ -2388,9 +2401,17 @@ of logic (model theory).</skos:note>
         <skos:definition xml:lang="en">term that is either true or false in a given model, i.e., which is assigned a truth value in this model.</skos:definition>
     </owl:Class>
     
+    <owl:Class rdf:about="&dol;Sequence">
+        <rdfs:label xml:lang="en">sequence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;OrderedCollection"/>
+        <skos:note xml:lang="en">sequence is used here in the sense of syntactic sequence</skos:note>
+        <skos:definition xml:lang="en">ordered collection where also multiplicity of elements matters.</skos:definition>
+    </owl:Class>
+    
     <owl:Class rdf:about="&dol;SequenceOfCorrespondences">
         <rdfs:label xml:lang="en">sequence of correspondences</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
+        <rdfs:subClassOf rdf:resource="&dol;Sequence"/>
         <skos:note xml:lang="en">sequence is used here in the sense of syntactic sequence</skos:note>
         <skos:definition xml:lang="en">sequence whose members are correspondences.</skos:definition>
     </owl:Class>
@@ -2398,6 +2419,7 @@ of logic (model theory).</skos:note>
     <owl:Class rdf:about="&dol;SequenceOfOMS">
         <rdfs:label xml:lang="en">sequence of OMS</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dol;DOLEntity"/>
+        <rdfs:subClassOf rdf:resource="&dol;Sequence"/>
         <skos:note xml:lang="en">sequence is used here in the sense of syntactic sequence</skos:note>
         <skos:definition xml:lang="en">sequence whose members are OMS.</skos:definition>
     </owl:Class>
