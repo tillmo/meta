@@ -1818,7 +1818,7 @@ local envorinment, which is the signature of the &apos;given OMS&apos;.</skos:no
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:note xml:lang="en">The sentences must use only those non-logical symbols that are present in the signature.</skos:note>
-        <skos:definition xml:lang="en">signature equipped with a set of sentences over the signature</skos:definition>
+        <skos:definition xml:lang="en">a signature together with a set of sentences (over that signature)</skos:definition>
     </owl:Class>
     
     <owl:Class rdf:about="&dol;MDEModel">
